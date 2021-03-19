@@ -93,6 +93,25 @@
 	colframe=colorprop, 
 	title= Démonstration
 }
+\newtcolorbox{Correction}[1][]{
+	enhanced,
+	attach boxed title to top left={yshift=-0.1in,xshift=-0.1in},
+	boxed title style={colframe=white },
+    breakable,
+	colback=white,
+	colbacktitle=white,
+	coltitle=white,
+	bottomrule=0pt,
+	toprule=0pt,
+	leftrule=1pt,
+	rightrule=0pt,
+	titlerule=0pt,
+	arc=0pt,
+	outer arc=0pt,
+	colframe=white, 
+	title= Démonstration
+}
+
 \newtcolorbox{Exemple}[1][]{
 	enhanced,
 	attach boxed title to top left={yshift=-0.1in,xshift=-0.2in},
@@ -441,8 +460,11 @@ title=Corollaire  \bfseries{#1}}
 \newcommand{\GLnK}{\mathcal{GL}_n(\K)}
 \newcommand{\GLn}[2][n]{\mathcal{GL}_{#1}(#2)}
 
+
   % matrice d'une appplication linéaire
-  \newcommand{\Matu}[3]{\operatorname{Mat}_{#1}^{#2}(#3)}
+\newcommand{\uMat}[3]{\operatorname{Mat}_{#1}^{#2}(#3)}
+\newcommand{\Matu}[1]{u_{#1}}
+  % trace d'une matrice, ...
 %--------------------------------------------------
 % Espaces vectoriels
 %--------------------------------------------------

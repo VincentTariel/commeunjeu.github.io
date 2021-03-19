@@ -1303,12 +1303,12 @@ $$
 \section{Déterminant d'un endomorphisme}
 \begin{DefinitionProposition}[Déterminant d'un endomorphisme]
 Soit $E$ un $\K $-espace vectoriel de dimension finie et $u$ un endomorphisme de $E$.\\
-Soit $\mathcal{B}$ une base de $E$ et la matrice $\uMat{\mathcal{B}}{}{u}$ de $u$ dans la base $\mathcal{B}$.\\
-La déterminant $\det(\uMat{\mathcal{B}}{}{u})$ ne dépend pas du choix de la base $\mathcal{B}$, mais seulement de $u$, on l'appelle \defi{déterminant} de l'endomorphisme $u$ et on note \defi{$\det(u)$}.
+Soit $\mathcal{B}$ une base de $E$ et la matrice $\uMat{u}{\mathcal{B}}$ de $u$ dans la base $\mathcal{B}$.\\
+La déterminant $\det(\uMat{u}{\mathcal{B}})$ ne dépend pas du choix de la base $\mathcal{B}$, mais seulement de $u$, on l'appelle \defi{déterminant} de l'endomorphisme $u$ et on note \defi{$\det(u)$}.
 \end{DefinitionProposition}
 \begin{Demonstration}
 Soit $\mathcal{B}$ et $\mathcal{B}'$ deux bases de $E$.\\
-$\uMat{\mathcal{B}}{}{u}$ et $\uMat{\mathcal{B}'}{}{u}$ sont semblables, donc ont le même
+$\uMat{u}{\mathcal{B}}$ et $\uMat{u}{\mathcal{B}'}$ sont semblables, donc ont le même
 déterminant.
 \end{Demonstration}
 \begin{Remarque}
@@ -1325,7 +1325,7 @@ Par exemple, soit l'endomorphisme $\Fonction{u}{\R^2}{\R^2}{(x,y)}{(-2x,x-y)}$.
 \end{tikzpicture}
 \end{center}
 En effet, l'aire du parallélogramme formé par les vecteurs $(1,0)$ et $(0,1)$  est $\det_{\mathcal{B}_2}( (1,0),(0,1))=1$.
-L'aire de l'image  du parallélogramme est $\det_{\mathcal{B}_2}( u(1,0),u(0,1))=\det_{\mathcal{B}_2}( (-2,1),u(0,-1))=2$. Le déterminant de $u$ est  $\det u = \det(\uMat{\mathcal{B}_2}{}{u})=\begin{vmatrix}-2&0\\1&-1\\ \end{vmatrix}=2.$.\\
+L'aire de l'image  du parallélogramme est $\det_{\mathcal{B}_2}( u(1,0),u(0,1))=\det_{\mathcal{B}_2}( (-2,1),u(0,-1))=2$. Le déterminant de $u$ est  $\det u = \det(\uMat{u}{\mathcal{B}_2})=\begin{vmatrix}-2&0\\1&-1\\ \end{vmatrix}=2.$.\\
  On a bien $$
  \det u\times \det_{\mathcal{B}_2}( (1,0),(0,1))=\det_{\mathcal{B}_2}( u(1,0),u(0,1)).$$
  Cette notion sera utile afin de comprendre le rôle du déterminant de la matrice Jacobienne  dans  l'intégration par  changement de variable et dans la résolution de problèmes non linéaires.
@@ -1359,11 +1359,11 @@ $\det_{\mathcal{B}}(u(\mathcal{F}))=\det(u)\det_{\mathcal{B}}(\mathcal{F})$
 
 \begin{enumerate}
 \item \impo{Déterminant d'une composée} : 
-$$\det(u \circ v ) =\det(\uMat{\mathcal{B}}{}{u \circ v})=\det(\uMat{\mathcal{B}}{}{v}\times \uMat{\mathcal{B}}{}{ v})=\det(\uMat{\mathcal{B}}{}{u})\times \det(\uMat{\mathcal{B}}{}{v})=\det (u) \det(v ) $$
+$$\det(u \circ v ) =\det(\uMat{u \circ v}{\mathcal{B}})=\det(\uMat{v}{\mathcal{B}}\times \uMat{ v}{\mathcal{B}})=\det(\uMat{u}{\mathcal{B}})\times \det(\uMat{v}{\mathcal{B}})=\det (u) \det(v ) $$
 \item \impo{Caractérisation de l'inversibilité d'une composée} : 
-$u$ est inversible si et seulement si $\uMat{\mathcal{B}}{}{u}$ est inversible si et seulement si $\det(\uMat{\mathcal{B}}{}{u})\neq 0$  si et seulement si $\det(u)\neq 0$.
-\item \impo{Effet d'un endomorphisme sur un déterminant de famille de vecteurs} :
-$$\det_{\mathcal{B}}(u(\mathcal{F}))=\det( \uMat{\mathcal{B}}{}{u(\mathcal{F})})=\det( \uMat{\mathcal{B}}{}{u}\times \uMat{\mathcal{B}}{}{\mathcal{F}})=\det( \uMat{\mathcal{B}}{}{u}) \det(\uMat{\mathcal{B}}{}{\mathcal{F}})=\det(u)\det_{\mathcal{B}}(\mathcal{F}).$$
+$u$ est inversible si et seulement si $\uMat{u}{\mathcal{B}}$ est inversible si et seulement si $\det(\uMat{u}{\mathcal{B}})\neq 0$  si et seulement si $\det(u)\neq 0$.
+\item \impo{Effet d'un endomorphisme sur un déterminant d'une famille de vecteurs} :
+$$\det_{\mathcal{B}}(u(\mathcal{F}))=\det( \uMat{u(\mathcal{F})}{\mathcal{B}})=\det( \uMat{u}{\mathcal{B}}\times \uMat{\mathcal{F}}{\mathcal{B}})=\det( \uMat{u}{\mathcal{B}}) \det(\uMat{\mathcal{F}}{\mathcal{B}})=\det(u)\det_{\mathcal{B}}(\mathcal{F}).$$
 \end{enumerate}
 \end{Demonstration}
 %\begin{Exemple}[Déterminant de Vandermonde]

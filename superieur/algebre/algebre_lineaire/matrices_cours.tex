@@ -2,13 +2,13 @@
 \usepackage{commeunjeustyle}
 
 \begin{document}
-\chapter*{Matrices}
+\chapter*{Matrices}%label=chapter,title=matrices
 \begin{Texte}
 Les matrices sont des tableaux des éléments (nombres, caractères) qui servent à interpréter en termes calculatoires, et donc opérationnels, les résultats théoriques de l'algèbre linéaire et même de l'algèbre bilinéaire. Toutes les disciplines étudiant des phénomènes linéaires utilisent les matrices.\\ 
 Notations : $\K $ désigne le corps $\R$ ou $\C$ et les lettres $n$,$p,\dots$ désignent des entiers naturels non nuls. Le mot \defi{scalaire} désigne un réel ou un complexe. 
 \end{Texte}
-\section{Exemples introductifs de modélisation matricielle}
-\begin{Exemple}[Système d'équations linéaires]
+%\section{Exemples introductifs de modélisation matricielle}
+\begin{Exemple}[Taille d'un père et d'un fils]
 La somme des tailles d'un fils et du père est de 2,5 mètres. La différence de tailles  est de 0.5 mètres.
 Quel est la taille du fils ? \\
 Comme vu au chapitre précédent, la première étape est la modélisation avec un système d'équations linéaires.\\
@@ -89,88 +89,87 @@ $$ \begin{pmatrix}
 \end{pmatrix}.$$ 
 Par identification, l'ensemble des solution est de nouveau l'unique solution $x=1$ et $y=1,5$. 
 \end{Exemple}
-\begin{Exemple}[Fonction linéaire]
-Une usine fabrique des vélos, des trottinettes et des rollers. Le prix payé, $y$,   pour $x_1$ vélos, $x_2$ trottinettes et $x_3$ rollers est une fonction linéaires des prix unitaires d'achat 150 euros, 40 euros et 20 euros respectivement. On a donc :
-$$y=150x_1+40x_2+20x_3.$$
-La représentation matricielle de cette opération est :
-\begin{center}
-\begin{tikzpicture}[>=latex]
-\draw[dotted] (-3,0) node {$y=$};
-\matrix (A) [matrix of math nodes,%
-             nodes = {circle,minimum size=1cm},%
-             left delimiter  = (,%
-             right delimiter = )] at (0,0)
-{
-  150 & 40 & 20  \\
-};
-\matrix (B) [matrix of math nodes,%
-             nodes = {circle,minimum size=1cm},%
-             left delimiter  = (,%
-             right delimiter =)] at (3cm,3cm)
-{
-  x_1\\
-  x_2\\
-  x_3 \\
-};
-\draw[<->,colordef](A-1-1) to[in=180,out=90]
-    node[draw,sloped,midway,fill=white] (x) {$150\times x_1$} (B-1-1);
-\draw[<->,colordef](A-1-2) to[in=180,out=90]
-    node[draw,sloped,midway,fill=white] (y) {$40\times x_2$} (B-2-1);
-\draw[<->,colordef](A-1-3) to[in=180,out=90]
-    node[draw,sloped,midway,fill=white] (z) {$20\times x_3$} (B-3-1);
-\draw[colordef,->] (x) to node[midway,sloped,fill=white] {$+$} (y)%
-                  to node[midway,sloped,fill=white] {$+$} (z);
-\end{tikzpicture}
-\end{center}
-Les prix unitaires d'envoi sont respectivement égaux à 5$\EUR{5}$ pour un vélo, 2 euros pour la trottinette et 1 euros pour les rollers.   Le prix payé est encore une fonction linéaire :
-$$Y=\begin{pmatrix}y_1\\y_2\end{pmatrix}=\begin{pmatrix} 150x_1+40x_2+20x_3 \\5x_1+2x_2+1x_3  \end{pmatrix}.$$
-avec $y_1$ prix des marchandises et $y_2$ prix d'envoi.\\
-La représentation avec un tableau de nombres (matricielle) de cette opération est :
-\begin{center}
-\begin{tikzpicture}[>=latex]
-\matrix (Y) [matrix of math nodes,%
-             nodes = {circle,minimum size=1cm},%
-             left delimiter  = (,%
-             right delimiter = )] at (-3cm,0)
-{
-  y_1  \\
-  y_2 \\
-};
-\draw[dotted] (-2,0) node {$=$};
-\matrix (A) [matrix of math nodes,%
-             nodes = {circle,minimum size=1cm},%
-             left delimiter  = (,%
-             right delimiter = )] at (0,0)
-{
-  120 & 50 & 25  \\
-  5   & 2 & 1 \\
-};
-\matrix (B) [matrix of math nodes,%
-             nodes = {circle,minimum size=1cm},%
-             left delimiter  = (,%
-             right delimiter =)] at (3cm,3cm)
-{
-  x_1\\
-  x_2\\
-  x_3 \\
-};
-\draw[<->,colordef](A-2-1) to[in=180,out=90]
-    node[draw,sloped,midway,fill=white] (x) {$5\times x_1$} (B-1-1);
-\draw[<->,colordef](A-2-2) to[in=180,out=90]
-    node[draw,sloped,midway,fill=white] (y) {$2\times x_2$} (B-2-1);
-\draw[<->,colordef](A-2-3) to[in=180,out=90]
-    node[draw,sloped,midway,fill=white] (z) {$1\times x_3$} (B-3-1);
-\draw[colordef,->] (x) to node[midway,sloped,fill=white] {$+$} (y)%
-                  to node[midway,sloped,fill=white] {$+$} (z);
-\end{tikzpicture}
-\end{center}
-\end{Exemple}
+%\begin{Exemple}[Fonction linéaire]
+%Une usine fabrique des vélos, des trottinettes et des rollers. Le prix payé, $y$,   pour $x_1$ vélos, $x_2$ trottinettes et $x_3$ rollers est une fonction linéaires des prix unitaires d'achat 150 euros, 40 euros et 20 euros respectivement. On a donc :
+%$$y=150x_1+40x_2+20x_3.$$
+%La représentation matricielle de cette opération est :
+%\begin{center}
+%\begin{tikzpicture}[>=latex]
+%\draw[dotted] (-3,0) node {$y=$};
+%\matrix (A) [matrix of math nodes,%
+%             nodes = {circle,minimum size=1cm},%
+%             left delimiter  = (,%
+%             right delimiter = )] at (0,0)
+%{
+%  150 & 40 & 20  \\
+%};
+%\matrix (B) [matrix of math nodes,%
+%             nodes = {circle,minimum size=1cm},%
+%             left delimiter  = (,%
+%             right delimiter =)] at (3cm,3cm)
+%{
+%  x_1\\
+%  x_2\\
+%  x_3 \\
+%};
+%\draw[<->,colordef](A-1-1) to[in=180,out=90]
+%    node[draw,sloped,midway,fill=white] (x) {$150\times x_1$} (B-1-1);
+%\draw[<->,colordef](A-1-2) to[in=180,out=90]
+%    node[draw,sloped,midway,fill=white] (y) {$40\times x_2$} (B-2-1);
+%\draw[<->,colordef](A-1-3) to[in=180,out=90]
+%    node[draw,sloped,midway,fill=white] (z) {$20\times x_3$} (B-3-1);
+%\draw[colordef,->] (x) to node[midway,sloped,fill=white] {$+$} (y)%
+%                  to node[midway,sloped,fill=white] {$+$} (z);
+%\end{tikzpicture}
+%\end{center}
+%Les prix unitaires d'envoi sont respectivement égaux à 5$\EUR{5}$ pour un vélo, 2 euros pour la trottinette et 1 euros pour les rollers.   Le prix payé est encore une fonction linéaire :
+%$$Y=\begin{pmatrix}y_1\\y_2\end{pmatrix}=\begin{pmatrix} 150x_1+40x_2+20x_3 \\5x_1+2x_2+1x_3  \end{pmatrix}.$$
+%avec $y_1$ prix des marchandises et $y_2$ prix d'envoi.\\
+%La représentation avec un tableau de nombres (matricielle) de cette opération est :
+%\begin{center}
+%\begin{tikzpicture}[>=latex]
+%\matrix (Y) [matrix of math nodes,%
+%             nodes = {circle,minimum size=1cm},%
+%             left delimiter  = (,%
+%             right delimiter = )] at (-3cm,0)
+%{
+%  y_1  \\
+%  y_2 \\
+%};
+%\draw[dotted] (-2,0) node {$=$};
+%\matrix (A) [matrix of math nodes,%
+%             nodes = {circle,minimum size=1cm},%
+%             left delimiter  = (,%
+%             right delimiter = )] at (0,0)
+%{
+%  120 & 50 & 25  \\
+%  5   & 2 & 1 \\
+%};
+%\matrix (B) [matrix of math nodes,%
+%             nodes = {circle,minimum size=1cm},%
+%             left delimiter  = (,%
+%             right delimiter =)] at (3cm,3cm)
+%{
+%  x_1\\
+%  x_2\\
+%  x_3 \\
+%};
+%\draw[<->,colordef](A-2-1) to[in=180,out=90]
+%    node[draw,sloped,midway,fill=white] (x) {$5\times x_1$} (B-1-1);
+%\draw[<->,colordef](A-2-2) to[in=180,out=90]
+%    node[draw,sloped,midway,fill=white] (y) {$2\times x_2$} (B-2-1);
+%\draw[<->,colordef](A-2-3) to[in=180,out=90]
+%    node[draw,sloped,midway,fill=white] (z) {$1\times x_3$} (B-3-1);
+%\draw[colordef,->] (x) to node[midway,sloped,fill=white] {$+$} (y)%
+%                  to node[midway,sloped,fill=white] {$+$} (z);
+%\end{tikzpicture}
+%\end{center}
+%\end{Exemple}
 %TODO faire les transformations du plan rotation, symétrie, shrink etc
-%\subsection{Fonction linéaire}
 
 \section{Les matrices}
 \subsection{Définition}
-\begin{Definition}[Matrice]
+\begin{Definition}[Matrice]%label=definition,title=matrices
 Une \defi{matrice}, $A$,  de taille $n\times p$  à coefficients  $\K $ est une famille d'élément de $\K $, $(a_{ij})_{\substack{1\leq i\leq n\\1\leq j\leq p}}$, présentée sous la forme d'un tableau :
 $$ A=\begin{pmatrix}
 a_{11} & a_{12} & \cdots & a_{1p}\\
@@ -556,7 +555,7 @@ $B\times A = \begin{pmatrix}0&1\\0&0\\\end{pmatrix}$.\\
 De plus, en générale, le produit matriciel n'est pas intègre (si $AB =0$ alors $A=0$ ou $B=0$). C'est à dire un produit de matrices peut être nul sans qu'aucune d'entre elles le soit. Par exemple, $$\begin{pmatrix}0&1\\0&0\\\end{pmatrix}\times \begin{pmatrix}1&0\\0&0\\\end{pmatrix}=\begin{pmatrix}0&0\\0&0\\\end{pmatrix}.$$
 \end{Remarque}
 
-\begin{Proposition}[Lignes et colonnes d'un produit matriciel]
+\begin{Proposition}[Lignes et colonnes d'un produit matriciel]%label=matrices_colonnes_produit
 On a : 
 $$A\times\begin{pmatrix}0\\\vdots\\0\\1\text{}\\0\\\vdots\\0\end{pmatrix}=\begin{pmatrix}
 &  & \\
@@ -793,7 +792,69 @@ L'application  $A\mapsto \Tr(\transposee{A} A)=\sum_{i=1}^n\sum_{j=1}^p a_{ij}^2
 En général, $\Tr(ABC)\neq \Tr(ACB)$.
 \end{Remarque}
 
-\subsection{Rang}
+\subsection{Matrice par blocs}
+\begin{Definition}[Décomposition par blocs]
+Soit $A\in  \MnpK $ une matrice.\\
+Sa \defi{décomposition par blocs} suivant le découpage $(n_1,\dots,n_s) $ pour les lignes et $(p_1,\dots,p_t)$ pour les colonnes est
+\begin{center}
+  \begin{tikzpicture}[
+      dots/.style={
+        line width=1pt,
+        line cap=round,
+        dash pattern=on 0pt off 5pt,
+        shorten >=.1cm,
+    shorten <=.1cm}]
+    \matrix[
+      matrix of nodes,
+      left delimiter=(,
+      right delimiter=),
+    ]{
+      \node (A) {$A_{1,1}$}; &[1.1cm] \node (B) {$A_{1,t}$}; \\[1.1cm]
+      \node (C) {$A_{s,1}$}; &        \node (D) {$A_{s,t}$}; \\
+    };
+
+    \draw [dots] (A.east)  -- (B.west);
+    \draw [dots] (C.east)  -- (D.west);
+    \draw [dots] (A.south) -- (C.north);
+    \draw [dots] (B.south) -- (D.north);
+
+    \draw [<->]  ([xshift=1cm]B.north east) -- node [right] {$n_1$} ([xshift=1cm]B.south east);
+    \draw [<->]  ([xshift=1cm]D.north east) -- node [right] {$n_s$} ([xshift=1cm]D.south east);
+    \draw [dots] ([xshift=1cm]B.south east) -- ([xshift=1cm]D.north east);
+    \draw [<->]  ([xshift=1.75cm]B.north east) -- node [right] {$n$} ([xshift=1.75cm]D.south east);
+
+    \draw [<->]  ([yshift=-0.5cm]C.south west) -- node [below] {$p_1$}([yshift=-0.5cm]C.south east);
+    \draw [<->]  ([yshift=-0.5cm]D.south west) -- node [below] {$p_t$}([yshift=-0.5cm]D.south east);
+    \draw [dots] ([yshift=-0.5cm]C.south east) -- ([yshift=-0.5cm]D.south west);
+    \draw [<->]  ([yshift=-1.1cm]C.south west) -- node [below] {$p$} ([yshift=-1.1cm]D.south east);
+
+    \node[xshift=-0.9cm] at ($(A.west)!0.5!(C.west)$) { $A =$ };
+  \end{tikzpicture}
+\end{center}
+\end{Definition}
+\begin{Exemple}
+La matrice ${P} ={\begin{pmatrix}1&1&2&2\\1&1&2&2\\3&3&4&4\\3&3&4&4\end{pmatrix}}$
+peut être partitionnée en quatre blocs $2\times 2$ avec $$P_{11}={\begin{pmatrix}1&1\\1&1\end{pmatrix}},P_{12}={\begin{pmatrix}2&2\\2&2\end{pmatrix}},P_{21}={\begin{pmatrix}3&3\\3&3\end{pmatrix}},{P}_{22}={\begin{pmatrix}4&4\\4&4\end{pmatrix}}.$$
+On peut alors écrire la matrice par bloc comme :
+$$P={\begin{pmatrix} {P} _{11}& {P} _{12}\\ {P} _{21}& {P} _{22}\end{pmatrix}}.$$
+\end{Exemple}
+\begin{Proposition}[Addition par blocs]
+Soit $A$ et $B$ deux matrices de $\MnpK$ exprimées par blocs selon les mêmes découpages. Soit $\lambda ,\mu  \in  \K $.\\
+Alors la matrice $\lambda A + \mu  B$ s'exprime par blocs selon les mêmes découpages que $A$ et $B$, et les blocs s'obtiennent en combinant les blocs situés aux mêmes places.
+\end{Proposition}
+\begin{Proposition}[Produit par blocs]
+Soit $A\in  \MnpK$ et $B\in  \M{p}{q}{\K}$.\\
+On suppose que $A$ a une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(p_1,\dots,n_t)$ pour les colonnes.\\
+On suppose que $B$ a une décomposition par blocs suivant le découpage $(p_1,\dots,n_t)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes.\\
+Alors le produit $C = AB\in  \mathrm{M}_{n,q}(\K )$ admet une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes
+$$ C = \begin{pmatrix} C_{1,1} &  \dots &  C_{1,u}  \\  \vdots &   &  \vdots  \\  C_{s,1} &  \dots &  C_{s,u} \end{pmatrix} $$
+où pour tous $i\in  \Intf{1}{s}$ et $j\in  \Intf{1}{u}$,
+$$ C_{i,j} = \sum  _{k=1}^t A_{i,k} B_{k,j} $$
+Cette formule est identique au produit matricielle en considérant les blocs comme des scalaires.
+\end{Proposition}
+\begin{Remarque}
+Le cas qui nous intéressera le plus fréquemment est celui des matrices carrées ayant le même découpage pour les lignes et pour les colonnes. Dans ce cas, les blocs diagonaux sont également des matrices carrées.
+\end{Remarque}
 \section{Matrices inversibles}
 On sait résoudre une équation $a x = b$ à une inconnue à coefficient \impo{réels}.   Cette équation  :
 \begin{itemize}
@@ -1086,7 +1147,7 @@ ad-bc & -ab+ab\\cd-dc& -cb+da
 \end{pmatrix}=I_2.$$
 \end{Demonstration}
 
-\section{Application à l'étude théorique des systèmes linéaires}
+\section{Application aux systèmes  d'équations linéaires}
 Muni de l'objet matrice, nous pouvons démontrer plus facilement les théorèmes du chapitre sur les systèmes linéaires.
 \begin{Theoreme}[Structure de l'ensemble des solutions d'un système linéaire]
 Soit un système de $n$ équations linéaires à $p$ variables de la forme :
@@ -1106,7 +1167,8 @@ $$ S=\{\overbrace{(x_1,\dots ,x_n)}^{\text{Solution particulière}}+ \overbrace{
 \end{itemize}
 \end{Theoreme}
 \begin{Demonstration}
-Soit $S$ l'ensemble des solutions du système d'équations.\\ Supposons que les système  possède une solution, noté $X_p$.\\
+Soit $S$ l'ensemble des solutions du système d'équations.\\ 
+Supposons que les système  possède une solution, noté $X_p$.\\
 Soit $A=\begin{pmatrix}
 a_{11}&\dots&a_{1p}\\
 \vdots &&\vdots \\
@@ -1247,82 +1309,11 @@ La preuve de cette proposition nous donne une méthode pour déterminer si une m
 \begin{itemize}
 \item  Comme les opérations élémentaires sont des matrices inversibles, $(Q_1\dots Q_r)$ est inversible. Si 
 \end{itemize}
-%D'un point de vue matricielle l'algorithme du pivot de Gauss permet de transformer $A$ en $I$ par des opérations élémentaires $Q_1,\dots,Q_r$, c'est à dire :
-% $(Q_1\dots,Q_r)A=I_n$. Ainsi la matrice $A$ est inversible d . 
-%À présent, faisons l?hypothèse que nous avons réussi à transformer A en In par des opérations élémentaires P1, . . . , Pr
-%sur les LIGNES, dans cet ordre. Matriciellement, cela revient à dire que : Pr . . . P1A = In ? multiplications à
-%GAUCHE. Or les matrices P1, . . . , Pr sont inversibles, donc : A= P?1
-%1 . . . P?1
-%r , et donc A est inversible. Que vaut son
-%inverse ? Tout simplement : A?1 = Pr . . . P1 = Pr . . . P1 In. Conclusion inattendue : les mêmes opérations qui ont
-%transformé A en In permettent de transformer In en A?1.
 \end{Remarque}
 
 
 
-\section{Annexe}
-\subsection{Matrice par blocs}
-\begin{Definition}[Décomposition par blocs]
-Soit $A\in  \MnpK $ une matrice.\\
-Sa \defi{décomposition par blocs} suivant le découpage $(n_1,\dots,n_s) $ pour les lignes et $(p_1,\dots,p_t)$ pour les colonnes est
-\begin{center}
-  \begin{tikzpicture}[
-      dots/.style={
-        line width=1pt,
-        line cap=round,
-        dash pattern=on 0pt off 5pt,
-        shorten >=.1cm,
-    shorten <=.1cm}]
-    \matrix[
-      matrix of nodes,
-      left delimiter=(,
-      right delimiter=),
-    ]{
-      \node (A) {$A_{1,1}$}; &[1.1cm] \node (B) {$A_{1,t}$}; \\[1.1cm]
-      \node (C) {$A_{s,1}$}; &        \node (D) {$A_{s,t}$}; \\
-    };
 
-    \draw [dots] (A.east)  -- (B.west);
-    \draw [dots] (C.east)  -- (D.west);
-    \draw [dots] (A.south) -- (C.north);
-    \draw [dots] (B.south) -- (D.north);
 
-    \draw [<->]  ([xshift=1cm]B.north east) -- node [right] {$n_1$} ([xshift=1cm]B.south east);
-    \draw [<->]  ([xshift=1cm]D.north east) -- node [right] {$n_s$} ([xshift=1cm]D.south east);
-    \draw [dots] ([xshift=1cm]B.south east) -- ([xshift=1cm]D.north east);
-    \draw [<->]  ([xshift=1.75cm]B.north east) -- node [right] {$n$} ([xshift=1.75cm]D.south east);
-
-    \draw [<->]  ([yshift=-0.5cm]C.south west) -- node [below] {$p_1$}([yshift=-0.5cm]C.south east);
-    \draw [<->]  ([yshift=-0.5cm]D.south west) -- node [below] {$p_t$}([yshift=-0.5cm]D.south east);
-    \draw [dots] ([yshift=-0.5cm]C.south east) -- ([yshift=-0.5cm]D.south west);
-    \draw [<->]  ([yshift=-1.1cm]C.south west) -- node [below] {$p$} ([yshift=-1.1cm]D.south east);
-
-    \node[xshift=-0.9cm] at ($(A.west)!0.5!(C.west)$) { $A =$ };
-  \end{tikzpicture}
-\end{center}
-\end{Definition}
-\begin{Exemple}
-La matrice ${P} ={\begin{pmatrix}1&1&2&2\\1&1&2&2\\3&3&4&4\\3&3&4&4\end{pmatrix}}$
-peut être partitionnée en quatre blocs $2\times 2$ avec $$P_{11}={\begin{pmatrix}1&1\\1&1\end{pmatrix}},P_{12}={\begin{pmatrix}2&2\\2&2\end{pmatrix}},P_{21}={\begin{pmatrix}3&3\\3&3\end{pmatrix}},{P}_{22}={\begin{pmatrix}4&4\\4&4\end{pmatrix}}.$$
-On peut alors écrire la matrice par bloc comme :
-$$P={\begin{pmatrix} {P} _{11}& {P} _{12}\\ {P} _{21}& {P} _{22}\end{pmatrix}}.$$
-\end{Exemple}
-\begin{Proposition}[Addition par blocs]
-Soit $A$ et $B$ deux matrices de $\MnpK$ exprimées par blocs selon les mêmes découpages. Soit $\lambda ,\mu  \in  \K $.\\
-Alors la matrice $\lambda A + \mu  B$ s'exprime par blocs selon les mêmes découpages que $A$ et $B$, et les blocs s'obtiennent en combinant les blocs situés aux mêmes places.
-\end{Proposition}
-\begin{Proposition}[Produit par blocs]
-Soit $A\in  \MnpK$ et $B\in  \M{p}{q}{\K}$.\\
-On suppose que $A$ a une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(p_1,\dots,n_t)$ pour les colonnes.\\
-On suppose que $B$ a une décomposition par blocs suivant le découpage $(p_1,\dots,n_t)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes.\\
-Alors le produit $C = AB\in  \mathrm{M}_{n,q}(\K )$ admet une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes
-$$ C = \begin{pmatrix} C_{1,1} &  \dots &  C_{1,u}  \\  \vdots &   &  \vdots  \\  C_{s,1} &  \dots &  C_{s,u} \end{pmatrix} $$
-où pour tous $i\in  \Intf{1}{s}$ et $j\in  \Intf{1}{u}$,
-$$ C_{i,j} = \sum  _{k=1}^t A_{i,k} B_{k,j} $$
-Cette formule est identique au produit matricielle en considérant les blocs comme des scalaires.
-\end{Proposition}
-\begin{Remarque}
-Le cas qui nous intéressera le plus fréquemment est celui des matrices carrées ayant le même découpage pour les lignes et pour les colonnes. Dans ce cas, les blocs diagonaux sont également des matrices carrées.
-\end{Remarque}
 
 \end{document}

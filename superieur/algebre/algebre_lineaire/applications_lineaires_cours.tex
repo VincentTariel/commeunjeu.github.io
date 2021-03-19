@@ -19,7 +19,7 @@ Beaucoup de phénomènes en sciences ne sont pas linéaires. Dans de tels
 cas, de "petites causes" peuvent avoir de "grands effets".\\
 D'un point de vue mathématiques, une
 transformation préservant la structure d'espace vectoriel est une application linéaire.  Les matrices sont des tableaux de nombres qui servent à interpréter en termes calculatoires et donc opérationnels les applications linéaires dont les espaces vectoriels sont de dimensions finies.\\ 
-\begin{Exemple}[Système d'équations linéaires]
+\begin{Exemple}[Taille d'un père et d'un fils]
 La somme des tailles d'un fils et du père est de 2,5 mètres. La différence de tailles  est de 0.5 mètres.
 Quel est la taille du fils ? \\
 Soit la variable $x$ représentant la taille du fils et la variable $y$ représentant la taille du père.\\
@@ -226,37 +226,12 @@ Pour une rotation anti-horaire autour de l'origine, on a  $x '= x \cos \theta -y
 $\Phi _3$ et $R_\theta$ sont des endomorphismes. Comme $R_\theta$ est bijectif, $R_\theta$ est un automorphisme. 
 \end{Exemple}
 \begin{Texte}
-Un isomorphisme permet de transporter les propriétés vectoriels entre les deux espaces vectoriels, par exemple la dimension.  Toute propriété ``vectorielle'' vraie pour un espace vectoriel donné sera vraie pour un espace vectoriel qui lui est isomorphe. \\
-Par exemple, l'application linéaire $\Fonction{\phi}{\R_3}{\R_2[X]}{(a,b,c)}{a + bX + cX^2}$ est un isomorphisme qui "géométrise" $\R _2[X]$.
-La coplanarité des vecteurs $(0, 1, 0)$, $(0, 0, 1)$ $(0, 1, \frac 1 2)$ et  se traduit dans $\R_2[X]$ par celle des vecteurs $X$, $X^2$ et $X +\frac 1 2  X^2$.
-\begin{center}
-\begin{Figure}
-\begin{tikzpicture}
-\draw[color=colordef,->] (0,0) -- (-0.7,-0.7)node[left] {$(1,0,0)$};
-\draw[color=colordef,->] (0,0) -- (0.9,-0.2)node[right] {$(0,1,0)$};
-\draw[color=colordef,->] (0,0) -- (0,1.2)node[above] {$(0,0,1)$};
-\draw[color=colorprop,->] (0,0) -- (0.9,0.4)node[right] {$(0,1,\frac 1 2)$};
-\draw[color=colordef,dashed] (0.9,-0.2) -- (0.9,0.4);
-\draw[color=colordef,dashed] (0,0.6) -- (0.9,0.4);
-\node at (-0.8,0.7){$\R_3$};
-\draw[->](2.5,0.7)--node[above]{$\phi$}(4.5,0.7);
-\begin{scope}[shift={(7,0)}]
-\draw[color=colordef,->] (0,0) -- (-0.7,-0.7)node[left] {$1$};
-\draw[color=colordef,->] (0,0) -- (0.9,-0.2)node[right] {$X$};
-\draw[color=colordef,->] (0,0) -- (0,1.2)node[above] {$X^2$};
-\draw[color=colorprop,->] (0,0) -- (0.9,0.4)node[right] {$X+\frac 1 2 X^2$};
-\draw[color=colordef,dashed] (0.9,-0.2) -- (0.9,0.4);
-\draw[color=colordef,dashed] (0,0.6) -- (0.9,0.4);
-\node at (-0.8,0.7){$\R_2[X]$};
-\end{scope}
-\end{tikzpicture}
-\end{Figure}
-\end{center}
-Aussi les isomorphismes nous permettent d'identifier deux espaces vectoriels, par exemple on identifie fréquemment les $p$-uplets avec les matrices colonnes 
+Un isomorphisme permet de transporter les propriétés vectoriels entre les deux espaces vectoriels, par exemple la dimension.  Toute propriété ``vectorielle'' vraie pour un espace vectoriel donné sera vraie pour un espace vectoriel qui lui est isomorphe. \\ 
+Par exemple on identifie fréquemment les $p$-uplets avec les matrices colonnes 
 car l'application
 \[ \Fonction{\Phi }{\K ^p}{\M{p}{1}{\K}}{(\lambda_1,\dots,\lambda_p)}{\begin{pmatrix}\lambda_1\\\vdots\\\lambda_p\end{pmatrix}} \]
 est un isomorphisme.\\
-Par exemple, on notera $X=\begin{pmatrix}x_1\\x_2\\\end{pmatrix}\overbrace{=}^{\text{identification}}(x_1,x_2)=\Vect{x}.$
+Ainsi, on notera $X=\begin{pmatrix}x_1\\x_2\\\end{pmatrix}\overbrace{=}^{\text{identification}}(x_1,x_2)=\Vect{x}.$
 \end{Texte}
 
 
@@ -335,11 +310,60 @@ $$u\circ (\lambda v+ \mu w)(\Vect{x})=u(\lambda v(\Vect{x})+ \mu w(\Vect{x}))\ov
 
 \begin{Remarque} On omet le plus souvent le symbole  $\circ$ : $v\circ u =v u$.
 \end{Remarque}
+%TODO METTRE UN EXEMPLE
+\subsection{Caractérisation par l'image d'une base}
+\begin{Theoreme}[Caractérisation par l'image d'une base]
+Pour connaître/définir une application linéaire complètement, il suffit de connaître/définir les  images d'une base de l'espace vectoriel de départ. 
+\end{Theoreme}
+\begin{Remarque}
+Pour déterminer une application quelconque, on n'a pas d'autre choix que de déterminer les images de chaque point $x\mapsto f(x)$. En revanche,   une application linéaire est complètement déterminer par l'image d'une base. Par exemple, soit $u:(x,y)\mapsto u(x,y)$ une application linéaire avec les images de base canonique : $u(1,0)=(1,1)$ et $u(0,1)=(1,-1)$. On a 
+$$u(x,y)=u(x(1,0)+y(0,1))\overbrace{=}^{\text{linéarité}}x.u(1,0)+ y.u(0,1)=x.(1,1)+ y.u(1,-1)=(x+y,x-y).$$    
+\end{Remarque}
+\begin{Demonstration}
+Soit $\mathcal{B}=(\Vect{e_1},\dots,\Vect{e_p})$ une base de $E$.\\
+Comme $u$ est linéaire, on a :
+\begin{align}
+u(\Vect{x})&=u(\lambda_1.\Vect{e_1}+\dots +\lambda_p.\Vect{e_p})\\
+u(\Vect{x})&=\lambda_1.u(\Vect{e_1})+\dots +\lambda_p.u(\Vect{e_p})
+\end{align}
+Cela implique que l'application linéaire $u$ est entièrement déterminée par les vecteurs $(u(\Vect{e_1}),\dots,u(\Vect{e_p}))$.
+\end{Demonstration}
 
-
-
-
-%TODO mettre un exemple
+\begin{Theoreme}[Géométrisation d'un espace vectoriel de dimension finie]%label=applications_lineaires__geometrisation
+Tout $\K$-espace vectoriel de dimension $n$ est isomorphe à $\K^n$.   
+\end{Theoreme}
+\begin{Demonstration}
+Soit $E$ un $\K$-espace vectoriel de de dimension $n$. Il existe une base $\mathcal{B}=\{\Vect{e_1},\dots,\Vect{e_n}\}$ de $E$.\\
+Soit  $\mathcal{B}=\{\Vect{f_1},\dots,\Vect{f_n}\}$ la base canonique de $\K^n$.\\
+L'application linéaire $\phi$ de $E$ dans  $\K^n$ définie par $\phi(\Vect{e_i})=\Vect{f_i}$ est un isomorphisme. 
+\end{Demonstration}
+\begin{Exemple}[Géométrisation de ${\K_2[X]}$]
+L'application linéaire $\Fonction{\phi}{\R_3}{\R_2[X]}{(a,b,c)}{a + bX + cX^2}$ est un isomorphisme qui "géométrise" $\R _2[X]$.\\
+La coplanarité des vecteurs $(0, 1, 0)$, $(0, 0, 1)$ et $(0, 1, \frac 1 2)$   se traduit dans $\R_2[X]$ par celle des vecteurs $X$, $X^2$ et $X +\frac 1 2  X^2$.
+\begin{center}
+\begin{Figure}
+\begin{tikzpicture}
+\draw[color=colordef,->] (0,0) -- (-0.7,-0.7)node[left] {$(1,0,0)$};
+\draw[color=colordef,->] (0,0) -- (0.9,-0.2)node[right] {$(0,1,0)$};
+\draw[color=colordef,->] (0,0) -- (0,1.2)node[above] {$(0,0,1)$};
+\draw[color=colorprop,->] (0,0) -- (0.9,0.4)node[right] {$(0,1,\frac 1 2)$};
+\draw[color=colordef,dashed] (0.9,-0.2) -- (0.9,0.4);
+\draw[color=colordef,dashed] (0,0.6) -- (0.9,0.4);
+\node at (-0.8,0.7){$\R_3$};
+\draw[->](2.5,0.7)--node[above]{$\phi$}(4.5,0.7);
+\begin{scope}[shift={(7,0)}]
+\draw[color=colordef,->] (0,0) -- (-0.7,-0.7)node[left] {$1$};
+\draw[color=colordef,->] (0,0) -- (0.9,-0.2)node[right] {$X$};
+\draw[color=colordef,->] (0,0) -- (0,1.2)node[above] {$X^2$};
+\draw[color=colorprop,->] (0,0) -- (0.9,0.4)node[right] {$X+\frac 1 2 X^2$};
+\draw[color=colordef,dashed] (0.9,-0.2) -- (0.9,0.4);
+\draw[color=colordef,dashed] (0,0.6) -- (0.9,0.4);
+\node at (-0.8,0.7){$\R_2[X]$};
+\end{scope}
+\end{tikzpicture}
+\end{Figure}
+\end{center}
+\end{Exemple}
 \section{Image et noyau}
 \subsection{Généralités}
 \begin{Definition}[Image directe et image réciproque]
@@ -613,6 +637,7 @@ Donc $\Ker u =\{0\}$ car $\deg(P)=\deg(P')$ si et seulement $P=0$.
 \end{Demonstration}
 \end{Exemple}
 
+
 \subsection{Théorème du rang : $\dim E = \Rang u + \dim \Ker u$}
 %Les dimensions du noyau et l'image d'une application linéaire sont liées.\\
 %Soit $A=\begin{pmatrix} 1 &  0 &1\\ 0 &1 &1\\ 0 &1&1\end{pmatrix}$. On a $C_3=C_1+C2$.\\
@@ -662,7 +687,10 @@ $\dim \im u+\dim \Ker u=\dim E$.
 %TODO exercices http://uel.unisciel.fr/mathematiques/espacevect1/espacevect1_ch04/co/apprendre_ch4_07_07.html et redémontrer effet d'une application linéaire 
 
 
-\section{Équation linéaire}
+
+
+
+\section{Application au système d'équations linéaires}
 \begin{Theoreme}[Solutions d'une équation linéaire $u (\vec{x}) = \vec{y_0}$]
 Soit $E$ et $F$ deux $\K $-espaces vectoriels, $u:E\to F$ une application linéaire et $\vec{y_0}\in F$.\\
 L'ensemble des solutions de l'équation $u (\vec{x}) = \vec{y_0}$ est
@@ -678,13 +706,13 @@ L'ensemble des solutions de l'équation $u (\vec{x}) = \vec{y_0}$ est
 $\vec{x}$ est solution $ \Leftrightarrow u (\vec{x}) = \vec{y_0} \Leftrightarrow u (\vec{x}) = u (\vec{x_0}) \overbrace{\Leftrightarrow}^{\text{linéaire}} u(\vec{x}-\vec{x_0})=\Vect{0_F} \Leftrightarrow  \vec{x} - \vec{x_0} \in \Ker u  \Leftrightarrow \vec{x} \in \vec{x_0} +\Ker u.$
 \end{itemize}
 \end{Demonstration}
-\begin{Exercice}[Système d'équations linéaires réelles]
-Déterminer les solutions de 
+\begin{Exemple}[Taille d'un père et d'un fils]
+Déterminer la structure des solutions de 
 $$
 \begin{cases}
 {\color{red}x}+{\color{green}y}&={\color{blue}2,5}\\
 {\color{red}-x}+{\color{green}y}&={\color{blue}0,5}
-\end{cases}
+\end{cases}.
 $$
 \begin{Demonstration}
 On pose $ \Fonction{u}{\R^2}{\R^2}{( {\color{red}x }   ,  {\color{green}y})}{ ({\color{red}x }   +  {\color{green}y},-{\color{red}x }   +  {\color{green}y})}$.
@@ -703,7 +731,7 @@ $, $u$ est injective donc bijective.\\
 \end{Demonstration}
 
 
-\end{Exercice}
+\end{Exemple}
 
 
 
