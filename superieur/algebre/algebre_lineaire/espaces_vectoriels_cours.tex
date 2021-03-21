@@ -158,7 +158,7 @@ Addition  &\begin{tikzpicture}[general,scale=1]
 \node[below,color=black!30]{$\Vect{0}$};
 \draw [->, >=latex,thick,color=colorprop] (0,0) --node[above,right]{$\Vect{x}$} (2,1);
 \draw [->, >=latex,thick,color=colordef] (2,1) --node[right]{$\Vect{y}$} (1,2);
-\draw [->, >=latex,thick,color=black] (0,0) -- (1,2)node[above,left]{$\Vect{w}=\Vect{x}+\Vect{y}$};
+\draw [->, >=latex,thick,color=green] (0,0) -- (1,2)node[above,left]{$\Vect{w}=\Vect{x}+\Vect{y}$};
 \end{tikzpicture}  & $\begin{pmatrix}
 1\\2
 \end{pmatrix}=\begin{pmatrix}
@@ -171,9 +171,9 @@ Combinaison linéaire  &\begin{tikzpicture}[general,scale=1]
 \draw[->,>=latex,thick, gray] (0,-0.6)--(0,2.1); % node[right,black] {$y$};
 \draw [->, >=latex,thick,color=colorprop] (0,0) -- (2,1)node[right]{$\Vect{x}$};
 \draw [->, >=latex,thick,color=colordef] (0,0) -- (-1,1)node[left]{$\Vect{y}$};
-\draw [->,>=latex,thick] (0,0) -- node[above]{$0.5\Vect{x}$}(1,0.5);
-\draw [->,>=latex,thick,] (1,0.5) --node[right]{$-\Vect{y}$} (2,-0.5);
-\draw [->,>=latex,thick,color=black] (0,0) -- (2,-0.5)node[below]{$\Vect{w}=0.5\Vect{x}-\Vect{y}$};
+\draw [->,>=latex,thick,green] (0,0) -- node[above]{$0.5\Vect{x}$}(1,0.5);
+\draw [->,>=latex,thick,green] (1,0.5) --node[right]{$-\Vect{y}$} (2,-0.5);
+\draw [->,>=latex,thick,color=green] (0,0) -- (2,-0.5)node[below]{$\Vect{w}=0.5\Vect{x}-\Vect{y}$};
 \end{tikzpicture}  & $\begin{pmatrix}
 2\\-0.5
 \end{pmatrix}=0.5\begin{pmatrix}
@@ -182,7 +182,7 @@ Combinaison linéaire  &\begin{tikzpicture}[general,scale=1]
 -1\\1
 \end{pmatrix}$&$ \Vect{w}=0.5\Vect{x}-\Vect{y}$\\
 \end{tabular}
-Il est très important de se représenter les espaces vectoriels, même les plus abstraits, comme des
+Il faut se représenter les espaces vectoriels, même les plus abstraits, comme des
 mondes géométriques semblables au plan ou à l'espace car il est toujours possible de le \Reference{"géométriser"}{applications_lineaires__geometrisation}. 
 %\begin{Remarque}
 %Du fait de l'équivalence dans le plan et l'espace entre ces trois représentations,  géométrique,  numérique et algébrique, tout ce qui est vrai ou faux pour l'un l'est aussi pour l'autre. Savoir passer d'une représentation à l'autre est essentiel pour bien comprendre l'algèbre linéaire. 
@@ -198,7 +198,7 @@ Soit $\K$ un corps.\\
 Un \defi{$\K$-espace vectoriel} est un triplet $(E,+,.)$ où
 $+$ est une \Reference{loi de composition interne}{structures_algebriques__loi_composition_interne} sur $E$ et
 $.$ est une \Reference{loi de composition externe}{structures_algebriques__loi_composition_externe} sur $E$,
-vérifiant les propriétés suivantes:
+vérifiant les axiomes suivants:
 \begin{enumerate}
 \item $(E, +)$ est un \Reference{groupe commutatif}{groupes__definition}
 \item la loi $.$ est compatible avec la structure de groupe $(E, +)$, c'est-à-dire 
@@ -274,7 +274,7 @@ Par exemple : $(1, 4) + 2(0, 2) = (1, 8).$
 \end{tikzpicture}
 
 \end{Exemple}
-\begin{Exemple}[Familles de scalaires $\R^n$]
+\begin{Exemple}[n-uplet $\R^n$]
     Soit $E=\R^n$ avec $n\in\N^*$.\\
    Un vecteur $\vec{x}\in E$ est donc un $n$-uplet
    $(x_1,x_2, \ldots , x_n)$ avec $x_1,x_2, \ldots , x_n$ des éléments de $\R$.
@@ -372,8 +372,8 @@ Par exemple, pour $n = 2$ et $p = 3$ : $3\begin{pmatrix}
     \end{itemize}
 L'élément neutre de la loi interne est le polynôme nul $0$.
 Le symétrique de    $P=a_{0}+a_{1}X^{1}+a_{2}X^{2}+\dots +a_{n}X^{n}$ est $-P=-a_{0}-a_{1}X^{1}-a_{2}X^{2}-\dots -a_{n}X^{n}$.\\
-De même, l'ensemble des polynôme ${\K[X]}$ est aussi un espace vectoriel.\\
-Par exemple, pour $P = X$ et $Q=1+X^2$ : $2P+Q=1+2X+X^2=(1+X)^2.$
+Par exemple, pour $P = X$ et $Q=1+X^2$ : $2P+Q=1+2X+X^2=(1+X)^2.$\\
+De même, l'ensemble des polynôme \impo{${\K[X]}$} est aussi un espace vectoriel.
 \end{Exemple}
 
 \begin{Exemple}[Fonctions à valeurs dans un espace vectoriel]
@@ -396,7 +396,7 @@ Par exemple, pour $\Fonction{f}{\R}{\R}{x}{\cos^2 x } $ et  $\Fonction{g}{\R}{\R
 \subsection{Règle de calculs}
 
 \begin{Proposition}[Règles de calculs]
-Soit $E$ un $\K $-espace vectoriel. Soit $u \in E$ et $\lambda \in \K$.\\
+Soit $E$ un $\K $-espace vectoriel. Soit $\Vect{x} \in E$ et $\lambda \in \K$.\\
 Alors on a:
  \begin{enumerate}
  \item $0 \cdot \Vect{x} = \Vect{0_E}$
@@ -412,7 +412,7 @@ Les démonstrations des propriétés sont des manipulations sur les axiomes déf
 \begin{enumerate}
   \item On a $(0+0)\cdot \Vect{x}=0 \cdot \Vect{x}$ du fait de l'égalité dans $\K$ : $0+0=0$. En utilisant la distributivité de la loi externe par rapport à la loi interne, on obtient $0 \cdot \Vect{x} +0 \cdot \Vect{x} =0 \cdot \Vect{x}$. En ajoutant $-(0\cdot \Vect{x})$ de chaque côté de l'égalité, on obtient :
     $0 \cdot \Vect{x}=\Vect{0_{E}}$.
-  \item La preuve est semblable en partant de l'égalité $\Vect{0_{E}}+\Vect{0_{E}}=\Vect{0_{E}}$.
+  \item La preuve est semblable en partant de l'égalité $\lambda(\Vect{0_{E}}+\Vect{0_{E}})=\lambda\Vect{0_{E}}$.
 
   \item Montrer $(-1)\cdot \Vect{x} = -\Vect{x}$ signifie exactement que $(-1)\cdot \Vect{x}$
   est le symétrique de $\Vect{x}$, c'est-à-dire vérifie  $\Vect{x} + (-1)\cdot \Vect{x} = \Vect{0_E}$.
@@ -443,7 +443,7 @@ D'où $\Vect{x}=\Vect{0_{E}}$.
 Soit $n\ge1$ un entier,  $\Vect{x_1}, \Vect{x_2}, \ldots, \Vect{x_n}$, $n$  vecteurs d'un espace vectoriel $E$ et $\lambda_1, \lambda_2, \ldots,  \lambda_n$ des scalaires.\\
 Tout vecteur de la forme
 $$\Vect{y}=\lambda_1 \Vect{x_1}+\lambda_2\Vect{x_2}+ \cdots + \lambda_n \Vect{x_n}$$
-est appelé \defi{combinaison linéaire} des vecteurs $\Vect{x_1}, \Vect{x_2}, \ldots, \Vect{x_n}$.
+est appelé \defi{combinaison linéaire} des vecteurs $\Vect{x_1}, \Vect{x_2}, \ldots, \Vect{x_n}$ (ou de la famille  ($\Vect{x_1}, \Vect{x_2}, \ldots, \Vect{x_n}$) ).\\
 Les scalaires $\lambda_1, \lambda_2, \ldots , \lambda_n$ sont appelés \defi{coefficients} de la combinaison linéaire.\\
 Si $n=1$, alors $\Vect{y}=\lambda_1 \Vect{x_1}$ et on dit que $\Vect{y} $ est \defi{colinéaire} à $\Vect{x_1}$.
 \end{Definition}
@@ -466,9 +466,9 @@ $(X^i)_{i\in \N}$.
 $(2,1)$ n'est pas colinéaire au vecteur $(1,1)$.
 \end{Enonce}
 \begin{Correction}%link=no_combinaisons_lineaires_simple
-Analyse :  on cherche un réel $\lambda$ tel que $(2,1)=\lambda (1,1)$,
+\impo{Analyse} :  on cherche un réel $\lambda$ tel que $(2,1)=\lambda (1,1)$,
 ce qui équivaudrait à l'égalité $(2,1)=(\lambda, \lambda)$.  Ce système n'a aucune solution.\\
-Conclusion : il n'existe pas $\lambda$ tel que $(2,1)=\lambda (1,1)$ donc $(2,1)$ n'est pas colinéaire au vecteur $(1,1)$.\\ 
+Donc il n'existe pas $\lambda$ tel que $(2,1)=\lambda (1,1)$ donc $(2,1)$ n'est pas colinéaire au vecteur $(1,1)$.
 \end{Correction}
 \item \begin{Enonce}
     Démontrer que $
@@ -476,7 +476,7 @@ Conclusion : il n'existe pas $\lambda$ tel que $(2,1)=\lambda (1,1)$ donc $(2,1)
    \left(\begin{smallmatrix}6\\4\\2\end{smallmatrix}\right)$.
    \end{Enonce}
    \begin{Correction}
-Analyse :  on cherche donc $\lambda$ et $\mu$ tel que  :
+\impo{Analyse} :  on cherche donc $\lambda$ et $\mu$ tel que  :
 $$\left(\begin{matrix}9\\2\\7\end{matrix}\right)
   =  \lambda \left(\begin{matrix}1\\2\\-1\end{matrix}\right) + \mu \left(\begin{matrix}6\\4\\2\end{matrix}\right)
   =  \left(\begin{matrix}\lambda\\ 2\lambda\\ -\lambda\end{matrix}\right) + \left(\begin{matrix}6\mu\\ 4\mu\\ 2\mu\end{matrix}\right)
@@ -488,23 +488,34 @@ $$
 9 & = & \lambda + 6\mu\\ 2 & = & 2\lambda + 4\mu\\ 7 & = & -\lambda + 2\mu.
 \end{array}\right.
 $$
-Une solution de ce système est $(\lambda = -3, \mu = 2)$.\\
-Synthèse : on vérifie que l'on a bien
-\[\begin{pmatrix}9\\2\\7\end{pmatrix} =  -3\begin{pmatrix}1\\2\\-1\end{pmatrix}
-+ 2\begin{pmatrix}6\\4\\2\end{pmatrix}.\]
+Comme la ligne 1 est égale à ligne 2 plus la ligne 3. On a donc :
+$$
+\left\{
+\begin{array}{rcl}
+2 & = & 2\lambda + 4\mu\\ 7 & = & -\lambda + 2\mu.
+\end{array}\right.
+$$ 
+Ce qui donne comme solution du système $(\lambda = -3, \mu = 2)$.\\
+\impo{Synthèse} : on vérifie que l'on a bien
+$$\begin{pmatrix}9\\2\\7\end{pmatrix} =  -3\begin{pmatrix}1\\2\\-1\end{pmatrix}
++ 2\begin{pmatrix}6\\4\\2\end{pmatrix}.$$
+Donc  $ \left(\begin{smallmatrix}9\\ 2\\ 7\end{smallmatrix}\right)$ est combinaison linéaire de $ \left(\begin{smallmatrix}1\\ 2\\ -1\end{smallmatrix}\right)$ et $
+   \left(\begin{smallmatrix}6\\4\\2\end{smallmatrix}\right)$.
 \end{Correction}
 \item   \begin{Enonce} Démontrer que $ \left(\begin{smallmatrix}4\\ -1\\ 8\end{smallmatrix}\right)$n'est pas une combinaison linéaire de  $ \left(\begin{smallmatrix}1\\ 2\\ -1\end{smallmatrix}\right)$ et$
   \left(\begin{smallmatrix}6\\4\\2\end{smallmatrix}\right)$. 
   \end{Enonce}
   \begin{Correction}
-Analyse :  on cherche donc $\lambda$ et $\mu$ tel que  :
+\impo{Analyse} :  on cherche donc $\lambda$ et $\mu$ tel que  :
   $$\begin{pmatrix}4\\-1\\8\end{pmatrix} = \lambda\begin{pmatrix}1\\2\\-1\end{pmatrix} + \mu\begin{pmatrix}6\\4\\2\end{pmatrix}
-  \quad \text{ équivaut au système } \quad
+  \quad\Rightarrow \quad
 \left\{\begin{array}{rcl}
 4 & = &\lambda + 6 \mu\\ -1 & = &2\lambda + 4\mu\\ 8 & = & -\lambda + 2\mu.
-\end{array}\right.$$
+\end{array}\right.\quad\Rightarrow \quad\left\{\begin{array}{rcll}
+4 & = &\lambda + 6 \mu&\\ -9 & = & - 8\mu&L_2 \leftarrow L_2-2L_1\\ 12&= &  8\mu&L_3 \leftarrow L_3+2L_1.
+\end{array}\right. .$$
   Or ce système n'a aucune solution.\\
-  Conclusion :  il n'existe pas $\lambda,\mu \in \R$ tels que $w=\lambda u + \mu v$.
+Donc  il n'existe pas $\lambda,\mu \in \R$ tels que $w=\lambda u + \mu v$.
 \end{Correction}
 \end{enumerate}
 \end{Exemple}
@@ -520,7 +531,7 @@ Soit $E=\SpaceFonction{\R}{\R}$ l'espace vectoriel des fonctions réelles.
 	  \item \begin{Enonce}Démontrer que la fonction exponentielle $\exp$ n'est pas une combinaison linéaire des fonctions trigonométriques $\cos$ et $\sin$.
 	  \end{Enonce}
 \begin{Correction}
-Analyse : on cherche donc $\lambda$ et $\mu$ tel que  : 
+\impo{Analyse} : on cherche donc $\lambda$ et $\mu$ tel que  : 
  $\exp =\lambda \cos + \mu \sin.$.
  Une première solution est d'évaluer les fonctions en $0,\frac{\pi}{2},\pi,\frac{3\pi}{2}$ pour obtenir le système :
 $$ \left\{
@@ -533,12 +544,12 @@ e^{\frac{3\pi}{2}} & = & -\mu \\
 $$
 Or ce système n'a aucune solution.\\
 Une autre solution est une étude du comportement asymptotique, c'est-à-dire $\exp$ tends vers l'infini en l'infini tandis que  $\lambda \cos + \mu \sin$ est bornée.\\
- Conclusion :  il n'existe pas $\lambda,\mu \in \R$ tels que $w=\lambda u + \mu v$ donc la fonction $\exp$ n'est pas une combinaison linéaire des fonctions  $\cos$ et $\sin$.
+Donc il n'existe pas $\lambda,\mu \in \R$ tels que $w=\lambda u + \mu v$ donc la fonction $\exp$ n'est pas une combinaison linéaire des fonctions  $\cos$ et $\sin$.
  \end{Correction}
 \end{enumerate}
  \end{Exemple}
 \begin{Exemple}[Matrices] 
-Dans $\MnpK{2}{3}{\R}$, on considère
+Dans $\M{2}{3}{\R}$, on considère
  $A=\begin{pmatrix}
  1&1&3\cr
  0&-1&4
@@ -608,17 +619,21 @@ Muni des lois induites, F est alors un espace vectoriel.
 \begin{Demonstration}%label=demonstration,link=sous_espace_vectoriel
 Les deux lois sur $E$ induisent deux lois sur $F$ qui vérifient les axiomes de la définition d'un espace vectoriel. 
 \end{Demonstration}
+
 \begin{Remarque}%label=remarque,link=sous_espace_vectoriel,title=vecteur_nul
 Comme $F$ est  un sous espace vectoriel de $E$, $F$ est un sous-groupe de $E$, donc : $\Vect{0_F} = \Vect{0_E} \in F.$ 
 \end{Remarque}
-\begin{Methode}%label=methode,link=sous_espace_vectoriel
+\begin{Exemple}[Espace vectoriel triviaux]
+$\Vect{0_E}$ et  $E$ sont deux sous-espaces vectoriels de E, appelés triviaux.
+\end{Exemple}
+\begin{Methode}[F espace vectoriel ?]%label=methode,link=sous_espace_vectoriel
 Pour répondre à une question du type "L'ensemble $F$ est-il un espace vectoriel ?",
 une façon efficace de procéder est de trouver un espace vectoriel de référence $E$ qui contient $F$,
 puis prouver que $F$ est un sous-espace vectoriel de $E$.
 Il y a seulement trois propriétés à vérifier au lieu de huit !
 \end{Methode}
 \begin{Proposition}[Caractérisation d'un sous-espace vectoriel]%label=caracterisation,link=sous_espace_vectoriel,title=caracterisation_sous_espace_vectoriel
-Soit $E$ un $\K $-espace vectoriel et $F\subset E$.
+Soit $E$ un $\K $-espace vectoriel et $F\subset E$.\\
 $F$ est un sous espace vectoriel  de $E$ si et seulement si
 \begin{itemize}
 \item
@@ -644,9 +659,7 @@ $F$ est un sous espace vectoriel  de $E$ si et seulement si
 \end{itemize}
 \end{Demonstration}
 
-\begin{Exemple}[Espace vectoriel triviaux]
-$\Vect{0_E}$ et  $E$ sont deux sous-espaces vectoriels de E, appelés triviaux.
-\end{Exemple}
+
 
 \begin{Exemple}[Plan]%label=exemple,link=sous_espace_vectoriel,title=ous_espace_vectoriel_plan
 \begin{Enonce}
@@ -728,7 +741,7 @@ Par convention, $\VectE (\emptyset)= \{\Vect{0}_E\}$.\\
 \begin{Remarque}
  Plus généralement, on peut définir le sous-espace vectoriel engendré
 par une famille $(\Vect{x}_i)_{i\in I}$ comme étant l'ensemble des combinaison linéaires de la famille $(\Vect{x}_i)_{i\in I}$.\\
-Par exemple,  $\K[X=\Vect(X^i)_{i\in \N}$.
+Par exemple,  $\K[X]=\VectE (X^i)_{i\in \N}$.
 \end{Remarque}
 \begin{Exemple}[Droite vectorielle]
 Lorsque que $p=1$ avec $ \Vect{x} \neq \Vect{0}$, $\VectE (\Vect{x}) = \{\lambda .\Vect{x} : \forall \lambda  \in  \K  \}$
@@ -753,7 +766,7 @@ est le \defi{plan vectorielle} engendrée par $(\Vect{x},\Vect{y})$. On le note 
 
        \draw[->,>=latex,thick, colorprop] (-0.5,-0.5)--(1,0.1) node[midway, below] {$\Vect{x}$};
        \draw[->,>=latex,thick, colorprop] (-0.5,-0.5)--(-1.3,0.25) node[midway, below left] {$\Vect{y}$};
-               \node[above left,colordef] at (2,-2) {$\text{Vect}(u,v)$};
+               \node[above left,colordef] at (2,-2) {$\text{Vect}(\Vect{x},\Vect{y})$};
        \fill (-0.5,-0.5) circle (1.5pt);
          \node[below] at (-0.5,-0.5) {$0$};
 \end{tikzpicture}
@@ -764,15 +777,15 @@ est le \defi{plan vectorielle} engendrée par $(\Vect{x},\Vect{y})$. On le note 
 \begin{Proposition}
 Soit $F, G$ deux sous espaces vectoriels d'un $\K$-espace vectoriel $E$.\\
 Alors l'intersection $F\cap G$ est également un sous espace vectoriel.\\
-De même l'intersection $F_1 \cap G \cap F_3 \cap \cdots \cap F_p$
+De même l'intersection $\cap_{i\in I}F_i$
 d'une famille quelconque de sous-espaces vectoriels de $E$ est un sous-espace vectoriel.
 \end{Proposition}
 
 \begin{Demonstration}
 \begin{itemize}
-\item \impo{non vide :} comme $F$ et $G$ sont des sous-espaces vectoriels de $E$, $\Vect{0_E}\in F$ et $\Vect{0_E}\in G$ donc $\Vect{0_E}\subset F\cap G$
-\item \impo{stable par $+$ :} oit $\Vect{x}_1,\Vect{x}_2 \in F\cap G $ d'où $\Vect{x}_1,\Vect{x}_2 \in F$ et $\Vect{x}_1,\Vect{x}_2 \in G$.\\
-Comme $F$ est un sous-espace vectoriel, alors $\Vect{x}_1,\Vect{x}_2 \in F$ implique $\Vect{x}_1+\Vect{x}_2\in F$. De même,  $\Vect{x}_1,\Vect{x}_2 \in G$ implique $\Vect{x}_1+\Vect{x}_2\in G$. Donc $\Vect{x}_1+\Vect{x}_2\in F\cap G$.
+\item \impo{non vide :} comme $F$ et $G$ sont des sous-espaces vectoriels de $E$, $\Vect{0_E}\in F$ et $\Vect{0_E}\in G$ donc $\Vect{0_E}\in F\cap G$
+\item \impo{stable par $+$ :} soit $\Vect{x}_1,\Vect{x}_2 \in F\cap G $.\\
+Comme $F$ est un sous-espace vectoriel, $\Vect{x}_1+\Vect{x}_2\in F$ car $\Vect{x}_1,\Vect{x}_2 \in F$. De même, $\Vect{x}_1+\Vect{x}_2\in G$. Donc $\Vect{x}_1+\Vect{x}_2\in F\cap G$.
 \item
   \impo{stable par $.$ :} soit $\lambda\in \K$ et $\Vect{x}\in F\cap G $.\\
    Comme $F$ est un sous-espace vectoriel,  $\lambda\Vect{x}\in F$. De même,  $\lambda\Vect{x}\in G$. Donc $\lambda\Vect{x}\in F\cap G$.
@@ -787,7 +800,7 @@ Démontrer que $D=\{(x,y,z)\in \R^3:  x+3y+z =0\}\cap \{(x,y,z)\in \R^3: z=x\} $
  est un sous-espace vectoriel de $\R^3$.
 \end{Enonce}
 \begin{Correction}
-  l'intersection de deux plans vectoriels, $F$ et $G$ dans $\R^3$
+$F=\{(x,y,z)\in \R^3:  x+3y+z =0\}$ et $G=\{(x,y,z)\in \R^3: z=x\}$ sont deux plans vectoriels de $\R^3$. Donc  l'intersection $D=F\cap G$, est un sous espace vectoriel de $\R^3$.
 \begin{center}
 \begin{tikzpicture}
 
@@ -857,7 +870,7 @@ $\lambda (\Vect{x}+\Vect{y})=\underbrace{\lambda\Vect{x}}_{\in F}+\underbrace{\l
 \end{itemize}
 \end{Demonstration}
 \begin{Exemple}[Somme de deux droites vectorielles]
-Soit $F$ et $G$ deux droite vectorielles distinctes. La somme $F+G$ est un plan vectoriel .
+Soit $F$ et $G$ deux droite vectorielles distinctes. La somme $F+G$ est un plan vectoriel.
 \begin{center}
 \begin{tikzpicture}[general,scale=1]
 \draw [color=colordef,fill=colordef] (-1.5,-2) -- (-3.5,-1.5) -- (1.5,2) -- (3.5,1.5)node[right]{$F+G$}; -- cycle ;
@@ -900,8 +913,10 @@ La somme $F+G$ est directe si et seulement si $F\cap G = \{\Vect{0_E}\}$.
 \end{Proposition}
 \begin{Remarque}
 Cette caractérisation ne se généralise pas (simplement) pour $p > 2$.\\
-$E = \R ^2$, $\Vect{x_1} = (1,0)$, $\Vect{x_2} = (0,1)$ et $\Vect{x_3} = (1,1)$.
-On a $\R \Vect{x_1} \cap \R \Vect{x_2} = \R \Vect{x_1} \cap \R \Vect{x_3} = \R \Vect{x_2} \cap \R \Vect{x_3} = \{(0,0)\}$. Cependant la somme $\R \Vect{x_1} + \R \Vect{x_2} + \R \Vect{x_3}$ n'est pas directe car $(1,1)=1(1,1)$ et $(1,1)=1(1,0)+1(0,1).$ 
+Contre-exemple, soit $\Vect{x_1} = (1,0)$, $\Vect{x_2} = (0,1)$ et $\Vect{x_3} = (1,1)$ trois vecteurs de $\R^2$.\\
+Bien que $\R \Vect{x_1} \cap \R \Vect{x_2} = \R \Vect{x_1} \cap \R \Vect{x_3} = \R \Vect{x_2} \cap \R \Vect{x_3} = \{(0,0)\}$,
+La somme $\R \Vect{x_1} + \R \Vect{x_2} + \R \Vect{x_3}$ n'est pas directe.\\
+En effet, le vecteur $(1,1)$ se décompose de deux manière  $$(1,1)=\overbrace{0(1,0)}^{\in \R \Vect{x_1} }+\overbrace{0(0,1)}^{\in \R \Vect{x_2} }+ \overbrace{1(1,1)}^{\in \R \Vect{x_3}}\text{ et }(1,1)=\overbrace{1(1,0)}^{\in \R \Vect{x_1} }+\overbrace{1(0,1)}^{\in \R \Vect{x_2} }+ \overbrace{0(1,1)}^{\in \R \Vect{x_3}}.$$
 \end{Remarque}
 \begin{Demonstration}
 \begin{itemize}
@@ -922,7 +937,7 @@ Comme $F\cap G = \{\Vect{0_E}\}$, on a $\Vect{x} -\Vect{x'}=\Vect{0}$ et $\Vect{
 \end{itemize}
 \end{Demonstration}
 \begin{Remarque}
-Pour démontrer que $F\cap G = \{\Vect{0_E}\}$, dans le raisonnement de la double inclusion, on omettra l'inclusion $F\cap G = \{\Vect{0_E}\}$ qui est évidente. En effet $\Vect{0_E}\in F,G$ car $F$ et $G$ sont des espaces vectoriels. 
+Pour démontrer que $F\cap G = \{\Vect{0_E}\}$, dans le raisonnement de la double inclusion, on omettra l'inclusion $F\cap G = \{\Vect{0_E}\}$ qui est évidente. En effet $\Vect{0_E}\in F,G$ car $F$ et $G$ sont des sous espaces vectoriels de $E$. 
 \end{Remarque}
 
 \begin{Exemple} Géométriquement, l'intersection entre deux plans vectoriels distincts, $F$ et $G$, est une droite vectoriel, donc la somme n'est pas directe.
@@ -956,9 +971,8 @@ $$\begin{aligned}
  (x,y,z)\in F \cap G & \Leftrightarrow \begin{cases}x+y+z=0 \\ x-y+z=0 \end{cases}\\
  & \Leftrightarrow \begin{cases}x+y+z=0 \\ -2y=0 \quad L_2\leftarrow L_2 - L_1\end{cases}\\
  & \Leftrightarrow \begin{cases}x+z=0 \\ y=0 \end{cases}\\
- & \Leftrightarrow  z=\lambda, x=-\lambda , y=0,\quad  \forall t\in \R \\
- & \Leftrightarrow  (x,y,z) = \lambda(-1,0,1),\quad  \forall t\in \R \\
- & \Leftrightarrow  (x,y,z) \in \VectE ( -1,0,1)
+ & \Leftrightarrow  z=z, x=-z , y=0 \\
+ & \Leftrightarrow  (x,y,z) = z(-1,0,1)
  \end{aligned}$$
 Finalement  $F \cap G = \VectE ( -1,0,1)$ et $F$ et $G$ ne sont pas en somme directe. 
 \end{Correction}
@@ -1005,7 +1019,7 @@ $$F=\big\{ (x,y,z) \in \R^3\mid x-y-z=0\big\} \qquad \text { et } \qquad
 G=\big\{(x,y,z) \in \R^3 \mid y=z=0\big\}$$
 sont supplémentaires dans $\R^3$.
 \end{Enonce}
-\begin{Demonstration}
+\begin{Correction}
 Soit $(x,y,z)\in\R^3$.
 \begin{itemize}
  \item \impo{Analyse} :  Supposons qu'il existe $(x_1,y_1,z_1)\in F$ et $(x_2,y_2,z_2)\in G$ tel que 
@@ -1017,19 +1031,19 @@ Soit $(x,y,z)\in\R^3$.
   \item \impo{Synthèse} : On vérifie que $(x,y,z)=\overbrace{(y+z,y,z)}^{\in F}+ \overbrace{(x-y-z, 0,0)}^{\in G}$. D'où l'existence de la décomposition.
 \end{itemize}
 $F \oplus G=\R^3$.
-\end{Demonstration}
+\end{Correction}
 \end{Exemple}
 
 
 \begin{Exemple}[Polynôme]
 \begin{Enonce}
 Soit $P \in \K[X]$ non nul de degré $n$.\\
-Démontrer que $ \K[X] = P \K[X] \oplus \K_{n-1}[X]$ où : $P\K[X] =\{ PQ | Q \in \K[X]\}$
+Démontrer que $ \K[X] = P \K[X] \oplus \K_{n-1}[X]$ où : $P\K[X] =\{ PQ | Q \in \K[X]\}$.
 \end{Enonce}
 \begin{Correction}
 Soit $A\in \K[X]$.
 D'après le théorème de la division euclidienne, 
-$$\exists ! (Q,R) \in \K[X] \times \K_{n-1}[X]:\quad A = \overbrace{PQ}^{\in \K[X]}+ \overbrace{PQ}^{\in R}.$$
+$$\exists ! (Q,R) \in \K[X] \times \K_{n-1}[X]:\quad A = \overbrace{PQ}^{\in P\K[X]}+ \overbrace{R}^{\in \K_{n-1}[X]}.$$
 Donc $ \K[X] = P \K[X] \oplus \K_{n-1}[X]$.
 \end{Correction}
 \end{Exemple}
@@ -1051,11 +1065,12 @@ Soit $f\in \SpaceFonction{\R}{\R}$.
   D'une part, $f(x)=g(x)+h(x)$, et d'autre part, $f(-x)=g(-x)+h(-x)=g(x)-h(x)$.\\
   Par somme et différence, obtient
   $$g(x)=\frac{f(x)+f(-x)}2 \qquad \text{ et } \qquad h(x)=\frac{f(x)-f(-x)}2.$$
-	D'où l'unicité de la décomposition.	
-  \textbf{Synthèse.} Soit $x\in\R$.\\ 
+	D'où l'unicité de la décomposition.	\\
+  \impo{Synthèse.} Soit $x\in\R$.\\ 
   On pose $g,h$ définit par $$\forall x\in\R:\quad g(x)=\frac{f(x)+f(-x)}2 \text{ et }h(x)=\frac{f(x)-f(-x)}2.
   $$
-  On a $f=g+h$ et d'autre part $g \in \mathcal{P}$ car $\forall x\in\R: g(-x)=g(x)$ et $h\in\mathcal{I}$  $\forall x\in\R: h(-x)=-h(x)$. D'où l'existence de la décomposition.	
+  On a $f=g+h$ et d'autre part $g \in \mathcal{P}$ car 
+  $$\forall x\in\R: g(-x)=\frac{f(-x)+f(-(-x))}2=\frac{f(x)+f(-x)}2=g(x)$$ et $h\in\mathcal{I}$ car $$\forall x\in\R: h(-x)=-h(x).$$ D'où l'existence de la décomposition.	
 \end{itemize}
 $\mathcal{P}\oplus\mathcal{I}=\mathcal{F}(\R , \R)$.
 \end{Correction}
@@ -1067,7 +1082,7 @@ Autrement dit, soit $E$ est un espace vectoriel de dimension finie et $F$ un sou
 Alors il existe un sous espace vectoriel $G$ de $E$ tel que $E = F \oplus G$.
 \end{Proposition}
 \begin{Demonstration}
-La démonstration fait appel à des résultats ultérieurs (à visée pédagogique, cette proposition est placé ici).\\
+La démonstration fait appel à des résultats ultérieurs (à but pédagogique, cette proposition est ici).\\
 Soit $\mathcal{B}_1$ une base de $F$ que l'on complète avec $\mathcal{B}_2$ pour former une base de $E$.\\
 Si on pose $G$ l'espace vectoriel engendrée par  $\mathcal{B}_2$, alors $E = F \oplus G$.  
 \end{Demonstration}
@@ -1092,7 +1107,7 @@ Si on pose $G$ l'espace vectoriel engendrée par  $\mathcal{B}_2$, alors $E = F 
 
 \subsection{Famille génératrice}
 \begin{Definition}[Famille génératrice]
-Une famille finie  $(\Vect{x}_1,\dots,\Vect{x_p})$ est \defi{génératrice} de $E$ si tout vecteur de $E$ est combinaison linéaire de  $(\Vect{e}_1,\dots,\Vect{e_p})$, c'est à dire si $\VectE (\Vect{x}_1,\dots,\Vect{x_p}) = E$, c'est à dire si 
+Une famille finie  $(\Vect{x}_1,\dots,\Vect{x_p})$ est \defi{génératrice} de $E$ si tout vecteur de $E$ est combinaison linéaire de  $(\Vect{x}_1,\dots,\Vect{x_p})$, c'est à dire si $\VectE (\Vect{x}_1,\dots,\Vect{x_p}) = E$, c'est à dire si 
 $$ \forall \Vect{x} \in E,\exists \lambda_1,\dots,\lambda_p \in \K,\quad \Vect{x} = \lambda_1 \Vect{x_1}+ \lambda_2 \Vect{x_2}+\dots +\lambda_p \Vect{x_p}.$$
 \end{Definition}
 \begin{Texte}
@@ -1135,7 +1150,7 @@ $$
 \lambda_1 + 3\lambda_2 & = & 0
 \end{array}\right.
 $$
-En soustrayant la seconde ligne à la première, on obtient $\lambda_2=0$, puis $\lambda_1=0$.  D'où $\left(\begin{smallmatrix}0\\1\\0\end{smallmatrix}\right)= 0$ ce qui est impossible. Donc la famille $(\left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right),\left(\begin{smallmatrix}1\\2\\3\end{smallmatrix}\right)$ n'est pas génératrice de $\R^3$. 
+En soustrayant la seconde ligne à la première, on obtient $\lambda_2=0$, puis $\lambda_1=0$.  D'où $\left(\begin{smallmatrix}0\\1\\0\end{smallmatrix}\right)= 0$ ce qui est impossible. Donc la famille $(\left(\begin{smallmatrix}1\\1\\1\end{smallmatrix}\right),\left(\begin{smallmatrix}1\\2\\3\end{smallmatrix}\right))$ n'est pas génératrice de $\R^3$. 
 \end{Correction}
 \end{Exemple}
 
@@ -1145,20 +1160,20 @@ Une famille  $(\Vect{x}_1,\dots,\Vect{x_p})$ est \defi{libre} si tout vecteur s'
 $$ \forall \lambda_1,\dots,\lambda_p,\beta_1,\dots,\beta_p \in \K,\quad \left(\lambda_1 \Vect{x_1}+ \dots +\lambda_p \Vect{x_p}=\beta_1 \Vect{x_1}+ \dots +\beta_p \Vect{x_p}\Longrightarrow  \lambda_1=\beta_1,\dots,\lambda_p=\beta_p\right)  .$$
 Dans le cas contraire, on dit que la famille est \defi{liée} ou \defi{linéairement dépendante}.
 \end{Definition}
-\begin{Remarque}
-La famille vide $\varnothing$ est libre.
-\end{Remarque}
 \begin{Texte}
 Une famille libre garantit \defi{l'unicité des coefficients dans les combinaisons linéaires,
 donc le possibilité de pratiquer des identifications.}\\
-Par exemple, si on a $\sum_{i=0}^p a_i (X+1)^i=\sum_{i=0}^p i (X+1)^i$, alors $a_i=i\; \forall i\in\Intf{0}{p}$ car la famille $((X+1)^i)_{0\leq i\leq p }$ est libre. 
+Par exemple, si on a $\sum_{i=0}^n a_i (X+1)^i=\sum_{i=0}^n i (X+1)^i$, alors $a_i=i\; \forall i\in\Intf{0}{n}$ car la famille $((X+1)^i)_{0\leq i\leq n }$ est libre. 
 \end{Texte}
+\begin{Remarque}
+La famille vide $\varnothing$ est libre.
+\end{Remarque}
 \begin{Exemple}
 \begin{Enonce}
 Démontrer que la famille  $\{(1,1), (0,1), (1,-1)\}$  n'est pas libre dans $\R^2$.
 \end{Enonce}
 \begin{Correction}
-Comme  $(1,1)+ -2(0,1)=1(1,-1)$, un même vecteur s'exprime de manière différentes comme combinaison linéaire. Donc la famille n'est pas libre.
+Comme  $(1,1)-2(0,1)+0(1,-1)=1(1,-1)+0(0,1)+0(1,-1)$, un même vecteur s'exprime de deux manières distinctes comme combinaison linéaire de la famille. Donc la famille n'est pas libre.
 \end{Correction}
 \end{Exemple}
 
@@ -1288,7 +1303,7 @@ $$2\begin{pmatrix}
 \end{pmatrix}=
 \begin{pmatrix}0\cr 0\cr 0\cr \end{pmatrix}.$$
 La famille
-$$\left(\begin{pmatrix}
+$\left(\begin{pmatrix}
 1\\2\\3
 \end{pmatrix},
 \begin{pmatrix}
@@ -1296,12 +1311,12 @@ $$\left(\begin{pmatrix}
 \end{pmatrix},
 \begin{pmatrix}
 2\\1\\0
-\end{pmatrix}\right)$$ est donc une famille liée.
+\end{pmatrix}\right)$ est donc une famille liée.
 \end{Correction}
 \end{Exemple}
 \begin{Exemple}[Polynôme]
 \begin{Enonce}
-Démontrer que la famille $( (1-X),(1+3X-X^2))$ est liée.
+Démontrer que la famille $( (1-X),(5+3X-2X^2),(1+3X-X^2))$ est liée.
 \end{Enonce}
 \begin{Correction}
 On  a $3(1-X) - (5+3X-2X^2) + 2(1+3X-X^2) = 0.$ donc la famille est liée.
@@ -1311,21 +1326,22 @@ On  a $3(1-X) - (5+3X-2X^2) + 2(1+3X-X^2) = 0.$ donc la famille est liée.
 
 \begin{Exemple}[Exemple]
 \begin{Enonce}
-Démontrer que la famille  $\{\cos, \sin\}$ est libre dans le $\R$-espace vectoriel $\SpaceFonction{\R}{\R}$.
+Démontrer que la famille  $(\cos, \sin)$ est libre dans le $\R$-espace vectoriel $\SpaceFonction{\R}{\R}$.
 \end{Enonce}
 \begin{Correction} 
 Soit $\lambda,\mu\in\K$ tel que $\lambda \cos+\mu \sin =0$. Cela équivaut à
 $$\forall x \in \R: \qquad \lambda \cos(x) + \mu \sin(x)=0.  $$
 En particulier, pour $x=0$, cette égalité donne $\lambda =0$. Et pour
-$x=\frac{\pi}2$, elle donne $\mu=0$. Donc la famille
-$\{\cos , \sin\}$ est libre.
+$x=\frac{\pi}2$, elle donne $\mu=0$.\\
+Donc la famille
+$(\cos , \sin)$ est libre.
 \end{Correction}
 \end{Exemple}
 
 \subsection{Base}
 \begin{Definition}[Base]
 On dit que la famille $\mathcal{B}=(\Vect{e}_1,\dots,\Vect{e_p})$ est une \defi{base} de $E$ si elle est libre et génératrice, c'est-à-dire si tout vecteur de
-$E$ est une et une seule manière combinaison linéaire de $\mathcal{B}$, c'est-à-dire,
+$E$ s'exprime de manière unique comme combinaison linéaire de $\mathcal{B}$, c'est-à-dire,
 $$ \forall \Vect{x}\in E, \exists !  \lambda_1,\dots,\lambda_p   \in \K ,\quad  \Vect{x} = \lambda_1 \Vect{e_1}+ \lambda_2 \Vect{e_2}+\dots +\lambda_p \Vect{e_p}.$$
  $(\lambda_1, \dots , \lambda_n)$ s'appellent les \defi{coordonnées} du vecteur $\Vect{x}$
 dans la base $\mathcal{B}$.
@@ -1384,7 +1400,7 @@ a_{11} & \cdots & a_{1p}\\
  \vdots &  & \vdots\\
 a_{n1} & \cdots & a_{np}
 \end{pmatrix} = \sum_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p} a_{i,j} E_{i,j}$,  $(E_{i,j})_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p}$ est une famille génératrice de $\MnpK$.
-\item  Soit  $\lambda_{ij})_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p}\in\K$ des scalaires tel que
+\item  Soit  $(\lambda_{ij})_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p}\in\K$ des scalaires tel que
 $$\sum _{1\leqslant i\leqslant n\atop 1\leqslant j\leqslant p}  \lambda_{ij} E_{i,j}=0_{\MnpK}.$$
 D'où :
  $$\begin{pmatrix}
@@ -1398,7 +1414,7 @@ D'où :
 \end{pmatrix}$$
 Par identification, $\lambda_{ij}=0$ pour tout $i\in\Intf{1}{n}$ et  $j\in\Intf{1}{p}$, donc la famille est libre.
 \end{itemize}
-La famille $(E_{ij})_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p}$ est donc une base de $\MnK$.
+La famille $(E_{ij})_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p}$ est donc une base de $\MnpK$.
 \end{Demonstration}
 
  
@@ -1406,7 +1422,7 @@ La famille $(E_{ij})_{1\leqslant i\leqslant n, 1\leqslant j\leqslant p}$ est don
 \begin{Enonce}
 Soit $x_i$ $n+1$ scalaires distincts.\\
 On définit la famille les polynômes de Lagrange $(l_i)_{0\leq i\leq n}$ par : 
-$$\forall  i\Intf{0}{n} l_{i}=\prod _{j=0,j\neq i}^{n}{\frac {X-x_{j}}{x_{i}-x_{j}}}={\frac {X-x_{0}}{x_{i}-x_{0}}}\cdots {\frac {X-x_{i-1}}{x_{i}-x_{i-1}}}~{\frac {X-x_{i+1}}{x_{i}-x_{i+1}}}\cdots {\frac {X-x_{n}}{x_{i}-x_{n}}}$$   
+$$\forall  i\in\Intf{0}{n}:\quad l_{i}=\prod _{j=0,j\neq i}^{n}{\frac {X-x_{j}}{x_{i}-x_{j}}}={\frac {X-x_{0}}{x_{i}-x_{0}}}\cdots {\frac {X-x_{i-1}}{x_{i}-x_{i-1}}}~{\frac {X-x_{i+1}}{x_{i}-x_{i+1}}}\cdots {\frac {X-x_{n}}{x_{i}-x_{n}}}$$   
 Démontrer que la famille $(l_i)_{0\leq i\leq n}$ est une base $\K_n[X]$.
 \end{Enonce}
 \begin{Correction}
@@ -1414,11 +1430,13 @@ On vérifie que $l_{i}(x_j)=\begin{cases}1&\text{si }i=j\\0&\text{si }i\neq j\en
 \begin{itemize}
 \item Soit $P\in \K_n[X]$.\\
  On pose $L=P(x_0)l_0+P(x_1)l_1+\dots+P(x_n)l_n$, d'où $L(x_i)=P(x_i)$ pour tout $i\in\Intf{0}{n}$.\\
- Le polynôme $L-P$ s'annule aux $n+1$ points $X_i$. Comme   $L-P$ est de degré au plus $n$, $L-P=0$. D'où $L=P$. 
+ Le polynôme $L-P$ s'annule donc aux $n+1$ points distincts $x_i$. Comme de plus  $L-P$ est de degré au plus $n$, $L-P=0$. D'où $L=P$. \\
   La famille $(l_i)_{0\leq i\leq n}$ est génératrice de $\K_n[X]$.
 \item Soit $\lambda_0,\lambda_n\in \K$ tel que $\lambda_0 l_0+\lambda_1 l_1+\dots+\lambda_ nl_n =0$.
- Soit $i\in \Intf{0}{n}$. Comme $\lambda_0 l_0(x_i)+\lambda_1 l_1(x_i)+\dots+\lambda_i l_i(x_i)+\lambda_ nl_n(x_n)=\lambda_0 0+\lambda_1 0+\dots+\lambda_i 1+\lambda_n 0=\lambda_i$, $\lambda_i=0$. \\
-  La famille $(l_i)_{0\leq i\leq n}$ est libre dans $\K_n[X]$.
+ Soit $i\in \Intf{0}{n}$. \\
+ En évalue le polynôme en $x_i$:  $$\lambda_0 l_0(x_i)+\lambda_1 l_1(x_i)+\dots+\lambda_i l_i(x_i)+\lambda_ nl_n(x_n)=\lambda_0 0+\lambda_1 0+\dots+\lambda_i 1+\lambda_n 0=\lambda_i$$
+ Ainsi $\lambda_i=0$. \\
+ La famille $(l_i)_{0\leq i\leq n}$ est libre dans $\K_n[X]$.
 \end{itemize}
 La famille $(l_i)_{0\leq i\leq n}$ est une base $\K_n[X]$.
 \end{Correction}
@@ -1456,14 +1474,14 @@ Tant que $\mathcal{B}$ n'est pas génératrice de $E$ :
 \item On remplace $\mathcal{B}$ par $\mathcal{B}\cup \{\Vect{g} \}$, qui est encore libre car le nouveau vecteur n'est pas une combinaison linéaire des précédents.
 \end{enumerate}
 La boucle se termine en un nombre fini d'étapes puisqu'on ajoute à chaque étape un élément de $\mathcal{G}$ différent des précédents et que $\mathcal{G}$ est fini.\\ 
-\impo{Preuve algorithmique :}\\
+\impo{Preuve algorithmique :}
 \begin{itemize}
 \item $\mathcal{B}$ est libre par construction.
-\item Pour montrer que $\mathcal{B}$ est génératrice, il suffit de démontrer que tout vecteur de  $\mathcal{G}$ est combinaison linaire de $\mathcal{B}$.\\
+\item Pour montrer que $\mathcal{B}$ est génératrice, il suffit de démontrer que tout vecteur de la famille génératrice de  $\mathcal{G}$ est combinaison linaire de $\mathcal{B}$.\\
 Soit $\vec{x}\in  \mathcal{G}$. Par disjonction de cas, on a : 
 \begin{itemize}
 \item $\vec{x}\in \mathcal{B}$ : évidement   $\vec{x}$ combinaison linaire de $\mathcal{B}$  ($\vec{x}=1\vec{x}$)
-\item $\vec{x}\notin \mathcal{B}$ : Donc, à une certaine étape, le vecteur $\vec{x}$ n'a pas été ajouté à la famille $\mathcal{B}$ parce qu'il était combinaison linéaire de certains vecteurs de $\mathcal{B}$ à cette étape. Ce qui est toujours le cas au final.
+\item $\vec{x}\notin \mathcal{B}$ : donc, à une certaine étape, le vecteur $\vec{x}$ n'a pas été ajouté à la famille $\mathcal{B}$ parce qu'il était combinaison linéaire de certains vecteurs de $\mathcal{B}$ à cette étape. Ce qui est toujours le cas au final.
 \end{itemize}
 Donc $\mathcal{B}$ est génératrice.
 \end{itemize}
@@ -1474,7 +1492,7 @@ Soit $E$ un espace vectoriel de dimension finie et $\mathcal{G}$ une famille gé
 Alors il existe une base $\mathcal{B}$ de $E$ telle que $\mathcal{B}\subset \mathcal{G}.$
 \end{Theoreme}
 \begin{Demonstration}
-La démonstration est identique à la précédente exceptée que $\mathcal{L}=\emptyset$.
+La démonstration est identique à la précédente exceptée que $\mathcal{L}=\emptyset$ et que $\mathcal{G}$ est déjà définie.
 \end{Demonstration}
 \begin{Exemple}[Polynôme]
 \begin{Enonce}
@@ -1485,17 +1503,12 @@ $P_1=1, P_2=X, P_3=X+1, P_4=1+X^3.$
 Initialisons  $\mathcal{B}_0$ avec la famille libre $\varnothing$.\\
 $(P_1, P_2, P_3, P_4, P_5)$ est une famille génératrice de $E$.
 \begin{enumerate}
-  \item $P_1$:   on pose $\mathcal{B}_1 = \mathcal{B}_0 \cup \{ P_1 \} = \{ P_1 \}$.
-  Comme  $P_1$ est non nul, $\mathcal{L}_1$ est une famille libre.
-
-  \item $P_2$ : comme les éléments $P_1$ et $P_2$ sont linéairement indépendants,
-  $\mathcal{L}_2 = \mathcal{L}_1\cup \{ P_2 \}= \{ P_1, P_2 \}$ est une famille libre.
-
+  \item $P_1$:  $(P1)$ est libre car $P_1$ est non nul.  On pose $\mathcal{B}_1 =  ( P_1)$.
+  \item $P_2$ : comme les vecteurs $P_1$ et $P_2$ sont linéairement indépendants,
+  on pose $\mathcal{B}_2 =  ( P_1,P2)$.
   \item $P_3$ : Comme $P_3 = X+1 = P_1 + P_2)$, $(P_1, P_2, P_3 )$ est une famille liée.
-  
-  \item $P_4$ : on prouverait que les vecteurs $P_1$, $P_2$  et
-  $P_4$ sont linéairement indépendants. Alors  $\mathcal{L}_3 = \{P_1, P_2, P_4\}$
-  est une famille libre.
+  \item $P_4$ :  comme les vecteurs $P_1$, $P_2$ et $P_4$ sont linéairement indépendants,  on pose $\mathcal{B}_2 =  ( P_1,P2,P4)$.
+ 
 \end{enumerate}
 $\mathcal{L}_{3}=\{P_1, P_2, P_4\}$ est une base de $E$.
 \end{Correction}
@@ -1503,18 +1516,20 @@ $\mathcal{L}_{3}=\{P_1, P_2, P_4\}$ est une base de $E$.
 \subsection{Unicité du cardinal de la base}
 
 
-\begin{Proposition}
-Si $E$ est un espace vectoriel de dimension finie admettant une famille génératrice de $n$ vecteurs, alors toute famille de $n+1$ vecteurs est liée.
-\end{Proposition}
+\begin{Lemme}
+Soit $E$ est un espace vectoriel de dimension finie admettant une famille génératrice de $n$ vecteurs.\\
+Alors toute famille de $n+1$ vecteurs est liée.
+\end{Lemme}
 \begin{Demonstration}
 On démontre \impo{par récurrence} que, pour tout $n \ge 1$, la propriété suivante est vraie :\\
 Si $E$ est un espace vectoriel de dimension finie admettant une famille génératrice de $n$ vecteurs, alors toute famille de $n+1$ vecteurs est liée.
 \begin{itemize}
 \item \impo{Initialisation} :
 Soit $(\Vect{g}_1)$ une famille génératrice de $E$.\\
-Soit $(\Vect{v}_1,\Vect{v}_2)$ une famille de $E$. Il existe $\lambda_1$ et $\lambda_2$ dans $\R$ tel que $\Vect{v}_1=\lambda_1 \Vect{g}_1$ et $\Vect{v}_2=\lambda_2 \Vect{g}_1$. Par disjonction de cas, on a :
+Soit $(\Vect{v}_1,\Vect{v}_2)$ une famille de $E$. Il existe $\lambda_1$ et $\lambda_2$ dans $\R$ tel que $\Vect{v}_1=\lambda_1 \Vect{g}_1$ et $\Vect{v}_2=\lambda_2 \Vect{g}_1$.\\
+Par disjonction de cas, on a :
 \begin{itemize}
-\item $\lambda_1=\lambda_2=0 :$la famille $(\Vect{v}_1=\Vect{0},\Vect{v}_2=\Vect{0})$ est liée.
+\item $\lambda_1=\lambda_2=0 :$ la famille $(\Vect{v}_1=\Vect{0},\Vect{v}_2=\Vect{0})$ est liée.
 \item $\lambda_1\neq 0 :$ on a $\Vect{v}_1=\frac{\lambda_2}{\lambda_1}\Vect{v}_2$. Les vecteurs sont colinéaires donc liées.
 \item $\lambda_2\neq 0$: de même par symétrie.
 \end{itemize}
@@ -1524,18 +1539,20 @@ Soit $(\Vect{v}_1, \Vect{v}_2,\dots \Vect{v}_{n+1})$ une famille de $n+1$ vecteu
 Si tout les vecteurs les vecteurs sont nuls, alors la famille est liée.\\
 Supposons qu'au moins un vecteur ne soit pas nul.\\ 
 Pour tout $i\in \Intf{1}{n+1}$, il existe $\lambda_{i,1},\lambda_{i,2},\dots,\lambda_{i,n}\in\K$ tel que $$\Vect{v}_i=  \lambda_{i,1}\Vect{g}_1 + \lambda_{i,2}\Vect{g_2}+\dots+\lambda_{i,n}.\Vect{g_n}$$
+Comme au moins un vecteur n'est pas nul, il existe $\lambda_{i,j}\neq 0$.
 Quitte à réorganiser les deux familles, on peut supposer que $\lambda_{n+1,n}\neq 0$. \\
 Pour tout  $i\in \Intf{1}{n}$, on a 
 $$\Vect{v}_i-\frac{\lambda_{i,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1}\in \VectE (\Vect{g_1},\dots,\Vect{g}_{n-1}).$$
-On applique l'hypothèse de récurrence à l'espace vectoriel générée par la famille $(\Vect{g_1},\dots,\Vect{g}_{n-1})$. Donc la famille $\left(\Vect{v}_1-\frac{\lambda_{1,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1},\dots, \Vect{v}_n-\frac{\lambda_{n,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1}\right)$ est liée. Il existe  $\beta_{1},\beta_{2},\dots,\beta_{n}\in\K$ non tous nuls tel que :
+On applique l'hypothèse de récurrence à l'espace vectoriel générée par la famille $(\Vect{g_1},\dots,\Vect{g}_{n-1})$. Donc la famille $\left(\Vect{v}_1-\frac{\lambda_{1,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1},\dots, \Vect{v}_n-\frac{\lambda_{n,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1}\right)$ est liée. Donc il existe  $\beta_{1},\beta_{2},\dots,\beta_{n}\in\K$ non tous nuls tel que :
 $$\beta_1 (\Vect{v}_1-\frac{\lambda_{1,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1})+\dots+\beta_n (\Vect{v}_n-\frac{\lambda_{n,n}}{\lambda_{n+1,n}}\Vect{v}_{n+1})=\Vect{0}.$$
 d'où 
 $$\beta_1\Vect{v}_1+\dots +\beta_n\Vect{v}_n - (\beta_1\frac{\lambda_{1,n}}{\lambda_{n+1,n}}+\dots +\beta_n\frac{\lambda_{n,n}}{\lambda_{n+1,n}})\Vect{v}_{n+1}=\Vect{0}.$$
 La famille est donc liée. 
 \end{itemize}
 \end{Demonstration}
-\begin{Proposition}
-Si $E$ est un espace vectoriel de dimension finie admettant une famille génératrice de $n$ vecteurs, alors toute famille ayant strictement plus de $n$ vecteurs est liée.
+\begin{Proposition}[Nombre maximal de vecteurs linéairement indépendants]
+Soit $E$ est un espace vectoriel de dimension finie admettant une famille génératrice de $n$ vecteurs.\\
+Alors toute famille ayant strictement plus de $n$ vecteurs est liée.
 \end{Proposition}
 \begin{Demonstration}
 Si la famille a strictement plus de $n$ vecteurs, on peut en enlever pour constituer une famille de $n+1$ vecteurs qui est donc liée d'après la proposition précédente. A fortiori, la famille initiale est liée. 
@@ -1556,7 +1573,7 @@ Par convention, l'espace vectoriel $\{0_E\}$ est de dimension $0$.
 \end{DefinitionProposition}
 
 \begin{Theoreme}[Caractérisation des base en dimension finie]
-Soit $E$ un espace vectoriel de dimension finie \propri{$n$}. Soit $\mathcal{F}$ est famille de \propri{$n$} vecteurs.
+Soit $E$ un espace vectoriel de dimension finie \propri{$n$}. Soit $\mathcal{F}$ une famille de \propri{$n$} vecteurs.\\
 Il y a équivalence entre :
 \begin{enumerate}
   \item $\mathcal{F}$ est une base de $E$,
@@ -1578,7 +1595,7 @@ Autrement dit, lorsque le nombre de vecteurs de la famille est \impo{égal à la
 
 \begin{Exemple}[Espace]
 \begin{Enonce}
-Déterminer si les familles suivantes  $\mathcal{F}_1=((1,3,2),(2,5,6))$ et $\mathcal{F}_2=((1,1,4),(1,3,t),(1,1,t)$ sont des bases de $\R^3$.
+Déterminer si les familles suivantes  $\mathcal{F}_1=((1,3,2),(2,5,6))$ et $\mathcal{F}_2=((1,1,4),(1,3,t),(1,1,t))$ sont des bases de $\R^3$.
 \end{Enonce}
 \begin{Correction}
 La famille $\mathcal{F}_1$ contient deux éléments dans un espace de dimension 3. Ce n'est pas une base de $\R^3$.\\
@@ -1604,7 +1621,7 @@ $$
   (t-4) \lambda_3 &=& 0
   \end{array} \right.
   \end{aligned}$$
-$t\neq 4$ si et seulement si  la seule solution est
+$t\neq 4$ si et seulement si  la seule solution du système est
   $(\lambda_1,\lambda_2,\lambda_3)=(0,0,0)$ si et seulement si  $\mathcal{F}_2$ est libre si et seulement si  $\mathcal{F}_2$ est une base. 
 \end{Correction}
 \end{Exemple}
@@ -1618,27 +1635,27 @@ Soit $E$ un espace vectoriel de dimension finie et $F$ un sous espace vectoriel 
 Alors $F$ est également de dimension finie et $\dim F \leq \dim E$, avec égalité si et seulement si $F = E$.
 \end{Proposition}
 \begin{Demonstration}
-Soit $\mathcal{B}$ une base $E$. $\mathcal{B}$ est une famille génératrice de $E$. Donc, évidement de $F$ sous espace vectoriel de $E$.  En utilisant l'algorithme de base extraite, on peut construire une base $\mathcal{B}'$ de  $F$ en retirant certains vecteurs de $\mathcal{B}$. Donc la dimension de $F$ égale au cardinal de $\mathcal{B}'$ est inférieur au cardinal $\mathcal{B}$ égale à la dimension de $E$. Ainsi, $F$ est également de dimension finie et $\dim F \leq \dim E$
+Soit $\mathcal{B}$ une base $E$. $\mathcal{B}$ est une famille génératrice de $E$. Donc, évidement de $F$ sous espace vectoriel de $E$.  En utilisant l'algorithme de base extraite, on peut construire une base $\mathcal{B}'$ de  $F$ en retirant certains vecteurs de $\mathcal{B}$. Donc la dimension de $F$ égale au cardinal de $\mathcal{B}'$ qui est inférieur au cardinal $\mathcal{B}$ égale à la dimension de $E$. Ainsi, $F$ est également de dimension finie et $\dim F \leq \dim E$
 \end{Demonstration}
 
 \begin{Remarque}
-Si $E$ est de dimension infinie, on ne peut rien affirmer. Par exemple pour l'espace vectoriel $E = \SpaceFonction(\R,\R)$
-de dimension infinie,  :
+Si $E$ est de dimension infinie, on ne peut rien affirmer. Par exemple, l'espace vectoriel $E = \SpaceFonction{\R}{\R}$
+de dimension infinie contient  :
 \begin{itemize}
-  \item il contient le sous-espace vectoriel des fonctions polynômes de degré au plus $ n$, qui est de dimension finie ;
-  \item et aussi le sous-espace vectoriel des fonctions polynômes, qui lui est de dimension infinie.
+  \item le sous-espace vectoriel des fonctions polynômes de degré au plus $ n$, qui est de dimension finie
+  \item le sous-espace vectoriel des fonctions polynômes, qui lui est de dimension infinie.
 \end{itemize}
 \end{Remarque}
-\begin{Exemple}
+\begin{Exemple}[Sous espaces vectoriels de $E$ avec $\dim E=3$]
 Si $E$ est un $\K$-espace vectoriel de dimension $3$,
 les sous-espaces vectoriels de $E$ sont :
 \begin{itemize}
-  \item soit de dimension $0$ : c'est alors le sous-espace $\{0\}$
+  \item soit de dimension $0$ : c'est alors le sous-espace $\{\Vect{0_E}\}$
   \item soit de dimension $1$ : ce sont les droites vectorielles, c'est-à-dire
-  les sous-espaces $\K \Vect{x} = \Vect( \Vect{x})$ engendrés par les vecteurs non nuls
+  les sous-espaces $\K \Vect{x} = \VectE( \Vect{x})$ engendrés par les vecteurs non nuls
   $\Vect{x}$ de $E$
   \item soit de dimension $2$ :  ce sont les plans vectorielles, c'est-à-dire
-  les sous-espaces $\K \Vect{x}+\K \Vect{y} = \Vect ( \Vect{x},\Vect{y})$ engendrés par deux vecteurs non colinéaires de $E$
+  les sous-espaces $\K \Vect{x}+\K \Vect{y} = \VectE ( \Vect{x},\Vect{y})$ engendrés par deux vecteurs non colinéaires de $E$.
 \end{itemize}
 \end{Exemple}
 
@@ -1652,15 +1669,15 @@ De même, le résultat se généralise au cas d'un nombre fini quelconque d'espa
 \end{Proposition}
 \begin{Demonstration}
 Soit $(\Vect{e_1},\dots,\Vect{e_n})$ une base de $E$ et $(\Vect{f_1},\dots,\Vect{f_q})$ une base de $F$.\\
-On pose la famille $( (\Vect{e_1},\Vect{0}_F),\dots,(\Vect{e_n},\Vect{0}_F),(\Vect{0}_E,\Vect{f_1}),\dots,(\Vect{0}_E,\Vect{f_q}))$.
+Montrons que la famille $( (\Vect{e_1},\Vect{0}_F),\dots,(\Vect{e_n},\Vect{0}_F),(\Vect{0}_E,\Vect{f_1}),\dots,(\Vect{0}_E,\Vect{f_q}))$ est :
 \begin{itemize}
 \item \impo{Génératrice} :
-Soit $(\Vect{x},\Vect{y})\in E\times F$. \\
+soit $(\Vect{x},\Vect{y})\in E\times F$. \\
 Comme $\Vect{x}\in E$ et $(\Vect{e_1},\dots,\Vect{e_n})$ est une famille génératrice de $E$, il existe $\lambda_1,\dots,\lambda_n\in \K$ tel que $\Vect{x}=\lambda_1\Vect{e_1}+\dots+ \lambda_n\Vect{e_n}$.\\
 Comme $\Vect{y}\in F$ et $(\Vect{f_1},\dots,\Vect{f_q})$ est une famille génératrice de $F$, il existe $\beta_1,\dots,\beta_q\in \K$ tel que $\Vect{y}=\beta_1\Vect{f_1}+\dots+ \beta_q\Vect{f_q}$.\\
 D'où $(\Vect{x},\Vect{y})=\lambda_1(\Vect{e_1},\Vect{0}_F)+\dots+\lambda_n(\Vect{e_n},\Vect{0}_F)+ \beta_1(\Vect{0}_E,\Vect{f_1})+\dots+\beta_q(\Vect{0}_E,\Vect{f_q}).$
 \item \impo{Libre} :
-Soit  $\lambda_1,\dots,\lambda_n,\beta_1,\dots,\beta_q\in \K$ tel que $$\lambda_1(\Vect{e_1},\Vect{0}_F)+\dots+\lambda_n(\Vect{e_n},\Vect{0}_F)+ \beta_1(\Vect{0}_E,\Vect{f_1})+\dots+\beta_q(\Vect{0}_E,\Vect{f_q})=(\Vect{0}_E,\Vect{0}_F).$$
+soit  $\lambda_1,\dots,\lambda_n,\beta_1,\dots,\beta_q\in \K$ tel que $$\lambda_1(\Vect{e_1},\Vect{0}_F)+\dots+\lambda_n(\Vect{e_n},\Vect{0}_F)+ \beta_1(\Vect{0}_E,\Vect{f_1})+\dots+\beta_q(\Vect{0}_E,\Vect{f_q})=(\Vect{0}_E,\Vect{0}_F).$$
 D'où:
 $$(\lambda_1\Vect{e_1}+\dots+ \lambda_n\Vect{e_n},\beta_1\Vect{f_1}+\dots+ \beta_q\Vect{f_q} )=(\Vect{0}_E,\Vect{0}_F).$$
 Par identification, on obtient $\lambda_1\Vect{e_1}+\dots+ \lambda_n\Vect{e_n}=\Vect{0}_E$ et $\beta_1\Vect{f_1}+\dots+ \beta_q\Vect{f_q}=\Vect{0}_F$. Comme $(\Vect{e_1},\dots,\Vect{e_n})$ et $(\Vect{f_1},\dots,\Vect{f_q})$ sont des familles libres de $E$ et  de $F$ respectivement, $\lambda_1=\dots=\lambda_n=\beta_1=\dots=\beta_q=0$. 
@@ -1679,8 +1696,30 @@ Alors $E^p$ est de dimension finie et on a $\dim(E^p) = p.\dim(E)$.
 \begin{Theoreme}[Formule de Grassmann]
 Soit E un $\K $-espace vectoriel dimension finie et $F$, $G$ deux sous espace vectoriel de $E$ de dimension finie.\\
 Alors, on a :
-$$\dim (F + G) = \dim F + \dim G - \dim(F \cap G).$$
+$$\dim (F + G) + \dim(F \cap G) = \dim F + \dim G .$$
 \end{Theoreme}
+\begin{Exemple}[Espace]
+\begin{center}
+\begin{tikzpicture}
+      \draw[thick,colordef] (-2,0)--++(2,1)--++(3,-1)--++(-2,-1)--cycle;
+
+      \draw[thick,colordef] (-2,0)--++(-2,-1)--++(3,-1)--++(2,1)--cycle;
+      \fill[opacity=0.9,colordef] (-2,0)--++(2,1)--++(3,-1)--++(-2,-1)--cycle;
+
+      \draw[thick,colorprop] (-2,0)--++(1,2)--++(3,-1)--++(-1,-2)--cycle;
+      \fill[opacity=0.9,colorprop] (-2,0)--++(1,2)--++(3,-1)--++(-1,-2)--cycle;
+      \draw[thick,colorprop] (-2,0)--++(-1,-2)--++(3,-1)--++(1,2)--cycle;
+      \fill[opacity=0.9,colorprop]  (-2,0)--++(-1,-2)--++(3,-1)--++(1,2)--cycle;
+
+       \fill[opacity=0.9,colordef] (-2,0)--++(-2,-1)--++(3,-1)--++(2,1)--cycle;
+     \draw[very thick,green!60!black] (-2,0)--++(3.3,-1.1)-++(-3.6,1.2);
+       \node[green!60!black,right] at (1.5,-1.2) {$F\cap G$};
+       \node[colorprop] at (1.5,1.5) {$F$};
+       \node[colordef] at (2.5,-0.5) {$G$};
+\end{tikzpicture}
+$$\dim F+ \dim G=2+2=3+1=\dim \R^3 + \dim F\cap G$$
+\end{center}
+\end{Exemple}
 \begin{Demonstration}
 Une idée est de remarquer l'analogie avec la formule ensembliste  :
 $$\text{Card}(A)+\text{Card}(B)=\text{Card}(A\cup B)+\text{Card}(A\cap B).$$
@@ -1694,12 +1733,12 @@ soit  $\lambda_1,\dots,\lambda_{p},\beta_{p+1},\dots,\beta_{p+k},\mu_{p+1},\dots
 \sum_{i=0}^p \lambda_i\Vect{e_i}+\sum_{i=p+1}^{p+k} \beta_i\Vect{f_i}+\sum_{i=p+1}^{p+m} \mu_i\Vect{g_i} =\Vect{0_E}.$$
 D'où:
 $$\overbrace{\sum_{i=0}^p \lambda_i\Vect{e_i}+\sum_{i=p+1}^{p+k} \beta_i\Vect{f_i}}^{\in F \text{ car combinaison linéaire de la base}}=-\overbrace{\sum_{i=p+1}^{p+m} \mu_i\Vect{g_i}}^{\in G \text{ car combinaison linéaire de la base}}.$$
-Donc $\sum_{i=p+1}^{p+m} \mu_i\Vect{g_i}$ est égale  à un vecteur de $F$. Ainsi $\sum_{i=p+1}^{p+m} \mu_i\Vect{g_i}\in F\cap G$. Donc $\mu_i=0$ pour $i$ car les vecteurs $\Vect{g_{p+1}},\dots,\Vect{g_{p+m}}$ complètent la base $F\cap G$.\\
+Donc $\sum_{i=p+1}^{p+m} \mu_i\Vect{g_i}$ est égale  à un vecteur de $F$. Ainsi $\sum_{i=p+1}^{p+m} \mu_i\Vect{g_i}\in F\cap G$. Donc $\mu_i=0$ pour tout $i$ car les vecteurs $\Vect{g_{p+1}},\dots,\Vect{g_{p+m}}$ complètent la base $F\cap G$.\\
 D'où $$\sum_{i=0}^p \lambda_i\Vect{e_i}+\sum_{i=p+1}^{p+k} \beta_i\Vect{f_i}=\Vect{0_E}.$$ 
 Donc $\alpha_i=0$ et $\alpha_i=0$ car $\mathcal{B}_F=(\Vect{e_1},\dots,\Vect{e_p},\Vect{f_{p+1}},\dots,\Vect{f_{p+k}})$  est une famille libre.
 \end{itemize}
 On compte le nombre de vecteurs de chaque base : $\dim F\cap G = \text{Card} \mathcal{B}_{F\cap G} = p$,   $\dim F = \text{Card} \mathcal{B}_{F} = p+k$, $\dim G = \text{Card} \mathcal{B}_{G} =p+ m$,  $\dim (F+G) = \text{Card} \mathcal{B}_{F+G} = p+k+m$.
-Comme le cardinal d'une base est égale à la dimension de l'espace vectoriel, on obtient  bien $$\dim(F+G) = \dim F + \dim G - \dim (F\cap G).$$
+Comme le cardinal d'une base est égale à la dimension de l'espace vectoriel, on obtient  bien $$\dim (F + G) + \dim(F \cap G) = \dim F + \dim G.$$
 \end{Demonstration}
 
 \begin{Theoreme}[Caractérisation des sous espaces vectoriels supplémentaire en dimension finie]
@@ -1715,9 +1754,9 @@ $F$ et $G$ sont supplémentaires dans E si et seulement si deux assertions suiva
 D'après le théorème  de caractérisation,  $F$ est supplémentaire si et seulement si $F \cap G =\{\Vec{0_E}\}$ et $F+G=E$.
 Donc, il suffit de démontrer que 
 \begin{itemize}
-\item \impo{(1) et (3) $\Rightarrow$ (2) :} d'après la formule de Grassmann $$\overbrace{\dim (F + G)}^{\dim E\text{ car } F+G=E} = \overbrace{\dim F + \dim G}^{\dim E \text{ d'après (3)}} - \dim(F \cap G),$$  on obtient  $\dim(F \cap G)=0$. Donc $F \cap G =\{\Vec{0_E}\}$.
+\item \impo{(1) et (3) $\Rightarrow$ (2) :} d'après la formule de Grassmann $$\overbrace{\dim (F + G)}^{\dim E\text{ car } F+G=E}+\dim(F \cap G) = \overbrace{\dim F + \dim G}^{\dim E \text{ d'après (3)}}  ,$$  on obtient  $\dim(F \cap G)=0$. Donc $F \cap G =\{\Vec{0_E}\}$.
 \item \impo{(2) et (3) $\Rightarrow$ (1) :} d'après la formule de Grassmann
-$$\overbrace{\dim (F + G)}^{\dim E\text{ car } F+G=E} = \dim F + \dim G - \overbrace{\dim(F \cap G)}^{=0\text{ car } F \cap G =\{\Vec{0_E}\}},$$
+$$\overbrace{\dim (F + G)}^{\dim E\text{ car } F+G=E}+\overbrace{\dim(F \cap G)}^{=0\text{ car } F \cap G =\{\Vec{0_E}\}} = \dim F + \dim G ,$$
 on obtient  $\dim (F + G)=\dim E$. Comme de plus $F+G$ est un sous espace vectoriel de $E$, $F+G=E$.
 \end{itemize}
 \end{Demonstration}
