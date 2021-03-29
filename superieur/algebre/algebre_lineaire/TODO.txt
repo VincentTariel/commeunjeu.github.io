@@ -1,5 +1,7 @@
+
+
 Rang lien entre applications linéaires et matrices
-matrices et applications linéaires
+
 formes linéaires
 projecteurs et symetries
 espace prehilbertien
@@ -7,3 +9,12 @@ polynome d'endomorphisme
 reduction
 isometrie_endomorphisme_symetrique
 revoir cours 
+
+DONE
+activités
+systemes lineaires
+matrices
+espaces vectoriels
+applications linéaires
+matrices et applications linéaires
+Rangs

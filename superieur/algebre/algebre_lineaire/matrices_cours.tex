@@ -2,15 +2,15 @@
 \usepackage{commeunjeustyle}
 
 \begin{document}
-\chapter*{Matrices}%label=chapter,title=matrices
+\chapter*{Matrices}%label=chapter,title=ch_matrices
 \begin{Texte}
-Les matrices sont des tableaux des éléments (nombres, caractères) qui servent à interpréter en termes calculatoires, et donc opérationnels, les résultats théoriques de l'algèbre linéaire et même de l'algèbre bilinéaire. Toutes les disciplines étudiant des phénomènes linéaires utilisent les matrices.\\ 
+Les matrices sont des tableaux de nombres qui servent à interpréter en termes calculatoires, et donc opérationnels, les résultats théoriques de l'algèbre linéaire et même de l'algèbre bilinéaire. Toutes les disciplines étudiant des phénomènes linéaires utilisent les matrices.\\ 
 Notations : $\K $ désigne le corps $\R$ ou $\C$ et les lettres $n$,$p,\dots$ désignent des entiers naturels non nuls. Le mot \defi{scalaire} désigne un réel ou un complexe. 
 \end{Texte}
 %\section{Exemples introductifs de modélisation matricielle}
 \begin{Exemple}[Taille d'un père et d'un fils]
 La somme des tailles d'un fils et du père est de 2,5 mètres. La différence de tailles  est de 0.5 mètres.
-Quel est la taille du fils ? \\
+Quelle est la taille du fils et du père ? \\
 Comme vu au chapitre précédent, la première étape est la modélisation avec un système d'équations linéaires.\\
 Soit la variable $x$ représentant la taille du fils et la variable $y$ représentant la taille du père.\\
 Le couple $(x,y)$ vérifie le système suivant  :
@@ -56,7 +56,7 @@ Ainsi, l'équation équivalente au système d'équations linéaires est  :
 \draw[colordef,->] (x) to node[midway,sloped,fill=white] {$+$} (y);
 \end{tikzpicture}
 \end{center}
-Autrement dit, on $$A\times X =B$$ avec $A=\begin{pmatrix}
+Autrement dit, on a $$A\times X =B$$ avec $A=\begin{pmatrix}
  1 & 1   \\
  -1 & 1  \\
 \end{pmatrix}, X=\begin{pmatrix}
@@ -87,7 +87,8 @@ $$ \begin{pmatrix}
  1  \\
  1,5  \\
 \end{pmatrix}.$$ 
-Par identification, l'ensemble des solution est de nouveau l'unique solution $x=1$ et $y=1,5$. 
+Par identification, l'ensemble des solution est de nouveau l'unique solution $x=1$ et $y=1,5$.
+
 \end{Exemple}
 %\begin{Exemple}[Fonction linéaire]
 %Une usine fabrique des vélos, des trottinettes et des rollers. Le prix payé, $y$,   pour $x_1$ vélos, $x_2$ trottinettes et $x_3$ rollers est une fonction linéaires des prix unitaires d'achat 150 euros, 40 euros et 20 euros respectivement. On a donc :
@@ -344,7 +345,7 @@ $$A+(-A)=0_{np}.$$
 \end{Proposition}
 \begin{Demonstration}
 \begin{itemize}
-\item Commutative : $$\begin{aligned}
+\item \impo{Commutative} : $$\begin{aligned}
 A+B=&\begin{pmatrix}
 a_{11} & \cdots & a_{1p}\\
  \vdots &  & \vdots\\
@@ -373,8 +374,8 @@ a_{n1} & \cdots & a_{np}
 \end{pmatrix}\\
 A+B=&B+A.
 \end{aligned}$$
-\item Associative : démonstration similaire à la commutativité
-\item Élément neutre : à droite
+\item \impo{Associative} : démonstration similaire à la commutativité
+\item \impo{Élément neutre} : à droite
 $$\begin{pmatrix}
 a_{11} & \cdots & a_{1p}\\
  \vdots &  & \vdots\\
@@ -391,10 +392,10 @@ a_{n1}+0 & \cdots & a_{np}+0
 a_{11} & \cdots & a_{1p}\\
  \vdots &  & \vdots\\
 a_{n1} & \cdots & a_{np}
-\end{pmatrix}
+\end{pmatrix}.
 $$
 On ferait de même à gauche. 
-\item Symétrique :
+\item \impo{Symétrique} :
 $$\begin{pmatrix}
 a_{11} & \cdots & a_{1p}\\
  \vdots &  & \vdots\\
@@ -557,12 +558,12 @@ De plus, en générale, le produit matriciel n'est pas intègre (si $AB =0$ alor
 
 \begin{Proposition}[Lignes et colonnes d'un produit matriciel]%label=matrices_colonnes_produit
 On a : 
-$$A\times\begin{pmatrix}0\\\vdots\\0\\1\text{}\\0\\\vdots\\0\end{pmatrix}=\begin{pmatrix}
+$$A\times\begin{pmatrix}0\\\vdots\\0\\\overset{\text{{\tiny \propri{pos j}}}}{1}\\0\\\vdots\\0\end{pmatrix}=\begin{pmatrix}
 &  & \\
 C_1 & \cdots&C_j&\cdots & C_{p}\\
-&  & \\\end{pmatrix} \begin{pmatrix}0\\\vdots\\0\\1\\0\\\vdots\\0\end{pmatrix}=C_j$$
+&  & \\\end{pmatrix} \begin{pmatrix}0\\\vdots\\0\\\overset{\text{{\tiny \propri{pos j}}}}{1}\\0\\\vdots\\0\end{pmatrix}=C_j$$
 et
-$$\begin{pmatrix}0&\dots&0& 1&0&\ldots&0\end{pmatrix} \times A= \begin{pmatrix}0&\dots&0& 1&0&\ldots&0\end{pmatrix} \times \begin{pmatrix}L_1&\dots& L_i&\ldots&L_n\end{pmatrix}=L_i.$$
+$$\begin{pmatrix}0&\dots&0& \overset{\text{{\tiny \propri{pos i}}}}{1}&0&\ldots&0\end{pmatrix} \times A= \begin{pmatrix}0&\dots&0& \overset{\text{{\tiny \propri{pos i}}}}{1}&0&\ldots&0\end{pmatrix} \times \begin{pmatrix}L_1&\dots& L_i&\ldots&L_n\end{pmatrix}=L_i.$$
 Et plus généralement :
 $$A\times\begin{pmatrix}x_1\\\vdots\\x_p\end{pmatrix}=\overbrace{\color{black}\sum_{j=1}^p x_j C_j}^{\color{colorprop}\substack{\text{Combinaison linéaire}\\\text{des vecteurs }C_1,\dots,C_p}}$$
 et
@@ -608,9 +609,9 @@ $$\begin{pmatrix}x_1&\dots&x_n\end{pmatrix}\times A=\sum_{i=1}^n x_i L_i$$
 %Le coût total de la fabrication est donc la matrice :
 %$$(A\times B)\times C= \begin{pmatrix} 185 & 345\end{pmatrix} \times  \begin{pmatrix} 100 \\ 40\end{pmatrix} =\begin{pmatrix} 185\times 100+ 345\times40\end{pmatrix}= \begin{pmatrix} 323000\end{pmatrix}.$$
 %\end{Exemple}
-\begin{Exemple}
-La chaine  youtube 3Blue1Brown donne un point de vue géométrique du calcul matriciel (voir \url{https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=1}) 
-\end{Exemple}
+%\begin{Exemple}
+%La chaine  youtube 3Blue1Brown donne un point de vue géométrique du calcul matriciel (voir \url{https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab&index=1}) 
+%\end{Exemple}
 
 \begin{Proposition}[Propriétés]
 \begin{enumerate}
@@ -625,7 +626,8 @@ La chaine  youtube 3Blue1Brown donne un point de vue géométrique du calcul mat
 \end{Proposition}
 \begin{Demonstration}
 \begin{enumerate}
-\item \textit{Associative} : Soit $i,j\in\Intf{1}{n}$. On a :
+\item \impo{Associative} : soit $i,j\in\Intf{1}{n}$.\\
+ On a :
 $$
 \begin{aligned}
 \left((A \times B) \times C\right)_{ij}=&\sum_{k=1}^q (A \times B)_{ik}\,c_{kj}=\sum_{k=1}^q \left(\sum_{l=1}^p a_{il}b_{lk}\right) c_{kj}=\sum_{l=1}^p  a_{il}\left(\sum_{k=1}^q b_{lk} c_{kj}\right)\\
@@ -729,6 +731,7 @@ p\\1
 \end{pmatrix}(2N)^{1}+\overbrace{(2N)^{2}+\dots}^{=0}=I_3+2pN.$$
 \end{Demonstration}
 \end{Exemple}
+\section{Opérateurs}
 \subsection{Transposée}
 \begin{Definition}[Transposée]
 La \defi{matrice transposée} (ou la \defi{transposée}) d'une matrice $A=(a_{ij})_{\substack{1\leq i\leq n\\1\leq j\leq p}}\in \MnpK$ est la matrice $\transposee{A}=(a_{ji})_{\substack{1\leq j\leq n\\1\leq i\leq p}}\in\M{p}{n}{\K}$ obtenue en échangeant les lignes et les colonnes de $A$.
@@ -746,9 +749,9 @@ alors $\transposee{A}={\begin{pmatrix}1&2\\3&4\\5&6\end{pmatrix}}$.
 \end{Proposition}
 \begin{Demonstration}
 \begin{itemize}
-\item Linéaire : $$(\transposee{(\lambda A+ \mu B)})_{ij}\overbrace{=}^{\text{Def transposée}} (\lambda A+ \mu B)_{ji}=\lambda (A)_{ji}+\mu (B)_{ji}=\lambda (\transposee{A})_{ij}+\mu (\transposee{B})_{ij} $$
-\item Involutive : $$(\transposee{\left(\transposee{A}\right)})_{ij}=(\transposee{A})_{ji}=(A)_{ij}$$
-\item Ordre inversé produit : $$(\transposee{\left(AB \right)})_{ij}=(AB)_{ji}=\sum_{k=1}^p (A)_{jk}(B)_{ki}=\sum_{k=1}^p\sum_{k=1}^p (\transposee{B})_{ik}  (\transposee{A})_{kj}=( \transposee{B}\transposee{A})_{ij}.$$
+\item \impo{Linéaire} : $$(\transposee{(\lambda A+ \mu B)})_{ij}\overbrace{=}^{\text{Def transposée}} (\lambda A+ \mu B)_{ji}=\lambda (A)_{ji}+\mu (B)_{ji}=\lambda (\transposee{A})_{ij}+\mu (\transposee{B})_{ij} $$
+\item \impo{Involutive} : $$(\transposee{\left(\transposee{A}\right)})_{ij}=(\transposee{A})_{ji}=(A)_{ij}$$
+\item \impo{Ordre inversé produit} : $$(\transposee{\left(AB \right)})_{ij}=(AB)_{ji}=\sum_{k=1}^p (A)_{jk}(B)_{ki}=\sum_{k=1}^p\sum_{k=1}^p (\transposee{B})_{ik}  (\transposee{A})_{kj}=( \transposee{B}\transposee{A})_{ij}.$$
 \end{itemize}
 \end{Demonstration}
 \begin{Definition}[Matrice symétrique et antisymétrique]
@@ -773,7 +776,7 @@ $$ \Tr(A) =\mathbin{\color{colordef}a_{11}+a_{22}+\dots+ a_{nn}}=\sum  _{k=1}^n 
 On a $\Tr(\begin{pmatrix}-1&0&3\\11&5&2\\6&12&-5\end{pmatrix})=-1+5+(-5)=-1.$
 \end{Exemple}
 \begin{Exemple}[Norme sur $\MnpK$]
-L'application  $A\mapsto \Tr(\transposee{A} A)=\sum_{i=1}^n\sum_{j=1}^p a_{ij}^2$ est une norme sur $\MnpK$ (voir chapitre espace pré-hilbertien).
+L'application  $A\mapsto \Tr(\transposee{A} A)=\sum_{i=1}^n\sum_{j=1}^p a_{ij}^2$ est une norme sur $\MnpK$ (voir chapitre espace pré-hilbertien).%TODO lien à mettre
 \end{Exemple}
 \begin{Proposition}[Propriétés]
 \begin{itemize}
@@ -783,8 +786,8 @@ L'application  $A\mapsto \Tr(\transposee{A} A)=\sum_{i=1}^n\sum_{j=1}^p a_{ij}^2
 \end{Proposition}
 \begin{Demonstration} On a :
 \begin{itemize}
-\item $$\Tr\left(\lambda A+ \mu B\right)=\sum  _{k=1}^n (\lambda a_{k k}+\mu b_{kk})=\lambda \sum  _{k=1}^n a_{k k}+\mu \sum  _{k=1}^n b_{kk}=\lambda \Tr (A)+\mu \Tr(B)$$
-\item $$\Tr( AB)=\sum_{k=1}^n (AB)_{kk}=\sum _{k=1}^n\sum_{p=1}^n  a_{kp}b_{pk}=\sum_{p=1}^n \sum _{k=1}^n b_{pk}  a_{kp}=\sum_{p=1}^n(AB)_{pp}=\Tr(BA).  $$
+\item \impo{Linéaire} :  $$\Tr\left(\lambda A+ \mu B\right)=\sum  _{k=1}^n (\lambda a_{k k}+\mu b_{kk})=\lambda \sum  _{k=1}^n a_{k k}+\mu \sum  _{k=1}^n b_{kk}=\lambda \Tr (A)+\mu \Tr(B)$$
+\item \impo{Ordre inversé produit} :$$\Tr( AB)=\sum_{k=1}^n (AB)_{kk}=\sum _{k=1}^n\sum_{p=1}^n  a_{kp}b_{pk}=\sum_{p=1}^n \sum _{k=1}^n b_{pk}  a_{kp}=\sum_{p=1}^n(AB)_{pp}=\Tr(BA).  $$
 \end{itemize}
 
 \end{Demonstration}
@@ -792,69 +795,6 @@ L'application  $A\mapsto \Tr(\transposee{A} A)=\sum_{i=1}^n\sum_{j=1}^p a_{ij}^2
 En général, $\Tr(ABC)\neq \Tr(ACB)$.
 \end{Remarque}
 
-\subsection{Matrice par blocs}
-\begin{Definition}[Décomposition par blocs]
-Soit $A\in  \MnpK $ une matrice.\\
-Sa \defi{décomposition par blocs} suivant le découpage $(n_1,\dots,n_s) $ pour les lignes et $(p_1,\dots,p_t)$ pour les colonnes est
-\begin{center}
-  \begin{tikzpicture}[
-      dots/.style={
-        line width=1pt,
-        line cap=round,
-        dash pattern=on 0pt off 5pt,
-        shorten >=.1cm,
-    shorten <=.1cm}]
-    \matrix[
-      matrix of nodes,
-      left delimiter=(,
-      right delimiter=),
-    ]{
-      \node (A) {$A_{1,1}$}; &[1.1cm] \node (B) {$A_{1,t}$}; \\[1.1cm]
-      \node (C) {$A_{s,1}$}; &        \node (D) {$A_{s,t}$}; \\
-    };
-
-    \draw [dots] (A.east)  -- (B.west);
-    \draw [dots] (C.east)  -- (D.west);
-    \draw [dots] (A.south) -- (C.north);
-    \draw [dots] (B.south) -- (D.north);
-
-    \draw [<->]  ([xshift=1cm]B.north east) -- node [right] {$n_1$} ([xshift=1cm]B.south east);
-    \draw [<->]  ([xshift=1cm]D.north east) -- node [right] {$n_s$} ([xshift=1cm]D.south east);
-    \draw [dots] ([xshift=1cm]B.south east) -- ([xshift=1cm]D.north east);
-    \draw [<->]  ([xshift=1.75cm]B.north east) -- node [right] {$n$} ([xshift=1.75cm]D.south east);
-
-    \draw [<->]  ([yshift=-0.5cm]C.south west) -- node [below] {$p_1$}([yshift=-0.5cm]C.south east);
-    \draw [<->]  ([yshift=-0.5cm]D.south west) -- node [below] {$p_t$}([yshift=-0.5cm]D.south east);
-    \draw [dots] ([yshift=-0.5cm]C.south east) -- ([yshift=-0.5cm]D.south west);
-    \draw [<->]  ([yshift=-1.1cm]C.south west) -- node [below] {$p$} ([yshift=-1.1cm]D.south east);
-
-    \node[xshift=-0.9cm] at ($(A.west)!0.5!(C.west)$) { $A =$ };
-  \end{tikzpicture}
-\end{center}
-\end{Definition}
-\begin{Exemple}
-La matrice ${P} ={\begin{pmatrix}1&1&2&2\\1&1&2&2\\3&3&4&4\\3&3&4&4\end{pmatrix}}$
-peut être partitionnée en quatre blocs $2\times 2$ avec $$P_{11}={\begin{pmatrix}1&1\\1&1\end{pmatrix}},P_{12}={\begin{pmatrix}2&2\\2&2\end{pmatrix}},P_{21}={\begin{pmatrix}3&3\\3&3\end{pmatrix}},{P}_{22}={\begin{pmatrix}4&4\\4&4\end{pmatrix}}.$$
-On peut alors écrire la matrice par bloc comme :
-$$P={\begin{pmatrix} {P} _{11}& {P} _{12}\\ {P} _{21}& {P} _{22}\end{pmatrix}}.$$
-\end{Exemple}
-\begin{Proposition}[Addition par blocs]
-Soit $A$ et $B$ deux matrices de $\MnpK$ exprimées par blocs selon les mêmes découpages. Soit $\lambda ,\mu  \in  \K $.\\
-Alors la matrice $\lambda A + \mu  B$ s'exprime par blocs selon les mêmes découpages que $A$ et $B$, et les blocs s'obtiennent en combinant les blocs situés aux mêmes places.
-\end{Proposition}
-\begin{Proposition}[Produit par blocs]
-Soit $A\in  \MnpK$ et $B\in  \M{p}{q}{\K}$.\\
-On suppose que $A$ a une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(p_1,\dots,n_t)$ pour les colonnes.\\
-On suppose que $B$ a une décomposition par blocs suivant le découpage $(p_1,\dots,n_t)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes.\\
-Alors le produit $C = AB\in  \mathrm{M}_{n,q}(\K )$ admet une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes
-$$ C = \begin{pmatrix} C_{1,1} &  \dots &  C_{1,u}  \\  \vdots &   &  \vdots  \\  C_{s,1} &  \dots &  C_{s,u} \end{pmatrix} $$
-où pour tous $i\in  \Intf{1}{s}$ et $j\in  \Intf{1}{u}$,
-$$ C_{i,j} = \sum  _{k=1}^t A_{i,k} B_{k,j} $$
-Cette formule est identique au produit matricielle en considérant les blocs comme des scalaires.
-\end{Proposition}
-\begin{Remarque}
-Le cas qui nous intéressera le plus fréquemment est celui des matrices carrées ayant le même découpage pour les lignes et pour les colonnes. Dans ce cas, les blocs diagonaux sont également des matrices carrées.
-\end{Remarque}
 \section{Matrices inversibles}
 On sait résoudre une équation $a x = b$ à une inconnue à coefficient \impo{réels}.   Cette équation  :
 \begin{itemize}
@@ -868,7 +808,7 @@ On sait résoudre une équation $a x = b$ à une inconnue à coefficient \impo{r
 Pour déterminer l'ensemble des solutions, on se pose la question de l'existence de l'inverse de $a$. Pour les matrices, résoudre $AX = B$ revient à se poser le même question sur  existence de l'inverse de $A$.
 \subsection{Définition}
 \begin{DefinitionProposition}[Inverse]
-On dit qu'une matrice $A\in\MnK$ est inversible s'il existe $B\in\MnK$ tel que $$AB=BA=I_n.$$ 
+On dit qu'une matrice $A\in\MnK$ est \defi{inversible} s'il existe $B\in\MnK$ tel que $$AB=BA=I_n.$$ 
 Si elle existe, la matrice $B$ est  unique et appelée \defi{inverse} de $A$, noté \defi{$A^{-1}$}.\\
 L'ensemble des matrice inversibles de taille $n$ se note $\GLnK$ et appelé \defi{groupe linéaire}.  
 \end{DefinitionProposition}
@@ -892,10 +832,10 @@ $A 0_n = 0_n$ donc le produit d'une matrice avec la matrice $0_n$ n'est jamais �
 Il suffit de vérifier que $AB=I_{n}$ ou bien $BA=I_n$ pour prouver que $A$ est inversible d'inverse $B$.  
 \end{Proposition}
 \begin{Demonstration}
-Voir chapitre sur les applications linéaires. 
+Voir chapitre sur les applications linéaires. %TODO lien à mettre
 \end{Demonstration}
 \begin{Proposition}[Opérations sur les matrices inversibles]
-Soit $A$ et $B$ deux matrices \impo{inversibles}.\\
+Soit $A$ et $B$ deux matrices \impo{inversibles}.
 \begin{itemize}
 \item \propri{Inversibilité de l'inverse} : $A^{-1}$ est inversible et $\left(A^{-1}\right)^{-1}=A$.
 \item \propri{Inversibilité du produit} : $AB$ est inversible et $\left(AB\right)^{-1}=B^{-1} A^{-1}$. 
@@ -904,9 +844,9 @@ Soit $A$ et $B$ deux matrices \impo{inversibles}.\\
 \end{Proposition}
 \begin{Demonstration}
 \begin{itemize}
-\item Inversibilité de l'inverse : comme  $A A^{-1}=I_n$, l'inverse de $A^{-1}$ est $A$.
-\item Inversibilité du produit : $\left(B^{-1} A^{-1}\right)\left(AB\right)\overbrace{=}^{\text{Associative}}B^{-1}(A^{-1}A)B=B^{-1}(I_n)B=B^{-1}B=I_n. $
-\item Inversibilité de la transposée : $\transposee{\left(A^{-1}\right)}\transposee{A}=\transposee{\left(AA^{-1}\right)}=\transposee{I_n}=I_n $. 
+\item \impo{Inversibilité de l'inverse} : comme  $A A^{-1}=I_n$, l'inverse de $A^{-1}$ est $A$.
+\item \defi{Inversibilité du produit} : $\left(B^{-1} A^{-1}\right)\left(AB\right)\overbrace{=}^{\text{Associative}}B^{-1}(A^{-1}A)B=B^{-1}(I_n)B=B^{-1}B=I_n. $
+\item \defi{Inversibilité de la transposée} : $\transposee{\left(A^{-1}\right)}\transposee{A}=\transposee{\left(AA^{-1}\right)}=\transposee{I_n}=I_n $. 
 \end{itemize} 
 \end{Demonstration}
 
@@ -931,7 +871,7 @@ C_1 & \cdots & C_{n}\\
 &  & \\
 \end{pmatrix}\in\MnK$.\\
 \begin{itemize}
-\item Sans perte de généralité, supposons que la première colonne est combinaison linéaire des autres, c'est à dire qu'il existe $\lambda_2,\dots,\lambda_n\in\K$ tel que :
+\item $\Rightarrow$ : Sans perte de généralité, supposons que la première colonne est combinaison linéaire des autres, c'est à dire qu'il existe $\lambda_2,\dots,\lambda_n\in\K$ tel que :
 $$C_1=\lambda_2 C_2+\dots+\lambda_n C_n.$$
 Supposons par l'\impo{absurde} que $A$ est inversible.\\
 On a :
@@ -976,10 +916,21 @@ Ainsi on a  $A\begin{pmatrix}
 \vdots \\
 0\\
 \end{pmatrix}$, d'où la contradiction. 
-\item Pour la condition suffisante, voir le chapitre sur les applications linéaires. 
+%TODO lien à mettre
+\item $\Leftrightarrow$ : Pour la condition suffisante, voir le chapitre sur les applications linéaires. 
 \end{itemize}
 \end{Demonstration}
-
+\begin{Exemple}
+\begin{Enonce}
+Déterminer si la matrice $A=\begin{pmatrix}
+2& 1 \\
+-4 &-2 \\
+\end{pmatrix}$ est inversible.
+\end{Enonce}
+\begin{Correction}
+La seconde ligne est égale à -2 fois la première donc la matrice n'est pas inversible.
+\end{Correction}
+\end{Exemple}
 \begin{Proposition}[Caractérisation de l'inversibilité 2]
 Soit $A\in\MnK$.\\
 La matrice $A$ est inversible si et seulement si pour tout second membre $Y \in \K^n$, le système linéaire $AX =Y$ d'inconnue $X \in \K^n$
@@ -987,8 +938,8 @@ possède une unique solution.
 \end{Proposition}
 \begin{Demonstration}
 \begin{itemize}
-\item Supposons que $A$ est inversible. $AX =Y $ si et seulement si $A^{-1}(AX)=A^{-1}Y$ si et seulement si $X=A^{-1}Y$. Ainsi l'unique solution du système est $A^{-1}Y.$
-\item Supposons que pour tout second membre $Y \in \K^n$, le système linéaire $AX =Y$ d'inconnue $X \in \K^n$. En particulier, pour tout $i\in\Intf{1}{n}$, il existe $C_i$ tel que $A C_i=\begin{pmatrix}0\\\vdots\\\overset{\text{{\tiny \propri{pos i}}}}{1}\\\vdots\\0\end{pmatrix}$. On pose la matrice $B$ des colonnes $C_1,\dots,C_n$. On a :
+\item $\Rightarrow$ : Supposons que $A$ est inversible. $AX =Y $ si et seulement si $A^{-1}(AX)=A^{-1}Y$ si et seulement si $X=A^{-1}Y$. Ainsi l'unique solution du système est $A^{-1}Y.$
+\item $\Leftarrow$ : Supposons que pour tout second membre $Y \in \K^n$, le système linéaire $AX =Y$ d'inconnue $X \in \K^n$. En particulier, pour tout $i\in\Intf{1}{n}$, il existe $C_i$ tel que $A C_i=\begin{pmatrix}0\\\vdots\\\overset{\text{{\tiny \propri{pos i}}}}{1}\\\vdots\\0\end{pmatrix}$. On pose la matrice $B$ des colonnes $C_1,\dots,C_n$. On a :
  $$AB=A\begin{pmatrix}
 &   & \\
 C_1 & \cdots & C_{n}\\
@@ -1003,12 +954,18 @@ AC_1 & \cdots & AC_{n}\\
 
 
 \subsection{Calcul de l'inverse}
-Une \impo{première méthode} est de supposer l'existence de l'inverse et de déterminer des conditions nécessaires sur les coefficients de la matrice inverse.  
+\begin{Methode}[Analyse-synthèse]
+En analyse, on suppose l'existence de l'inverse et on détermine des conditions nécessaires sur les coefficients de la matrice inverse.\\
+Puis on synthèse, on vérifie. 
+\end{Methode}
 \begin{Exemple}
-Démontrons que la matrice $A =\begin{pmatrix}
+\begin{Enonce}
+Démontrer que la matrice $A =\begin{pmatrix}
 1& 2\\
-0 &3\end{pmatrix}$ est inversible. \\
-\textit{Analyse} : Supposons que $A$ est inversible. Donc il existe une matrice $B =\begin{pmatrix}
+0 &3\end{pmatrix}$ est inversible.
+\end{Enonce}
+\begin{Correction}
+\impo{Analyse} : on cherche une matrice $B =\begin{pmatrix}
 a& b\\
 c &d\end{pmatrix}$ telle que $AB=I_n$, soit :
 $$ \begin{pmatrix}
@@ -1032,19 +989,23 @@ a+2c =1\\
 3d=1
 \end{cases}.$$
 Par substitution, on trouve que  $a = 1, b = -\frac 2 3, c = 0, d = \frac 1 3$.\\
-\textit{Synthèse} : On vérifie bien que $\begin{pmatrix}
+\impo{Synthèse} : On vérifie bien que $\begin{pmatrix}
 1& 2\\
 0 &3\end{pmatrix}\begin{pmatrix}
 1& -\frac 2 3\\
 0 &\frac 1 3\end{pmatrix}=\begin{pmatrix}
 1& 0\\
 0 &1\end{pmatrix}$.
+\end{Correction}
 \end{Exemple}
 \begin{Exemple}
-Démontrons que la matrice $A =\begin{pmatrix}
+\begin{Enonce}
+Démontrer que la matrice $A =\begin{pmatrix}
 3& 0\\
-5 &3\end{pmatrix}$ n'est pas inversible.\\
-\textit{Absurde} : Supposons que $A$ est inversible. Donc il existe une matrice $B =\begin{pmatrix}
+5 &3\end{pmatrix}$ n'est pas inversible.
+\end{Enonce}
+\begin{Correction}
+\impo{Analyse} : on cherche une matrice $B =\begin{pmatrix}
 a& b\\
 c &d\end{pmatrix}$ telle que $AB=I_n$, soit :
 $$ \begin{pmatrix}
@@ -1060,21 +1021,31 @@ $$\begin{pmatrix}
 3c+5d &0\end{pmatrix}= \begin{pmatrix}
 1& 0\\
 0 &1\end{pmatrix}$$
-Par identification, on obtient la contradiction $1=0$. Donc $A$ n'est pas inversible.  
+Par identification, on obtient la contradiction $1=0$. Donc le système n'admet pas de solution. Donc la matrice 
+$A$ n'est pas inversible.  
+\end{Correction}
 \end{Exemple}
-Une \impo{seconde méthode} est de résoudre un système linéaire puis  de conclure d'après la seconde caractérisation de l'inversibilité.
+\begin{Methode}[Pivot de Gauss]
+On résout un système linéaire avec l'algorithme du pivot de Gauss puis on conclut d'après la seconde caractérisation de l'inversibilité.\\
+Au lieu d'un système, on peut écrire les étapes avec des matrices en appliquant en parallèle sur une matrice initialisée avec la matrice identité.  
+\end{Methode}
 \begin{Exemple}
-Démontrons que la matrice $A =\begin{pmatrix}
+\begin{Enonce}
+Démontrer que la matrice $A =\begin{pmatrix}
 1& 0&1\\
 1& 1 &1\\
 0& 2 &1\\
-\end{pmatrix}$ est inversible. \\
+\end{pmatrix}$ est inversible.
+\end{Enonce}
+\begin{Correction}
 Soit $Y=\begin{pmatrix}
 a\\b\\c\\
 \end{pmatrix}\in \R^3$.\\
 Déterminons l'ensemble des solutions du système $AX=Y$ d'inconnue $X=\begin{pmatrix}
 x\\y\\z\\
-\end{pmatrix}\in \R^3$. On applique l'algorithme du pivot de Gauss (voir chapitre système linéaire) au système suivant :
+\end{pmatrix}\in \R^3$. 
+%TODO lien à mettre
+On applique l'algorithme du pivot de Gauss (voir chapitre système linéaire) au système suivant :
 $$\begin{aligned}
 AX=Y \Leftrightarrow& \left\{\begin{matrix}
 x &+&   &+& z&=& a\\
@@ -1123,8 +1094,24 @@ $$A^{-1}= \begin{pmatrix}
 -1& 1 &0\\
 2& -2 &1\\
 \end{pmatrix}.$$
+\end{Correction}
 \end{Exemple}
-
+\begin{Exemple}
+\begin{Enonce}
+Déterminer l'inverse de la matrice $\begin{pmatrix}1&1&2\\1&2&1\\2&1&1\end{pmatrix}$
+\end{Enonce}
+\begin{Correction}
+$$\begin{aligned}
+\left({\begin{array}{rrr|rrr}1&1&2&1&0&0\\1&2&1&0&1&0\\2&1&1&0&0&1\end{array}}\right)&\\
+\left({\begin{array}{rrr|rrr}1&1&2&1&0&0\\0&1&-1&-1&1&0\\0&-1&-3&-2&0&1\end{array}}\right)&\begin{array}{l}\\L_2\leftarrow L_2-L_1\\L_3\leftarrow L_3-2L_1 \end{array} \\
+\left({\begin{array}{rrr|rrr}1&1&2&1&0&0\\0&1&-1&-1&1&0\\0&0&-4&-3&1&1\end{array}}\right)&\begin{array}{l}\\\\L_3\leftarrow L_3+L_2 \end{array}\\
+\left({\begin{array}{rrr|rrr}1&1&2&1&0&0\\0&1&-1&-1&1&0\\0&0&1&\frac{3}{4}&-\frac{1}{4}&-\frac{1}{4}\end{array}}\right)&\begin{array}{l}\\\\L_3\leftarrow-\frac{1}{4}L_3 \end{array}\\
+\left({\begin{array}{rrr|rrr}1&1&0&-\frac{1}{2}&\frac{1}{2}&\frac{1}{2}\\0&1&0&-\frac{1}{4}&\frac{3}{4}&-\frac{1}{4}\\0&0&1&\frac{3}{4}&-\frac{1}{4}&-\frac{1}{4}\end{array}}\right)&\begin{array}{l}L_1\leftarrow L_1-2L_3\\L_2\leftarrow L_2+L_3\\ \\ \end{array}\\
+\left({\begin{array}{rrr|rrr}1&0&0&-\frac{1}{4}&-\frac{1}{4}&\frac{3}{4}\\0&1&0&-\frac{1}{4}&\frac{3}{4}&-\frac{1}{4}\\0&0&1&\frac{3}{4}&-\frac{1}{4}&-\frac{1}{4}\end{array}}\right)&\begin{array}{l}L_1\leftarrow L_1-L_2\\ \\ \\ \end{array}\\
+\end{aligned}$$
+La matrice inverse est donc $\begin{pmatrix}-\frac{1}{4}&-\frac{1}{4}&\frac{3}{4}\\-\frac{1}{4}&\frac{3}{4}&-\frac{1}{4}\\\frac{3}{4}&-\frac{1}{4}&-\frac{1}{4}\end{pmatrix}$.
+\end{Correction}
+\end{Exemple}
 
 \begin{Proposition}[Matrice de taille 2]
 Soit $A=\begin{pmatrix}
@@ -1147,172 +1134,325 @@ ad-bc & -ab+ab\\cd-dc& -cb+da
 \end{pmatrix}=I_2.$$
 \end{Demonstration}
 
-\section{Application aux systèmes  d'équations linéaires}
-Muni de l'objet matrice, nous pouvons démontrer plus facilement les théorèmes du chapitre sur les systèmes linéaires.
-\begin{Theoreme}[Structure de l'ensemble des solutions d'un système linéaire]
-Soit un système de $n$ équations linéaires à $p$ variables de la forme :
-$$\left\{{\begin{matrix}
-a_{11}x_{1}&+&a_{12}x_{2}&+&\dots &+&a_{1p}x_{p}&=&b_{1}\\
-a_{21}x_{1}&+&a_{22}x_{2}&+&\dots &+&a_{2p}x_{p}&=&b_{2}\\
-\vdots&&\vdots&& &&\vdots&=&\vdots \\
-a_{i1}x_{1}&+&a_{i2}x_{2}&+&\dots &+&a_{ip}x_{p}&=&b_{i}\\
-\vdots&&\vdots&& &&\vdots&=&\vdots \\
-a_{n1}x_{1}&+&a_{n2}x_{2}&+&\dots &+&a_{np}x_{n}&=&b_{n}\\
-\end{matrix}}\right. $$
-Deux cas se présentent :
-\begin{itemize}
-\item ou bien le système n'admet pas de solution, on dit qu'il est \defi{incompatible}, 
-\item ou bien le système admet au moins une solution $(x_1,\dots,x_n)$, appelée \defi{solution particulière}, on dit qu'il est \defi{compatible}. Dans ce cas, les solutions sont de la forme :
-$$ S=\{\overbrace{(x_1,\dots ,x_n)}^{\text{Solution particulière}}+ \overbrace{(y_1,\dots,y_p)}^{\text{Solution homogène}}:\quad (y_1,\dots,y_p) \in S_H\}.$$
-\end{itemize}
-\end{Theoreme}
-\begin{Demonstration}
-Soit $S$ l'ensemble des solutions du système d'équations.\\ 
-Supposons que les système  possède une solution, noté $X_p$.\\
-Soit $A=\begin{pmatrix}
-a_{11}&\dots&a_{1p}\\
-\vdots &&\vdots \\
-a_{n1}&\dots&a_{np}\\
-\end{pmatrix}
-$ et $Y=\begin{pmatrix}
-b_{1}\\
-\vdots\\
-b_{n}\\
-\end{pmatrix}.$\\
-On a :
-$$
-\begin{aligned}
-X=\begin{pmatrix}
-x_1 \\ \vdots \\ x_d
-\end{pmatrix} \in S \Leftrightarrow& \left\{{\begin{matrix}
-a_{11}x_{1}&+&a_{12}x_{2}&+&\dots &+&a_{1p}x_{p}&=&b_{1}\\
-a_{21}x_{1}&+&a_{22}x_{2}&+&\dots &+&a_{2p}x_{p}&=&b_{2}\\
-\vdots&&\vdots&& &&\vdots&=&\vdots \\
-a_{i1}x_{1}&+&a_{i2}x_{2}&+&\dots &+&a_{ip}x_{p}&=&b_{i}\\
-\vdots&&\vdots&& &&\vdots&=&\vdots \\
-a_{n1}x_{1}&+&a_{n2}x_{2}&+&\dots &+&a_{np}x_{n}&=&b_{n}\\
-\end{matrix}}\right. \\\Leftrightarrow&  AX=B\overbrace{\Leftrightarrow}^{AX_p=B}  AX=AX_p\Leftrightarrow A(X-Xp)=0\\
-\Leftrightarrow& X-Xp\text{ est solution du sytème homogène }\\
-\Leftrightarrow& X\text{  est la somme de la solution particulère et d'une solution du système homogène}\\
-\end{aligned}
-$$
-\end{Demonstration}
-\begin{Proposition}[Équivalence par opérations élémentaires]
-Les opérations élémentaires transforment un système linéaire en un système linéaire équivalent.
+
+
+
+\section{Rang}
+\subsection{Définition}
+
+
+\begin{Definition}[Rang]%label=definition,title=rang_matrices,dep=ch_espaces_vectoriels__rang_famille
+Le \defi{rang} d'une matrice est le rang de ses vecteurs colonnes.
+\end{Definition}
+
+\begin{Exemple}
+\begin{Enonce}
+Déterminer le rang de la matrice
+$A=\begin{pmatrix}
+  1 & 2 & -\frac12 & 0 \\
+  2 & 4 & -1       & 0
+  \end{pmatrix}.$
+\end{Enonce}  
+ \begin{Correction}
+Déterminons le rang de la famille
+$\left(
+ \left(\begin{smallmatrix}1 \\ 2  \end{smallmatrix}\right),
+ \left(\begin{smallmatrix}2 \\ 4  \end{smallmatrix}\right),
+\left(\begin{smallmatrix}-\frac 12 \\ -1  \end{smallmatrix}\right),
+\left(\begin{smallmatrix}0 \\ 0  \end{smallmatrix}\right)
+\right)$  de vecteurs de $\R^2$. Tous ces vecteurs sont colinéaires à $\left(\begin{smallmatrix}1 \\ 2  \end{smallmatrix}\right)$, donc
+le rang de la famille  est $1$ et ainsi, par définition, 
+$\rg A = 1$.
+ \end{Correction}
+\end{Exemple}
+
+
+
+
+\begin{Definition}[Matrice échelonnée]
+Une matrice est \defi{échelonnée} si le nombre de 0 au début de chaque ligne est strictement croissant quand on passe d'une ligne à la suivante.\\
+Le premier élément non nul de chaque ligne dans une matrice échelonnée s'appelle le \defi{pivot}.
+\end{Definition}
+\begin{Exemple}
+Voici un exemple de matrice échelonnée (les $*$ désignent des coefficients quelconques, les $\oplus$  des pivots, coefficients non nuls) :
+$$\begin{pmatrix}\oplus &*&*&*&*&*&*&*&*\\0&0&\oplus &*&*&*&*&*&*\\0&0&0&\oplus &*&*&*&*&*\\0&0&0&0&0&0&\oplus &*&*\\0&0&0&0&0&0&0&0&\oplus \\0&0&0&0&0&0&0&0&0\end{pmatrix}.$$
+La matrice 
+$\begin{pmatrix}1&2&-1&9\\0&1&4&6\\0&3&2&4\\0&0&0&1\end{pmatrix}$  n'est pas échelonnée car le nombre de zéros est le même en début de ligne entre la seconde et la troisième.  
+\end{Exemple}
+\begin{Proposition}[Rang d'une matrice échelonnée]
+Le rang d'une matrice échelonnée  est le nombre de colonnes possédant un pivot (non nul). 
 \end{Proposition}
 \begin{Demonstration}
-Soit $Q$ inversible.\\
-$X$ est solution d'un système linéaire si et seulement si $AX=Y$ si et seulement si $QAX=QY$.\\
-Donc si les matrices  associées aux transformations élémentaires sont inversibles alors  les opérations élémentaires transforment un système linéaire en un système linéaire équivalent. On a :
-\begin{itemize}
-\item $L_i\leftrightarrow L_j:$ Soit 
-$Q_{L_i\leftrightarrow L_j}=
-%\begin{pmatrix}
-%1 & 0       & \dots  & \dots  &\dots  &\dots&\dots&\dots&\dots  &\dots&0\\
-% 0 & \ddots &   &   &  &&&&  &&\vdots\\
-%\vdots  &        & 1 &   &  &&&&  &&\vdots\\
-%\vdots  &        &   & 0 & \dots &\dots&0&\commentterm{60:0.5cm}{1}{position ij}& &&\vdots\\
-%\vdots  &&&\vdots& 1 &        &   & 0  &   &&\vdots\\
-%\vdots  &&&\vdots&  & \ddots &   &\vdots   &  &&\vdots\\
-%\vdots  &&&0& &        & 1 &   \vdots&   &&\vdots \\
-%\vdots  &&&\commentterm{-100:1cm}{1}{position ji} &0 &\dots        & \dots  & 0 &   &&\vdots\\
-%\vdots  &&&&  &&&& 1 &        &   \vdots  \\
-%\vdots  &&&&  &&&&   & \ddots &    0\\
-%0&\dots&\dots&\dots&  \dots&\dots&\dots&\dots&\dots  &\dots        & 1   \\
-%\end{pmatrix}\\
-\begin{pmatrix}
-1 &        &   &   &  &&&&  &&\\
-  & \ddots &   &   &  &&&&  &&\\
-  &        & 1 &   &  &&&&  &&\\
-  &        &   & 0 &  &&&\overset{\text{{\tiny \propri{pos ij}}}}{1}& &&\\
-  &&&& 1 &        &   &   &   &&\\
-  &&&&  & \ddots &   &   &  &&\\
-  &&&& &        & 1 &   &   && \\
-  &&&\overset{\text{{\tiny \propri{pos ji}}}}{1} & &       &   &0   &   &&\\
-  &&&&  &&&& 1 &        &   \ \\
-  &&&&  &&&&   & \ddots &    \\
- &&&&  &&&&  &        & 1   \\
-\end{pmatrix}
-.$\\
-On a $Q_{L_i\leftrightarrow L_j} \begin{pmatrix}
-& L_1 & \\
-& \vdots & \\
-& L_i & \\
-& \vdots & \\
-& L_j & \\
-& \vdots & \\
-&  L_n & \\
-\end{pmatrix}=\begin{pmatrix}
-& L_1 & \\
-& \vdots & \\
-& L_j & \\
-& \vdots & \\
-& L_i & \\
-& \vdots & \\
-&  L_n & \\
-\end{pmatrix}.$ Comme $Q_{L_i\leftrightarrow L_j}Q_{L_i\leftrightarrow L_j}=I_n$,$ Q_{L_i\leftrightarrow L_j}$ est inversible et  égale à son inverse.
-  
-\item $L_i\leftarrow \lambda L_i$ avec $\lambda\neq 0$  : Soit $\lambda\neq 0$ et 
-$Q_{L_i\leftarrow \lambda L_i }=
-\begin{pmatrix}
-1&        &    &&&&\\
- &\ddots  &   &&&&\\
- &        &1  &  &&& \\
- &        &   &\overset{\text{{\tiny \propri{pos ii}}}}{1}&&&\\
- &        &   &      &1 &&\\
- &        &   &      & & \ddots &  \\
- &        &   &      & &  &1    \\
-\end{pmatrix} $.\\
-On a $Q_{L_i\leftarrow \lambda L_i } \begin{pmatrix}
-& L_1 & \\
-& \vdots & \\
-& L_i & \\
-& \vdots & \\
-&  L_n & \\
-\end{pmatrix}=\begin{pmatrix}
-& L_1 & \\
-& \vdots & \\
-& \lambda L_i & \\
-& \vdots & \\
-&  L_n & \\
-\end{pmatrix}.$ Comme $Q_{L_i\leftarrow \lambda L_i}Q_{L_i\leftarrow \frac 1 \lambda L_i}=I_n$,$ Q_{L_i\leftarrow \lambda L_i}$ est inversible.
-
-\item $L_i\leftarrow  L_i- \lambda L_j $ avec $i\neq j$  : Soit $i\neq j$ et 
-$Q_{L_i\leftarrow  L_i- \lambda L_j }=
-\begin{pmatrix}
-1&        &    &&&&\\
- &\ddots  &   &&&&\\
- &        &1  &  &&& \\
- &        &   &\ddots&&&\\
- &        &\overset{\text{{\tiny \propri{pos ii}}}}{1}   &      &1 &&\\
- &        &   &      & & \ddots &  \\
- &        &   &      & &  &1    \\
-\end{pmatrix} $.\\
-On a $Q_{L_i\leftarrow \lambda L_i } \begin{pmatrix}
-& L_1 & \\
-& \vdots & \\
-& L_i & \\
-& \vdots & \\
-&  L_n & \\
-\end{pmatrix}=\begin{pmatrix}
-& L_1 & \\
-& \vdots & \\
-& \lambda L_i & \\
-& \vdots & \\
-&  L_n & \\
-\end{pmatrix}.$ Comme $Q_{L_i\leftarrow \lambda L_i}Q_{L_i\leftarrow \frac 1 \lambda L_i}=I_n$,$ Q_{L_i\leftarrow \lambda L_i}$ est inversible.
-\end{itemize} 
+Chaque colonne n'ayant pas de pivot est une combinaison linéaire des colonnes précédentes ayant un pivot. 
 \end{Demonstration}
+\begin{Exemple}
+$$\rg(\begin{pmatrix}\oplus &*&*&*&*&*&*&*&*\\0&0&\oplus &*&*&*&*&*&*\\0&0&0&\oplus &*&*&*&*&*\\0&0&0&0&0&0&\oplus &*&*\\0&0&0&0&0&0&0&0&\oplus \\0&0&0&0&0&0&0&0&0\end{pmatrix})=5.$$
+\end{Exemple}
+
+\subsection{Opérations conservant le rang}
+
+\begin{Proposition}[Opérations élémentaires conservant le rang]
+Le rang d'une matrice ayant les colonnes $C_1, C_2, \ldots, C_p$
+n'est pas modifié par les trois opérations élémentaires suivantes sur les
+vecteurs :
+\begin{enumerate}
+  \item $C_i \leftarrow \lambda C_i$ avec $\lambda \neq 0$ :
+  on peut multiplier une colonne par un scalaire non nul.
+
+  \item $C_i \leftarrow C_i+\lambda C_j$ avec $\lambda \in \K$ (et $j\neq i$) :
+  on peut ajouter à la colonne $C_i$ un multiple d'une autre colonne $C_j$.
+
+  \item $C_i \leftrightarrow C_j$ : on peut échanger deux colonnes.
+\end{enumerate}
+\end{Proposition}
+\begin{Demonstration}%dep=ch_espaces_vectoriels__rg_operations_elementaires_invariant
+par définition, le rang d'une matrice est le rang de la famille de ses vecteurs colonnes et on montré l'invariance du rang par ces  \Reference{opérations}{ch_espaces_vectoriels__rg_operations_elementaires_invariant}.
+\end{Demonstration}
+\begin{Methode}[Pivot de Gauss]
+Pour calculer le rang d'une matrice ou d'un système de vecteurs, on applique la méthode de Gauss sur la  matrice $A$ afin d'obtenir une matrice échelonnée. 
+\end{Methode}
+\begin{Exemple}
+\begin{Enonce}
+Déterminer le rang de la matrice $\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\\\end{pmatrix}$
+\end{Enonce}
+\begin{Correction}
+$$\begin{aligned}
+\rg\begin{pmatrix}1&2&3\\2&3&4\\3&4&5\\\end{pmatrix} &=&\rg \begin{pmatrix}1&2&3\\0&-1&-2\\0&-2&-4\\\end{pmatrix}&\begin{array}{l}\\ L_2\leftarrow L_2-2L_1\\L_3\leftarrow L_3-3L_1 \end{array}\\
+&=&\rg \begin{pmatrix}1&2&3\\0&-1&-2\\0&0&0\\\end{pmatrix}&\begin{array}{l}\\ \\L_3\leftarrow L_3-2L_2 \end{array}\\
+&=2.&&
+\end{aligned}$$
+\end{Correction}
+  \end{Exemple}
+\begin{Exemple}
+\begin{Enonce}
+Déterminer le rang de la matrice $\begin{pmatrix}1&1&1\\1&2&4\\1&3&9\\\end{pmatrix}$
+\end{Enonce}
+\begin{Correction}
+$$\begin{aligned}
+\rg\begin{pmatrix}1&1&1\\1&2&4\\1&3&9\\\end{pmatrix} &=&\rg \begin{pmatrix}1&1&1\\0&1&3\\0&2&8\\\end{pmatrix}&\begin{array}{l}\\ L_2\leftarrow L_2-L_1\\L_3\leftarrow L_3-L_1 \end{array}\\
+&=&\rg \begin{pmatrix}1&1&1\\0&1&3\\0&0&2 \end{pmatrix}&\begin{array}{l}\\ \\L_3\leftarrow L_3-2L_2 \end{array}\\
+&=3.&&
+\end{aligned}$$
+\end{Correction}
+\end{Exemple}
+
+%-------------------------------------------------------
+\subsection{Rang et matrice inversible}
+
+\begin{Theoreme}[Matrice inversible et rang]
+Une matrice carrée de taille $n$ est inversible si et seulement si elle
+est de rang $n$.
+\end{Theoreme}
+%TODO demonstration
+\begin{Exemple}
+\begin{Enonce}
+Déterminer si la matrice 
+$\begin{pmatrix}
+1&1&0&1\\
+2&1&1&0\\
+1&2&-1&1\\
+-1&0&-1&-3
+\end{pmatrix}
+$ est inversible.
+\end{Enonce}
+\begin{Correction}
+$$\begin{aligned}
+\rg\begin{pmatrix}
+1&1&0&1\\
+2&1&1&0\\
+1&2&-1&1\\
+-1&0&-1&-3
+\end{pmatrix} &=&\rg \begin{pmatrix}
+1&1&0&1\\
+0&-1&1&-2\\
+0&1&-1&0\\
+0&1&-1&-2
+\end{pmatrix}&\begin{array}{l}\\ L_2\leftarrow L_2-2L_1\\L_3\leftarrow L_3-L_1\\L_4\leftarrow L_4+L_1 \end{array}\\
+&=&\rg \begin{pmatrix}
+1&1&0&1\\
+0&-1&1&-2\\
+0&0&0&-2\\
+0&0&0&-4
+\end{pmatrix}&\begin{array}{l}\\ \\L_3\leftarrow L_3+L_2\\L_4\leftarrow L_4+L_2 \end{array}\\
+&=&\rg \begin{pmatrix}
+1&1&0&1\\
+0&-1&1&-2\\
+0&0&0&-2\\
+0&0&0&0
+\end{pmatrix}&\begin{array}{l}\\ \\ \\L_4\leftarrow L_4-2L_3 \end{array}\\
+&=3.&&
+\end{aligned}$$
+Comme le rang n'est pas égale à 4, la matrice n'est pas inversible.
+\end{Correction}
+
+\end{Exemple}
+
+\begin{Proposition}[Invariance par transposition]
+$$\rg(A)=\rg( \transposee{A} ).$$
+\end{Proposition}
+%TODO demonstration et exemple
+
+
+
+
+
+
+
+\section{Matrice par blocs}
+\begin{Definition}[Décomposition par blocs]
+Soit $M\in  \MnpK $ une matrice.\\
+Sa \defi{décomposition par blocs} $2\times 2$  est
+\begin{center}
+  \begin{tikzpicture}[
+      dots/.style={
+        line width=1pt,
+        line cap=round,
+        dash pattern=on 0pt off 5pt,
+        shorten >=.1cm,
+    shorten <=.1cm}]
+    \matrix[
+      matrix of nodes,
+      left delimiter=(,
+      right delimiter=),
+    ]{
+      \node (A) {$A$}; & \node (B) {$B$};\\
+      \node (C) {$C$}; &  \node (D) {$D$}; \\
+    };
+
+
+    \draw [<->]  ([xshift=1cm]B.north east) -- node [right] {$n_1$} ([xshift=1cm]B.south east);
+    \draw [<->]  ([xshift=1cm]D.north east) -- node [right] {$n_2$} ([xshift=1cm]D.south east);
+    \draw [<->]  ([xshift=1.75cm]B.north east) -- node [right] {$n$} ([xshift=1.75cm]D.south east);
+
+    \draw [<->]  ([yshift=-0.5cm]C.south west) -- node [below] {$p_1$}([yshift=-0.5cm]C.south east);
+    \draw [<->]  ([yshift=-0.5cm]D.south west) -- node [below] {$p_2$}([yshift=-0.5cm]D.south east);
+    \draw [<->]  ([yshift=-1.1cm]C.south west) -- node [below] {$p$} ([yshift=-1.1cm]D.south east);
+
+    \node[xshift=-0.9cm] at ($(A.west)!0.5!(C.west)$) { $M =$ };
+  \end{tikzpicture}
+\end{center}
+De même, on peut généraliser une décomposition par blocs $k\times m$. 
+\end{Definition}
+\begin{Exemple}
+La matrice ${P} ={\begin{pmatrix}1&1&1&0\\1&1&0&1\\0&-1&4&4\\-1&0&4&4\end{pmatrix}}$
+peut être partitionnée en quatre blocs $2\times 2$ avec $$P_{11}={\begin{pmatrix}1&1\\1&1\end{pmatrix}},P_{12}={\begin{pmatrix}1&0\\0&1\end{pmatrix}},P_{21}={\begin{pmatrix}0&-1\\-1&0\end{pmatrix}},{P}_{22}={\begin{pmatrix}4&4\\4&4\end{pmatrix}}.$$
+On peut alors écrire la matrice par bloc comme :
+$$P={\begin{pmatrix} {P} _{11}& {P} _{12}\\ {P} _{21}& {P} _{22}\end{pmatrix}}.$$
+\end{Exemple}
+\begin{Proposition}[Addition par blocs]
+On a :
+\begin{center}
+  \begin{tikzpicture}
+\matrix (XXX) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+A_{11} & A_{12}  \\
+A_{21} & A_{22}  \\
+};
+\matrix (XXXX)at (3.4cm,0) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+B_{11} & B_{12}  \\
+B_{21} & B_{22}  \\
+};
+\node[xshift=-1cm] at ($(XXXX.west)!0.5!(XXXX.west)$) { $+$ };
+\matrix (XXXXX)at (9cm,0) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+A_{11}+B_{11} & A_{12}+B_{12}  \\
+A_{21}+B_{21} & A_{22}+B_{22}  \\
+};
+\node[xshift=-1cm] at ($(XXXXX.west)!0.5!(XXXXX.west)$) { $=$ };
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXX-1-1.north west) -- node[above] {$p_1$} (XXX-1-1.north east);
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXX-1-2.north west) -- node[above] {$p_2$} (XXX-1-2.north east);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXX-1-1.north west) -- node[left] {$n_1$} (XXX-1-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXX-2-1.north west) -- node[left] {$n_2$} (XXX-2-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXXX-1-1.north west) -- node[left] {$n_1$} (XXXX-1-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXXX-2-1.north west) -- node[left] {$n_2$} (XXXX-2-1.south west);
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXXX-1-1.north west) -- node[above] {$p_1$} (XXXX-1-1.north east);
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXXX-1-2.north west) -- node[above] {$p_2$} (XXXX-1-2.north east);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXXXX-1-1.north west) -- node[left] {$n_1$} (XXXXX-1-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXXXX-2-1.north west) -- node[left] {$n_2$} (XXXXX-2-1.south west);
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXXXX-1-1.north west) -- node[above] {$p_1$} (XXXXX-1-1.north east);
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXXXX-1-2.north west) -- node[above] {$p_2$} (XXXXX-1-2.north east);
+  \end{tikzpicture}
+  \end{center}
+  De même, on peut généraliser une addition  par blocs $k\times m$. 
+%  Soit $A$ et $B$ deux matrices de $\MnpK$ exprimées par blocs selon les mêmes découpages. Soit $\lambda ,\mu  \in  \K $.\\
+%Alors la matrice $\lambda A + \mu  B$ s'exprime par blocs selon les mêmes découpages que $A$ et $B$, et les blocs s'obtiennent en combinant les blocs situés aux mêmes places.
+\end{Proposition}
+\begin{Proposition}[Multiplication par un scalaire par blocs]
+On a :
+\begin{center}
+  \begin{tikzpicture}
+
+\matrix (XXXX)at (3.4cm,0) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+A_{11} & A_{12}  \\
+A_{21} & A_{22}  \\
+};
+\node[xshift=-0.8cm] at ($(XXXX.west)!0.5!(XXXX.west)$) { $\lambda.$ };
+\matrix (XXXXX)at (7cm,0) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+\lambda A_{11} & \lambda A_{12}  \\
+\lambda A_{21} & \lambda A_{22}  \\
+};
+\node[xshift=-1cm] at ($(XXXXX.west)!0.5!(XXXXX.west)$) { $=$ };
+  \end{tikzpicture}
+  \end{center}
+  De même, on peut généraliser une multiplication par blocs $k\times m$. 
+%  Soit $A$ et $B$ deux matrices de $\MnpK$ exprimées par blocs selon les mêmes découpages. Soit $\lambda ,\mu  \in  \K $.\\
+%Alors la matrice $\lambda A + \mu  B$ s'exprime par blocs selon les mêmes découpages que $A$ et $B$, et les blocs s'obtiennent en combinant les blocs situés aux mêmes places.
+\end{Proposition}
+
+\begin{Proposition}[Produit par blocs]
+
+On a :\\
+\begin{center}
+  \begin{tikzpicture}
+\matrix (XXX) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+A_{11} & A_{12}  \\
+A_{21} & A_{22}  \\
+};
+\matrix (XXXX)at (3.4cm,0) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+B_{11} & B_{12}  \\
+B_{21} & B_{22}  \\
+};
+\node[xshift=-1cm] at ($(XXXX.west)!0.5!(XXXX.west)$) { $\times$ };
+\matrix (XXXXX)at (9cm,0) [matrix of math nodes,left delimiter=(,right delimiter=)]
+{
+A_{11}B_{11}+A_{12}B_{21} & A_{11}B_{12}+A_{12}B_{22}  \\
+A_{21}B_{11}+A_{22}B_{21} & A_{21}B_{12}+A_{22}B_{22}  \\
+};
+\node[xshift=-1cm] at ($(XXXXX.west)!0.5!(XXXXX.west)$) { $=$ };
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXX-1-1.north west) -- node[above] {$k_1$} (XXX-1-1.north east);
+\draw[<->,transform canvas={yshift=1em},thick,colordef] (XXX-1-2.north west) -- node[above] {$k_2$} (XXX-1-2.north east);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXX-1-1.north west) -- node[left] {$n_1$} (XXX-1-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXX-2-1.north west) -- node[left] {$n_2$} (XXX-2-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colordef] (XXXX-1-1.north west) -- node[left] {$k_1$} (XXXX-1-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colordef] (XXXX-2-1.north west) -- node[left] {$k_2$} (XXXX-2-1.south west);
+\draw[<->,transform canvas={yshift=1em},thick,green] (XXXX-1-1.north west) -- node[above] {$p_1$} (XXXX-1-1.north east);
+\draw[<->,transform canvas={yshift=1em},thick,green] (XXXX-1-2.north west) -- node[above] {$p_2$} (XXXX-1-2.north east);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXXXX-1-1.north west) -- node[left] {$n_1$} (XXXXX-1-1.south west);
+\draw[<->,transform canvas={xshift=-1.5em},thick,colorprop] (XXXXX-2-1.north west) -- node[left] {$n_2$} (XXXXX-2-1.south west);
+\draw[<->,transform canvas={yshift=1em},thick,green] (XXXXX-1-1.north west) -- node[above] {$p_1$} (XXXXX-1-1.north east);
+\draw[<->,transform canvas={yshift=1em},thick,green] (XXXXX-1-2.north west) -- node[above] {$p_2$} (XXXXX-1-2.north east);
+  \end{tikzpicture}
+  \end{center}
+  De même, on peut généraliser une multiplication par blocs $k\times m$. 
+%$\displaystyle M.M'=\left( \begin{array}{cccc} A.A'+ B.C' & A.B' + B.D' \\ C.A'+D.C' & C.B' + D.D' \end{array}\right)$
+
+%Soit $A\in  \MnpK$ et $B\in  \M{p}{q}{\K}$.\\
+%On suppose que $A$ a une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(p_1,\dots,n_t)$ pour les colonnes.\\
+%On suppose que $B$ a une décomposition par blocs suivant le découpage $(p_1,\dots,n_t)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes.\\
+%Alors le produit $C = AB\in  \mathrm{M}_{n,q}(\K )$ admet une décomposition par blocs suivant le découpage $(n_1,\dots,n_s)$ pour les lignes et $(q_1,\dots,q_u)$ pour les colonnes
+%$$ C = \begin{pmatrix} C_{1,1} &  \dots &  C_{1,u}  \\  \vdots &   &  \vdots  \\  C_{s,1} &  \dots &  C_{s,u} \end{pmatrix} $$
+%où pour tous $i\in  \Intf{1}{s}$ et $j\in  \Intf{1}{u}$,
+%$$ C_{i,j} = \sum  _{k=1}^t A_{i,k} B_{k,j} $$
+%Cette formule est identique au produit matricielle en considérant les blocs comme des scalaires.
+\end{Proposition}
 \begin{Remarque}
-La preuve de cette proposition nous donne une méthode pour déterminer si une matrice est inversible ou non et calculer son inverse le cas échéant. En effet, soit $A\in\MnK$. D'un point de vue matricielle l'algorithme du pivot de Gauss permet de transformer $A$ par des opérations élémentaires $Q_1,\dots,Q_r$, c'est à dire :
- $(Q_1\dots Q_r)A$. Deux cas de figures se présentent à la fin de l'algorithme, soit on obtient la matrice identité, soit on obtient 
-\begin{itemize}
-\item  Comme les opérations élémentaires sont des matrices inversibles, $(Q_1\dots Q_r)$ est inversible. Si 
-\end{itemize}
+Le cas qui nous intéressera le plus fréquemment est celui des matrices carrées ayant le même découpage pour les lignes et pour les colonnes. Dans ce cas, les blocs diagonaux sont également des matrices carrées.
 \end{Remarque}
-
-
-
 
 
 

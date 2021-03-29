@@ -2,18 +2,17 @@
 \usepackage{commeunjeustyle}
 
 \begin{document}
-\chapter*{Système d'équations linéaires}
-% ressource http://univmaths.e-monsite.com/medias/files/cours-d-algebre-lineaire.pdf http://exo7.emath.fr/cours/ch_syslin.pdf
+\chapter*{Système d'équations linéaires}%label=chapter,title=ch_systemes_equations_lineaires
+\begin{Texte}
 La résolution des systèmes d'équations linéaires appartient aux problèmes les plus anciens dans les mathématiques et ceux-ci apparaissent dans beaucoup de domaines, comme en traitement numérique du signal, en optimisation linéaire, ou dans l'approximation de problèmes non linéaires en analyse numérique
 Les systèmes linéaires interviennent à travers leurs applications dans de nombreux contextes, car ils forment la base
 calculatoire de l'algèbre linéaire. Ils permettent également de traiter une bonne partie de la théorie de l'algèbre linéaire
-en dimension finie. C'est pourquoi ce cours commence avec une étude des équations linéaires et de leur résolution.
-Le but de ce chapitre est essentiellement pratique : il s'agit de résoudre des systèmes linéaires. La partie théorique
-sera revue et prouvée dans le chapitre « Matrices »
-\section{Exemple introductif}
+en dimension finie. \\
+Ce cours commence avec une étude théorique des équations linéaires avec un théorème de structure des solutions. Puis il présente une méthode de résolution avec l'algorithme du pivot de Gauss.
+\end{Texte}
+\begin{Exemple}[Taille d'un père et d'un fils]
 La somme des tailles d'un fils et du père est de 2,5 mètres. La différence de tailles  est de 0.5 mètres.
-Quel est la taille du fils ? 
-\subsection{Modélisation}
+Quel est la taille du fils et du père ? \\
 Soit la variable $x$ représentant la taille du fils et la variable $y$ représentant la taille du père.\\
 La somme est 2,5 donc $x+y=2,5$.\\
 La différence est 0,5 donc $y-x=0,5$.\\
@@ -39,10 +38,10 @@ $\Leftrightarrow\quad \begin{cases}
 \end{cases}
 $		
 \end{center}
-
-
-\subsection{Résolution par pivot de Gauss}
-Pour déterminer l'ensemble des solutions $x$ et $y$ vérifiant ce système, une idée est de découpler par itérations les dépendances entre les inconnues dans les équations par combinaison ou élimination. A chaque itération, ces deux opérations transforment  un système d'équations en un autre équivalent (ayant les mêmes solutions).\\
+Pour déterminer l'ensemble des solutions $x$ et $y$ vérifiant ce système, il y a deux manières :
+\begin{enumerate}
+\item \impo{Résolution d'équations linéaires :}\\
+Une idée est de découpler par itérations les dépendances entre les inconnues dans les équations par combinaison ou élimination. A chaque itération, ces deux opérations transforment  un système d'équations en un autre équivalent (ayant les mêmes solutions).\\
 L'application à l'exemple introductif est :
 \begin{enumerate}
 \item pour éliminer $x$ de la ligne 2,  on ajoute à la ligne 2 la ligne 1 :
@@ -65,13 +64,13 @@ y&=1,5
 $$
 \end{enumerate}
 Ainsi l'ensemble des solution est l'unique solution $(1 , 1,5 )$ car ce dernier système d'équations est équivalent au premier.
-\subsection{Structure de l'ensemble des solutions}
-Le système équation :
+\item  \impo{Étude de la structure des solutions :}\\
+Le système d'équations :
 $$(S)\quad \begin{cases}
 x+y&=2,5\quad(D_1)\\
 -x+y&=0,5\quad(D_2)
 \end{cases}$$
-est constitué de deux équations de deux droites $D_1$ et $D_2$. 
+est constitué de deux équations de deux droites $D_1$ et $D_2$. \\
 Trois cas se présentent alors :
 \begin{enumerate}
 \item Si les droites $D_1$ et $D_2$ ne sont pas parallèles, alors elle s'intersecte en un unique point et le système $(S)$ a une
@@ -109,13 +108,8 @@ Dans notre exemple, comme les vecteurs normaux aux deux droites $\begin{pmatrix}
 \end{pmatrix}$ ne sont pas colinéaires, les deux droites ne sont pas parallèles et donc admettent un unique point d'intersection.
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
-\draw[step=1cm,gray,very thin] (-2,-2) grid (6,6);
 \draw[thick,->] (-2,0) -- (6,0)node[anchor=west] {$x$};
 \draw[thick,->] (0,-2) -- (0,6)node[anchor=south] {$y$};
-\foreach \x in {-2,-1,0,1,2,3,4,5}
-   \draw (\x cm,1pt) -- (\x cm,-1pt) node[anchor=north] {$\x$};
-\foreach \y in {-2,-1,0,1,2,3,4,5}
-    \draw (1pt,\y cm) -- (-1pt,\y cm) node[anchor=east] {$\y$};
 \draw[-,color=red] (-2,-1.5) -- (5.5,6)node[anchor=south] {$D_1 : y=x+0,5$};
 \draw[-,color=blue] (-2,4.5) -- (4.5,-2)node[anchor=north] {$D_2 : y=-x+2,5$};
 
@@ -124,15 +118,11 @@ Dans notre exemple, comme les vecteurs normaux aux deux droites $\begin{pmatrix}
 \draw[->,color=blue] (1.75,0.75) -- (2.75,1.75)node[anchor=south] {$\begin{pmatrix}1\\1\end{pmatrix}$};
 \end{tikzpicture}	
 \end{center}
-Ainsi l'ensemble des solution admet une unique solution.\\
-La prochaine section est l'étude théorique qui permettra de généraliser à quelque soit le système d'équations linéaires
-\begin{itemize}
-\item la méthode de résolution à l'aide du pivot de gauss,
-\item la structure de l'ensemble des résultats du système, c'est à dire  une unique solution ou bien aucune solution ou bien une infinité de solutions.
-\end{itemize}
-
-
+Ainsi l'ensemble des solution admet une unique solution.
+\end{enumerate}
+\end{Exemple}
 \section{Étude théorique}
+\subsection{Définitions}
 \begin{Definition}[Équation linéaire]
 On appelle \defi{équation linéaire} dans les variables  (ou inconnues) $x_1,\dots,x_n$ toute
 relation de la forme
@@ -177,7 +167,7 @@ x_{1}&-&2x_{2}&+&4x_{3}&=&1\\
 \end{matrix}}\right. $$
 \end{Exemple}
 \begin{Definition}[Solution]
-Une \defi{solution} du système linéaire est un p-uplet $(s_1,s2,\dots,s_p)$ tel que si l?on
+Une \defi{solution} du système linéaire est un p-uplet $(s_1,s2,\dots,s_p)$ tel que si l'on
 substitue $s_1$ pour $x_1$
 , $s_2$ pour $x_2$ et ainsi de suite  dans le système linéaire, on obtient une égalité.\\
  L'ensemble des solutions du système est l'ensemble de tous ces p-uplets.
@@ -225,6 +215,9 @@ x_{1}&-&2x_{2}&+&4x_{3}&=&0\\
 2x_{1}&+&1x_{2}&-&3x_{3}&=&0\\
 \end{matrix}}\right. $.
 \end{Exemple}
+
+
+\subsection{Structure de l'ensemble des solutions}
 \begin{Theoreme}[Structure de l'ensemble des solutions d'un système linéaire]
 Deux cas se présentent :
 \begin{itemize}
@@ -233,8 +226,36 @@ Deux cas se présentent :
 $$ S=\{\overbrace{(x_1,\dots ,x_n)}^{\text{Solution particulière}}+ \overbrace{(y_1,\dots,y_p)}^{\text{Solution homogène}}:\quad (y_1,\dots,y_p) \in S_H\}.$$
 \end{itemize}
 \end{Theoreme}
-\begin{Demonstration}
-Voir le chapitre sur les matrices.
+\begin{Demonstration}%dep=ch_matrices
+Soit $S$ l'ensemble des solutions du système d'équations.\\ 
+Supposons que les système  possède une solution, noté $X_p$.\\
+Soit $A=\begin{pmatrix}
+a_{11}&\dots&a_{1p}\\
+\vdots &&\vdots \\
+a_{n1}&\dots&a_{np}\\
+\end{pmatrix}
+$ et $Y=\begin{pmatrix}
+b_{1}\\
+\vdots\\
+b_{n}\\
+\end{pmatrix}.$\\
+On a :
+$$
+\begin{aligned}
+X=\begin{pmatrix}
+x_1 \\ \vdots \\ x_d
+\end{pmatrix} \in S \Leftrightarrow& \left\{{\begin{matrix}
+a_{11}x_{1}&+&a_{12}x_{2}&+&\dots &+&a_{1p}x_{p}&=&b_{1}\\
+a_{21}x_{1}&+&a_{22}x_{2}&+&\dots &+&a_{2p}x_{p}&=&b_{2}\\
+\vdots&&\vdots&& &&\vdots&=&\vdots \\
+a_{i1}x_{1}&+&a_{i2}x_{2}&+&\dots &+&a_{ip}x_{p}&=&b_{i}\\
+\vdots&&\vdots&& &&\vdots&=&\vdots \\
+a_{n1}x_{1}&+&a_{n2}x_{2}&+&\dots &+&a_{np}x_{n}&=&b_{n}\\
+\end{matrix}}\right. \\\Leftrightarrow&  AX=B\overbrace{\Leftrightarrow}^{AX_p=B}  AX=AX_p\Leftrightarrow A(X-Xp)=0\\
+\Leftrightarrow& X-Xp\text{ est solution du sytème homogène }\\
+\Leftrightarrow& X\text{  est la somme de la solution particulère et d'une solution du système homogène}\\
+\end{aligned}
+$$
 \end{Demonstration}
 \begin{Exemple}
 Déterminer les solutions du système : 
@@ -256,6 +277,7 @@ En posant $x_3=t$, la ligne 2 donne $x_2=3t$ et la ligne 1 donne $x_1=0$. Ainsi 
 $$\{  \overbrace{(1,0,0)}^{\text{Sol particulière}} +\overbrace{t(0,3,1)}^{\text{Sol homogène}}:\quad\forall t \in \R \}.$$
 \end{Exemple}
 \section{Résolution par pivot de Gauss}
+\subsection{Définitions}
 \begin{Definition}[Système équivalent]
 On dit que deux systèmes linéaires sont \defi{équivalents} s'ils ont le même ensemble de solutions.
 \end{Definition}
@@ -272,12 +294,114 @@ Les opérations suivantes sont appelées \defi{opérations élémentaires} sur l
 \begin{Proposition}[Équivalence par opérations élémentaires]
 Les opérations élémentaires transforment un système linéaire en un système linéaire équivalent.
 \end{Proposition}
-\begin{Demonstration}
-Voir le chapitre sur les matrices.
+\begin{Demonstration}%dep=ch_matrices
+Soit $Q$ inversible.\\
+$X$ est solution d'un système linéaire si et seulement si $AX=Y$ si et seulement si $QAX=QY$.\\
+Donc si les matrices  associées aux transformations élémentaires sont inversibles alors  les opérations élémentaires transforment un système linéaire en un système linéaire équivalent. On a :
+\begin{itemize}
+\item $L_i\leftrightarrow L_j:$ Soit 
+$Q_{L_i\leftrightarrow L_j}=
+%\begin{pmatrix}
+%1 & 0       & \dots  & \dots  &\dots  &\dots&\dots&\dots&\dots  &\dots&0\\
+% 0 & \ddots &   &   &  &&&&  &&\vdots\\
+%\vdots  &        & 1 &   &  &&&&  &&\vdots\\
+%\vdots  &        &   & 0 & \dots &\dots&0&\commentterm{60:0.5cm}{1}{position ij}& &&\vdots\\
+%\vdots  &&&\vdots& 1 &        &   & 0  &   &&\vdots\\
+%\vdots  &&&\vdots&  & \ddots &   &\vdots   &  &&\vdots\\
+%\vdots  &&&0& &        & 1 &   \vdots&   &&\vdots \\
+%\vdots  &&&\commentterm{-100:1cm}{1}{position ji} &0 &\dots        & \dots  & 0 &   &&\vdots\\
+%\vdots  &&&&  &&&& 1 &        &   \vdots  \\
+%\vdots  &&&&  &&&&   & \ddots &    0\\
+%0&\dots&\dots&\dots&  \dots&\dots&\dots&\dots&\dots  &\dots        & 1   \\
+%\end{pmatrix}\\
+\begin{pmatrix}
+1 &        &   &   &  &&&&  &&\\
+  & \ddots &   &   &  &&&&  &&\\
+  &        & 1 &   &  &&&&  &&\\
+  &        &   & 0 &  &&&\overset{\text{{\tiny \propri{pos ij}}}}{1}& &&\\
+  &&&& 1 &        &   &   &   &&\\
+  &&&&  & \ddots &   &   &  &&\\
+  &&&& &        & 1 &   &   && \\
+  &&&\overset{\text{{\tiny \propri{pos ji}}}}{1} & &       &   &0   &   &&\\
+  &&&&  &&&& 1 &        &   \ \\
+  &&&&  &&&&   & \ddots &    \\
+ &&&&  &&&&  &        & 1   \\
+\end{pmatrix}
+.$\\
+On a $Q_{L_i\leftrightarrow L_j} \begin{pmatrix}
+& L_1 & \\
+& \vdots & \\
+& L_i & \\
+& \vdots & \\
+& L_j & \\
+& \vdots & \\
+&  L_n & \\
+\end{pmatrix}=\begin{pmatrix}
+& L_1 & \\
+& \vdots & \\
+& L_j & \\
+& \vdots & \\
+& L_i & \\
+& \vdots & \\
+&  L_n & \\
+\end{pmatrix}.$ Comme $Q_{L_i\leftrightarrow L_j}Q_{L_i\leftrightarrow L_j}=I_n$,$ Q_{L_i\leftrightarrow L_j}$ est inversible et  égale à son inverse.
+  
+\item $L_i\leftarrow \lambda L_i$ avec $\lambda\neq 0$  : Soit $\lambda\neq 0$ et 
+$Q_{L_i\leftarrow \lambda L_i }=
+\begin{pmatrix}
+1&        &    &&&&\\
+ &\ddots  &   &&&&\\
+ &        &1  &  &&& \\
+ &        &   &\overset{\text{{\tiny \propri{pos ii}}}}{1}&&&\\
+ &        &   &      &1 &&\\
+ &        &   &      & & \ddots &  \\
+ &        &   &      & &  &1    \\
+\end{pmatrix} $.\\
+On a $Q_{L_i\leftarrow \lambda L_i } \begin{pmatrix}
+& L_1 & \\
+& \vdots & \\
+& L_i & \\
+& \vdots & \\
+&  L_n & \\
+\end{pmatrix}=\begin{pmatrix}
+& L_1 & \\
+& \vdots & \\
+& \lambda L_i & \\
+& \vdots & \\
+&  L_n & \\
+\end{pmatrix}.$ Comme $Q_{L_i\leftarrow \lambda L_i}Q_{L_i\leftarrow \frac 1 \lambda L_i}=I_n$,$ Q_{L_i\leftarrow \lambda L_i}$ est inversible.
+
+\item $L_i\leftarrow  L_i- \lambda L_j $ avec $i\neq j$  : Soit $i\neq j$ et 
+$Q_{L_i\leftarrow  L_i- \lambda L_j }=
+\begin{pmatrix}
+1&        &    &&&&\\
+ &\ddots  &   &&&&\\
+ &        &1  &  &&& \\
+ &        &   &\ddots&&&\\
+ &        &\overset{\text{{\tiny \propri{pos ii}}}}{1}   &      &1 &&\\
+ &        &   &      & & \ddots &  \\
+ &        &   &      & &  &1    \\
+\end{pmatrix} $.\\
+On a $Q_{L_i\leftarrow \lambda L_i } \begin{pmatrix}
+& L_1 & \\
+& \vdots & \\
+& L_i & \\
+& \vdots & \\
+&  L_n & \\
+\end{pmatrix}=\begin{pmatrix}
+& L_1 & \\
+& \vdots & \\
+& \lambda L_i & \\
+& \vdots & \\
+&  L_n & \\
+\end{pmatrix}.$ Comme $Q_{L_i\leftarrow \lambda L_i}Q_{L_i\leftarrow \frac 1 \lambda L_i}=I_n$,$ Q_{L_i\leftarrow \lambda L_i}$ est inversible.
+\end{itemize} 
 \end{Demonstration}
-\begin{Remarque}
-Pour résoudre un système, on utilisera une succession d'opérations élémentaires jusqu'à obtenir un système où l'on peut effecteur des substitutions.    
-\end{Remarque}
+
+\subsection{Algorithme}
+\begin{Algorithme}[Pivot de Gauss]
+Pour résoudre un système, on effectue une succession d'opérations élémentaires jusqu'à obtenir un système où l'on peut effecteur des substitutions.    
+\end{Algorithme}
 \begin{Exemple}
 Le système 
 $\quad \begin{cases}
@@ -290,7 +414,8 @@ $\begin{cases}
 x+y&=\frac 5 2\\
 2y&=3
 \end{cases}
-$ sont équivalents car le second système est la transformation du premier système par l'opération élémentaire $L_2\leftarrow L_2+L_1$. La ligne 2 du dernier système donne $y=\frac 3 2$ et substituant 
+$ sont équivalents car le second système est la transformation du premier système par l'opération élémentaire $L_2\leftarrow L_2+L_1$. La ligne 2 du dernier système donne $y=\frac 3 2$ et substituant on obtient $x=1$. \\
+Donc l'ensemble des solutions du système est l'unique couple $(1,\frac 3 2)$. 
 \end{Exemple}
 \begin{Algorithme}[Pivot de Gauss]
 Afin de faciliter la compréhension, nous noterons $\bigstar$ un pivot, $\blacksquare$ un coefficient non nul et 

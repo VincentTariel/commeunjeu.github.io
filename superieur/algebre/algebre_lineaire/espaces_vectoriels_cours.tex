@@ -6,7 +6,7 @@
 \chapter*{Espaces vectoriels}%label=chapter,title=ch_espaces_vectoriels,dep=ch_vecteurs,dep=ch_groupes
 \begin{Exemple}[Tailles d'un père et d'un fils]
 La somme des tailles d'un fils et du père est de 2,5 mètres. La différence de tailles  est de 0.5 mètres.
-Quel est la taille du fils ? \\
+Quelle est la taille du fils et du père ? \\
 Soit la variable $x$ représentant la taille du fils et la variable $y$ représentant la taille du père.\\
 Le couple $(x,y)$ vérifie le système suivant  :
 $$(S)\quad \begin{cases}
@@ -1628,7 +1628,8 @@ $t\neq 4$ si et seulement si  la seule solution du système est
 
 
 
-\section{Théorème sur les  dimensions}
+
+\section{Théorèmes sur les  dimensions}
 \subsection{Dimension d'un sous espace vectoriel}
 \begin{Proposition}
 Soit $E$ un espace vectoriel de dimension finie et $F$ un sous espace vectoriel de $E$.\\
@@ -1774,10 +1775,108 @@ Donc $F \cap G =\{\Vec{0_{\R^3}}\}$.
 D'après le théorème de caractérisation des sous espaces vectoriels supplémentaire,  $F$ et $G$ sont supplémentaires dans $\R^3$.
 \end{Correction}
 \end{Exemple}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Rang d'une famille de vecteurs}
+\subsection{Définition}
+\begin{Definition}[Rang d'une famille de vecteurs]%label=definition,title=rang_famille
+Soit $E$ un $\K$-espace vectoriel et soit $(\Vect{x_1}, \ldots \Vect{x_p})$
+une famille finie de vecteurs de $E$.
+Le \defi{rang} de la famille $(\Vect{x_1}, \ldots \Vect{x_p})$
+est la dimension du sous-espace vectoriel $\VectE(\Vect{x_1}, \ldots \Vect{x_p})$
+engendré par les vecteurs $\Vect{x_1}, \ldots \Vect{x_p}$.
+Autrement dit :
+$$\rg(\Vect{x_1}, \ldots \Vect{x_p}) = \dim \VectE(\Vect{x_1}, \ldots \Vect{x_p}).$$
+\end{Definition}
+
+
+
+\begin{Proposition}[Égalité et Inégalités sur le rang]
+\begin{itemize}
+\item le rang est inférieur ou égal au nombre d'éléments dans la famille
+\item Si $E$ est de dimension finie alors le rang est inférieur ou égal à la dimension de $E$
+\item le rang est égale au nombre d'éléments dans la famille si et seulement si la famille est libre
+%\item le rang est égal au plus grand cardinal d'une famille libre extraite de la famille 
+\end{itemize}
+\end{Proposition}
+\begin{Corollaire}[Caractérisation d'une base]
+Soit $E$ un espace vectoriel de dimension $n$ et  $\mathcal{B}=(\Vect{x_1}, \ldots \Vect{x_n})$
+une famille  de $n$ vecteurs de $E$.\\
+$\mathcal{B}$ est une base si et seulement si $\rg \mathcal{B}=n$.
+\end{Corollaire}
+
+
+
+\begin{Exemple}%title=rang_famille_R4
+\begin{Enonce}
+Déterminer le rang de la famille suivante dans l'espace vectoriel $\R^4$ :
+$$(\begin{pmatrix} 1\\0\\1\\0 \end{pmatrix},\begin{pmatrix} 0\\1\\1\\1 \end{pmatrix} ,\begin{pmatrix} -1\\1\\0\\1 \end{pmatrix}).$$
+\end{Enonce}
+\begin{Correction}
+Il est clair que La famille $(\begin{pmatrix} 1\\0\\1\\0 \end{pmatrix},\begin{pmatrix} 0\\1\\1\\1 \end{pmatrix} )$ est libre, donc le rang est supérieur ou égale à 2 \\
+En revanche la famille $(\begin{pmatrix} 1\\0\\1\\0 \end{pmatrix},\begin{pmatrix} 0\\1\\1\\1 \end{pmatrix} ,\begin{pmatrix} -1\\1\\0\\1 \end{pmatrix})$ est liée donc le rang est strictement inférieur à 3.\\
+Donc le rang est égal à 2.
+\end{Correction}
+\end{Exemple}
+
+
+\begin{Proposition}[Indépendance de la base]
+Soit $E$ un $\K$-espace vectoriel de dimension $n$. Soit $\mathcal{B} = ( \Vect{e_1},\ldots,\Vect{e_n})$ une base de $E$.\\
+Soit $( \Vect{x_1}, \ldots, \Vect{x_p})$ une famille de vecteurs de $E$.\\
+Chaque vecteur $\Vect{x_j}$ se décompose dans la base $\mathcal{B}$ : $\Vect{x_j}= a_{1j} \Vect{e_1} + \cdots + a_{ij} \Vect{e_i} + \cdots + a_{nj}\Vect{e_n}$.\\
+Le rang de la famille  $( \Vect{x_1}, \ldots, \Vect{x_p})$ est égal au rang de la famille $\left(
+ \left(\begin{smallmatrix}a_{11} \\\vdots \\a_{n1}  \end{smallmatrix}\right),
+	\dots,
+ \left(\begin{smallmatrix}a_{1p} \\\vdots \\a_{np}  \end{smallmatrix}\right)\right)$.
+\end{Proposition}
+\begin{Exemple}
+\begin{Enonce}
+Déterminer le rang de la famille suivante dans l'espace vectoriel $\R_3[X]$ :
+$$( (1+X^2),(1+X+X^2),(-1+X))$$
+\end{Enonce}
+\begin{Correction}
+Les vecteurs coordonnées dans la base canonique donne 
+$$\rg((1+X^2),(1+X+X^2),(-1+X)))=\rg(\begin{pmatrix} 1\\0\\1\\0 \end{pmatrix},\begin{pmatrix} 0\\1\\1\\1 \end{pmatrix} ,\begin{pmatrix} -1\\1\\0\\1 \end{pmatrix}).$$
+D'après l'\Reference{exemple précédent}{rang_famille_R4}, le rang est égal à 2.
+
+\end{Correction}
+\end{Exemple}
+
+
+
+%-------------------------------------------------------
+\subsection{Opérations conservant le rang}
+
+
+\begin{Proposition}[Opérations élémentaires conservant le rang]%title=rg_operations_elementaires_invariant
+Le rang d'une famille de vecteurs $( \Vect{x_1}, \ldots, \Vect{x_p})$
+n'est pas modifié par les trois opérations élémentaires suivantes sur les
+vecteurs :
+\begin{enumerate}
+  \item $\Vect{x_i} \leftarrow \lambda \Vect{x_i}$ avec $\lambda \neq 0$ :
+  on peut multiplier un vecteur par un scalaire non nul.
+
+  \item $\Vect{x_i} \leftarrow \Vect{x_i}+\lambda \Vect{x_j}$ avec $\lambda \in \K$ (et $j\neq i$) :
+  on peut ajouter au  $\Vect{x_i}$ un multiple d'une autre vecteur $\Vect{x_j}$.
+
+  \item $\Vect{x_i} \leftrightarrow \Vect{x_j}$ : on peut échanger deux vecteurs dans la famille.
+\end{enumerate}
+\end{Proposition}
+\begin{Demonstration}
+Le premier et troisième point de la proposition sont évidents.\\
+Soit $\mathcal{F}=(\Vect{x_1}, \ldots,\Vect{x_i},\ldots, \Vect{x_p})$ et $\mathcal{G} = ( \Vect{x_1}, \ldots,\Vect{x_i}+\lambda\Vect{x_j} ,\ldots, \Vect{x_p})$.\\
+Pour démontrer  $\VectE(\mathcal{F})= \VectE(\mathcal{G})$, il suffit de démontrer que tout vecteur de $\mathcal{F}$ est combinaison linéaire de vecteurs de $\mathcal{G}$ et inversement. \\
+On a :\\
+\begin{itemize}
+\item $\overbrace{\Vect{x_i}}^{\text{ième vecteur de }\mathcal{F}}=\overbrace{(\Vect{x_i}+\lambda\Vect{x_j})}^{\text{ième vecteur de }\mathcal{G}}- \lambda \overbrace{\Vect{x_j}}^{\text{jème vecteur de }\mathcal{G}}$
+\item $\overbrace{\Vect{x_i}+\lambda\Vect{x_j}}^{\text{ième vecteur de }\mathcal{G}} =\overbrace{(\Vect{x_i})}^{\text{ième vecteur de }\mathcal{F}}+ \lambda \overbrace{\Vect{x_j}}^{\text{jème vecteur de }\mathcal{F}}$
+\end{itemize}
+En conclusion $\VectE(\mathcal{F})= \VectE(\mathcal{G})$ et donc $\rg  \mathcal{F}=\rg \mathcal{G}$.
+\end{Demonstration}
+
 
 \section{Base adaptée}
 
-\begin{Definition}[Base adaptée]
+\begin{Definition}[Base adaptée à $F$]
 Soit $E$ un $\K $-espace vectoriel de dimension  $n$ et $F$ un sous espace vectoriel de $E$.\\
 On dit qu'une base $(\Vect{e}_1,\dots,\Vect{e_n})$ de $E$ est \defi{adaptée} à $F$
 s'il existe $p\in \Intf{1}{n}$ tel que $(\Vect{e}_1,\dots,\Vect{e_p})$ soit une base de $F$.
@@ -1793,13 +1892,13 @@ Comme $F$ est un espace vectoriel de dimension finie, il existe une base $(\Vect
 
 
 
-\begin{Definition}
+\begin{Definition}[Base adaptée à des sous espaces vectoriels supplémentaires]
 Soit $E$ un $\K $-espace vectoriel de dimension finie, $F,G$ des sous-espaces vectoriels supplémentaires de $E$ et $B$ une base de $E$.\\
 La base $\mathcal{B}$ est dite \defi{adaptée} à la décomposition $E =F \oplus G$ si  $\mathcal{B}$ peut s'écrire comme la concaténation de $\mathcal{B},\mathcal{B}'$ où $\mathcal{B}$ base de $F$ et $\mathcal{B}'$ base de $G$.\\
 De même, avec $F_1,\dots, F_p$ des sous-espaces vectoriels supplémentaires de $E$.
 La base $\mathcal{B}$ est dite \defi{adaptée} à la décomposition $E =\oplus_{k=1}^p F_k$ si $\mathcal{B}$ peut s'écrire comme la concaténation de $\mathcal{B}_1,\dots,\mathcal{B}_p$ où $\mathcal{B}_k$ est une base de $F_k$ pour tout $k\in \Intf{1}{p}$.
 \end{Definition}
-\begin{Proposition}
+\begin{Proposition}[Existence d'une base adaptée]
  La base ainsi définie existe.
 \end{Proposition}
 \begin{Demonstration}

@@ -5,23 +5,9 @@
 
 \chapter*{Application linéaire}
 
-
-\begin{Texte}
-Comme souvent en mathématiques, ce sont plus les transformations qui sont intéressantes et pertinentes que les objets eux-mêmes.\\
-Une application linéaire est un cas particulier de transformation.  Dans le langage courant, un phénomène est dit linéaire si les
-effets sont proportionnels aux causes. \\
-Plus précisément, un phénomène peut être décrit par une transformation$x \mapsto f (x)$, où $x$ représente la ou les causes (par exemple une différence de
-potentiel) et $f(x)$ un effet auquel on s'intéresse (par exemple l'intensité
-d'un courant électrique). On dit que le phénomène est linéaire quand  l'effet est proportionnel à la cause (exemple : l'intensité de courant est
-proportionnel à la différence de potentiel, en d'autres termes, si on double
-la différence de potentiel, on double l'intensité du courant résultant, si on somme de deux différence de potentiel, on somme l'intensité du courant résultant).
-Beaucoup de phénomènes en sciences ne sont pas linéaires. Dans de tels
-cas, de "petites causes" peuvent avoir de "grands effets".\\
-D'un point de vue mathématiques, une
-transformation préservant la structure d'espace vectoriel est une application linéaire.  Les matrices sont des tableaux de nombres qui servent à interpréter en termes calculatoires et donc opérationnels les applications linéaires dont les espaces vectoriels sont de dimensions finies.\\ 
 \begin{Exemple}[Taille d'un père et d'un fils]
 La somme des tailles d'un fils et du père est de 2,5 mètres. La différence de tailles  est de 0.5 mètres.
-Quel est la taille du fils ? \\
+Quelle est la taille du fils et du père ? \\
 Soit la variable $x$ représentant la taille du fils et la variable $y$ représentant la taille du père.\\
 Le couple $(x,y)$ vérifie le système suivant  :
 $$(S)\quad \begin{cases}
@@ -95,22 +81,36 @@ Cependant, comme la fonction $u$ est linéaire :
  {x}    \\
 {y}   \\
 \end{pmatrix})$$
-on aura des outils pour démontrer que $u$ est un isomorphisme. Ainsi il existe une unique vecteur antécédent au vecteur $\begin{pmatrix}
+on peut démontrer que $u$ est bijective. Ainsi il existe une unique vecteur antécédent au vecteur $\begin{pmatrix}
  {\color{blue}2,5}   \\
  {\color{blue}0,5}  \\
-\end{pmatrix}$. Le système admet une unique solution.
-\end{Exemple}
+\end{pmatrix}$. Le système admet une unique solution.\\
+Il existe de très nombreux exemples de transformation linéaire. Dans le langage courant, un phénomène est dit linéaire si les
+effets sont proportionnels aux causes. 
+Plus précisément, un phénomène peut être décrit par une transformation$x \mapsto f (x)$, où $x$ représente la ou les causes (par exemple une différence de
+potentiel) et $f(x)$ un effet auquel on s'intéresse (par exemple l'intensité
+d'un courant électrique). On dit que le phénomène est linéaire quand  l'effet est proportionnel à la cause (exemple : l'intensité de courant est
+proportionnel à la différence de potentiel, en d'autres termes, si on double
+la différence de potentiel, on double l'intensité du courant résultant, si on somme de deux différence de potentiel, on somme l'intensité du courant résultant).
+Beaucoup de phénomènes en sciences ne sont pas linéaires. Dans de tels
+cas, de "petites causes" peuvent avoir de "grands effets".\\
+D'un point de vue mathématiques, une transformation préservant la structure d'espace vectoriel est une application linéaire.  Les matrices sont des tableaux de nombres qui servent à interpréter en termes calculatoires et donc opérationnels les applications linéaires dont les espaces vectoriels sont de dimensions finies.
+Comme souvent en mathématiques, ce sont plus les transformations qui sont intéressantes et pertinentes que les objets eux-mêmes. L'objectif de ce chapitre est d'étudier les transformations linéaires.\\
 Notations :
 \begin{itemize}
 \item $\K $ désigne le corps $\R $ ou $\C $
 \item $E$ et $F$ deux $\K$-espaces vectoriels
 \end{itemize}
-\end{Texte}
+%
+% où il est possible d'effectuer des combinaisons linéaires entre les éléments, c'est à dire  additionner deux éléments $\Vect{x}+\Vect{y}$  et  multiplier chaque élément par un facteur$\lambda\Vect{x}$.
+\end{Exemple}
+
+%\end{Texte}
 
 
 \section{Applications linéaires}
 
-\subsection{Définition}
+\subsection{Définitions et premières propriétés}
 
 
 
@@ -123,148 +123,18 @@ Une application $u:E\to F$ est dite \defi{linéaire}, si  elle préserve la stru
 \item
   \defi{homogénéité} : $\forall   \lambda \in  \K,\forall   \Vect{x}\in  E:\quad u(\lambda \Vect{x}) = \lambda u(\Vect{x})$.
 \end{itemize}
-\end{Definition}
-\begin{Exemple} 
+Cas particuliers : 
 \begin{itemize}
-\item homothétie vectorielle de rapport $\lambda$ : $\Fonction{\Phi _0}{E}{E}{\Vect{x}}{\lambda\vec{x}}$ 
-\item Équation d'un plan : $\Fonction{\Phi _1}{\mathbb {R}^3 }{\mathbb {R}}{(x,y,z)}{x+y+3z}$,
-\item Intégration :$\Fonction{\Phi _2}{\mathcal{C}([0,1]),  \mathbb {R} }{\mathbb {R}}{f}{\int_0^1 f(x)dx}$,
-\item Dérivé de polynôme de degré au plus $n$ : $\Fonction{\Phi _3}{\mathbb {R}_n[X] }{\mathbb {R}_n[X]}{P}{P'}$,
+\item une application linéaire dont l'espace d'arrivée est $\K$ est une \defi{forme linéaire} 
+\item
+  une application linéaire dont l'espace de départ est le même que celui d'arrivée est un \defi{endomorphisme}
 \end{itemize}
-\end{Exemple}
-
-
-\begin{DefinitionProposition}[Modélisation d'une situation de proportionnalité]
-Deux quantités $x$ et $y$ réelles sont \defi{proportionnelles} quand, en multipliant par une constante $a$, appelé \defi{coefficient de proportionnalité},  une quantité, on obtient l'autre. La représentation fonctionnelle  de cette relation est définie par  $$u:x\to ax =$$ où $y=u(x)$.\\
-$u$ est une fonction linéaire de $\R$ dans $\R$.
-\end{DefinitionProposition}
-\begin{Demonstration}
-\begin{itemize}
-\item additivité : Soit $x_1,x_2\in \R$.\\
-$$u(  x_1+x_2)=a(  x_1+x_2)=ax_1+ax_2=u(x_1)+u(x_2)$$
-\item homogénéité : Soit $\lambda\in\R, x\in \R$.\\
-$$u(\lambda  x)=a( \lambda x)=\lambda a x=\lambda u(x).$$
-\end{itemize} 
-\end{Demonstration}
-
-\begin{Exemple}[Essence]
-Le prix à la pompe est proportionnel du volume d'essence mis dans le réservoir.
-\end{Exemple}
-\begin{Exemple}[Différentielle]
-Soit $f:\R \rightarrow \R $ une fonction dérivable en $a$. On a  
-$$\overbrace{f(a+h)-f(a)}^{\text{accroissement de la fonction}}=\overbrace{\mathrm {d}f_a(h)}^{\text{terme linéaire}}+\overbrace{h.\epsilon(h)}^{\text{petit terme correctif}}$$ où l'application $\mathrm {d}f_a$, appelé différentielle de $f$ en $a$, est linéaire : $\mathrm {d}f_a(h)=f'(a).h$ avec $f'(a)$ le coefficient de proportionnalité.
-\end{Exemple}
-
-\begin{DefinitionProposition}[Modélisation d'une situation de linéarité]
-Deux quantités $X=\begin{pmatrix}
-x_1\\\vdots\\x_p
-\end{pmatrix}$ et $Y=\begin{pmatrix}
-y_1\\\vdots\\y_n
-\end{pmatrix}$ sont en relation \defi{linéaires} quand chaque coefficient de $Y$ s'exprime comme combinaison linéaire des coefficients de $X$, c'est à dire :
-$$
-\begin{cases}
-y_1=&a_{11}x_1+\dots+a_{1p}x_p\\
-\vdots&\vdots\\
-y_n=&a_{n1}x_1+\dots+a_{np}x_p
-\end{cases}
-$$
-La représentation matricielle de cette relation est définie par :$$\Fonction{u}{\R^p}{\R^n}{X}{AX}.$$ avec la matrice $A=\begin{pmatrix}
-a_{11}&\dots&a_{1p}\\\vdots&\vdots\\a_{n1}&\dots&a_{np}
-\end{pmatrix}$.\\
-  $u$ est une fonction linéaire de $\R^p$ dans $\R^n$.
-\end{DefinitionProposition}
-\begin{Demonstration}
-\begin{itemize}
-\item additivité : Soit $X_1,X_2\in \R^p$.\\
-$$u(  X_1+X_2)=A(  X_1+X_2)=AX_1+AX_2=u(X_1)+u(X_2)$$
-\item homogénéité : Soit $\lambda\in\R, X\in \R^p$.\\
-$$u(\lambda  X)=A( \lambda X)=\lambda A X=\lambda u(X).$$
-\end{itemize} 
-\end{Demonstration}
-\begin{Exemple}[Transformation linéaire du plan]
-La rotations, l'homothétie, la transvection et la   symétrie axiale sont des transformations linéaires du plan. 
-\begin{center}
-\begin{Figure}
-\begin{tikzpicture}
-\draw[thick,->] (-1,0) -- (2,0)node[anchor=west] {$x$};
-\draw[thick,->] (0,-1) -- (0,2)node[anchor=south] {$y$};
-\draw (0.866,0.5) arc (30:60:1) ;
-\draw[->] (0,0)--(1.732,1) node[right] {$\begin{pmatrix} x \\ y \end{pmatrix}$};
-\draw[->] (0,0)-- (1,1.732) node[right] {$\begin{pmatrix} x '\\ y' \end{pmatrix}=R\begin{pmatrix} x \\ y \end{pmatrix}$};
-\node at (0.8,0.9){$\theta$};
-\end{tikzpicture}
-
-\begin{Titre}
-Pour une rotation anti-horaire autour de l'origine, on a  $x '= x \cos \theta -y \sin \theta$ et $y ' = x \sin \theta + y \cos \theta$ et sous la forme matricielle : $\begin{pmatrix} x '\\ y' \end{pmatrix} = R \begin{pmatrix} x \\ y \end{pmatrix}$ avec $R=\begin{pmatrix}
-\cos \theta & -\sin \theta\\
-\sin \theta & \cos \theta\\
-\end{pmatrix}$
-\end{Titre}
-\end{Figure}
-\end{center}
-\end{Exemple}
-
-
-
-
-
-
-
-
-
-\begin{Definition}[Endomorphisme]
-\begin{itemize}
-\item
-  Une application linéaire dont l'espace de départ est le même que celui d'arrivée est un \defi{endomorphisme}.
-\item
-  Un \defi{isomorphisme} est une application linéaire bijective.
-\item
-  Un \defi{automorphisme} est un endomorphisme bijectif.
-\end{itemize}
-\end{Definition}
-\begin{Exemple}
-$\Phi _3$ et $R_\theta$ sont des endomorphismes. Comme $R_\theta$ est bijectif, $R_\theta$ est un automorphisme. 
-\end{Exemple}
-\begin{Texte}
-Un isomorphisme permet de transporter les propriétés vectoriels entre les deux espaces vectoriels, par exemple la dimension.  Toute propriété ``vectorielle'' vraie pour un espace vectoriel donné sera vraie pour un espace vectoriel qui lui est isomorphe. \\ 
-Par exemple on identifie fréquemment les $p$-uplets avec les matrices colonnes 
-car l'application
-\[ \Fonction{\Phi }{\K ^p}{\M{p}{1}{\K}}{(\lambda_1,\dots,\lambda_p)}{\begin{pmatrix}\lambda_1\\\vdots\\\lambda_p\end{pmatrix}} \]
-est un isomorphisme.\\
-Ainsi, on notera $X=\begin{pmatrix}x_1\\x_2\\\end{pmatrix}\overbrace{=}^{\text{identification}}(x_1,x_2)=\Vect{x}.$
-\end{Texte}
-
-
-
-
-
-
-
-
-
-
-\begin{DefinitionProposition}[Espace vectoriel des application linéaires et endomorphismes]
-Soit $E$ et $F$ deux $\K $-espaces vectoriels.
 L'ensemble des applications linéaires de $E$ dans $F$ est noté \defi{$\mathcal{L}(E,F)$} ;
 il s'agit d'un sous espace vectoriel de l'espace des fonctions de $E$ dans $F$ muni des lois usuelles.\\
-L'espace vectoriel des endomorphismes de $E$ se note \defi{$\LE$}$= \mathcal{L}(E,E)$.
-\end{DefinitionProposition}
-\begin{Demonstration}
-Tous les axiomes se vérifient aisément.  
-\end{Demonstration}
-\begin{Definition}[composition d'application linéaire]
-La \defi{loi de composition interne $\circ$} est définie comme une composition de fonctions, c'est à dire si $u\in\mathcal{L}(E,F)$ et $v\in\mathcal{L}(F,G) $,
- alors  $\forall \Vect{x} \in E : (v\circ u)(\Vect{x})=v(u(\Vect{x}))$.\\
-On a $v\circ u\in \mathcal{L}(E,G).$
- \end{Definition}
-\begin{Exemple}
-L'application $P\mapsto XP'(X^2)$ est un endomorphisme de $\K[X]$. Les applications $P\mapsto P'$, $P\mapsto P(X^2)$ et $P\mapsto XP$ sont linéaire, donc par composition  $P\mapsto XP'(X^2)$ l'est aussi.    
-\end{Exemple} 
-\begin{Definition}[Structure d'algèbre des endomorphismes]
-L'\defi{élément neutre} de la composition dans $\LE$ est l'application identité, $Id_{E}:x\mapsto x$. L'endomorphisme $u^{-1}$ est appelé l' \defi{endomorphisme inverse} de $u$ si $ u^{-1}×u=u×u^{-1}=Id_{E}$. Dans ce cas, l'endomorphisme $u$ est dite \defi{inversible}.  $\LE$ possède une structure d'algèbre non commutative. L'espace vectoriel des automorphismes de $E$ se note $ \GLE$.   $(\GLE,\circ)$ est un groupe, appelé \defi{groupe linéaire}.
+L'espace vectoriel des endomorphismes de $E$ se note \defi{$\LE$}$= \mathcal{L}(E,E)$.\\
+L'\defi{application nulle}, est linéaire et notée $\Fonction{0}{E}{F}{x}{0}.$\\
+L'\defi{application identité}, est linéaire et notée $\Fonction{Id_E}{E}{F}{x}{x}.$
 \end{Definition}
-
-\subsection{Propriétés}
 \begin{Proposition}[0 image de 0]
 Soit $u:E\to F$ une application linéaire.\\
 Alors $u(\Vect{0_E})=\Vect{0_F}$
@@ -293,25 +163,353 @@ $$u(\lambda\Vect{x})=u(\lambda\Vect{x}+\Vect{0})=\lambda u(\Vect{x})+u(\Vect{0})
 \end{itemize}
 \end{Demonstration}
 
- \begin{Proposition}[Propriétés algébriques]
+\subsection{Exemples de références}
+\begin{DefinitionProposition}[Modélisation d'une situation de proportionnalité]
+Deux quantités $x$ et $y$ réelles sont \defi{proportionnelles} quand, en multipliant par une constante $a$, appelé \defi{coefficient de proportionnalité},  une quantité, on obtient l'autre. La représentation fonctionnelle  de cette relation est définie par  $$u:x\to ax$$ où $y=u(x)$.\\
+$u$ est une fonction linéaire de $\R$ dans $\R$.
+\end{DefinitionProposition}
+\begin{Demonstration}
 \begin{itemize}
-\item
-  \propri{Associativité} : $$(u \circ v) \circ w =u \circ( v \circ w).$$
-\item
-  \propri{Bilinéarité} : 
-  $$ (\lambda u + \mu v) \circ w = \lambda u\circ w + \mu v\circ w\text{ et }u\circ (\lambda v+ \mu w) =\lambda u\circ v + \mu u\circ w.$$
+\item \impo{additivité} : Soit $x_1,x_2\in \R$.\\
+$$u(  x_1+x_2)=a(  x_1+x_2)=ax_1+ax_2=u(x_1)+u(x_2)$$
+\item \impo{homogénéité} : Soit $\lambda\in\R, x\in \R$.\\
+$$u(\lambda  x)=a( \lambda x)=\lambda a x=\lambda u(x).$$
+\end{itemize} 
+\end{Demonstration}
+
+\begin{Exemple}[Essence]
+Le prix à la pompe est proportionnel du volume d'essence mis dans le réservoir.
+\end{Exemple}
+\begin{Exemple}[Différentielle]
+Soit $f:\R \rightarrow \R $ une fonction dérivable en $a$. On a  
+$$\overbrace{f(a+h)-f(a)}^{\text{accroissement de la fonction}}=\overbrace{\mathrm {d}f_a(h)}^{\text{terme linéaire}}+\overbrace{h.\epsilon(h)}^{\text{petit terme correctif}}$$ où l'application $\mathrm {d}f_a$, appelé différentielle de $f$ en $a$, est linéaire : $\mathrm {d}f_a(h)=f'(a).h$ avec $f'(a)$ le coefficient de proportionnalité.
+\end{Exemple}
+
+\begin{DefinitionProposition}[Modélisation d'une situation de linéarité]
+Deux quantités $X=\begin{pmatrix}
+x_1\\\vdots\\x_p
+\end{pmatrix}$ et $Y=\begin{pmatrix}
+y_1\\\vdots\\y_n
+\end{pmatrix}$ sont en relation \defi{linéaires} quand chaque coefficient de $Y$ s'exprime comme combinaison linéaire des coefficients de $X$, c'est à dire :
+$$
+\begin{cases}
+y_1=&a_{11}x_1+\dots+a_{1p}x_p\\
+\vdots&\vdots\\
+y_n=&a_{n1}x_1+\dots+a_{np}x_p
+\end{cases}
+$$
+La représentation matricielle de cette relation est l'application linéaire $u$ définie par :$$\Fonction{u}{\R^p}{\R^n}{X}{AX}$$ avec la matrice $A=\begin{pmatrix}
+a_{11}&\dots&a_{1p}\\\vdots&\vdots\\a_{n1}&\dots&a_{np}
+\end{pmatrix}$.
+\end{DefinitionProposition}
+\begin{Demonstration}
+\begin{itemize}
+\item \impo{additivité} : Soit $X_1,X_2\in \R^p$.\\
+$$u(  X_1+X_2)=A(  X_1+X_2)=AX_1+AX_2=u(X_1)+u(X_2)$$
+\item \impo{homogénéité} : Soit $\lambda\in\R, X\in \R^p$.\\
+$$u(\lambda  X)=A( \lambda X)=\lambda A X=\lambda u(X).$$
+\end{itemize} 
+\end{Demonstration}
+\begin{Exemple}[Rotation dans le plan]
+Pour une rotation anti-horaire autour de l'origine, on a  $x '= x \cos \theta -y \sin \theta$ et $y ' = x \sin \theta + y \cos \theta$. L'application linéaire associée à cette transformation est 
+$$\Fonction{R_\theta}{\R^2}{\R^2}{\begin{pmatrix} x \\ y \end{pmatrix}}{\begin{pmatrix}
+\cos \theta & -\sin \theta\\
+\sin \theta & \cos \theta\\
+\end{pmatrix} \begin{pmatrix} x \\ y \end{pmatrix}.}$$
+\begin{Figure}
+\begin{center}
+\begin{tikzpicture}
+\draw[->,>=latex,thick, gray] (-1,0) -- (2,0);
+\draw[->,>=latex,thick, gray] (0,-1) -- (0,2);
+\draw[->] (0.866,0.5) arc (30:60:1) ;
+\draw[->,colordef] (0,0)--(1.732,1) node[right] {$\begin{pmatrix} x \\ y \end{pmatrix}$};
+\draw[->,colorprop] (0,0)-- (1,1.732) node[right] {$R_\theta(\begin{pmatrix} x \\ y \end{pmatrix})$};
+\node at (0.8,0.9){$\theta$};
+\end{tikzpicture}
+\end{center}
+\end{Figure}
+\end{Exemple}
+\begin{Exemple}[Calcul différentielle]
+Soit $f:\R^n\to R^p$ une application différentiable.\\
+Alors se différentielle est une application linéaire définie par :
+$$\Fonction{df_a}{\R^n}{R^p}{\begin{pmatrix}x_1\\\vdots\\x_n \end{pmatrix}}{ \begin{pmatrix}{\dfrac {\partial f_{1}}{\partial x_{1}}(a)}&\cdots &{\dfrac {\partial f_{1}}{\partial x_{n}}(a)}\\\vdots &\ddots &\vdots \\{\dfrac {\partial f_p}{\partial x_{1}}(a)}&\cdots &{\dfrac {\partial f_{p}}{\partial x_{n}}(a)}\end{pmatrix}\begin{pmatrix}x_1\\\vdots\\x_n \end{pmatrix}}.$$
+
+
+\end{Exemple}
+
+
+\begin{DefinitionProposition}[Transformation géométrique linéaire]
+L'endomorphisme $\Fonction{s}{E}{E}{\vec{x}}{-\vec{x}}$  s'appelle la \defi{symétrie centrale} par rapport à l'origine $\Vect{0_E}$.
+\begin{Figure}
+\begin{center}
+\begin{tikzpicture}
+       \draw[->,>=latex,thick, gray] (-2,0)--(2,0);% node[below,black] {$x$};
+       \draw[->,>=latex,thick, gray] (0,-2)--(0,2.5); % node[right,black] {$y$};
+
+       \draw[->,>=latex,thick, colordef] (0,0)--(1,2) node[midway, above left] {$\vec{x}$};
+
+       \draw[->,>=latex,thick, colorprop] (0,0)--(-1,-2) node[midway, above left] {$s(\vec{x})=-\vec{x}$};
+
+        \fill (0,0) circle (1.5pt);
+        \node[above left] at (0,0) {$\vec{0}$};
+
+\end{tikzpicture}
+\end{center}
+\end{Figure}
+L'endomorphisme $\Fonction{h_\lambda}{E}{E}{\vec{x}}{\lambda \cdot\vec{x}}$  s'appelle l'\defi{homothétie} de rapport $\lambda$.
+\begin{Figure}
+\begin{center}
+\begin{tikzpicture}
+
+      \draw[->,>=latex,thick, gray] (-0.5,0)--(5,0);% node[below,black] {$x$};
+       \draw[->,>=latex,thick, gray] (0,-0.5)--(0,2.5); % node[right,black] {$y$};
+
+
+      \draw[->,>=latex,thick, colorprop] (0,0)--(3.75,1) node[above left] {$h_\lambda(\vec{x})=\lambda \cdot \vec{x}$};
+       \draw[->,>=latex,thick, colordef] (0,0)--(1.25,0.333) node[midway, above] {$\vec{x}$};
+
+       \fill (0,0) circle (1.5pt);
+       \node[above left] at (0,0) {$\Vect{0_E}$};
+\end{tikzpicture}
+\end{center}
+\end{Figure}
+Soit $F$ et $G$ deux sous-espaces vectoriels supplémentaires dans $E$, c'est-à-dire $E = F \oplus G$.\\
+L'endomorphisme $\Fonction{p}{E=F \oplus G}{E}{\vec{x}=\underbrace{\vec{y}}_{\in F}+\underbrace{\vec{z}}_{\in G}}{\vec{y}}$ s'appelle la \defi{projection} sur $F$ parallèlement à $G$
+\begin{Figure}
+\begin{center}
+\begin{tikzpicture}
+
+       \draw[very thick,green!60!black] (-1.2,0)--(2.2,0)node[right]{$F$};
+       \draw[very thick,green!60!black] (-0.6,-1.2)--(0,0)--(1.1,2.2) node[above]{$G$};
+
+        \draw[->,>=latex,thick, colordef] (0,0)--(2.5,1.5) node[above] {$\vec{x}=\vec{y}+\vec{z}$};
+        \draw[->,>=latex,thick, colordef] (0,0)--(0.75,1.5) node[midway, above left] {$\vec{z}$};
+        \draw[->,>=latex,thick, colorprop] (0,0)--(1.75,0) node[midway, below right] {$\vec{y}=p(\vec{x})$};
+        \draw[dashed,colordef] (0.75,1.5)--(2.5,1.5)--(1.75,0);
+                 \fill (0,0) circle (1.5pt);
+         \node[below right] at (0,0) {$\Vect{0_E}$};
+\end{tikzpicture}
+\begin{tikzpicture}
+        \draw[thick,green!60!black] (-4,-1)--++(4,-1)--++(2,2)--++(-4,1)--cycle;
+        \fill[opacity=0.5,green!60!black] (-4,-1)--++(4,-1)--++(2,2)--++(-4,1)--cycle;
+
+      \node[green!60!black,above left] at (1,0.5) {$F$};
+
+      \draw[green!60!black, very thick] (-1,-0.5)--++(0.33,2) node[below right] {$G$};
+      \draw[green!60!black, very thick, dotted] (-1,-0.5)--++(-0.2,-1.25);
+      \draw[green!60!black, very thick] (-1.2,-1.75)--++(-0.08,-0.5);
+
+         \fill (-1,-0.5) circle (1.5pt);
+         \node[below right] at (-1,-0.5) {$\Vect{0_E}$};
+		 \draw[dashed,colordef] (-1,-0.5) --++(0.264,1.5)--++(-2,0.25)--++(-0.264,-1.5);
+		\draw[->,colordef] (-1,-0.5) --++ (0.264,1.5) node[right]{$\vec{z}$};
+      \draw[->,colordef] (-1,-0.5)--++(-1.736,1.75) node[left] {$\vec{x}$};
+      \draw[->,colorprop] (-1,-0.5)  --++ (-2,0.25) node[left]{$\vec{y}=p(\vec{x})$};
+
+
+      
+\end{tikzpicture}
+\end{center}
+\end{Figure}
+\end{DefinitionProposition}
+
+
+\begin{Exemple}[Projection]
+Nous avons vu que les sous-espaces vectoriels $F$ et $G$ de $\R^3$ définis par
+$$F=\big\{ (x,y,z) \in \R^3\mid x-y-z=0\big\} \qquad  \text{ et } \qquad
+G=\big\{(x,y,z) \in \R^3 \mid y=z=0 \big\}$$
+sont supplémentaires dans $\R^3$ : $\R^3 = F \oplus G$.
+Nous avions vu que la décomposition s'écrivait :
+$$(x,y,z)=(y+z,y,z)+ (x-y-z, 0,0).$$
+Si $p$ est la projection sur $F$ parallèlement à $G$, alors
+on a $p(x,y,z)=(y+z,y,z)$.
+\end{Exemple}
+
+
+
+
+
+\begin{DefinitionProposition}[Transformations linéaires de fonctions]
+L'application \defi{dérivation} $\Fonction{d}{\SpaceFonctionContinue{1}{\R}{\R}}{\SpaceFonctionContinue{0}{\R}{\R}}{f}{f'}$ est linéaire.\\
+L'application \defi{primitive} $\Fonction{F}{\SpaceFonctionContinue{0}{\R}{\R}}{\SpaceFonctionContinue{1}{\R}{\R}}{f}{x\mapsto\int_0^x f(t) \; dt}$ est linéaire.\\
+L'application \defi{intégration} $\Fonction{I}{\SpaceFonctionContinue{0}{[a,b]}{\R}}{\R}{f}{\int_a^b f(t) \; dt}$ est une forme linéaire.\\
+L'application \defi{transformée de Fourier} $\Fonction{\mathcal{F}}{L_1}{L_1}{f}{\xi \mapsto \int _{-\infty }^{+\infty }f(x)\,\mathrm {e} ^{-{\rm {i}}\xi x}\,\mathrm {d} x}$ est linéaire.
+\end{DefinitionProposition}
+\begin{Demonstration}
+%TODO link
+Voir cours d'analyse.
+\end{Demonstration}
+\begin{DefinitionProposition}[Transformations linéaires des matrices]
+L'application \defi{transposition} $\Fonction{T}{\MnpK}{\M{p}{n}{K}}{M}{\transposee{M}}$ est linéaire.\\
+L'application \defi{trace} $\Fonction{\Tr}{\MnK}{\K}{M}{\Tr M}$ est linéaire.
+\end{DefinitionProposition}
+\begin{Demonstration}
+%TODO link
+Voir le chapitre sur les matrices.
+\end{Demonstration}
+
+
+
+
+
+\subsection{Image et noyau}
+\begin{Definition}[Image directe et image réciproque]
+Soit $f:A\to B$. Soit $A'$ une partie de $A$ et $B'$ une partie de $B$.\\
+L'ensemble $\{f(x): x  \in  A'\}$ est appelé \defi{image directe} de $A'$ par $f$ et noté $f(A')$.\\
+L'ensemble $\{x\in A : f(x)  \in  B'\}$ est appelé \defi{image réciproque} de $B'$ par $f$ et noté $f^{-1}(B')$.
+\end{Definition}
+\begin{Exemple}[Carré]
+Soit $f:x\mapsto x^2$.\\
+On a $f([-1,1])=[0,1]$ et $f^{-1}(\{2\})=\{-\sqrt{2},\sqrt{2}\}$.
+\end{Exemple}
+\begin{Proposition}[Morphisme d'espace vectoriel]
+Soit $E',F'$ deux sous-espace vectoriel de de $E$ et $F$ respectivement.
+\begin{itemize}
+\item $u(E')$ est un sous espace vectoriel de $F$,
+\item $u^{-1}(F')$ est un sous espace vectoriel de $E$.
 \end{itemize}
 \end{Proposition}
 \begin{Demonstration}
-La composition des fonctions est associative donc en particulier les fonctions linéaires aussi.\\
-Les fonctions sont linéaires à gauche. En revanche, il faut l'hypothèse de linéarité pour la linéarité à droite. En effet, soit $\Vect{x}\in E$. On a :
-$$u\circ (\lambda v+ \mu w)(\Vect{x})=u(\lambda v(\Vect{x})+ \mu w(\Vect{x}))\overbrace{=}^{\text{linéarité de }u}=\lambda u(v(\Vect{x})) + \mu u(w(\Vect{x})).$$
+\begin{itemize}
+\item 
+\begin{itemize}
+\item \impo{Non vide} : comme $u(\Vect{0_E})=\Vect{0_F}$, $\Vect{0_F}\in u(E')$.\\
+\item \impo{Stabilité} : soit $\lambda\in\K, u(\Vect{x}),u(\Vect{x'})\in u(E')$.\\
+On a $\lambda u(\Vect{x})+u(\Vect{x'})\overbrace{=}^{\text{linéarité}}u(\overbrace{\lambda\Vect{x}+\Vect{x'}}^{\in E'})\in u(E')$.\\
+\end{itemize}
+Ainsi $u(E')$ est un sous espace vectoriel de $F$.
+\item 
+\begin{itemize}
+\item \impo{Non vide} : comme $u(\Vect{0_E})=\Vect{0_F}\in F'$, $\Vect{0_E}\in u^{-1}(F')$.\\
+\item \impo{Stabilité} : soit $\lambda\in\K, \Vect{x},\Vect{x'}\in u^{-1}(F')$.\\
+ On a $ u(\lambda\Vect{x}+\Vect{x'})\overbrace{=}^{\text{linéarité}}\lambda \overbrace{u(\Vect{x})}^{\in F'}+\overbrace{u(\Vect{x'}}^{\in F'}\in F'$. Donc $\lambda\Vect{x}+\Vect{x'}\in u^{-1}(F')$.
+\end{itemize}
+Ainsi $u^{-1}(F')$ est un sous espace vectoriel de $E$.
+\end{itemize}
 \end{Demonstration}
 
-\begin{Remarque} On omet le plus souvent le symbole  $\circ$ : $v\circ u =v u$.
-\end{Remarque}
-%TODO METTRE UN EXEMPLE
-\subsection{Caractérisation par l'image d'une base}
+
+\begin{Exemple}
+L'image de la droite vectoriel $\R (\frac 3 2,1)$ par $R_\theta$ est la droite vectoriel $\R R_\theta(\frac 3 2,1)$.
+
+\begin{center}
+\begin{Figure}
+\begin{tikzpicture}
+\draw[thick,->] (-1.732,0) -- (1.732,0)node[anchor=west] {$x$};
+\draw[thick,->] (0,-1.732) -- (0,1.732)node[anchor=south] {$y$};
+\draw (0.866,0.5) arc (30:60:1) ;
+\draw[-] (-1.732,-1)--(1.732,1) node[right] {$\R (\frac 3 2,1)$};
+\draw[-] (-1,-1.732)-- (1,1.732) node[right] {$\R R_\theta(\frac 3 2,1)$};
+\node at (0.8,0.9){$\theta$};
+\end{tikzpicture}
+\end{Figure}
+\end{center}
+
+\end{Exemple}
+\begin{Definition}[Image]
+L'\defi{image} de $u$ est le sous espace vectoriel $u(E) = \{u(\Vect{x}):\Vect{x}\in  E\}$;
+  on le note \defi{$\Ima u$}.\\
+Par définition de la surjectivité, $\Ima u=E$ si et seulement $u$ est surjective. 
+\end{Definition}
+\begin{Definition}[Rang] Le \defi{rang} d'une  application linéaire $u$ est  la dimension de l'espace vectoriel $\Ima u$;
+  on le note \defi{$\rg u$}.\\
+\end{Definition}
+
+\begin{Definition}[Noyau]
+Le \defi{noyau} de $u$ est le le sous espace vectoriel $u^{-1}\{ \{\Vect{0_F}\}\} = \{x\in  E:u(\Vect{x})=\Vect{0_F}\}$;
+on le note \defi{$\Ker u$}.
+\end{Definition}
+
+\begin{Proposition}[Caractérisation de l'injectivité par le noyau]  
+$u$ est injective si et seulement si $\Ker u = \{\Vect{0_E}\}$.
+\end{Proposition}
+
+\begin{Demonstration}  
+\begin{itemize}
+\item Supposons que $u$ est injective.
+ \begin{itemize}
+\item $\Ker u \supset \{\Vect{0_E}\}$ : comme $\Ker u$ est un sous-espace vectoriel de $E$, il contient $\Vect{0_E}$
+\item $\Ker u \subset \{\Vect{0_E}\}$ : soit $\Vect{x}\in \Ker u $. On a $u(\Vect{x})=\Vect{0_F}$. Comme $u$ est linéaire, $u(\Vect{0_E})=\Vect{0_F}$. Ainsi 
+$u(\Vect{x})=u(\Vect{0_E})$. Comme $u$ est injective, $\Vect{x}=\Vect{0_E}$.
+\end{itemize}
+Du fait de la double inclusion $\Ker u = \{\Vect{0_E}\}$.
+\item  Supposons que $\Ker u = \{\Vect{0_E}\}$.\\
+soit $\Vect{x},\Vect{x'}\in E $ tel que $u(\Vect{x})=u(\Vect{x'})$. Alors $u(\Vect{x})-u(\Vect{x'})=\Vect{0_F}$ et par linéarité $u(\Vect{x}-\Vect{x'})=\Vect{0_F}$. Donc $\Vect{x}-\Vect{x'}\in \Ker u= \{\Vect{0_E}\}$. Ainsi $\Vect{x}-\Vect{x'}=\Vect{0_E}$. D'où $\Vect{x}=\Vect{x'}$.
+\end{itemize}
+\end{Demonstration}
+\begin{Texte}
+Pour démontrer une égalité entre deux ensembles, il faut prouver la double inclusion.    
+En tant que sous-espace vectoriel de $E$, $\Ker u$ contient $\Vect{0}_E$, donc $\{\Vect{0}_E\}\subset \Ker u$. On omettra souvent d'écrire cette partie dans le raisonnement.\\
+Ainsi pour démontrer que $u$ est injective, il suffit en réalité de
+montrer l'\impo{inclusion} : $\{\Vect{0_E}\}\subset \Ker u$.
+\end{Texte}
+
+\begin{Exemple}
+\begin{Enonce}
+Soit $\Fonction{u}{\R^3}{\R^2}{(x,y,z)}{(x+y,x-y+z)}$.\\
+Déterminer si $u$ est injective, surjective et le rang. 
+\end{Enonce}
+\begin{Correction}
+On a $u(x,y,z)=(x+y,x-y+z)=x(1,1)+y(1,-1)+z(0,1)$.
+Donc $\Ima u$ est l'espace vectoriel engendré par la famille $((1,1),(1,-1),(0,1))$ d'où $\Ima u=\R^2$. Ainsi $u$ est surjective et $\rg u=2$.
+$$(x,y,z)\in \Ker u \Leftrightarrow u(x,y,z)=(0,0)  \Leftrightarrow \begin{cases}x+y+z=&0\\x-y=&0\end{cases}\Leftrightarrow(x,y,z)=x(1,1,-2).$$
+Donc $\Ker u =\R (1,1,2).$ Ainsi $u$ n'est pas injective.
+\end{Correction}
+\end{Exemple}
+\begin{Exemple}[Dérivée polynomiale]
+\begin{Enonce}
+Soit l'application linéaire $\Fonction{\Phi}{\R_n[X]}{\R_n[X]}{P}{P'}$.\\
+Déterminer si $\Phi$ est injective, surjective et le rang.
+\end{Enonce}
+\begin{Correction}
+Soit $P=a_0+a_1 X+\dots + a_n X^n \in \R_n[X].$
+On a $\Phi_3(P)=P'=a_1+a_2 .2X+\dots  + a_n.nX^{n-1}$.
+Donc $\Ima \Phi_3$ est l'espace vectoriel engendré par la famille $(1,X,2X,\dots,nX^{n-1})$, soit $\Ima \Phi_3=\R_{n-1}[X].$ $\Phi_3$ n'est pas surjective $\rg u=\dim \R_{n-1}[X]=n $.
+ $$P\in \Ker \Phi_3  \Leftrightarrow \Phi_3(P)=0  \Leftrightarrow P'=0\Leftrightarrow \exists a\in \R : P=a.$$
+Donc $\Ker \Phi_3 =\R_{0}[X].$ $\Phi_3$ n'est pas injective.
+\end{Correction}
+\end{Exemple}
+\begin{Exemple}[Projection]
+\begin{Enonce}
+Soit $p$ la projection de $F$ parallèlement à $G$.\\
+Déterminer la noyau et l'image de $p$.
+\end{Enonce}
+\begin{Correction}
+Un vecteur $\vec{x}$ de $E$ s'écrit d'une manière unique $\vec{x}=\vec{y}+\vec{z}$
+avec  $=\vec{y} \in F$ et $\vec{z} \in G$ et par définition $p(\vec{x})=\vec{y}$.
+\begin{itemize}
+  \item le noyau de $p$ est l'ensemble des vecteurs $\vec{x}$ de $E$
+  tels que $\vec{y}=\vec{0}$, c'est donc $G$.\\
+   $\Ker(p) = G$.
+  \item Il est immédiat que $\Ima(p) \subset F$.
+  Réciproquement, si $\vec{y} \in F$ alors $p(\vec{y})=\vec{y}$, donc $F \subset \Ima (p)$.\\
+   $\Ima (p) = F$. 
+\end{itemize}
+\end{Correction}
+\end{Exemple}
+
+
+
+
+\begin{Proposition}[Permutation de l'espace engendré et de l'image]
+Soit $(\Vect{x_i})_{i\leq i \leq n }$ une famille de $E$ .\\
+Alors $$ u(\text{Vect}((\Vect{x_i})_{i\leq i \leq n}))=\VectE\left(u(\Vect{x_i})\right)_{i\leq i \leq n}.$$
+En particulier si $(\Vect{e_i})_{i\leq i \leq n}$ est une base de $E$, alors
+$$ \Ima u =\VectE( \left(u(\Vect{e_i})\right)_{i\leq i \leq n})).$$
+\end{Proposition}
+\begin{Demonstration}
+\begin{itemize}
+\item  $u(\VectE((\Vect{x_i})_{i\leq i \leq n}))\subset\VectE\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$:\\
+Soit $\sum_{i=1}^n \lambda_i \Vect{x_i}\in \VectE((\Vect{x_i})_{i\leq i \leq n})$.\\
+Comme $u(\sum_{i=1}^n \lambda_i \Vect{x_i})\overbrace{=}^{\text{linéarité}}\sum_{i=1}^n \lambda_i u( \Vect{x_i})$, $u(\sum_{i=1}^n \lambda_i \Vect{x_i})$ s'exprime comme combinaison linéaire des vecteurs $\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$ donc appartient à $\VectE\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$
+\item $u(\VectE((\Vect{x_i})_{i\leq i \leq n}))\supset\VectE\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$: Raisonnement similaire.
+\end{itemize}
+Du fait de la double inclusion, on a bien $ u(\VectE((\Vect{x_i})_{i\leq i \leq n}))=\VectE\left(u(\Vect{x_i})\right)_{i\leq i \leq n}.$
+\end{Demonstration}
+
+
+
+\subsection{Caractérisation d'une application linéaire}
 \begin{Theoreme}[Caractérisation par l'image d'une base]
 Pour connaître/définir une application linéaire complètement, il suffit de connaître/définir les  images d'une base de l'espace vectoriel de départ. 
 \end{Theoreme}
@@ -329,6 +527,105 @@ u(\Vect{x})&=\lambda_1.u(\Vect{e_1})+\dots +\lambda_p.u(\Vect{e_p})
 Cela implique que l'application linéaire $u$ est entièrement déterminée par les vecteurs $(u(\Vect{e_1}),\dots,u(\Vect{e_p}))$.
 \end{Demonstration}
 
+
+\section{Composition et inverse d'applications linéaires} 
+
+\subsection{Définitions}
+\begin{DefinitionProposition}[Composition d'application linéaire]
+La \defi{loi de composition interne $\circ$} est définie comme une composition de fonctions, c'est à dire si $u\in\mathcal{L}(E,F)$ et $v\in\mathcal{L}(F,G) $,
+ alors  $$\forall \Vect{x} \in E :\quad (v\circ u)(\Vect{x})=v(u(\Vect{x})).$$
+On a $v\circ u\in \mathcal{L}(E,G).$\\
+On omet le plus souvent le symbole  $\circ$ : $v\circ u =v u$.\\
+Un \defi{isomorphisme} est une application linéaire bijective.\\
+Un \defi{automorphisme} est un endomorphisme bijectif.
+\end{DefinitionProposition}
+\begin{Demonstration}
+Soit $\vec{x},\vec{y}\in E,\lambda \in \K$.
+$$(v\circ u) (\lambda\vec{x} + \vec{y})=v(u(\lambda\vec{x} + \vec{y})\overbrace{=}^{u \text{ linéaire}}v(\lambda u(\vec{x}) + u(\vec{y}))\overbrace{=}^{v \text{ linéaire}}= \lambda v(u(\vec{x})+v(u(\vec{y})=\lambda(v\circ u)(\vec{x})+(v\circ u)(\vec{y}).$$
+$v\circ u$ est donc une application linéaire.
+\end{Demonstration}
+\begin{Exemple}
+\begin{Enonce}
+Démontrer que $\Fonction{u}{\K[X]}{\K[X]}{P}{XP'(X^2)}$ est un endomorphisme.
+\end{Enonce}
+\begin{Correction}
+ Les applications $P\mapsto P'$, $P\mapsto P(X^2)$ et $P\mapsto XP$ sont linéaire, donc par composition  $P\mapsto XP'(X^2)$ l'est aussi.  
+ \end{Correction}  
+\end{Exemple} 
+
+
+\begin{Definition}[Structure d'algèbre des endomorphismes]
+L'\defi{élément neutre} de la composition dans $\LE$ est l'application identité, $Id_{E}:x\mapsto x$. L'endomorphisme $u^{-1}$ est appelé l' \defi{endomorphisme inverse} de $u$ si $ u^{-1}×u=u×u^{-1}=Id_{E}$. Dans ce cas, l'endomorphisme $u$ est dite \defi{inversible}. \\
+$\LE$ possède une structure d'algèbre non commutative.\\
+L'espace vectoriel des automorphismes de $E$ se note $ \GLE$. \\
+$(\GLE,\circ)$ est un groupe, appelé \defi{groupe linéaire}.
+\end{Definition}
+
+\begin{Exemple}
+\begin{Enonce}
+Démontrer que $\Fonction{u}{\R^2}{\R^2}{(x,y)}{(2x+3y,x+y)}$ est inversible et déterminer son inverse.
+\end{Enonce}
+\begin{Correction}
+Il est facile de prouver que $u$ est linéaire.
+Pour prouver que $f$ est bijective, on pourrait calculer son noyau et son image.
+Mais ici nous allons calculer directement son inverse : on cherche
+à résoudre $u(x,y)=(x',y')$. Cela correspond à l'équation
+$(2x+3y,x+y) = (x',y')$ qui est un système linéaire à deux équations et deux inconnues.
+On trouve $(x,y) = (-x'+3y',x'-2y')$. On pose donc $u^{-1}(x',y')= (-x'+3y',x'-2y')$.
+On vérifie aisément que $u^{-1}\circ u =Id_{\R^2} $ et $u\circ u^{-1} =Id_{\R^2} $. Donc $u^{-1}$ est l'inverse de $u$.
+\end{Correction}
+\end{Exemple}
+
+\begin{Exemple}
+\begin{Enonce}
+Soit $A$ une matrice inversible.\\
+Démontrer que $\Fonction{u}{\R^n}{\R^n}{X}{AX}$ est inversible et déterminer son inverse.
+\begin{Enonce}
+On pose $\Fonction{u^{-1}}{\R^n}{\R^n}{X}{A^{-1}X}$ qui est bien définie car $A$ est inversible.\\
+On a $$(u^{-1}\circ u) (X)=u^{-1}(u(X))= u^{-1}(AX)=A^{-1}(AX)=(A^{-1}A)X=X.$$
+Ainsi $u^{-1}\circ u =Id_{\R^n} $. De même $u\circ u^{-1} =Id_{\R^n} $.\\
+Donc $u^{-1}$ est l'inverse de $u$.
+\end{Exemple}
+
+
+\subsection{Propriétés}
+ \begin{Proposition}[Propriétés algébriques]
+\begin{itemize}
+\item
+  \propri{Associativité} : $$(u \circ v) \circ w =u \circ( v \circ w).$$
+\item
+  \propri{Bilinéarité} : 
+  $$ (\lambda u + \mu v) \circ w = \lambda u\circ w + \mu v\circ w\text{ et }u\circ (\lambda v+ \mu w) =\lambda u\circ v + \mu u\circ w.$$
+\end{itemize}
+\end{Proposition}
+\begin{Demonstration}
+La composition des fonctions est associative donc en particulier les fonctions linéaires aussi.\\
+Les fonctions sont linéaires à gauche. En revanche, il faut l'hypothèse de linéarité pour la linéarité à droite. En effet, soit $\Vect{x}\in E$. On a :
+$$u\circ (\lambda v+ \mu w)(\Vect{x})=u(\lambda v(\Vect{x})+ \mu w(\Vect{x}))\overbrace{=}^{\text{linéarité de }u}=\lambda u(v(\Vect{x})) + \mu u(w(\Vect{x})).$$
+\end{Demonstration}
+
+
+\begin{Proposition}[Linéarité de l'inverse]
+Si $u$ est un isomorphisme, alors $u^{-1}$ est également linéaire.
+\end{Proposition}
+\begin{Demonstration}  
+Soit $\Vect{x},\Vect{x'}\in F $ et $\lambda\in\K$.\\
+On a $$u(u^{-1}(\lambda\Vect{x}+\Vect{x'}))=\lambda\Vect{x}+\Vect{x'}.$$ 
+De plus, $$u(\lambda u^{-1}(\Vect{x})+ u^{-1}(\Vect{x'}))\overbrace{=}^{\text{linéarité}}\lambda u( u^{-1}(\Vect{x}))+ u(u^{-1}(\Vect{x'}))=\lambda\Vect{x}+\Vect{x'}.$$ Ainsi $u(u^{-1}(\lambda\Vect{x}+\Vect{x'}))=u(\lambda u^{-1}(\Vect{x})+ u^{-1}(\Vect{x'}))$. Comme $u$ est injective,  $u^{-1}(\lambda\Vect{x}+\Vect{x'})=\lambda u^{-1}(\Vect{x})+ u^{-1}(\Vect{x'})$.\\
+ $u^{-1}$ est donc linéaire.
+\end{Demonstration}
+%TODO METTRE UN EXEMPLE
+\subsection{Isomorphismes d'espaces vectoriels}
+
+
+\begin{Texte}
+Un isomorphisme permet de transporter les propriétés vectoriels entre les deux espaces vectoriels, par exemple la dimension.  Toute propriété ``vectorielle'' vraie pour un espace vectoriel donné sera vraie pour un espace vectoriel qui lui est isomorphe. \\ 
+Par exemple on identifie fréquemment les $p$-uplets avec les matrices colonnes 
+car l'application
+\[ \Fonction{\Phi }{\K ^p}{\M{p}{1}{\K}}{(\lambda_1,\dots,\lambda_p)}{\begin{pmatrix}\lambda_1\\\vdots\\\lambda_p\end{pmatrix}} \]
+est un isomorphisme.\\
+Ainsi, on notera $X=\begin{pmatrix}x_1\\x_2\\\end{pmatrix}\overbrace{=}^{\text{identification}}(x_1,x_2)=\Vect{x}.$
+\end{Texte}
 \begin{Theoreme}[Géométrisation d'un espace vectoriel de dimension finie]%label=applications_lineaires__geometrisation
 Tout $\K$-espace vectoriel de dimension $n$ est isomorphe à $\K^n$.   
 \end{Theoreme}
@@ -364,152 +661,14 @@ La coplanarité des vecteurs $(0, 1, 0)$, $(0, 0, 1)$ et $(0, 1, \frac 1 2)$   s
 \end{Figure}
 \end{center}
 \end{Exemple}
-\section{Image et noyau}
-\subsection{Généralités}
-\begin{Definition}[Image directe et image réciproque]
-Soit $f:A\to B$. Soit $A'$ une partie de $A$ et $B'$ une partie de $B$.\\
-L'ensemble $\{f(x): x  \in  A'\}$ est appelé \defi{image directe} de $A'$ par $f$ et noté $f(A')$.\\
-L'ensemble $\{x\in A : f(x)  \in  B'\}$ est appelé \defi{image réciproque} de $B'$ par $f$ et noté $f^{-1}(B')$.\\
-\end{Definition}
-\begin{Exemple}[Carré]
-Soit $f:x\mapsto x^2$.\\
-On a $f([-1,1])=[0,1]$ et $f^{-1}(\{2\})=\{-\sqrt{2},\sqrt{2}\}$.
-\end{Exemple}
-\begin{Proposition}[Morphisme d'espace vectoriel]
-Soit $E',F'$ deux sous-espace vectoriel de de $E$ et $F$ respectivement.
-\begin{itemize}
-\item $u(E')$ est un sous espace vectoriel de $F$,
-\item $u^{-1}(F')$ est un sous espace vectoriel de $E$.
-\end{itemize}
-\end{Proposition}
-\begin{Demonstration}
-\begin{itemize}
-\item 
-\begin{itemize}
-\item Non vide : Comme $u(\Vect{0_E})=\Vect{0_F}$, $\Vect{0_F}\in u(E')$.\\
-\item Stabilité : Soit $\lambda\in\K, u(\Vect{x}),u(\Vect{x'})\in u(E')$.\\
-On a $\lambda u(\Vect{x})+u(\Vect{x'})\overbrace{=}^{\text{linéarité}}u(\overbrace{\lambda\Vect{x}+\Vect{x'}}^{\in E'})\in u(E')$.\\
-\end{itemize}
-Ainsi $u(E')$ est un sous espace vectoriel de $F$.
-\item 
-\begin{itemize}
-\item Non vide : comme $u(\Vect{0_E})=\Vect{0_F}\in F'$, $\Vect{0_E}\in u^{-1}(F')$.\\
-\item Stabilité : soit $\lambda\in\K, \Vect{x},\Vect{x'}\in u^{-1}(F')$.\\
- On a $ u(\lambda\Vect{x}+\Vect{x'})\overbrace{=}^{\text{linéarité}}\lambda \overbrace{u(\Vect{x})}^{\in F'}+\overbrace{u(\Vect{x'}}^{\in F'}\in F'$. Donc $\lambda\Vect{x}+\Vect{x'}\in u^{-1}(F')$.
-\end{itemize}
-Ainsi $u^{-1}(F')$ est un sous espace vectoriel de $E$.
-\end{itemize}
-\end{Demonstration}
-
-
-\begin{Exemple}
-L'image de la droite vectoriel $\R (1,1)$ par $R_\theta$ est la droite vectoriel $\R R_\theta(1,1)$.
-
-\begin{center}
-\begin{Figure}
-\begin{tikzpicture}
-\draw[thick,->] (-1.732,0) -- (1.732,0)node[anchor=west] {$x$};
-\draw[thick,->] (0,-1.732) -- (0,1.732)node[anchor=south] {$y$};
-\draw (0.866,0.5) arc (30:60:1) ;
-\draw[-] (-1.732,-1)--(1.732,1) node[right] {$\R (1,1)$};
-\draw[-] (-1,-1.732)-- (1,1.732) node[right] {$\R R_\theta(1,1)$};
-\node at (0.8,0.9){$\theta$};
-\end{tikzpicture}
-\end{Figure}
-\end{center}
-
-\end{Exemple}
-\begin{Definition}[Image]
-
-L'\defi{image} de $u$ est le sous espace vectoriel $u(E) = \{u(\Vect{x}):\Vect{x}\in  E\}$;
-  on le note \defi{$\im u$}.\\
-Par définition de la surjectivité, $\im u=E$ si et seulement $u$ est surjective. 
-\end{Definition}
-\begin{Definition}[Rang] Le \defi{rang} d'une  application linéaire $u$ est  la dimension de l'espace vectoriel $\Ima u$;
-  on le note \defi{$\rg u$}.\\
-\end{Definition}
-
-\begin{Definition}[Noyau]
-Le \defi{noyau} de $u$ est le le sous espace vectoriel $u^{-1}\{ \{\Vect{0_F}\}\} = \{x\in  E:u(\Vect{x}=\Vect{0_F}\}$;
-on le note \defi{$\Ker u$}.
-\end{Definition}
-
-\begin{Proposition}[Caractérisation de l'injectivité par le noyau]  
-$u$ est injective si et seulement si $\Ker u = \{\Vect{0_E}\}$.
-\end{Proposition}
-
-\begin{Demonstration}  
-\begin{itemize}
-\item Supposons que $u$ est injective.
- \begin{itemize}
-\item $\Ker u \supset \{\Vect{0_E}\}$ : comme $\Ker u$ est un sous-espace vectoriel de $E$, il contient $\Vect{0_E}$
-\item $\Ker u \subset \{\Vect{0_E}\}$ : soit $\Vect{x}\in \Ker u $. On a $u(\Vect{x})=\Vect{0_F}$. Comme $u$ est linéaire, $u(\Vect{0_E})=\Vect{0_F}$. Ainsi 
-$u(\Vect{x})=u(\Vect{0_E})$. Comme $u$ est injective, $\Vect{x}=\Vect{0_E}$.
-\end{itemize}
-Du fait de la double inclusion $\Ker u = \{\Vect{0_E}\}$.
-\item  Supposons que $\Ker u = \{\Vect{0_E}\}$.\\
-soit $\Vect{x},\Vect{x'}\in E $ tel que $u(\Vect{x})=u(\Vect{x'})$. Alors $u(\Vect{x})-u(\Vect{x'})=\Vect{0_F}$ et par linéarité $u(\Vect{x}-\Vect{x'})=\Vect{0_F}$. Donc $\Vect{x}-\Vect{x'}\in \Ker u= \{\Vect{0_E}\}$. Ainsi $\Vect{x}-\Vect{x'}=\Vect{0_E}$. D'où $\Vect{x}=\Vect{x'}$.
-\end{itemize}
-\end{Demonstration}
-\begin{Texte}
-Pour démontrer une égalité entre deux ensembles, il faut prouver la double inclusion.    
-En tant que sous-espace vectoriel de $E$, $\Ker u$ contient $\Vect{0}_E$, donc $\{\Vect{0}_E\}\subset \Ker u$. Ainsi démontrer que  $\Ker u = \{\Vect{0_E}\}$
-et ainsi que $u$ est injective, il suffit en réalité de
-montrer l'\impo{inclusion} : $\{\Vect{0_E}\}\subset \Ker u$.
-\end{Texte}
-
-\begin{Exemple}
-Soit $\Fonction{u}{\R^3}{\R^2}{(x,y,z)}{(x+y+z,x-y)}$.\\
-On a $u(x,y,z)=x(1,1)+y(1,-1)+z(0,1)$.
-Donc $\Ima u$ est l'espace vectoriel engendré par la famille $((1,1),(1,-1),(0,1))$ d'où $\Ima u=\R^2$. Ainsi $u$ est surjective et $\rg u=2$.
-$$(x,y,z)\in \Ker u \Leftrightarrow u(x,y,z)=(0,0)  \Leftrightarrow \begin{cases}x+y+z=&0\\x-y=&0\end{cases}\Leftrightarrow(x,y,z)=x(1,1,-2).$$
-Donc $\Ker u =\R (1,1,2).$ Ainsi $u$ n'est pas injective.
-\end{Exemple}
-\begin{Exemple}[Dérivée polynomiale]
-Soit $P=a_0+a_1 X+\dots + a_n X^n \in \R_n[X].$
-On a $\Phi_3(P)=P'=a_1+a_2 .2X+\dots  + a_n.nX^{n-1}$.
-Donc $\Ima \Phi_3$ est l'espace vectoriel engendré par la famille $(1,X,2X,\dots,nX^{n-1})$, soit $\Ima \Phi_3=\R_{n-1}[X].$ $\Phi_3$ n'est pas surjective $\rg u=\dim \R_{n-1}[X]=n $.
- $$P\in \Ker \Phi_3  \Leftrightarrow \Phi_3(P)=0  \Leftrightarrow P'=0\Leftrightarrow \exists a\in \R : P=a.$$
-Donc $\Ker \Phi_3 =\R_{0}[X].$ $\Phi_3$ n'est pas injective.
-\end{Exemple}
-
-
-
-
-\begin{Proposition}[Permutation de Vect et de l'image]
-Soit $(\Vect{x_i})_{i\leq i \leq n }$ une famille de $E$ .\\
-Alors $$ u(\text{Vect}((\Vect{x_i})_{i\leq i \leq n}))=\text{Vect}\left(u(\Vect{x_i})\right)_{i\leq i \leq n}.$$
-\end{Proposition}
-\begin{Demonstration}
-\begin{itemize}
-\item  $u(\text{Vect}((\Vect{x_i})_{i\leq i \leq n}))\subset\text{Vect}\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$:\\
-Soit $\sum_{i=1}^n \lambda_i \Vect{x_i}\in \text{Vect}((\Vect{x_i})_{i\leq i \leq n})$.\\
-Comme $u(\sum_{i=1}^n \lambda_i \Vect{x_i})\overbrace{=}^{\text{linéarité}}\sum_{i=1}^n \lambda_i u( \Vect{x_i})$, $u(\sum_{i=1}^n \lambda_i \Vect{x_i})$ s'exprime comme combinaison linéaire des vecteurs $\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$ donc appartient à $\text{Vect}\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$
-\item $u(\text{Vect}((\Vect{x_i})_{i\leq i \leq n}))\supset\text{Vect}\left(u(\Vect{x_i})\right)_{i\leq i \leq n}$: Raisonnement similaire.
-\end{itemize}
-Du fait de la double inclusion, on a bien $ u(\text{Vect}((\Vect{x_i})_{i\leq i \leq n}))=\text{Vect}\left(u(\Vect{x_i})\right)_{i\leq i \leq n}.$
-\end{Demonstration}
-\begin{Corollaire}[Image d'une base]
-Soit $(\Vect{e_i})_{i\leq i \leq n}$ une base de $E$ .\\
-Alors $$ \Ima u =\text{Vect}( \left(u(\Vect{x_i})\right)_{i\leq i \leq n})).$$
-\end{Corollaire}
-\begin{Demonstration}
-Comme $ \Ima u =u(E)$ et $E=\text{Vect}(\Vect{e_i})_{i\leq i \leq n }$, d'après la proposition précédente, on obtient $ \Ima u =\text{Vect}( \left(u(\Vect{x_i})\right)_{i\leq i \leq n})).$
-\end{Demonstration}
-
-\begin{Proposition}[Linéarité de l'inverse]
-Si $u$ est un isomorphisme, alors $u^{-1}$ est également linéaire.
-\end{Proposition}
-\begin{Demonstration}  
-Soit $\Vect{x},\Vect{x'}\in F $ et $\lambda\in\K$.\\
-On a $u(u^{-1}(\lambda\Vect{x}+\Vect{x'}))=\lambda\Vect{x}+\Vect{x'}$. De plus, $u(\lambda u^{-1}(\Vect{x})+ u^{-1}(\Vect{x'}))\overbrace{=}^{\text{linéarité}}\lambda u( u^{-1}(\Vect{x}))+ u(u^{-1}(\Vect{x'}))=\lambda\Vect{x}+\Vect{x'}.$. Ainsi $u(u^{-1}(\lambda\Vect{x}+\Vect{x'}))=u(\lambda u^{-1}(\Vect{x})+ u^{-1}(\Vect{x'}))$. Comme $u$ est injective,  $u^{-1}(\lambda\Vect{x}+\Vect{x'})=\lambda u^{-1}(\Vect{x})+ u^{-1}(\Vect{x'})$.\\
- $u^{-1}$ est donc linéaire.
-\end{Demonstration}
 
 
 
 
 
+
+
+\section{Dimension}
 \subsection{Effet d'une applications linéaire sur la dimension}
 \begin{Texte}
 Une application linéaire, $u:E\to F$ ne peut que réduire la dimension de son ensemble de définition. 
@@ -520,7 +679,7 @@ Une application linéaire, $u:E\to F$ ne peut que réduire la dimension de son e
 \fill[white, draw=black] (3,0) rectangle (6,3);
 \draw  (3,0) node[above right]{$F$};
 \fill[blue!40!white, draw=black] (3.5,0.5) rectangle (4.5,1.5);
-\draw  (4,1) node{$\im u$};
+\draw  (4,1) node{$\Ima u$};
 \draw[->]  (2,1) --node[above]{$u$} (3.5,1) ;
 \end{tikzpicture}
 \end{center}
@@ -532,7 +691,7 @@ L'application est injective si et seulement si: $\rg u =\dim E$.
 \fill[white, draw=black] (3,-0.5) rectangle (6,3);
 \draw  (3,-0.5) node[above right]{$F$};
 \fill[blue!40!white, draw=black] (3.5,0) rectangle (5.5,2);
-\draw  (4,1) node{$\im u$};
+\draw  (4,1) node{$\Ima u$};
 \draw[->]  (2,1) --node[above]{$u$} (3.5,1) ;
 \end{tikzpicture}
 \end{center}
@@ -542,7 +701,7 @@ L'application est surjective si et seulement si: $\rg u =\dim F$.
 \fill[blue!40!white, draw=black] (0,0) rectangle (2,2);
 \draw  (0,0) node[above right]{$E$};
 \fill[blue!40!white, draw=black] (3,0.5) rectangle (5,1.5);
-\draw  (3,0.5) node[above right]{$F=\im u$};
+\draw  (3,0.5) node[above right]{$F=\Ima u$};
 \draw[->]  (2,1) --node[above]{$u$} (3,1) ;
 \end{tikzpicture}
 \end{center}
@@ -552,7 +711,7 @@ L'application est un isomorphisme si et seulement si: $\rg u =\dim F=\dim E$.
 \fill[blue!40!white, draw=black] (0,0) rectangle (2,2);
 \draw  (0,0) node[above right]{$E$};
 \fill[blue!40!white, draw=black] (3,0) rectangle (5,2);
-\draw  (3,0) node[above right]{$F=\im u$};
+\draw  (3,0) node[above right]{$F=\Ima u$};
 \draw[->]  (2,1) --node[above]{$u$} (3,1) ;
 \end{tikzpicture}
 \end{center}
@@ -567,8 +726,10 @@ Soit $u:E\to F$ une application linéaire.
 \begin{Demonstration}
 \begin{itemize}
 \item 
-Comme $\im u \subset F$, on a $\rg u =\dim  \im u\leq \dim F$. Pour l'égalité, on a  $u$ est surjective si et seulement si  $\im u =  F$ si et seulement si $\dim  \im u\leq \dim F$.
-\item Soit $n$ la dimension de $E$ et $(\Vect{e_1},\dots,\Vect{e_n})$ une base de $E$. Comme $\im u=\operatorname{Vect}(u(\Vect{e_1}),\dots,u(\Vect{e_n}))$, $\dim  \im u\leq n$. Pour l'égalité, on a $\rg u \leq \dim E$ si et seulement si $u(\Vect{e_1}),\dots,u(\Vect{e_n})$ est une famille libre de $F$. 
+Comme $\Ima u \subset F$, on a $\rg u =\dim  \Ima u\leq \dim F$. Pour l'égalité, on a  $u$ est surjective si et seulement si  $\Ima u =  F$ si et seulement si $\dim  \Ima u= \dim F$.
+\item Soit $n$ la dimension de $E$ et $(\Vect{e_1},\dots,\Vect{e_n})$ une base de $E$.\\
+Comme $\Ima u=\operatorname{Vect}(u(\Vect{e_1}),\dots,u(\Vect{e_n}))$, $\dim  \Ima u\leq n$.\\
+Pour l'égalité, on sait que $\rg u = \dim E$ si et seulement si $u(\Vect{e_1}),\dots,u(\Vect{e_n})$ est une famille libre de $F$. 
 \begin{itemize}
 \item 
 Supposons que $(u(\Vect{e_1}),\dots,u(\Vect{e_n}))$ est une famille libre de $F$. \\
@@ -594,6 +755,7 @@ u(\sum_{i=1}^n\lambda_i \vec{e_i}))&=\Vect{0_F}&\text{ car u  linéaire}\\
 $$
 Donc $(u(\Vect{e_1}),\dots,u(\Vect{e_n}))$ est une famille libre de $F$.
 \end{itemize}
+En conclusion, $\rg u = \dim E$ si et seulement si $u$ est injective.
 \end{itemize}
 \end{Demonstration}
 
@@ -622,35 +784,37 @@ $\exists v\in \LE: u\circ v =v \circ u = \mathrm{Id}_E$ &$\Leftrightarrow$ &  $\
 
 \begin{Exemple}
 Démontrer que l'application linéaire $\Fonction{u}{\R^2}{\R^2}{(x,y)}{ (x+y,x-y)}$ est un automorphisme.
-\begin{Demonstration}
+\begin{Correction}
 Comme $u$ est un endomorphisme, il suffit de démontrer qu'elle est injective.\\
 $$(x,y)\in \Ker u \Leftrightarrow \begin{cases}x+y=0\\x-y=0\end{cases}  \Leftrightarrow  \begin{cases}x=0\\y=0\end{cases} $$ 
-Donc $\Ker u =\{(0,0)\}.$
-\end{Demonstration}
+Donc $\Ker u =\{(0,0)\}.$\\
+Donc $u$ est un automorphisme.
+\end{Correction}
 \end{Exemple}
 \begin{Exemple}
 Démontrer que l'application linéaire $\Fonction{u}{\R_n[X]}{\R_n[X]}{P}{  P-P}$  est un automorphisme.
-\begin{Demonstration}
+\begin{Correction}
 Comme $u$ est un endomorphisme, il suffit de montrer qu'elle est injective.\\
 $$P\in \Ker u \Leftrightarrow P-P'=0  \Leftrightarrow  P=P'$$ 
-Donc $\Ker u =\{0\}$ car $\deg(P)=\deg(P')$ si et seulement $P=0$.
-\end{Demonstration}
+Donc $\Ker u =\{0\}$ car $\deg(P)=\deg(P')$ si et seulement $P=0$.\\
+Donc $u$ est un automorphisme.
+\end{Correction}
 \end{Exemple}
 
 
-\subsection{Théorème du rang : $\dim E = \Rang u + \dim \Ker u$}
+\subsection{Théorème du rang}
 %Les dimensions du noyau et l'image d'une application linéaire sont liées.\\
 %Soit $A=\begin{pmatrix} 1 &  0 &1\\ 0 &1 &1\\ 0 &1&1\end{pmatrix}$. On a $C_3=C_1+C2$.\\
-%\textit{Image}  : $\im(A)=\mathrm{Vect}(C_1,C_2,C_3)\overbrace{=}^{C_3=C_1+C2}\mathrm{Vect}(C_1,C_2).$ Comme les vecteur $C_1$ et $C_2$ sont linéairement indépendants, $\dim (\im(A))=2$.\\
+%\textit{Image}  : $\Ima(A)=\mathrm{Vect}(C_1,C_2,C_3)\overbrace{=}^{C_3=C_1+C2}\mathrm{Vect}(C_1,C_2).$ Comme les vecteur $C_1$ et $C_2$ sont linéairement indépendants, $\dim (\Ima(A))=2$.\\
 %\textit{Noyau}  : $\begin{pmatrix}x\\y\\z \end{pmatrix}\in \Ker(A)\Leftrightarrow xC_1 + yC_2 + zC_3= 0\overbrace{\Leftrightarrow}^{C_3=C_1+C2} (x+z)C_1 + (y+z)C_2 = 0$ \\$ \overbrace{\Leftrightarrow}^{C_1,C_2\text{linéairement indépendants} }\begin{cases}x=-z\\y=-z\end{cases} \Leftrightarrow \Ker(A)= \mathrm{Vect} \begin{pmatrix}1\\1\\-1 \end{pmatrix}$. Donc $\dim (\Ker(A))=1$.\\
-%On observe que $\dim \Ker A +\dim \im A =$taille de la matrice. 
+%On observe que $\dim \Ker A +\dim \Ima A =$taille de la matrice. 
 
 \begin{Texte}
  le théorème du rang lie le rang d'une application linéaire et la dimension de son noyau.
 \end{Texte}
 \begin{Lemme}[Factorisation]
-Soit $E$ et $F$ deux $\K $-espaces vectoriels  et $u:E\to F$ une application linéaire.
-Si $S$ est un supplémentaire de $\Ker u$, \\
+Soit $E$ et $F$ deux $\K $-espaces vectoriels  et $u:E\to F$ une application linéaire.\\
+Soit $S$ est un supplémentaire de $\Ker u$.\\
 Alors $u$ induit un isomorphisme de $S$ sur $\Ima u$,
 c'est à dire que l'application linéaire
 \[ \Fonction{u\vert_S}{S}{\Ima u}{\vec{x}}{u(\vec{x})} \]
@@ -658,8 +822,8 @@ est un isomorphisme.
 \end{Lemme}
 \begin{Demonstration}
 \begin{itemize}
-\item Injective :  Soit $\Vect{x}\in\Ker u\vert_S$ donc $x\in\Ker u$ et  $x\in S$. Comme $\Ker u$ et  $S$ sont supplémentaires, $\Ker u \cap S =\{\Vect{0_E}\}$. D'où $\Vect{x}=\Vect{0_E}$ et $\Ker u\vert_S=\{\Vect{0_E}\}$. 
-\item Surjective : Soit $\Vect{y}\in \im u$ ainsi il existe $\Vect{x}\in E$ tel que $u(\Vect{x})=\Vect{y}$.  Comme  $\Ker u$ et  $S$ sont supplémentaires, il existe $\Vect{k}\in\Ker u$  et $\Vect{s}\in S $ tel que $\Vect{x}=\Vect{k}+\Vect{s}$. On  a :
+\item \impo{Injective} :  soit $\Vect{x}\in\Ker u\vert_S$ donc $x\in\Ker u$ et  $x\in S$. Comme $\Ker u$ et  $S$ sont supplémentaires, $\Ker u \cap S =\{\Vect{0_E}\}$. D'où $\Vect{x}=\Vect{0_E}$ et $\Ker u\vert_S=\{\Vect{0_E}\}$. 
+\item \impo{Surjective} : soit $\Vect{y}\in \Ima u$ ainsi il existe $\Vect{x}\in E$ tel que $u(\Vect{x})=\Vect{y}$.  Comme  $\Ker u$ et  $S$ sont supplémentaires, il existe $\Vect{k}\in\Ker u$  et $\Vect{s}\in S $ tel que $\Vect{x}=\Vect{k}+\Vect{s}$. On  a :
 $$
 \begin{aligned}
 u(\vec{x})&=\vec{y}&\\
@@ -681,8 +845,8 @@ Alors $\Ima u$ est de dimension finie et
 
 \begin{Demonstration}
 Comme $E$ est de dimension finie, $\Ker u$ possède un supplémentaire $S$ dans $E$. D'après le lemme de factorisation, comme $u\vert_S$ 
-est un isomorphisme,   $\dim S = \dim \im u$. Comme  $S$ et $\Ker u$ sont supplémentaires dans $E$, on a $\dim S+\dim \Ker u=\dim E$. Finalement, on a 
-$\dim \im u+\dim \Ker u=\dim E$.
+est un isomorphisme,   $\dim S = \dim \Ima u$. Comme  $S$ et $\Ker u$ sont supplémentaires dans $E$, on a $\dim S+\dim \Ker u=\dim E$. Finalement, on a 
+$\dim \Ima u+\dim \Ker u=\dim E$.
 \end{Demonstration}
 %TODO exercices http://uel.unisciel.fr/mathematiques/espacevect1/espacevect1_ch04/co/apprendre_ch4_07_07.html et redémontrer effet d'une application linéaire 
 
@@ -695,14 +859,14 @@ $\dim \im u+\dim \Ker u=\dim E$.
 Soit $E$ et $F$ deux $\K $-espaces vectoriels, $u:E\to F$ une application linéaire et $\vec{y_0}\in F$.\\
 L'ensemble des solutions de l'équation $u (\vec{x}) = \vec{y_0}$ est
 \begin{itemize}
-\item \propri{vide} si $\vec{y_0}\notin \im u$,
-\item \propri{un espace affine} si $\vec{y_0}\in \im u$, c'est à dire de la forme $$\overbrace{\vec{x_0}}^{\text{Solution particulière}}+\overbrace{\Ker u}^{\text{Solutions homogènes}}=\{\vec{x_0}+\vec{x}:\vec{x}\in\Ker u\}.$$ 
+\item \propri{vide} si $\vec{y_0}\notin \Ima u$,
+\item \propri{un espace affine} si $\vec{y_0}\in \Ima u$, c'est à dire de la forme $$\overbrace{\vec{x_0}}^{\text{Solution particulière}}+\overbrace{\Ker u}^{\text{Solutions homogènes}}=\{\vec{x_0}+\vec{x}:\vec{x}\in\Ker u\}.$$ 
 \end{itemize}
 \end{Theoreme}
 \begin{Demonstration}
 \begin{itemize}
-\item Soit $y\notin \im u$. Il n'existe donc pas d'antécédent à la fonction $u$. Donc l'ensemble des solutions est vide.
-\item Soit $y\in \im u$. Il existe au moins un antécédent à la fonction $u$ que l'on $\vec{x_0}$.\\
+\item Soit $y\notin \Ima u$. Il n'existe donc pas d'antécédent à la fonction $u$. Donc l'ensemble des solutions est vide.
+\item Soit $y\in \Ima u$. Il existe au moins un antécédent à la fonction $u$ que l'on $\vec{x_0}$.\\
 $\vec{x}$ est solution $ \Leftrightarrow u (\vec{x}) = \vec{y_0} \Leftrightarrow u (\vec{x}) = u (\vec{x_0}) \overbrace{\Leftrightarrow}^{\text{linéaire}} u(\vec{x}-\vec{x_0})=\Vect{0_F} \Leftrightarrow  \vec{x} - \vec{x_0} \in \Ker u  \Leftrightarrow \vec{x} \in \vec{x_0} +\Ker u.$
 \end{itemize}
 \end{Demonstration}
@@ -727,7 +891,7 @@ $
 {\color{green}y}&=0
 \end{cases}
 $, $u$ est injective donc bijective.\\
- Comme $\im u=\R^2$, il existe une solution et comme $\Ker u=\{(0,0)\}$, cette solution est unique. 
+ Comme $\Ima u=\R^2$, il existe une solution et comme $\Ker u=\{(0,0)\}$, cette solution est unique. 
 \end{Demonstration}
 
 
