@@ -5,10 +5,9 @@
 
 
 \chapter*{Vecteurs}
-\section{Translations - Vecteurs associés}
+\section{Définition}
 
-
-\begin{Activite}[Télécabine]
+\begin{Activite}[Translation d'une télécabine]%abstraction=1,link=Translation,seance=Vecteur associé à une translation 
 Une télécabine se déplace le long d'un câble de A vers B :\\
 \begin{tikzpicture}
 \coordinate (A) at (3,5); 
@@ -40,10 +39,11 @@ $$A=B+C$$
 \end{tikzpicture}\\Déplacer une figure par \defi{translation}, c'est faire glisser cette figure sans la faire tourner. Pour décrire ce déplacement, on utilise une flèche (sur la figure en rouge) donnant la \defi{direction}, le \defi{sens} et la \defi{longueur} de ce parcours. Cette flèche est un nouvel outil mathématique appelé \defi{vecteur}.  
 \end{Correction}
 \end{Activite}
-\begin{Definition}[Translation]
+\begin{Definition}[Translation]%seance=Vecteur associé à une translation
 Soit $A$ et $B$ deux points du plan. \\
 On appelle \defi{translation qui transforme $A$ en $B$} la transformation qui, à tout point $C$ du plan, associe
-l'unique point $D$ tel que $ABDC$ est un \defi{parallélogramme} (éventuellement aplati).  
+l'unique point $D$ tel que $ABDC$ est un \defi{parallélogramme} (éventuellement aplati).\\
+Le point $D$ est l'\defi{image} du point $C$.
 \begin{center}
 \begin{tikzpicture}[general, scale=0.4]
 \draw [quadrillage] (0,0) grid (11,8);
@@ -52,8 +52,8 @@ l'unique point $D$ tel que $ABDC$ est un \defi{parallélogramme} (éventuellemen
 \coordinate (M) at (7,2); 
 \coordinate (N) at (9,6);
 \coordinate (F) at (10.6, 7);
-\draw [loosely dashed] (A)--(N);
-\draw [loosely  dashed] (B)--(M); 
+%\draw [loosely dashed] (A)--(N);
+%\draw [loosely  dashed] (B)--(M); 
 \draw [->, epais, color=A1] (A)--(B); 
 \draw [->, epais, color=A1] (M)--(N);
 \draw [dashed,  color=A1] (B)--(N); 
@@ -64,32 +64,23 @@ l'unique point $D$ tel que $ABDC$ est un \defi{parallélogramme} (éventuellemen
 \pointC{N}{D}{above}
 %\draw (N) arc (32:52:3);
 %\draw (N) arc (32:12:3);
-\draw (3,2.25) node[rotate=122, color=F1]  {{\boldmath $\approx$}};
-\draw (7,4.75) node[rotate=122, color=F1]  {{\boldmath $\approx$}};
-\draw (4,4.25) node[rotate=53, color=C1]  {{\boldmath $\infty$}};
-\draw (6,2.75) node[rotate=53, color=C1]  {{\boldmath $\infty$}};
+%\draw (3,2.25) node[rotate=122, color=F1]  {{\boldmath $\approx$}};
+%\draw (7,4.75) node[rotate=122, color=F1]  {{\boldmath $\approx$}};
+%\draw (4,4.25) node[rotate=53, color=C1]  {{\boldmath $\infty$}};
+%\draw (6,2.75) node[rotate=53, color=C1]  {{\boldmath $\infty$}};
 \end{tikzpicture}
 \end{center}
 \end{Definition}
 
 
-
-
-\begin{Vocabulaire}
-\begin{itemize}
-\item Le point $M'$ est appelé \defi{image} du point $M$.
-\item On dit également que $M$ est le \defi{translaté} de $M'$.
-\end{itemize}
-\end{Vocabulaire}
-\begin{Remarque}
-Une \impo{transformation} sert à \impo{modéliser} mathématiquement un mouvement.
+\begin{Remarque}%link=Translation,seance=Vecteur associé à une translation
+Une \impo{transformation} sert à \impo{modéliser} mathématiquement un déplacement.
 \begin{itemize}
 \item La \impo{symétrie centrale} est la transformation qui modélise le demi-tour. 
 \item La \impo{translation} est la transformation qui modélise le glissement rectiligne. Pour la définir, on indique la direction, le sens et la longueur du mouvement. 
 \end{itemize}
 \end{Remarque}
-
-\begin{Proposition}[Diagonales du parallélogramme]
+\begin{Proposition}[Diagonales du parallélogramme]%seance=Vecteur associé à une translation,dep=Translation
  On considère quatre points $A$,   $B$, $C$ et $D$. \\
 La translation, qui transforme $A$ en $B$, transforme $C$ en $D$, si et seulement si   $[ AD ]$ et $[ BC ]$ ont même milieu.
 \begin{center}
@@ -115,12 +106,12 @@ La translation, qui transforme $A$ en $B$, transforme $C$ en $D$, si et seulemen
 \end{tikzpicture}
 \end{center}
 \end{Proposition}
-\begin{Demonstration}
-C'est la conséquence de la propriété: \textit{un quadrilatère est un parallélogramme si et seulement si ses diagonales se coupent en leur milieu}\fg.
+\begin{Demonstration}%seance=Vecteur associé à une translation,link=Diagonales du parallélogramme
+C'est la conséquence de la propriété: un quadrilatère est un parallélogramme si et seulement si ses diagonales se coupent en leur milieu.
 \end{Demonstration}
 
 
-\begin{Definition}[Vecteurs associés]
+\begin{Definition}[Vecteurs]%seance=Vecteur associé à une translation,dep=Translation
 A chaque translation est associé un \defi{vecteur}. \\
 Pour $A$ et $B$ deux points, le \defi{vecteur} $\Vect{AB}$ est associé à la translation qui transforme $A$ en $B$. \\
 Le vecteur $\Vect{AB}$ est défini par :
@@ -134,11 +125,11 @@ $A$ est l'\defi{origine} du vecteur et $B$ son \defi{extrémité}.
 
 
 
-\begin{Definition}[Égalité entre vecteurs]
+\begin{Definition}[Égalité entre vecteurs]%seance=Égalité entre vecteurs
 Deux vecteurs qui définissent la même translation sont dits \defi{égaux}.\\
 Deux vecteurs égaux ont : 
 \begin{enumerate}
-\item même direction; \item même sens; \item même longueur.
+\item même direction \item même sens \item même longueur.
 \end{enumerate}
 \begin{center}
 \begin{tikzpicture}[general, scale=0.75]
@@ -156,7 +147,7 @@ $\Vect{AB}=\Vect{CD}$
 
 
 
-\begin{Propriete}[Parallélogramme]
+\begin{Propriete}[Parallélogramme]%seance=Égalité entre vecteurs
 $\Vect{AB}=\Vect{CD}$ si et seulement si $ABDC$ est un parallélogramme (éventuellement aplati).
 \begin{center}
 \begin{tikzpicture}[general, scale=0.75]
@@ -173,7 +164,7 @@ $\Vect{AB}=\Vect{CD}$ si et seulement si $ABDC$ est un parallélogramme (éventu
 \end{center}
 \end{Propriete}
 
-\begin{Methode}[Construire un vecteur] 
+\begin{Methode}[Construire un vecteur]%seance=Égalité entre vecteurs 
 Soit  $A$, $B$ et $C$ trois points non alignés.\\
 Pour \defi{placer} le point $D$ tel que $\Vect{CD}=\Vect{AB}$, on construit le parallélogramme $ABDC$.
 \begin{center}
@@ -193,483 +184,483 @@ Pour \defi{placer} le point $D$ tel que $\Vect{CD}=\Vect{AB}$, on construit le p
 
 
 
-\begin{Remarque}
+\begin{Remarque}%seance=Égalité entre vecteurs
 Une translation peut être définie par un point quelconque et son translaté.\\
 Il existe donc une  \impo{infinité} de vecteurs associés à une translation. Ils sont tous égaux.  \\
 Le vecteur choisi pour définir la translation est un \impo{représentant} de tous ces vecteurs. \\
 La translation  \impo{ne dépend pas} du représentant choisi pour la définir. On le note souvent $\Vect{u}$.
 \end{Remarque}
 
-\begin{Definition}[Vecteur nul]
-Le vecteur associé à la translation qui transforme un point quelconque en lui-même est le \defi{vecteur nul}, noté $\Vect{0}$.\\ Ainsi, 
-$\Vect{AA} = \Vect{BB}  = \Vect{CC}= \ldots =\Vect{0} $ 
-\end{Definition}
-
-\begin{Definition}[Vecteur opposé]
-Le vecteur $\Vect{BA}$ de la translation qui transforme $B$ en $A$ est appelé \defi{vecteur opposé} à $\Vect{AB}$. 
-\end{Definition}
-\begin{Remarque}
-\begin{itemize}
-\item Le vecteur opposé à $\Vect{AB}$ se note $-\Vect{AB}$ et on a l'égalité $\Vect{BA}=-\Vect{AB}$.
-\item La notation $\overleftarrow{AB}$ n'existe pas.
-\end{itemize}
-\end{Remarque}
-
-\begin{Remarque}Deux vecteurs  \impo{opposés} ont même direction, même longueur mais sont de sens contraires.
-\end{Remarque}
-
-\section{Opérations sur les vecteurs}
-
-\subsection{Additions}
-
-\begin{Propriete}[Enchaînement de translations]
- L'enchaînement de deux translations est également une translation.
-\end{Propriete}
-
-
-\begin{DefinitionProposition}[Relation de Chasles]
-Soit $A$, $B$, $C$ trois points. \\
-L'enchaînement de la translation de vecteur $\Vect{AB}$ puis de la translation de vecteur $\Vect{BC}$  est la translation de vecteur $\Vect{AC}$ et on a : $$\Vect{AB}+\Vect{BC}=\Vect{AC}.$$
-Le vecteur $\Vect{AC}$ est le vecteur \defi{somme}.
-\begin{center}
-\begin{tikzpicture}[general, scale=0.5]
-\draw [quadrillage] (-4,-2) grid (5,5);
-\draw[->,epais] (-3,-1)--node[below]{$\Vect{AB}$}  (2,0);
-\draw[->,epais] (2,0)--node[right]{$\Vect{BC}$} (4,4);
-\draw[->,epais] (-3,-1)--node[above,left]{$\Vect{AB}+\Vect{BC}=\Vect{AC}$} (4,4);
-\draw (-3,-1) node[below] {$A$};
-\draw (2,0) node[below] {$B$};
-\draw (4,4) node[right] {$C$};
-\end{tikzpicture}
-\end{center}
-\end{DefinitionProposition}
+%\begin{Definition}[Vecteur nul]
+%Le vecteur associé à la translation qui transforme un point quelconque en lui-même est le \defi{vecteur nul}, noté $\Vect{0}$.\\ Ainsi, 
+%$\Vect{AA} = \Vect{BB}  = \Vect{CC}= \ldots =\Vect{0} $ 
+%\end{Definition}
+%
+%\begin{Definition}[Vecteur opposé]
+%Le vecteur $\Vect{BA}$ de la translation qui transforme $B$ en $A$ est appelé \defi{vecteur opposé} à $\Vect{AB}$. 
+%\end{Definition}
 %\begin{Remarque}
-% $\Vect{AB}+\Vect{BA}=\Vect{AA}=\Vect{0$.
+%\begin{itemize}
+%\item Le vecteur opposé à $\Vect{AB}$ se note $-\Vect{AB}$ et on a l'égalité $\Vect{BA}=-\Vect{AB}$.
+%\item La notation $\overleftarrow{AB}$ n'existe pas.
+%\end{itemize}
+%\end{Remarque}
+%
+%\begin{Remarque}Deux vecteurs  \impo{opposés} ont même direction, même longueur mais sont de sens contraires.
+%\end{Remarque}
+%
+%\section{Opérations sur les vecteurs}
+%
+%\subsection{Additions}
+%
+%\begin{Propriete}[Enchaînement de translations]
+% L'enchaînement de deux translations est également une translation.
+%\end{Propriete}
+%
+%
+%\begin{DefinitionProposition}[Relation de Chasles]
+%Soit $A$, $B$, $C$ trois points. \\
+%L'enchaînement de la translation de vecteur $\Vect{AB}$ puis de la translation de vecteur $\Vect{BC}$  est la translation de vecteur $\Vect{AC}$ et on a : $$\Vect{AB}+\Vect{BC}=\Vect{AC}.$$
+%Le vecteur $\Vect{AC}$ est le vecteur \defi{somme}.
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-4,-2) grid (5,5);
+%\draw[->,epais] (-3,-1)--node[below]{$\Vect{AB}$}  (2,0);
+%\draw[->,epais] (2,0)--node[right]{$\Vect{BC}$} (4,4);
+%\draw[->,epais] (-3,-1)--node[above,left]{$\Vect{AB}+\Vect{BC}=\Vect{AC}$} (4,4);
+%\draw (-3,-1) node[below] {$A$};
+%\draw (2,0) node[below] {$B$};
+%\draw (4,4) node[right] {$C$};
+%\end{tikzpicture}
+%\end{center}
+%\end{DefinitionProposition}
+%%\begin{Remarque}
+%% $\Vect{AB}+\Vect{BA}=\Vect{AA}=\Vect{0$.
+%%\end{Remarque}
+%%
+%%
+%%\begin{Propriete}Soit $\Vect{{AB}$ et $\Vect{{CD}$ deux vecteurs. Alors : 
+%%\begin{itemize}
+%%\item  $\Vect{{AB} +\Vect{{CD}=\Vect{{CD} +\Vect{{AB}$ \item $\Vect{{AB} + \Vect{0 = \Vect{
+%%{AB}$
+%%\end{itemize}
+%%\end{Propriete}
+%
+%\begin{Proposition}[Diagonale du parallélogramme]
+%Soit $A$, $B$, $C$, $D$ quatre points. \\
+%$\Vect{AD}=\Vect{AB}+\Vect{AC}$ si et seulement si $ABDC$ est un parallélogramme. 
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-4,-2) grid (5,5);
+%\draw[->, epais] (-3,-1)--node[below]{$\Vect{AC}$}  (2,0);
+%\draw[->, epais] (-3,-1)--node[left]{$\Vect{AB}$} (-1,3);
+%\draw[->, epais] (-3,-1)--node[left]{$\Vect{AD}$} (4,4);
+%\draw[dashed] (-1,3)-- (4,4);
+%\draw[dashed] (2,0)-- (4,4);
+%\draw (-3,-1) node[below] {$A$};
+%\draw (-1,3) node[above] {$B$};
+%\draw (2,0) node[below] {$C$};
+%\draw (4,4) node[right] {$D$};
+%\end{tikzpicture}
+%\end{center}
+%\end{Proposition}
+%
+%\begin{Demonstration}
+%On a :
+%$$\begin{aligned}
+%\Vect{AD}=&\Vect{AB}+\Vect{AC}&\\
+%\Leftrightarrow \Vect{AC}+\Vect{CD}=&\Vect{AB}+\Vect{AC}&\text{d'après la relation de Chasles}\\
+%\Leftrightarrow \Vect{CD}=&\Vect{AB}\\
+% \Leftrightarrow ABDC \text{est un parallélogramme} 
+%\end{aligned}$$
+%\end{Demonstration}
+%
+%
+%\begin{Methode}[Construire la somme de deux vecteurs]
+%On remplace l'un des deux vecteurs par un représentant: 
+%\begin{itemize}
+%\item soit de même origine afin d'utiliser la règle du parallélogramme;
+%\item soit d'origine l'extrémité de l'autre afin d'utiliser la relation de Chasles.
+%\end{itemize}
+%%\vspace{-0.5em}
+%%\begin{enumerate}
+%%\item  Construire un carré $ABCD$ de centre $O$.
+%%\item Construire les vecteurs \par
+%%$\Vect{u=\Vect{AB}+\Vect{OD}$ et 
+%%
+%%$\Vect{v=\Vect{AD}+\Vect{OC}$
+%%\end{enumerate}
+%%Correction :
+%%\hfill
+%%\begin{tikzpicture}[general]
+%%  \draw (0,0) node[below] {$A$};
+%%  \draw (2,0) node[below] {$B$};
+%%  \draw (2,2) node[above] {$C$};
+%%  \draw (0,2) node[above] {$D$};
+%%  \draw (1,1) node[right] {$O$};
+%%  \draw[color=B1] (0.5,0.5) node[above] {{\boldmath $\Vect{u}$}};
+%%  \draw (1,-1) node {Avec la relation};
+%%  \draw (1,-1.5) node {de Chasles};
+%%  \draw (1,3) node[below, white] {$A$};
+%%\draw (0,0)--(2,0)--(2,2)--(0,2)--cycle;
+%%\draw (0,0)--(2,2);
+%% \draw[->, color=A1, epais] (0,0)--(2,0);
+%% \draw[->, color=A1, epais] (1,1)--(0,2);
+%% \draw[->, color=A1, epais, dashed, line cap=butt] (2,0)--(1,1);
+%% \draw[->, color=B1, epais, line cap=butt] (0,0)--(1,1);
+%%\end{tikzpicture} 
+%%\hfill
+%%\begin{tikzpicture}[general]
+%%  \draw (0,0) node[below] {$A$};
+%%  \draw (2,0) node[below] {$B$};
+%%  \draw (2,2) node[above] {$C$};
+%%  \draw (0,2) node[above] {$D$};
+%%  \draw (1,1) node[right] {$O$};
+%%\draw (0,0)--(2,0)--(2,2)--(0,2)--cycle;
+%%\draw[dashed] (1,1)--(1,3)--(0,2);
+%%\draw (0,2)--(2,0);
+%%\draw[->, color=A1, epais] (0,0)--(0,2);
+%%\draw[->, color=A1, epais, line cap=butt] (1,1)--(2,2);
+%%\draw[->, color=A1, epais, dashed] (0,0)--(1,1);
+%%\draw[->, color=B1, epais] (0,0)--(1,3);
+%%\draw[color=B1] (1,3) node[right] {$\Vect{v}$};
+%%\draw (1,-1) node {Avec la règle};
+%%\draw (1,-1.5) node { du parallélogramme};
+%%\end{tikzpicture} 
+%\end{Methode}
+%
+%
+%\begin{Remarque} 
+%$\Vect{AB}+\Vect{AC}=\Vect{0}$ si et seulement si $A$ est le milieu du segment $[BC]$.
 %\end{Remarque}
 %
 %
-%\begin{Propriete}Soit $\Vect{{AB}$ et $\Vect{{CD}$ deux vecteurs. Alors : 
-%\begin{itemize}
-%\item  $\Vect{{AB} +\Vect{{CD}=\Vect{{CD} +\Vect{{AB}$ \item $\Vect{{AB} + \Vect{0 = \Vect{
-%{AB}$
-%\end{itemize}
-%\end{Propriete}
-
-\begin{Proposition}[Diagonale du parallélogramme]
-Soit $A$, $B$, $C$, $D$ quatre points. \\
-$\Vect{AD}=\Vect{AB}+\Vect{AC}$ si et seulement si $ABDC$ est un parallélogramme. 
-\begin{center}
-\begin{tikzpicture}[general, scale=0.5]
-\draw [quadrillage] (-4,-2) grid (5,5);
-\draw[->, epais] (-3,-1)--node[below]{$\Vect{AC}$}  (2,0);
-\draw[->, epais] (-3,-1)--node[left]{$\Vect{AB}$} (-1,3);
-\draw[->, epais] (-3,-1)--node[left]{$\Vect{AD}$} (4,4);
-\draw[dashed] (-1,3)-- (4,4);
-\draw[dashed] (2,0)-- (4,4);
-\draw (-3,-1) node[below] {$A$};
-\draw (-1,3) node[above] {$B$};
-\draw (2,0) node[below] {$C$};
-\draw (4,4) node[right] {$D$};
-\end{tikzpicture}
-\end{center}
-\end{Proposition}
-
-\begin{Demonstration}
-On a :
-$$\begin{aligned}
-\Vect{AD}=&\Vect{AB}+\Vect{AC}&\\
-\Leftrightarrow \Vect{AC}+\Vect{CD}=&\Vect{AB}+\Vect{AC}&\text{d'après la relation de Chasles}\\
-\Leftrightarrow \Vect{CD}=&\Vect{AB}\\
- \Leftrightarrow ABDC \text{est un parallélogramme} 
-\end{aligned}$$
-\end{Demonstration}
-
-
-\begin{Methode}[Construire la somme de deux vecteurs]
-On remplace l'un des deux vecteurs par un représentant: 
-\begin{itemize}
-\item soit de même origine afin d'utiliser la règle du parallélogramme;
-\item soit d'origine l'extrémité de l'autre afin d'utiliser la relation de Chasles.
-\end{itemize}
-%\vspace{-0.5em}
-%\begin{enumerate}
-%\item  Construire un carré $ABCD$ de centre $O$.
-%\item Construire les vecteurs \par
-%$\Vect{u=\Vect{AB}+\Vect{OD}$ et 
+%\subsection{Soustraction}
 %
-%$\Vect{v=\Vect{AD}+\Vect{OC}$
+%\begin{Definition}[Soustraction] \defi{Soustraire un vecteur}, c'est additionner son opposé.
+%\end{Definition}
+%
+%\begin{Exemple}
+%Soit trois points $A$, $B$ et $C$ non alignés. \\
+%Donner un représentant du vecteur $\Vect{u} =\Vect{AB}-\Vect{AC}$.\\
+%On a :\\
+%$\Vect{u}=\Vect{AB}-\Vect{AC}$\\
+%$\Vect{u}=\Vect{AB}+\Vect{CA}$\\
+%$\Vect{u}=\Vect{CA}+\Vect{AB}$\\
+%$\Vect{u}=\Vect{CB}$ en utilisant la relation de Chasles.
+%\end{Exemple}
+%
+%
+%
+%\section{Coordonnées d'un vecteur}
+%
+%
+%\begin{Definition}[Coordonnées d'un vecteur]
+%Dans un repère $(O;I,J)$,  on considère la translation de vecteur $\Vect{u}$ qui translate l'origine $O$ en un point $M$ de coordonnées $(a;b)$. \\
+%Les \defi{coordonnées du vecteur} $\Vect{u}$ sont les coordonnées du point  $M$ tel que  $\Vect{u} =\Vect{OM}$.\\
+%On note $\Vect{u}\left( \begin{array}{c} a\\b\end{array}\right)$.
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-2,-2) grid (8,9);
+%\foreach \x/\y/\P/\N in {6/0/below/a,0/5/left/b} 
+%{\draw[color=C1] (\x,\y) node {\small  $+$};
+%\draw[color=C1]  (\x,\y) node[\P] {{\boldmath $\N$}};}
+%\draw[->,color=black] (-2,0) -- (8,0);
+%\draw[->,color=black] (0,-2) -- (0,9);
+%\origineO
+%\draw [dashed, color=F1, epais] (0,5) -- (6,5);
+%\draw [dashed, color=J1, epais] (6,0) -- (6,5);
+%\foreach \x/\y/\P/\N in {1/0/below/I,0/1/left/J,6/5/right/M} 
+%{\draw (\x,\y) node {\small  $+$};
+%\draw (\x,\y) node[\P] {$\N$};}
+%\draw [->, color=A1, tres epais, line cap=butt] (0,0) --node[left,above] {{ $\Vect{OM}$}} (6,5);
+%\draw [->, color=A1, tres epais, line cap=butt] (1,3) --node[left] {{ $\Vect{u}$}} (7,8);
+%\end{tikzpicture}
+%\end{center}
+%\end{Definition}
+%
+%
+%\begin{Proposition}[Égalité des coordonnées]
+% Deux vecteurs sont égaux si et seulement si ces vecteurs ont les mêmes coordonnées.
+%\end{Proposition}
+%
+%
+%\begin{Proposition}[Coordonnées de $\Vect{AB}$]
+%Dans un repère $(O; I,J)$, les  coordonnées du vecteur $\Vect{AB}$ sont $\left( \begin{array}{c} x_B-x_A\\y_B-y_A\end{array}\right)$.
+%\end{Proposition}
+%
+%\begin{Demonstration}
+% Soit $A$, $B$ et $M$ de coordonnées respectives $(x_A; y_A)$, $(x_B; y_B)$ et $(x_M; y_M)$ dans un repère $(O; I, J)$ tels que $\Vect{OM}=\Vect{AB}$ et $OMBA$ est un parallélogramme.\\
+%Donc $[AM]$ et $[OB]$ ont même milieu.
+%    $\renewcommand{\arraystretch}{2}\left \lbrace \begin{array}{c}
+%                      \dfrac{x_A+x_M}{2}=\dfrac{x_B+x_O}{2}\\
+%                      \dfrac{y_A+y_M}{2}=\dfrac{y_B+y_O}{2}
+%                     \end{array} \right.\renewcommand{\arraystretch}{1}
+%$   soit  $\left \lbrace \begin{array}{c}
+%                     x_A+x_M=x_B\\
+%                    y_A+y_M=y_B
+%                     \end{array} \right.
+%$ soit $\left \lbrace \begin{array}{c}
+%                     x_M=x_B-x_A\\
+%                    y_M=y_B-y_A
+%                     \end{array} \right.
+%$
+%\end{Demonstration}
+%
+%\begin{Methode}[Lire les coordonnées d'un vecteur]
+%Lire les coordonnées du vecteur $\Vect{u}$ sur la figure ci-dessous. 
+%\begin{center}
+%\begin{tikzpicture}[general, yscale=0.6]
+%\foreach \a/\b/\c/\d in {0/0/5/0, 0/0.87/5/0.87, 0/2.61/5/2.61, 0/3.48/5/3.48, 0/1.74/1/3.48, 1/0/3/3.48, 2/0/4/3.48, 3/0/5/3.48, 4/0/5/1.74} {\draw[quadrillage] (\a,\b)--(\c, \d);}
+%\draw[axe] (0,0)--(2,3.48); 
+%\draw[axe] (0,1.74)--(5,1.74);
+%\coordinate (I) at (2,1.74); 
+%\coordinate (J) at (1.5,2.61); 
+%\draw (I) node[rotate=-25] {{\boldmath $/$}} node[below]{$I$};
+%\draw (J) node {{\boldmath $-$}} node[left]{$J$};
+%\draw[epais, ->, line cap=butt, color=F1] (0.5,2.61)--(3,0);
+%\draw (1.25,1.305) node[below] {{\boldmath $\Vect{u}$}};
+%\end{tikzpicture}
+%\end{center}
+%Les coordonnées de $\Vect{u}$ sont $\left(\begin{array}{c}4 \\ -3
+%\end{array}\right)
+%$ car 
+%\begin{center}
+%\begin{tikzpicture}[general, yscale=0.6]
+%\foreach \a/\b/\c/\d in {0/0/5/0, 0/0.87/5/0.87, 0/2.61/5/2.61, 0/3.48/5/3.48, 0/1.74/1/3.48, 1/0/3/3.48, 2/0/4/3.48, 3/0/5/3.48, 4/0/5/1.74} {\draw[quadrillage] (\a,\b)--(\c, \d);}
+%\draw[axe] (0,0)--(2,3.48); 
+%\draw[axe] (0,1.74)--(5,1.74);
+%\coordinate (I) at (2,1.74); 
+%\coordinate (J) at (1.5,2.61); 
+%\draw (I) node[rotate=-25] {{\boldmath $/$}} node[below]{$I$};
+%\draw (J) node {{\boldmath $-$}} node[above left]{$J$};
+%\draw[epais, ->, line cap=butt, color=F1] (0.5,2.61)--(3,0);
+%\draw (1.25,1.305) node[below, color=F1] {{\boldmath $\Vect{u}$}};
+%\draw[epais, ->, line cap=butt, color=A1] (0.5,2.61)--(4.5,2.61);
+%\draw (2.5,2.61) node[above, color=A1] {{\boldmath $+4$}};
+%\draw[epais, ->, line cap=butt, color=A1] (4.5,2.61)--(3,0);
+%\draw (3.75,1.305) node[right, color=A1] {{\boldmath $-3$}};
+%\end{tikzpicture}
+%\end{center}
+%\end{Methode}
+%
+% 
+%\begin{Methode}[Construire un vecteur à partir de ses coordonnées]
+%Dans un repère orthonormé, construire le représentant d'origine $A(6; 2)$ du vecteur $\Vect{u}$ de coordonnées $\left( \begin{array}{c} -4 \\3\end{array}\right)$.  \\
+% On a :
+%\begin{tikzpicture}[general, scale=0.4]
+%\draw [quadrillage] (-2,-2) grid (8,6);
+%\axeOI{-2}{8}
+%\axeOJ{-2}{6}
+%\origineO
+%\draw [<-, color=A1, tres epais] (2,5) -- (6,2);
+%\draw [<-,dashed, color=F1, epais] (2,2) -- (6,2);
+%\draw [<-,dashed, color=J1, epais] (2,5) -- (2,2);
+%\draw[color=black, color=F1] (4,2) node[below] {{\boldmath $-4$}};
+%\draw[color=black, color=J1] (2,3.5) node[left] {{\boldmath $+3$}};
+%\draw[color=black, color=A1] (4.5,4) node {{\boldmath $\Vect{u}$}};
+%\pointGraphique{6}{2}{A}{below right}
+%\end{tikzpicture}
+%\end{Methode}
+%
+%
+%
+%\begin{Methode}[Repérer un point défini par une égalité vectorielle]
+% Dans un repère orthogonal $(O;I,J)$, on a les points $A(-2;3)$, $B(4;-1)$ et $C(5;3)$. \\Calculer les coordonnées 
+% \begin{enumerate}
+%  \item du vecteur $\Vect{AB}$;
+%  \item du point $D$ tel que $\Vect{AB}=\Vect{CD}$.
+% \end{enumerate}
+%On a:
+% \begin{enumerate}
+%  \item Les coordonnées du  vecteur $\Vect{AB}$ sont 
+%$\left( \begin{array}{c}
+%                    x_B-x_A \\ y_B-y_A
+%                   \end{array}
+%\right)$ soit $\left( \begin{array}{c}
+%                    4-(-2) \\ -1-3
+%                   \end{array}
+%\right)$.
+%Donc $\Vect{AB}$ a pour coordonnées $\left( \begin{array}{c}
+%                    6 \\ -4
+%                   \end{array}
+%\right)$.
+%
+%\item On cherche $(x_D;y_D)$, les coordonnées du 
+%point $D$ tel que $\Vect{AB}=\Vect{CD}$.\\ 
+%Or,  si deux vecteurs sont égaux alors ils ont mêmes coordonnées. 
+%Donc le couple $(x_D;y_D)$ est la solution du système: 
+%
+%
+%$$\left\lbrace \begin{array}{c}
+%                    x_D-x_C=x_B-x_A \\ y_D-y_C=y_B-y_A
+%                   \end{array}\right.$$
+%soit  $\left \lbrace \begin{array}{l}
+%                                                        x_D-5=6 \\y_D-3=-4
+%                                                       \end{array}
+%\right.$
+%soit  $\left \lbrace \begin{array}{l}
+%                                                        x_D=6+5=11 \\y_D=-4+3=-1
+%                                                       \end{array}
+%\right.$
+%Les coordonnées du point $D$ sont $(11;-1)$.
+% \end{enumerate}
+%\end{Methode}
+%
+%
+%
+%\begin{Proposition}[Somme de deux vecteurs]
+%Si $\Vect{u}$ et $\Vect{v}$ sont deux vecteurs de coordonnées respectives $\left (\begin{array}{c}
+%x\\y
+%\end{array}\right)$ et 
+%$\left(\begin{array}{c}
+%x'\\y'
+%\end{array}\right)$,
+%alors les coordonnées du \propri{vecteur somme}, $\Vect{u}+\Vect{v}$, sont 
+%$\left(\begin{array}{c}
+%x+x'\\y+y'
+%\end{array}\right)$.
+%\end{Proposition}
+%
+%\begin{Methode}[Repérer un point défini par une somme vectorielle]
+%Dans un repère orthogonal $(O; I, J)$, on place les points $A(2;3)$, $B(4;-1)$, $C(5;3)$ et $D(-2;-1)$.
+%Quelles sont les coordonnées du point $E$ tel que $\Vect{AE}=\Vect{AD}+\Vect{CB}$?\\
+%On cherche les coordonnées $(x_E;y_E)$ du point $E$ tel que  $\Vect{AE}=\Vect{AD}+\Vect{CB}$. \\
+%Donc le couple $(x_E;y_E)$ est solution du système:
+%$\left\lbrace\begin{array}{l}
+%x_E-x_A=(x_D-x_A)+(x_B-x_C)\\y_E-y_A=(y_D-y_A)+(y_B-y_C)
+%\end{array}\right.$
+%soit 
+%$\left \lbrace \begin{array}{l}
+%x_E-2=(-2-2)+(4-5)\\y_E-3=(-1-3)+(-1-3)
+%\end{array}
+%\right.$ 
+%soit 
+%$\left \lbrace \begin{array}{l}
+%x_E-2=-5 \\y_E-3=-8
+%\end{array}
+%\right.$ 
+%soit 
+%$\left \lbrace \begin{array}{l}
+%x_E=-5+2=-3 \\y_E=-8+3=-5
+%\end{array}
+%\right.$\\
+%Les coordonnées du point $E$ sont $(-3;-5)$.
+%\end{Methode}
+%
+%
+%
+%
+%\section{Multiplication par un réel}
+%
+%
+%\begin{Definition}[Multiplication par un réel]
+%Soit $\Vect{u}$ un vecteur de coordonnées $(x;y)$ et $\lambda$ un réel. \\
+%La \defi{multiplication de $\Vect{u}$ par $\lambda$} est le vecteur \defi{$\lambda\Vect{u}$} de coordonnées \defi{$(\lambda x;\lambda y)$}.
+%\end{Definition}
+%
+%\begin{Methode}[Repérer le produit d'un vecteur par un réel]
+% Dans un repère orthogonal, construire le représentant d'origine $A(1; 4)$ du vecteur $-0,5 \Vect{u}$ avec $\Vect{u} \left( \begin{array}{c} 2 \\-3\end{array}\right)$.\\
+% On a :\\
+%$\Vect{u}$ a pour coordonnées $\left( \begin{array}{c} 2 \\-3\end{array}\right)$. 
+%Donc $-0,5 \Vect{u}$ a pour coordonnées $\left( \begin{array}{c} -0,5\times 2 \\-0,5\times (-3)\end{array}\right)$  
+%soit $\left( \begin{array}{c} -1 \\1,5\end{array}\right)$. 
+%\begin{center}
+%\begin{tikzpicture}[general, yscale=0.75, xscale=0.75]
+%\draw [quadrillage, xstep=1] (-1,-1) grid (4,7);
+%\axeX{-1}{4}{1}
+%\axeY{-1}{7}{1}
+%\draw [->, color=A1,epais] (1,4) -- (3,1);
+%\draw [->, color=C1,epais] (1,4) -- (0,5.5);
+%\draw [->,dashed, color=A1, epais](1,4) -- (1,5.5);
+%\draw [->,dashed, color=C1, epais] (1,5.5)--(0,5.5);
+%\draw[color=C1] (0.5,5.5) node[above] {{\boldmath $-1$}};
+%\draw[color=A1] (1,4.75) node[right] {{\boldmath $+1,5$}};
+%\draw[color=C1] (0.5,4) node[left] {{\boldmath $-0,5\Vect{u}$}};
+%\draw[color=A1] (2,3) node[right] {{\boldmath $\Vect{u}$}};
+%\pointGraphique{1}{4}{A}{below}
+%\end{tikzpicture}
+%\end{center}
+%\end{Methode}
+%
+%\begin{Proposition}[Sens en fonction du signe de $\lambda$]
+%Soient deux vecteurs $\Vect{AB}$ et $\Vect{CD}$ et $\lambda$ un réel tels que  $\Vect{AB}=\lambda\Vect{CD}$. 
+%\begin{itemize}
+% \item si $\lambda>0$, $\Vect{AB}$ et $\Vect{CD}$ sont de même sens.
+%\item si $\lambda<0$, $\Vect{AB}$ et $\Vect{CD}$ sont de sens contraires.
+%\end{itemize}
+%\end{Proposition}
+%
+%\begin{Remarque}
+% $\Vect{u}$ et $\lambda \Vect{u}$ ont la même direction.  Leurs sens et leurs longueurs dépendent de $\lambda$.
+%\end{Remarque}
+%
+%
+%\section{Colinéarité}
+%
+%
+%\begin{Definition}[Colinéaire]
+%On dit que deux vecteurs non nuls sont \defi{colinéaires} si  leurs coordonnées dans un même repère sont proportionnelles. 
+%\end{Definition}
+%
+% \begin{Remarque}
+%Par convention, le vecteur nul est colinéaire à tout vecteur $\Vect{u}$. En effet, $\Vect{0}=0.\Vect{u}$.
+% \end{Remarque}
+%
+%
+%
+%\begin{Proposition}
+%Deux vecteurs $\Vect{u}$ et $\Vect{v}$ non nuls sont colinéaires lorsqu'il existe un réel $\lambda$ tel que $\Vect{v}=\lambda\Vect{u}$.
+%\end{Proposition}
+% 
+%
+% 
+%\begin{Methode}[Vérifier la colinéarité de deux vecteurs]
+%Pour vérifier que  deux vecteurs non nuls $\Vect{u}\left (\begin{array}{c}
+%x\\y
+%\end{array}\right)$ et $\Vect{v}\left(\begin{array}{c}
+%x'\\y'
+%\end{array}\right)$  sont colinéaires, il suffit de:
+%\begin{enumerate}
+%\item trouver un réel $\lambda$ non nul tel que $x'=\lambda x$ et $y'=\lambda y$; 
+%\item vérifier que les produits en croix, $xy'$  et $x'y$, sont égaux.
 %\end{enumerate}
-%Correction :
-%\hfill
-%\begin{tikzpicture}[general]
-%  \draw (0,0) node[below] {$A$};
-%  \draw (2,0) node[below] {$B$};
-%  \draw (2,2) node[above] {$C$};
-%  \draw (0,2) node[above] {$D$};
-%  \draw (1,1) node[right] {$O$};
-%  \draw[color=B1] (0.5,0.5) node[above] {{\boldmath $\Vect{u}$}};
-%  \draw (1,-1) node {Avec la relation};
-%  \draw (1,-1.5) node {de Chasles};
-%  \draw (1,3) node[below, white] {$A$};
-%\draw (0,0)--(2,0)--(2,2)--(0,2)--cycle;
-%\draw (0,0)--(2,2);
-% \draw[->, color=A1, epais] (0,0)--(2,0);
-% \draw[->, color=A1, epais] (1,1)--(0,2);
-% \draw[->, color=A1, epais, dashed, line cap=butt] (2,0)--(1,1);
-% \draw[->, color=B1, epais, line cap=butt] (0,0)--(1,1);
-%\end{tikzpicture} 
-%\hfill
-%\begin{tikzpicture}[general]
-%  \draw (0,0) node[below] {$A$};
-%  \draw (2,0) node[below] {$B$};
-%  \draw (2,2) node[above] {$C$};
-%  \draw (0,2) node[above] {$D$};
-%  \draw (1,1) node[right] {$O$};
-%\draw (0,0)--(2,0)--(2,2)--(0,2)--cycle;
-%\draw[dashed] (1,1)--(1,3)--(0,2);
-%\draw (0,2)--(2,0);
-%\draw[->, color=A1, epais] (0,0)--(0,2);
-%\draw[->, color=A1, epais, line cap=butt] (1,1)--(2,2);
-%\draw[->, color=A1, epais, dashed] (0,0)--(1,1);
-%\draw[->, color=B1, epais] (0,0)--(1,3);
-%\draw[color=B1] (1,3) node[right] {$\Vect{v}$};
-%\draw (1,-1) node {Avec la règle};
-%\draw (1,-1.5) node { du parallélogramme};
-%\end{tikzpicture} 
-\end{Methode}
-
-
-\begin{Remarque} 
-$\Vect{AB}+\Vect{AC}=\Vect{0}$ si et seulement si $A$ est le milieu du segment $[BC]$.
-\end{Remarque}
-
-
-\subsection{Soustraction}
-
-\begin{Definition}[Soustraction] \defi{Soustraire un vecteur}, c'est additionner son opposé.
-\end{Definition}
-
-\begin{Exemple}
-Soit trois points $A$, $B$ et $C$ non alignés. \\
-Donner un représentant du vecteur $\Vect{u} =\Vect{AB}-\Vect{AC}$.\\
-On a :\\
-$\Vect{u}=\Vect{AB}-\Vect{AC}$\\
-$\Vect{u}=\Vect{AB}+\Vect{CA}$\\
-$\Vect{u}=\Vect{CA}+\Vect{AB}$\\
-$\Vect{u}=\Vect{CB}$ en utilisant la relation de Chasles.
-\end{Exemple}
-
-
-
-\section{Coordonnées d'un vecteur}
-
-
-\begin{Definition}[Coordonnées d'un vecteur]
-Dans un repère $(O;I,J)$,  on considère la translation de vecteur $\Vect{u}$ qui translate l'origine $O$ en un point $M$ de coordonnées $(a;b)$. \\
-Les \defi{coordonnées du vecteur} $\Vect{u}$ sont les coordonnées du point  $M$ tel que  $\Vect{u} =\Vect{OM}$.\\
-On note $\Vect{u}\left( \begin{array}{c} a\\b\end{array}\right)$.
-\begin{center}
-\begin{tikzpicture}[general, scale=0.5]
-\draw [quadrillage] (-2,-2) grid (8,9);
-\foreach \x/\y/\P/\N in {6/0/below/a,0/5/left/b} 
-{\draw[color=C1] (\x,\y) node {\small  $+$};
-\draw[color=C1]  (\x,\y) node[\P] {{\boldmath $\N$}};}
-\draw[->,color=black] (-2,0) -- (8,0);
-\draw[->,color=black] (0,-2) -- (0,9);
-\origineO
-\draw [dashed, color=F1, epais] (0,5) -- (6,5);
-\draw [dashed, color=J1, epais] (6,0) -- (6,5);
-\foreach \x/\y/\P/\N in {1/0/below/I,0/1/left/J,6/5/right/M} 
-{\draw (\x,\y) node {\small  $+$};
-\draw (\x,\y) node[\P] {$\N$};}
-\draw [->, color=A1, tres epais, line cap=butt] (0,0) --node[left,above] {{ $\Vect{OM}$}} (6,5);
-\draw [->, color=A1, tres epais, line cap=butt] (1,3) --node[left] {{ $\Vect{u}$}} (7,8);
-\end{tikzpicture}
-\end{center}
-\end{Definition}
-
-
-\begin{Proposition}[Égalité des coordonnées]
- Deux vecteurs sont égaux si et seulement si ces vecteurs ont les mêmes coordonnées.
-\end{Proposition}
-
-
-\begin{Proposition}[Coordonnées de $\Vect{AB}$]
-Dans un repère $(O; I,J)$, les  coordonnées du vecteur $\Vect{AB}$ sont $\left( \begin{array}{c} x_B-x_A\\y_B-y_A\end{array}\right)$.
-\end{Proposition}
-
-\begin{Demonstration}
- Soit $A$, $B$ et $M$ de coordonnées respectives $(x_A; y_A)$, $(x_B; y_B)$ et $(x_M; y_M)$ dans un repère $(O; I, J)$ tels que $\Vect{OM}=\Vect{AB}$ et $OMBA$ est un parallélogramme.\\
-Donc $[AM]$ et $[OB]$ ont même milieu.
-    $\renewcommand{\arraystretch}{2}\left \lbrace \begin{array}{c}
-                      \dfrac{x_A+x_M}{2}=\dfrac{x_B+x_O}{2}\\
-                      \dfrac{y_A+y_M}{2}=\dfrac{y_B+y_O}{2}
-                     \end{array} \right.\renewcommand{\arraystretch}{1}
-$   soit  $\left \lbrace \begin{array}{c}
-                     x_A+x_M=x_B\\
-                    y_A+y_M=y_B
-                     \end{array} \right.
-$ soit $\left \lbrace \begin{array}{c}
-                     x_M=x_B-x_A\\
-                    y_M=y_B-y_A
-                     \end{array} \right.
-$
-\end{Demonstration}
-
-\begin{Methode}[Lire les coordonnées d'un vecteur]
-Lire les coordonnées du vecteur $\Vect{u}$ sur la figure ci-dessous. 
-\begin{center}
-\begin{tikzpicture}[general, yscale=0.6]
-\foreach \a/\b/\c/\d in {0/0/5/0, 0/0.87/5/0.87, 0/2.61/5/2.61, 0/3.48/5/3.48, 0/1.74/1/3.48, 1/0/3/3.48, 2/0/4/3.48, 3/0/5/3.48, 4/0/5/1.74} {\draw[quadrillage] (\a,\b)--(\c, \d);}
-\draw[axe] (0,0)--(2,3.48); 
-\draw[axe] (0,1.74)--(5,1.74);
-\coordinate (I) at (2,1.74); 
-\coordinate (J) at (1.5,2.61); 
-\draw (I) node[rotate=-25] {{\boldmath $/$}} node[below]{$I$};
-\draw (J) node {{\boldmath $-$}} node[left]{$J$};
-\draw[epais, ->, line cap=butt, color=F1] (0.5,2.61)--(3,0);
-\draw (1.25,1.305) node[below] {{\boldmath $\Vect{u}$}};
-\end{tikzpicture}
-\end{center}
-Les coordonnées de $\Vect{u}$ sont $\left(\begin{array}{c}4 \\ -3
-\end{array}\right)
-$ car 
-\begin{center}
-\begin{tikzpicture}[general, yscale=0.6]
-\foreach \a/\b/\c/\d in {0/0/5/0, 0/0.87/5/0.87, 0/2.61/5/2.61, 0/3.48/5/3.48, 0/1.74/1/3.48, 1/0/3/3.48, 2/0/4/3.48, 3/0/5/3.48, 4/0/5/1.74} {\draw[quadrillage] (\a,\b)--(\c, \d);}
-\draw[axe] (0,0)--(2,3.48); 
-\draw[axe] (0,1.74)--(5,1.74);
-\coordinate (I) at (2,1.74); 
-\coordinate (J) at (1.5,2.61); 
-\draw (I) node[rotate=-25] {{\boldmath $/$}} node[below]{$I$};
-\draw (J) node {{\boldmath $-$}} node[above left]{$J$};
-\draw[epais, ->, line cap=butt, color=F1] (0.5,2.61)--(3,0);
-\draw (1.25,1.305) node[below, color=F1] {{\boldmath $\Vect{u}$}};
-\draw[epais, ->, line cap=butt, color=A1] (0.5,2.61)--(4.5,2.61);
-\draw (2.5,2.61) node[above, color=A1] {{\boldmath $+4$}};
-\draw[epais, ->, line cap=butt, color=A1] (4.5,2.61)--(3,0);
-\draw (3.75,1.305) node[right, color=A1] {{\boldmath $-3$}};
-\end{tikzpicture}
-\end{center}
-\end{Methode}
-
- 
-\begin{Methode}[Construire un vecteur à partir de ses coordonnées]
-Dans un repère orthonormé, construire le représentant d'origine $A(6; 2)$ du vecteur $\Vect{u}$ de coordonnées $\left( \begin{array}{c} -4 \\3\end{array}\right)$.  \\
- On a :
-\begin{tikzpicture}[general, scale=0.4]
-\draw [quadrillage] (-2,-2) grid (8,6);
-\axeOI{-2}{8}
-\axeOJ{-2}{6}
-\origineO
-\draw [<-, color=A1, tres epais] (2,5) -- (6,2);
-\draw [<-,dashed, color=F1, epais] (2,2) -- (6,2);
-\draw [<-,dashed, color=J1, epais] (2,5) -- (2,2);
-\draw[color=black, color=F1] (4,2) node[below] {{\boldmath $-4$}};
-\draw[color=black, color=J1] (2,3.5) node[left] {{\boldmath $+3$}};
-\draw[color=black, color=A1] (4.5,4) node {{\boldmath $\Vect{u}$}};
-\pointGraphique{6}{2}{A}{below right}
-\end{tikzpicture}
-\end{Methode}
-
-
-
-\begin{Methode}[Repérer un point défini par une égalité vectorielle]
- Dans un repère orthogonal $(O;I,J)$, on a les points $A(-2;3)$, $B(4;-1)$ et $C(5;3)$. \\Calculer les coordonnées 
- \begin{enumerate}
-  \item du vecteur $\Vect{AB}$;
-  \item du point $D$ tel que $\Vect{AB}=\Vect{CD}$.
- \end{enumerate}
-On a:
- \begin{enumerate}
-  \item Les coordonnées du  vecteur $\Vect{AB}$ sont 
-$\left( \begin{array}{c}
-                    x_B-x_A \\ y_B-y_A
-                   \end{array}
-\right)$ soit $\left( \begin{array}{c}
-                    4-(-2) \\ -1-3
-                   \end{array}
-\right)$.
-Donc $\Vect{AB}$ a pour coordonnées $\left( \begin{array}{c}
-                    6 \\ -4
-                   \end{array}
-\right)$.
-
-\item On cherche $(x_D;y_D)$, les coordonnées du 
-point $D$ tel que $\Vect{AB}=\Vect{CD}$.\\ 
-Or,  si deux vecteurs sont égaux alors ils ont mêmes coordonnées. 
-Donc le couple $(x_D;y_D)$ est la solution du système: 
-
-
-$$\left\lbrace \begin{array}{c}
-                    x_D-x_C=x_B-x_A \\ y_D-y_C=y_B-y_A
-                   \end{array}\right.$$
-soit  $\left \lbrace \begin{array}{l}
-                                                        x_D-5=6 \\y_D-3=-4
-                                                       \end{array}
-\right.$
-soit  $\left \lbrace \begin{array}{l}
-                                                        x_D=6+5=11 \\y_D=-4+3=-1
-                                                       \end{array}
-\right.$
-Les coordonnées du point $D$ sont $(11;-1)$.
- \end{enumerate}
-\end{Methode}
-
-
-
-\begin{Proposition}[Somme de deux vecteurs]
-Si $\Vect{u}$ et $\Vect{v}$ sont deux vecteurs de coordonnées respectives $\left (\begin{array}{c}
-x\\y
-\end{array}\right)$ et 
-$\left(\begin{array}{c}
-x'\\y'
-\end{array}\right)$,
-alors les coordonnées du \propri{vecteur somme}, $\Vect{u}+\Vect{v}$, sont 
-$\left(\begin{array}{c}
-x+x'\\y+y'
-\end{array}\right)$.
-\end{Proposition}
-
-\begin{Methode}[Repérer un point défini par une somme vectorielle]
-Dans un repère orthogonal $(O; I, J)$, on place les points $A(2;3)$, $B(4;-1)$, $C(5;3)$ et $D(-2;-1)$.
-Quelles sont les coordonnées du point $E$ tel que $\Vect{AE}=\Vect{AD}+\Vect{CB}$?\\
-On cherche les coordonnées $(x_E;y_E)$ du point $E$ tel que  $\Vect{AE}=\Vect{AD}+\Vect{CB}$. \\
-Donc le couple $(x_E;y_E)$ est solution du système:
-$\left\lbrace\begin{array}{l}
-x_E-x_A=(x_D-x_A)+(x_B-x_C)\\y_E-y_A=(y_D-y_A)+(y_B-y_C)
-\end{array}\right.$
-soit 
-$\left \lbrace \begin{array}{l}
-x_E-2=(-2-2)+(4-5)\\y_E-3=(-1-3)+(-1-3)
-\end{array}
-\right.$ 
-soit 
-$\left \lbrace \begin{array}{l}
-x_E-2=-5 \\y_E-3=-8
-\end{array}
-\right.$ 
-soit 
-$\left \lbrace \begin{array}{l}
-x_E=-5+2=-3 \\y_E=-8+3=-5
-\end{array}
-\right.$\\
-Les coordonnées du point $E$ sont $(-3;-5)$.
-\end{Methode}
-
-
-
-
-\section{Multiplication par un réel}
-
-
-\begin{Definition}[Multiplication par un réel]
-Soit $\Vect{u}$ un vecteur de coordonnées $(x;y)$ et $\lambda$ un réel. \\
-La \defi{multiplication de $\Vect{u}$ par $\lambda$} est le vecteur \defi{$\lambda\Vect{u}$} de coordonnées \defi{$(\lambda x;\lambda y)$}.
-\end{Definition}
-
-\begin{Methode}[Repérer le produit d'un vecteur par un réel]
- Dans un repère orthogonal, construire le représentant d'origine $A(1; 4)$ du vecteur $-0,5 \Vect{u}$ avec $\Vect{u} \left( \begin{array}{c} 2 \\-3\end{array}\right)$.\\
- On a :\\
-$\Vect{u}$ a pour coordonnées $\left( \begin{array}{c} 2 \\-3\end{array}\right)$. 
-Donc $-0,5 \Vect{u}$ a pour coordonnées $\left( \begin{array}{c} -0,5\times 2 \\-0,5\times (-3)\end{array}\right)$  
-soit $\left( \begin{array}{c} -1 \\1,5\end{array}\right)$. 
-\begin{center}
-\begin{tikzpicture}[general, yscale=0.75, xscale=0.75]
-\draw [quadrillage, xstep=1] (-1,-1) grid (4,7);
-\axeX{-1}{4}{1}
-\axeY{-1}{7}{1}
-\draw [->, color=A1,epais] (1,4) -- (3,1);
-\draw [->, color=C1,epais] (1,4) -- (0,5.5);
-\draw [->,dashed, color=A1, epais](1,4) -- (1,5.5);
-\draw [->,dashed, color=C1, epais] (1,5.5)--(0,5.5);
-\draw[color=C1] (0.5,5.5) node[above] {{\boldmath $-1$}};
-\draw[color=A1] (1,4.75) node[right] {{\boldmath $+1,5$}};
-\draw[color=C1] (0.5,4) node[left] {{\boldmath $-0,5\Vect{u}$}};
-\draw[color=A1] (2,3) node[right] {{\boldmath $\Vect{u}$}};
-\pointGraphique{1}{4}{A}{below}
-\end{tikzpicture}
-\end{center}
-\end{Methode}
-
-\begin{Proposition}[Sens en fonction du signe de $\lambda$]
-Soient deux vecteurs $\Vect{AB}$ et $\Vect{CD}$ et $\lambda$ un réel tels que  $\Vect{AB}=\lambda\Vect{CD}$. 
-\begin{itemize}
- \item si $\lambda>0$, $\Vect{AB}$ et $\Vect{CD}$ sont de même sens.
-\item si $\lambda<0$, $\Vect{AB}$ et $\Vect{CD}$ sont de sens contraires.
-\end{itemize}
-\end{Proposition}
-
-\begin{Remarque}
- $\Vect{u}$ et $\lambda \Vect{u}$ ont la même direction.  Leurs sens et leurs longueurs dépendent de $\lambda$.
-\end{Remarque}
-
-
-\section{Colinéarité}
-
-
-\begin{Definition}[Colinéaire]
-On dit que deux vecteurs non nuls sont \defi{colinéaires} si  leurs coordonnées dans un même repère sont proportionnelles. 
-\end{Definition}
-
- \begin{Remarque}
-Par convention, le vecteur nul est colinéaire à tout vecteur $\Vect{u}$. En effet, $\Vect{0}=0.\Vect{u}$.
- \end{Remarque}
-
-
-
-\begin{Proposition}
-Deux vecteurs $\Vect{u}$ et $\Vect{v}$ non nuls sont colinéaires lorsqu'il existe un réel $\lambda$ tel que $\Vect{v}=\lambda\Vect{u}$.
-\end{Proposition}
- 
-
- 
-\begin{Methode}[Vérifier la colinéarité de deux vecteurs]
-Pour vérifier que  deux vecteurs non nuls $\Vect{u}\left (\begin{array}{c}
-x\\y
-\end{array}\right)$ et $\Vect{v}\left(\begin{array}{c}
-x'\\y'
-\end{array}\right)$  sont colinéaires, il suffit de:
-\begin{enumerate}
-\item trouver un réel $\lambda$ non nul tel que $x'=\lambda x$ et $y'=\lambda y$; 
-\item vérifier que les produits en croix, $xy'$  et $x'y$, sont égaux.
-\end{enumerate}
-
-Soit $(O; I, J)$ un repère orthogonal. Les vecteurs suivants sont-ils colinéaires? 
-\begin{enumerate}
-\item $\Vect{u} \left( \begin{array}{c}
-2\\6 
-\end{array}
-\right)$ et $\Vect{v} \left( \begin{array}{c}
--6 \\ -18
-\end{array}
-\right)$. 
-\item $\Vect{w} \left( \begin{array}{c}
--5 \\ 3\end{array}\right)$ et $\Vect{z} \left( \begin{array}{c}12 \\ -7\end{array}\right)$.
-\end{enumerate}
-On a :
-\begin{enumerate}
-\item $-6=-3\times 2$ et $-18=-3\times 6$ donc $\Vect{v}=-3\Vect{u}$.
- $\Vect{u}$ et $\Vect{v}$ sont donc colinéaires.
-\item $-5\times(-7)=35$ et $3\times 12=36$.  Les produits en croix ne sont pas égaux.  
-  Donc $\Vect{w}$ et $\Vect{z}$ ne sont pas colinéaires.
-\end{enumerate}
-\end{Methode}
-
-
-\begin{Proposition}[Caractérisation vectorielle des droites parallèles]
-\begin{itemize}
-\item Deux droites $(AB)$ et $(CD)$ sont \propri{parallèles} si et seulement si les vecteurs $\Vect{AB}$ et $\Vect{CD}$ sont colinéaires;
-\item Trois points $A$, $B$ et $C$ sont \propri{alignés} si et seulement si les vecteurs $\Vect{AB}$ et $\Vect{AC}$ sont colinéaires.
-\end{itemize}
-\end{Proposition}
-\begin{Exemple}
-Les points $A(1;2 )$, $B(3;1 )$ et $C(5; 3)$  sont-ils alignés ?\\
-On calcule les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{AC}$ puis les produits en croix :
-$$(x_B-x_A)(y_C-y_A)=(3-1)(3-2)=2\times 1=2.$$
-et ainsi : \\
-$$(y_B-y_A)(x_C-x_A)=(1-2)(5-1)=-1\times4=-4.$$
-Les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{AC}$ ne sont pas proportionnelles. Donc $A$, $B$, $C$ ne sont pas alignés.
-\end{Exemple}
+%
+%Soit $(O; I, J)$ un repère orthogonal. Les vecteurs suivants sont-ils colinéaires? 
+%\begin{enumerate}
+%\item $\Vect{u} \left( \begin{array}{c}
+%2\\6 
+%\end{array}
+%\right)$ et $\Vect{v} \left( \begin{array}{c}
+%-6 \\ -18
+%\end{array}
+%\right)$. 
+%\item $\Vect{w} \left( \begin{array}{c}
+%-5 \\ 3\end{array}\right)$ et $\Vect{z} \left( \begin{array}{c}12 \\ -7\end{array}\right)$.
+%\end{enumerate}
+%On a :
+%\begin{enumerate}
+%\item $-6=-3\times 2$ et $-18=-3\times 6$ donc $\Vect{v}=-3\Vect{u}$.
+% $\Vect{u}$ et $\Vect{v}$ sont donc colinéaires.
+%\item $-5\times(-7)=35$ et $3\times 12=36$.  Les produits en croix ne sont pas égaux.  
+%  Donc $\Vect{w}$ et $\Vect{z}$ ne sont pas colinéaires.
+%\end{enumerate}
+%\end{Methode}
+%
+%
+%\begin{Proposition}[Caractérisation vectorielle des droites parallèles]
+%\begin{itemize}
+%\item Deux droites $(AB)$ et $(CD)$ sont \propri{parallèles} si et seulement si les vecteurs $\Vect{AB}$ et $\Vect{CD}$ sont colinéaires;
+%\item Trois points $A$, $B$ et $C$ sont \propri{alignés} si et seulement si les vecteurs $\Vect{AB}$ et $\Vect{AC}$ sont colinéaires.
+%\end{itemize}
+%\end{Proposition}
+%\begin{Exemple}
+%Les points $A(1;2 )$, $B(3;1 )$ et $C(5; 3)$  sont-ils alignés ?\\
+%On calcule les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{AC}$ puis les produits en croix :
+%$$(x_B-x_A)(y_C-y_A)=(3-1)(3-2)=2\times 1=2.$$
+%et ainsi : \\
+%$$(y_B-y_A)(x_C-x_A)=(1-2)(5-1)=-1\times4=-4.$$
+%Les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{AC}$ ne sont pas proportionnelles. Donc $A$, $B$, $C$ ne sont pas alignés.
+%\end{Exemple}
 
 \end{document}

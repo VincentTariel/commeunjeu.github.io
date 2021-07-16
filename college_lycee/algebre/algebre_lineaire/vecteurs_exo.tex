@@ -1,0 +1,1401 @@
+\documentclass{book}
+\usepackage{commeunjeustyle}
+
+\begin{document}
+\chapter*{Vecteurs}%label=exercices
+
+\section{Translations - Vecteurs associés}
+\begin{Exercice}[Translation d'un triangle]%link=Vecteurs#Vecteurs,type=application,seance=Vecteur associé à une translation
+ Reproduire la figure puis construire le translaté du triangle $ABC$ dans la translation de vecteur $\Vect{AB}$.
+ \begin{center}
+ \begin{tikzpicture}[general, scale=0.8]
+ \draw [quadrillage] (0,0) grid (3,3);
+\draw[fill=D1] (1,0) -- (3,1) -- (0,3) -- cycle;
+\draw (3,1) node[above] {$A$};
+\draw (1,0) node[left] {$B$};
+\draw (0,3)  node[left] {$C$};
+\end{tikzpicture}
+\end{center}
+\begin{Correction}%link=Translation d'un triangle
+ \begin{center}
+ \begin{tikzpicture}[general, scale=0.8]
+ \draw [quadrillage] (-2,-1) grid (3,3);
+\draw[fill=D1] (1,0) -- (3,1) -- (0,3) -- cycle;
+\draw[epais, ->, color=C1] (3,1)-- node[below] {{\boldmath $\Vect{ AB}$}}(1,0);
+\draw (3,1) node[above] {$A$};
+\draw (0,3)  node[left] {$C$};
+\draw[fill=D2] (-1,-1) -- (1,0) -- (-2,2) -- cycle;
+\draw (1,0) node[above] {$A'$};
+\draw (-1,-1) node[right] {$B'$};
+\draw (1,0) node[left] {$B$};
+\draw (-2,2)  node[left] {$C'$};
+\end{tikzpicture}
+\end{center}
+\end{Correction}
+\end{Exercice}
+
+ \begin{Exercice}[Translation d'une carré]%link=Vecteurs#Vecteurs,type=application,seance=Vecteur associé à une translation
+  Construire un carré $ABCD$ de côté 5 cm et  de centre $O$.  Construire l'image de ce carré:
+  \begin{enumerate}
+   \item dans la translation de vecteur $\Vect{AB}$;
+   \item dans la translation de vecteur $\Vect{AC}$;
+   \item dans la translation de vecteur $\Vect{OD}$.
+  \end{enumerate}
+\begin{Correction}%link=Translation d'un carré
+ \begin{center}
+ \begin{tikzpicture}[general, scale=0.8]
+ \draw [quadrillage] (-3,-1) grid (11,11);
+\draw[] (0,0)node[below] {$A$} -- (5,0)node[below] {$B$} -- (5,5)node[above] {$C$} -- (0,5)node[above] {$D$}-- cycle;
+\draw[epais, ->, color=C1] (0,0)-- node[below] {{\boldmath $\Vect{ AB}$}}(5,0);
+\draw[epais,color=C1] (5,0)-- (10,0) -- (10,5) -- (5,5)-- cycle;
+\draw[epais, ->, color=D1] (0,0)-- node[below] {{\boldmath $\Vect{ AC}$}}(5,5);
+\draw[epais,color=D1] (5,5)-- (10,5) -- (10,10) -- (5,10)-- cycle;
+\draw[epais, ->, color=A1] (2.5,2.5)-- node[below] {{\boldmath $\Vect{ OD}$}}(0,5);
+\draw[epais,color=A1] (-2.5,2.5)-- (2.5,2.5) -- (2.5,7.5) -- (-2.5,7.5)-- cycle;
+\end{tikzpicture}
+\end{center}
+\end{Correction}
+ \end{Exercice}
+ 
+ \begin{Exercice}[Représentants d'un vecteur]%seance=Égalité entre vecteurs%%%%ex 12
+Reproduire la figure ci-dessous et construire deux représentants du vecteur de la translation qui transforme $A$ en $B$.
+  \begin{center}
+   \begin{tikzpicture}[general, scale=0.8]
+\draw [quadrillage] (-1,-1) grid (4,4);
+\pointGraphique{0}{0}{A}{left}
+\pointGraphique{2}{3}{B}{above}
+   \end{tikzpicture}
+  \end{center}
+\begin{Correction}%link=Translation d'un carré
+Quelques représentants du vecteur de la translation qui transforme $A$ en $B$
+  \begin{center}
+   \begin{tikzpicture}[general, scale=0.8]
+\draw [quadrillage] (-1,-1) grid (4,4);
+\pointGraphique{0}{0}{A}{left}
+\pointGraphique{2}{3}{B}{above}
+\draw[epais, ->, color=red] (0,0)--(2,3);
+\draw[epais, ->, color=red] (-1,0)--(1,3);
+\draw[epais, ->, color=red] (2,1)--(4,4);
+\draw[epais, ->, color=red] (1,0.5)--(3,3.5);
+\draw[epais, ->, color=red] (1,-1)--(3,2);
+   \end{tikzpicture}
+  \end{center}
+\end{Correction}  
+   
+ \end{Exercice}
+%  
+% \begin{Exercice}%%%%ex 13
+%   Reproduire la figure ci-dessous et construire deux représentants du vecteur de la translation qui transforme $A$ en $B$.  
+%  \begin{center}
+%   \begin{tikzpicture}[general, scale=0.8]
+%\quadrillageSeyes{(0,0)}{(4.8,3.2)}
+%\draw (0.8,2.4)--(2.4,0.8)--(4,1.6)--cycle;
+%\pointGraphique{0.8}{2.4}{A}{left}
+%\pointGraphique{2.4}{0.8}{B}{below}
+%\pointGraphique{4}{1.6}{C}{above}
+%   \end{tikzpicture}
+%  \end{center}  
+% \end{Exercice} 
+% \begin{Exercice}%%%%ex 14
+%  Reproduire la figure ci-dessous et construire trois représentants du vecteur de la translation qui transforme $A$ en $B$.  
+%  \begin{center}
+%   \begin{tikzpicture}[general, scale=0.8]
+%\quadrillageSeyes{(0,0)}{(4.8,4)}
+%\draw (1.6,0.8)--(3.2,1.6)--(3.2,3.2)--(1.6,2.4)--cycle;
+%\pointGraphique{1.6}{0.8}{A}{left}
+%\pointGraphique{3.2}{1.6}{B}{below}
+%\pointGraphique{3.2}{3.2}{C}{right}
+%\pointGraphique{1.6}{2.4}{N}{left}
+%   \end{tikzpicture}
+%  \end{center}  
+% \end{Exercice} 
+% 
+% %%%%ex 15
+% \begin{Exercice}
+%  Construire un triangle $ABC$ rectangle en $A$.\\  
+%  Construire le représentant d'origine $A$ du vecteur $\Vect{BC}$.
+%  \begin{Correction}
+%  ~\\
+%  \begin{tikzpicture}[general, scale=0.5]
+%\draw (0,0) -- (2,0) -- (0,3) -- cycle;
+%\draw (0,0) node[left] {$A$};
+%\draw (2,0) node[right] {$B$};
+%\draw (0,3)  node[left] {$C$};
+%\draw[epais, ->, color=C1] (0,0)--(-2,3);
+%\end{tikzpicture}
+%  \end{Correction}
+% \end{Exercice}
+%  
+% \begin{Exercice}%%%%ex 16
+%   Construire un losange $ABCD$.    \\
+%   Construire le représentant d'extrémité $C$ de $\Vect{BD}$.
+%  \end{Exercice}
+%  
+% \begin{Exercice}%%%%ex 17
+% \label{2G3_E_1}
+%   \`A partir de la figure ci-dessous, citer un vecteur:
+%   \begin{enumerate}
+%    \item opposé à $\Vect{CD}$;
+%    \item de même direction et de même sens que $\Vect{AC}$;
+%    \item de même direction  que $\Vect{BC}$ mais de sens contraire;
+%    \item égal au vecteur $\Vect{BA}$.
+%   \end{enumerate}
+%   \begin{center}
+%   \begin{tikzpicture}[general]
+%\quadrillageSeyes{(0,0)}{(8,7.2)}
+%
+%\pointGraphique{2.4}{3.2}{A}{left}
+%\pointGraphique{0.8}{0.8}{B}{below}
+%\pointGraphique{2.4}{0.8}{C}{left}
+%\pointGraphique{3.2}{1.6}{D}{below}
+%    \draw[epais, ->, color=C1] (0,2.4)--(0.8,2.4);
+%    \draw[color=C1] (0.4,2.4)  node[above] {{\boldmath $\Vec u$}};
+%    \draw[epais, ->, color=C1] (0.8,4)--(2.4,6.4);
+%    \draw[color=C1] (1.6,5)  node[above left] {{\boldmath $\Vec v$}};
+%    \draw[epais, ->, color=C1] (3.2,4)--(3.2,5.6);
+%    \draw[color=C1] (3.2,4.8)  node[left] {{\boldmath $\Vec w$}};
+%    \draw[epais, ->, color=C1] (4,4.8)--(4.8,5.6);
+%    \draw[color=C1] (4.4,5.2)  node[above] {{\boldmath $\Vec r$}};
+%    \draw[epais, ->, color=C1] (6.4,6.4)--(4.8,2.4);
+%    \draw[color=C1] (5.6,3.6)  node[above] {{\boldmath $\Vec s$}};
+%    \draw[epais, ->, color=C1] (6.4,6.4)--(5.6,6.4);
+%    \draw[color=C1] (6,6.4)  node[above] {{\boldmath $\Vec t$}};
+%    \draw[epais, ->, color=C1] (7.2,1.6)--(6.4,0.8);
+%    \draw[color=C1] (6.8,1.2)  node[above] {{\boldmath $\Vec p$}};
+%    \draw[epais, ->, color=C1] (7.2,4)--(7.2,3.2);
+%    \draw[color=C1] (7.2,3.6)  node[left] {{\boldmath $\Vec m$}};
+%   \end{tikzpicture}
+%   \end{center}
+%  \end{Exercice}
+%
+% \begin{Exercice}%%%%ex 18
+%Placer deux points $A$ et $B$ et tracer le vecteur $\Vect{AB}$.   
+%   \begin{enumerate}
+%    \item Construire un vecteur opposé à $\Vect{AB}$.
+%    \item Construire un vecteur de même direction et de même sens que $\Vect{AB}$ et qui n'est pas égal à $\Vect{AB}$.
+%    \item Construire un vecteur de même direction  que $\Vect{AB}$ mais de sens contraire et qui n'est pas égal à $\Vect{BA}$.
+%   \end{enumerate}
+%\end{Exercice}
+%
+%
+%
+%\section{Opérations sur les vecteurs}
+%
+% \begin{Exercice}%%%%ex 20
+%Un deltaplane se déplace suivant la translation de vecteur $\Vect{u}$ puis celle de vecteur $\Vec v$.
+%\begin{enumerate}
+%\item Reproduire la figure ci-dessous.
+%\item  Construire l'image du nouveau deltaplane dans sa position finale.
+%\end{enumerate}
+%   \begin{tikzpicture}[general]
+%\quadrillageSeyes{(0,0)}{(8,2.4)}
+%\draw[epais] (1.2,0.8)--(1,0)--(2.4,0.8)--(1.6,1.2);
+%\draw[color=C1, fill=C2] (0,0)--(2.4,1.6)--(0,2.4)--cycle;
+%\draw[color=red, ->, epais] (4,0.8)--(5.6,1.6);
+%\draw[color=red] (4.8,1.2) node[above left] {{\boldmath $\Vec u$}};
+%\draw[color=G1, ->, epais] (5.6,1.6)--(8,0.8);
+%\draw[color=G1] (6.8,1.2) node[above right] {{\boldmath $\Vec v$}};
+%   \end{tikzpicture}
+%   \end{Exercice}
+%   
+% \begin{Exercice}\label{2G3_E_construire_somme}%%%%ex 21
+% \begin{enumerate}
+% \item Reproduire la figure ci-dessous.
+% \item Construire les vecteurs suivants.
+%\begin{enumerate}
+% \item $\Vec w+\Vec r$
+% \item $\Vec r+\Vec v$
+% \item $\Vec v+\Vec w$
+%\end{enumerate}
+% \end{enumerate}
+% 
+%   \begin{tikzpicture}[general]
+%\quadrillageSeyes{(0,0)}{(8,3.2)}
+%\draw[color=C1, ->, epais] (4,1.6)--(4.8,3.2);
+%\draw[color=C1] (4.4,2.4) node[above left] {{\boldmath $\Vec v$}};
+%\draw[color=C1, ->, epais] (4,1.6)--(2.4,0);
+%\draw[color=C1] (3.6,0.8) node[below left] {{\boldmath $\Vec w$}};
+% \draw[color=C1, ->, epais] (4,1.6)--(5.6,1.6);
+% \draw[color=C1] (4.8,1.6) node[above left] {{\boldmath $\Vec r$}};
+%\end{tikzpicture}
+%\begin{Correction}
+%~\\
+% \begin{tikzpicture}[general]
+%\quadrillageSeyes{(2,0)}{(7,3.2)}
+%\draw[color=C1, ->, epais] (4,1.6)--(4.8,3.2);
+%\draw[color=C1] (4.4,2.4) node[above left] {{\boldmath $\Vec v$}};
+%\draw[color=C1, ->, epais] (4,1.6)--(2.4,0);
+%\draw[color=C1] (3.6,0.8) node[below left] {{\boldmath $\Vec w$}};
+% \draw[color=C1, ->, epais] (4,1.6)--(5.6,1.6);
+% \draw[color=C1] (5.1,1.6) node[above left] {{\boldmath $\Vec r$}};
+% \draw[color=C1, ->, epais] (4,1.6)--(5.6,1.6);
+% \draw[color=A1, ->, epais] (4,1.6)--(4,0);
+% \draw[color=A1] (5.2,0.4) node[left] {{\boldmath $\Vec w+\Vec r$}};
+% \draw[color=A1, ->, epais] (4,1.6)--(6.4,3.2);
+% \draw[color=A1] (6.8,2.6) node[left] {{\boldmath $\Vec r+\Vec v$}};
+% \draw[color=A1, ->, epais] (4,1.6)--(3.2,1.6);
+% \draw[color=A1] (3.8,1.9) node[left] {{\boldmath $\Vec v+\Vec w$}};
+%\end{tikzpicture}
+%
+%\end{Correction}
+%
+%   \end{Exercice}
+%   
+% \begin{Exercice}%%%%ex 22
+% \begin{enumerate}
+% \item Reproduire la figure ci-dessous.
+% \item Construire les vecteurs suivants.
+%\begin{enumerate}
+% \item $\Vect{BC}+\Vect{CD}$
+% \item $\Vect{BA}+\Vect{BC}$
+%\end{enumerate}
+% \end{enumerate}
+% 
+%   \begin{tikzpicture}[general]
+%\quadrillageSeyes{(0,0)}{(8,3.2)}
+%\foreach \x/\y/\N/\pos in {1.6/0/A/above,3.2/1.6/B/left,6.4/0.8/C/below,6.4/2.4/D/above}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\end{tikzpicture}
+%   \end{Exercice}
+%   
+% \begin{Exercice}%%%%ex 23
+% \begin{enumerate}
+% \item Reproduire la figure ci-dessous.
+% \item Construire les vecteurs suivants.
+%\begin{enumerate}
+% \item $\Vect{AB}+\Vect{CD}$
+% \item $\Vect{BA}+\Vect{EF}$
+% \item $\Vect{CD}+\Vect{FE}$
+%\end{enumerate}
+% \end{enumerate}
+% 
+%   \begin{tikzpicture}[general]
+%\quadrillageSeyes{(0,0)}{(8,3.2)}
+%\foreach \x/\y/\N/\pos in {1.6/1.6/A/left,2.4/0.4/B/left,3.2/1/C/below,4.8/2.4/D/above,4.8/1.6/E/left,6.4/1.6/F/below}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\end{tikzpicture}
+%\end{Exercice}
+%
+%
+%
+% \begin{Exercice}%%%%ex 24
+%Reproduire la figure ci-dessous et construire un représentant des vecteurs suivants.
+%\begin{enumerate}
+% \item $\Vec u+\Vect{AB}$
+% \item $\Vec v+\Vect{CB}$
+% \item $\Vec w+\Vect{DE}$
+%\end{enumerate}
+%   
+%\begin{tikzpicture}[general]
+%\quadrillageSeyes{(0,0)}{(8,4)}
+%\foreach \x/\y/\N/\pos in {0.8/1.6/A/below,4/0.8/B/left,4.8/2.4/C/below,6.4/3.2/D/below right,5.6/0.8/E/left}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\foreach \a/\b/\c/\d/\N/\pos in {0.8/1.6/1.6/2.4/u/left, 3.2/3.2/4.8/2.4/v/above,7.2/2.4/6.4/0.8/w/right}
+%{\draw[epais, ->, color=A1] (\a,\b)--(\c,\d);
+%\draw[color=A1] (0.5*\a+0.5*\c, 0.5*\b+0.5*\d) node[\pos] {{\boldmath $\Vect{\N}$}};
+%}
+%\end{tikzpicture}
+%\end{Exercice}
+%
+% \begin{Exercice}%%%%ex 25
+%    \label{2G3_base_motif} Compléter les égalités en n'utilisant que les points de la figure ci-dessous.
+% \begin{enumerate}
+%  \item $\Vect{IB}=\Vect{\ldots A}+\Vect{A \ldots }$
+%  \item $\Vect{HG}+\Vect{\ldots\phantom{0.5}}=\Vect{HF}$
+%  \item $\Vect{D\ldots}+\Vect{C\ldots}=\Vect{ \ldots B}$
+%    \item $\Vect{E \ldots}+\Vect{\ldots E}=\Vect{\ldots\phantom{0.5}} $
+% \end{enumerate}
+% \begin{enumerate}
+% \item $\Vect{A\ldots}=\Vect{A\ldots}+\Vect{B\ldots}+\Vect{CM}$
+% \item $\Vect{FE}+\Vect{\ldots\phantom{0.5}}=\Vect{0}$
+% \end{enumerate}   
+%
+%    \begin{center}   
+%    \begin{tikzpicture}[general ,scale=0.6]
+%    \draw[quadrillage] (-1,-1) grid (7,6);
+%  \draw[color=C1, epais](0,2)--(1,0)--(2,0)--(3,1)--(4,0)--(5,0)--(4,2)--(6,4)--(4,4)--(3,5)--cycle;  
+%  \pointGraphique{3}{5}{A}{above left}
+%  \pointGraphique{4}{4}{B}{above right}
+%  \pointGraphique{6}{4}{C}{above right}
+%  \pointGraphique{4}{2}{D}{above left}
+%  \pointGraphique{5}{0}{E}{below right}
+%  \pointGraphique{4}{0}{F}{below left}
+%  \pointGraphique{3}{1}{G}{above left}
+%  \pointGraphique{2}{0}{H}{below right}
+%  \pointGraphique{1}{0}{I}{below left}
+%  \pointGraphique{0}{2}{J}{above left}
+% \end{tikzpicture}
+% \end{center}
+%
+% 
+% \end{Exercice}
+% 
+% \begin{Exercice}%%%%ex 26
+%  \'Ecrire le plus simplement possible. 
+%  
+%  \begin{enumerate}
+%   \item $\Vect{BD}+\Vect{DA}$
+%   \item $\Vect{BD}+\Vect{AA}$
+%   \item $\Vect{BD}+\Vect{DB}$
+%   \item $\Vect{BD}-\Vect{BA}$
+%   \item $\Vect{BD}+\Vect{AD}+\Vect{BA}$
+%   \item $\Vect{BD}-\Vect{BA}+\Vect{DA}-\Vect{DB}$
+%  \end{enumerate}
+%
+% \end{Exercice}
+%
+% \begin{Exercice}%%%%ex 27
+%  \'Ecrire le plus simplement possible. 
+%  \begin{enumerate}
+%   \item $\Vect{MB}-\Vect{MD}$
+%   \item $\Vect{CB}-\Vect{CD}-\Vect{BD}$
+%   \item $\Vect{BD}-\Vect{BA}+\Vect{MA}-\Vect{MD}$
+%   \item $\Vect{BD}-\Vect{MC}-\Vect{BM}+\Vect{DB}$
+%   \item $\Vect{MA}+\Vect{EM}-\Vect{CA}-\Vect{EC}$
+%   \item $-\Vect{AU}+\Vect{SH}-\Vect{ST}+\Vect{MU}$
+%  \end{enumerate}
+% \end{Exercice}
+%
+% \begin{Exercice}%%%%ex 28
+% En utilisant le motif de l'Exercice \ref{2G3_base_motif}:\\ donner un vecteur égal à:
+% 
+% \begin{enumerate}
+%  \item $\Vect{DE}+\Vect{HI}$
+%  \item $\Vect{GF}+\Vect{CB}$
+%  \item $\Vect{AJ}+\Vect{IE}$
+%  \item $\Vect{BG}+\Vect{GH}$
+%   \item $\Vect{BC}+\Vect{CB}+\Vect{BC}$
+%  \item $\Vect{IJ}+\Vect{CF}+\Vect{JC}+\Vect{FE}$
+%  \item $\Vect{AB}+\Vect{EF}+\Vect{DE}$  
+%  \item $\Vect{HF}+\Vect{ED}+\Vect{CD}$
+% \end{enumerate}
+% \end{Exercice}
+%
+%
+% \begin{Exercice} [Vecteurs et représentants]%%%%ex 29
+% \begin{center}
+%        \begin{tikzpicture}[general, scale=0.8]
+%            \quadrillageSeyes{(-1.6,-0.8)}{(3.2,2.4)} 
+%            \pointGraphique{0.8}{1.6}{A}{above}
+%            \pointGraphique{2.4}{0.8}{B}{right}
+%            \pointGraphique{0}{0}{C}{left}
+%        \end{tikzpicture}
+%        \end{center}
+%
+%    \begin{enumerate}
+%        \item Reproduire la figure ci-dessus.
+%        \item Placer les points $E$ et $F$ tels que:
+%        \begin{itemize}
+%        	\item  $\Vect{CE}=\Vect{BA}$
+%        	\item  $\Vect{FB}=\Vect{BC}$
+%		\end{itemize}   	
+%        \item Déterminer le représentant:
+%        	\begin{enumerate}
+%        		\item du vecteur $\Vect{BC}$ d'origine $A$;
+%        		\item du vecteur $\Vect{BA}$ d'extrémité $C$.
+%        	\end{enumerate}
+%        \item Représenter les vecteurs $\Vect{u}$ et $\Vect{v}$ tels que : 
+%           \begin{itemize}
+%            \item     $\Vect{u}=\Vect{BC}+\Vect{AC}$
+%            \item     $\Vect{v}=\Vect{AB}-\Vect{AC}$
+%           \end{itemize}
+%        \item Quelle est la nature du quadrilatère $AEBF$? Justifier.
+%    \end{enumerate}
+%\end{Exercice}
+%%30
+%\begin{Exercice}[Petites démonstrations]
+%Soit $A$, $B$ et $C$ trois points.
+%\begin{enumerate}
+%\item Construire le point $D$ tel que $\Vect{AB}=\Vect{CD}$.
+%\item Construire le point $E$ tel que $\Vect{AB}=\Vect{EC}$.
+%\item Que peut-on dire du point $E$? Justifier.
+%\end{enumerate}
+%\end{Exercice}
+%
+% \begin{Exercice}[Dans un parallélogramme...]%%%%ex 31
+%    $EFGH$ est un parallélogramme de centre $O$.
+%    \begin{enumerate}
+%        \item Construire les points $S$ et $T$ vérifiant:
+%        \begin{itemize}
+%        	\item $\Vect{OT}$ = $\Vect{OE}$ + $\Vect{OF}$
+%        	\item $\Vect{OS}$ = $\Vect{OG}$ + $\Vect{OH}$
+%        \end{itemize}
+%        \item Démontrer
+%            que $\Vect{OT}$ + $\Vect{OS}$ =
+%            $\Vect{0}$.\\ Que peut-on en
+%            déduire?
+%            \end{enumerate}
+%            
+%\end{Exercice}
+%
+% \begin{Exercice} [Dans un triangle rectangle...]%%%%ex 32
+%    Soit $ABC$ un triangle rectangle en $A$.
+%    \begin{enumerate}
+%        \item Construire les points $D$ et $E$ tels que:
+%        	\begin{itemize}
+%        		\item $\Vect{AD}=\Vect{BA}$
+%        		\item $\Vect{CE}=\Vect{CB}+\Vect{CD}$
+%        	\end{itemize}
+%        \item Quelle est la nature du quadrilatère $BCDE$ ? Justifier.
+%    \end{enumerate}
+% \end{Exercice}
+%    
+% \begin{Exercice}[Démonstration]%%%%ex 33
+%    Tous les résultats devront être démontrés.
+%    \begin{enumerate}
+%        \item Construire un parallélogramme $ABCD$ de centre $O$. \\ Nommer
+%$I$ le milieu de $[OC]$.
+%        \item Construire $A'$ le symétrique de $A$ par rapport à $D$ \\et
+%$O'$ le symétrique de $O$ par rapport à $B$.
+%        \item 
+%            \begin{enumerate}
+%                \item Démontrer que $\Vect{A'C}=\Vect{DB}$.
+%                \item Démontrer que $\Vect{DB}=\Vect{OO'}$.
+%                \item En déduire que $I$ est le milieu de $[A'O']$.
+%			 \end{enumerate}
+%	 \end{enumerate}
+% 
+% \end{Exercice}
+%
+%
+% %%%% ex33
+%
+% \begin{Exercice}%%%%ex 34
+% \label{2G3_E_ex34}
+%Reproduire la figure ci-dessous et construire les vecteurs suivants.
+%\begin{enumerate}
+% \item $\Vect{u_1}=\Vec w-\Vec r$
+% \item $\Vect{u_2}=\Vec r-\Vec v$
+% \item $\Vect{u_3}=\Vec v-\Vec w$
+% \item $\Vect{u_4}=\Vec r-\Vec w$
+% \item $\Vect{u_5}=\Vec v-\Vec r$
+% \item $\Vect{u_6}=\Vec w-\Vec r$
+%\end{enumerate}
+%\begin{enumerate}
+%\setcounter{enumi}{6}
+%\item Quelles remarques peut-on faire?
+%\end{enumerate}
+%\begin{center}
+%   \begin{tikzpicture}[general, scale=0.8]
+%\quadrillageSeyes{(0,0)}{(8,3.2)}
+%\draw[color=C1, ->, epais] (4,1.6)--(4,3.2);
+%\draw[color=C1] (4,2.4) node[left] {{\boldmath $\Vec v$}};
+%\draw[color=C1, ->, epais] (4,1.6)--(1.6,0.8);
+%\draw[color=C1] (3.2,0.8) node[below] {{\boldmath $\Vec w$}};
+% \draw[color=C1, ->, epais] (4,1.6)--(7.2,0.8);
+% \draw[color=C1] (5.6,1.2) node[above] {{\boldmath $\Vec r$}};
+%\end{tikzpicture}
+%\end{center}
+%   \end{Exercice}
+%   
+% \begin{Exercice}%%%%ex 35
+%Même consigne qu'à l'Exercice \ref{2G3_E_ex34}.
+%\begin{enumerate}
+% \item $\Vect{BC}-\Vect{CD}$
+% \item $\Vect{BA}-\Vect{BC}$
+% \item $\Vect{DA}-\Vect{AB}$
+%\end{enumerate} 
+%\begin{center}
+%   \begin{tikzpicture}[general, scale=0.8]
+%\quadrillageSeyes{(0,0)}{(8,3.2)}
+%\foreach \x/\y/\N/\pos in {5.6/0.8/A/below,7.2/2.4/B/left,1.6/1.6/C/below,3.2/0.8/D/below}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\end{tikzpicture}
+%\end{center}
+%\end{Exercice}
+%   
+% \begin{Exercice}%%%%ex 36
+%  Même consigne qu'à l'Exercice \ref{2G3_E_ex34}.
+%\begin{enumerate}
+% \item $\Vect{AB}-\Vect{CD}$
+% \item $\Vect{BA}-\Vect{EF}$
+% \item $\Vect{CD}-\Vect{FE}$
+%\end{enumerate}
+%\begin{enumerate}
+%\setcounter{enumi}{3}
+%\item Que dire du quadrilatère $CFEO$?
+%\end{enumerate}
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.8]
+%\quadrillageSeyes{(0,0)}{(8,3.2)}
+%\foreach \x/\y/\N/\pos in {7.2/0.8/A/below left,4/1.6/B/below left,0.8/0.8/C/below left,4.8/0.8/D/below right,6.4/2.4/E/above right,2.4/2.4/F/above left}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\end{tikzpicture}
+%\end{center}
+%\end{Exercice}
+%
+% \begin{Exercice}%%%%ex 37
+%Reproduire la figure ci-dessous.\\ On considère les vecteurs suivants.
+%\begin{itemize}
+% \item $\Vect{u_1}=\Vec u-\Vect{AB}$
+% \item $\Vect{v_1}=\Vec v-\Vect{CD}$
+% \item $\Vect{w_1}=\Vec w-\Vect{DE}$
+%\end{itemize}
+%Construire un représentant de:
+%\begin{enumerate}
+%\item $\Vect{u_1}$ d'origine $E$;
+%\item $\Vect{u_2}$ d'origine $A$;
+%\item $\Vect{u_3}$ d'origine $C$;
+%\item $\Vect{u_1}$ d'extrémité $C$;
+%\item $\Vect{u_2}$ d'extrémité $E$;
+%\item $\Vect{u_3}$ d'extrémité $A$.
+%\end{enumerate}
+%\begin{center}   
+%\begin{tikzpicture}[general, scale=0.8]
+%\quadrillageSeyes{(0,0)}{(8,4)}
+%\foreach \x/\y/\N/\pos in {0.8/4/B/below left,4/0.8/A/below left,4.8/2.4/C/below right,4/1.6/D/below right,5.6/2.4/E/above left}
+%{\draw (\x,\y) node {$+$}; 
+%\draw (\x,\y) node[\pos] {$\N$};}
+%\foreach \a/\b/\c/\d/\N/\pos in {1.6/2.4/0.8/4/u/left, 4/1.6/2.4/1.6/v/above,6.4/2.4/7.2/2.4/w/above}
+%{\draw[epais, ->, color=A1] (\a,\b)--(\c,\d);
+%\draw[color=A1] (0.5*\a+0.5*\c, 0.5*\b+0.5*\d) node[\pos] {{\boldmath $\Vect{\N}$}};
+%}
+%\end{tikzpicture}
+%\end{center}
+%\end{Exercice}
+%\section{Coordonnées d'un vecteur}
+%
+%%%%38
+%\begin{Exercice}\label{2G3_E_lire_coord}
+%Lire les coordonnées des vecteurs suivants.%dans le repère $(O;I,J)$ ci-dessous.
+%
+% \begin{enumerate}
+%  \item $\Vect{AB}$
+%  \item $\Vect{AC}$
+%  \item $\Vect{CA}$
+%  \item $\Vect{DE}$
+%  \item $\Vect{AE}$
+%  \item $\Vect{AF}$
+% \end{enumerate}
+% \begin{center}
+%\begin{tikzpicture}[general, scale=0.40]
+%\draw [quadrillage] (-6,-3) grid (6,6);
+%\axeOI{-6}{6}
+%\axeOJ{-3}{6}
+%\origineO
+%\foreach \N/\x/\y in {A/1/1,B/3/4, C/-4/3, D/-2/-2, E/1/-2, F/3/0}
+%{\pointGraphique{\x}{\y}{\N}{above}}\end{tikzpicture}
+% \end{center}
+% \begin{Correction}
+%  ~\\
+% %%%%%%%%%%%%% avec les noms des vecteurs, ne rentre pas sur une ligne 
+% \begin{enumerate}
+% \item  $\left(\begin{array}{c}2\\3\end{array}\right)$
+%  \item  $\left(\begin{array}{c}-5\\2\end{array}\right)$
+%  \item  $\left(\begin{array}{c}5\\-2\end{array}\right)$
+%  \item  $\left(\begin{array}{c}3\\0\end{array}\right)$
+%  \item $\left(\begin{array}{c}0\\-3\end{array}\right)$
+%  \item  $\left(\begin{array}{c}2\\-1\end{array}\right)$
+% \end{enumerate}
+% \end{Correction}
+%\end{Exercice}
+%
+%\begin{Exercice}%%%39
+%Dans le repère $(O;I,J)$ ci-dessous,
+%\begin{enumerate}
+%\item lire les coordonnées des points;
+%\item calculer les coordonnées des vecteurs suivants. 
+% \begin{itemize}
+%  \item $\Vect{AB}$
+%  \item $\Vect{AC}$
+%  \item $\Vect{BJ}$
+%  \item $\Vect{BD}$
+%  \item $\Vect{FA}$
+%  \item $\Vect{FJ}$
+%  \item $\Vect{GF}$
+%  \item $\Vect{BG}$
+% \end{itemize}
+% \item  Dans cette liste, quels vecteurs sont égaux? \\ Lesquels sont opposés? 
+% \end{enumerate}
+%  \begin{center}
+%\begin{tikzpicture}[general, scale=0.40]
+%\draw [quadrillage] (-6,-3) grid (6,9);
+%\axeOI{-6}{6}
+%\axeOJ{-3}{9}
+%\foreach \N/\x/\y/\pos in {A/-4/2/left, B/1/4/right, C/-5/-1/left, D/2/8/left, F/-1/-2/left, G/4/0/below}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\end{tikzpicture}
+% \end{center}
+%\end{Exercice}
+%
+%\begin{Exercice}%%%40
+%Lire les coordonnées des vecteurs suivants dans le repère $(O;I,J)$ ci-dessous.
+%
+% \begin{enumerate}
+%  \item $\Vect{AB}$
+%  \item $\Vect{AD}$
+%  \item $\Vect{CA}$
+%  \item $\Vect{DE}$
+%  \item $\Vect{AE}$
+%  \item $\Vect{CF}$
+% \end{enumerate}
+% \begin{center}
+%\begin{tikzpicture}[general, scale=0.7]
+%\clip (1,0)rectangle(11,5.22);
+%\foreach \x in {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12}
+%{\foreach \y in {0, 1.74, 3.48}
+%{\draw[quadrillage] (0+\x,0+\y)--(1+\x,0+\y)--(0.5+\x,0.87+\y)--cycle;
+%\draw[quadrillage] (0.5+\x,0.87+\y)--(1.5+\x,0.87+\y)--(1+\x,1.74+\y)--cycle;
+%}}
+%\draw[quadrillage] (0,5.22)--(11,5.22);
+%\draw[axe] (0,1.74) -- (11,1.74);
+% \draw[axe] (3,0) -- (6,5.22);
+% \draw[color=black] (3.9,1.74) node[below left] {{ $O$}};
+% \draw[color=black] (5,1.74) node {{\boldmath $+$}};
+% \draw[color=black] (5,1.74) node[below] {{$I$}};
+% \draw[color=black] (4.5,2.61) node {{\boldmath $-$}};
+% \draw[color=black] (4.5,2.61) node[left] {{$J$}};
+% \foreach \N/\x/\y in {A/6.5/2.61,B/9.5/4.35, C/2/3.48, D/6.5/.87, E/9.5/0.87, F/1.5/2.61}
+% {\pointGraphique{\x}{\y}{\N}{above}}
+%\end{tikzpicture}
+% \end{center}
+%\end{Exercice}
+%\begin{Exercice}%%%41
+%Construire un repère $(O;I,J)$ orthogonal.
+%\begin{enumerate}
+%\item Placer le point $A(-3;4)$.
+%\item Construire un représentant du vecteur $\Vec u$ \\de coordonnées $\left(\begin{array}{c}4\\-3\end{array}\right)$.
+%\item Placer les points $B$ et $C$ tels que:
+%\begin{itemize}
+%\item $\Vect{AB}=\Vec u$
+%\item $\Vect{CA}=\Vec u$
+%\end{itemize}
+%\item Calculer les coordonnées des points $B$ et $C$. 
+%\item Que peut-on dire du point $A$? Justifier. 
+%\end{enumerate}
+%\end{Exercice}
+%
+%%%%42
+%\begin{Exercice}\label{2G3_E_construire_coord_vecteur}Construire un repère $\left(O; I, J\right)$ et tracer deux représentants du vecteur $\Vec u$ $\left(\begin{array}{c}-2\\1\end{array}\right)$,\\ l'un d'origine $I$ et l'autre d'extrémité $J$.
+%\begin{Correction}
+% ~\\
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.60]
+%\draw [quadrillage] (-1,-1) grid (2,2);
+%\axeOI{-1}{2}
+%\axeOJ{-1}{2}
+%\origineO
+%\draw[color=A1, ->, epais] (1,0)--(-1,1);
+%\draw[color=C1, ->, epais] (2,0)--(0,1);
+%\end{tikzpicture}
+%\end{center}
+%\end{Correction}
+%\end{Exercice}
+%
+%\begin{Exercice}[Coordonnées de vecteurs]%%%43
+% Dans le plan muni d'un repère, on considère les points $A(1;2)$, $B(-2; 5)$ et $C(-3;-3)$. 
+% 
+% Calculer les coordonnées des vecteurs $\Vect{AB}$, $\Vect{CA}$ et $\Vect{BC}$.
+%\end{Exercice}
+%
+%%%%44
+%\begin{Exercice}\label{2G3_E_reperer_point_egalite}
+% Dans le plan muni d'un repère, on considère les points $E(2;-1)$, $F(-3;4)$ et $G(1;4)$. 
+% 
+% Déterminer les coordonnées du point $H$ pour que $EFGH$ soit un parallélogramme.
+% \begin{Correction}
+% $H(-1;6)$
+% \end{Correction}
+%\end{Exercice}
+%
+%\begin{Exercice}[Parallélogramme]%%%45
+%Dans un plan muni d'un repère, on considère les points $A(3;5)$, $B(2;-1)$, $C(-2;-4)$ et $D(-1;2)$. 
+% 
+%Prouver que $ABCD$ est un parallélogramme. 
+%\end{Exercice}
+%
+%\begin{Exercice}%%%46
+%Construire un repère $(O; I, J)$ orthogonal.
+%\begin{enumerate}
+%\item  Placer les points $A(3;-9)$  et $B(-1;-5)$. 
+%\item Placer les points $C$ et $D$ tels que le quadrilatère $ABCD$ soit un parallélogramme de centre $I$.
+% \item Déterminer les coordonnées des vecteurs suivants.  
+% \begin{itemize}
+%   \item $\Vect{AB}$ 
+%  \item $\Vect{DC}$
+%  \item $\Vect{AD}$
+% \end{itemize}
+%\end{enumerate}
+%\end{Exercice}
+%
+%\begin{Exercice}%%%47
+% Dans le plan muni d'un repère, les coordonnées des points $A$ et $B$ sont respectivement $(5;-6)$ et $(-2;6)$. Le point $A$ est le milieu de $[BC]$. 
+% 
+% Déterminer les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{CA}$.
+%\end{Exercice}
+%
+%\begin{Exercice}%%%48
+% Dans le plan muni d'un repère orthonormal, on considère les points $A$, $B$ et $C$ respectivement de coordonnées $(1;4)$, $(4;6)$ et $(2;3)$. 
+% \begin{enumerate}
+%  \item Quelles sont les coordonnées du point $D$ tel que $ABCD$ soit un parallélogramme?
+%  \item Prouver que $ABCD$ est aussi un losange. 
+% \end{enumerate}
+%\end{Exercice}
+%
+%
+%\begin{Exercice}%%%49
+% Dans le plan muni d'un repère orthonormal, les coordonnées des points $A$, $B$ et $D$ sont respectivement $(-2;5)$, $(0;9)$ et $(8;0)$. 
+% \begin{enumerate}
+%  \item Quelles sont les coordonnées du point $C$ tel que $ABCD$ soit un parallélogramme?
+%  \item Prouver que $ABCD$ est aussi un rectangle.
+% \end{enumerate}
+%\end{Exercice}
+%
+%%%%%%%%%%%%%%%%50
+%\begin{Exercice}\label{2G3_E_repere_point_somme}Le plan est muni d'un repère $(O;I,J)$. %%%50
+%\begin{enumerate}
+% \item Lire les coordonnées des vecteurs $\Vec u$, $\Vec v$ et $\Vec w$.
+% \item Calculer les coordonnées des vecteurs suivants.
+% \begin{enumerate}
+%  \item $\Vec u + \Vec v$
+%\item $\Vec u - \Vec v$
+%\item $\Vec u + \Vec w$
+%\item $\Vec u - \Vec w$
+% \end{enumerate}
+%\end{enumerate}
+% \begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-5,-5) grid (5,5);
+%\axeOI{-5}{5}
+%\axeOJ{-5}{5}
+%\origineO
+%\foreach \N/\a/\b/\c/\d/\p/\e in {u/-1.5/0.5/-0.5/2.5/left/A1, v/0.5/-1/2/-2/above/G1, w/-2/-2/-1/0/below right/F1}
+%{\draw (\a+\c,\b+\d) 
+%node[\p, color=\e] {{\boldmath $\Vect{\N}$}};
+%\draw[->, color=\e,epais] (2*\a,2*\b)--(2*\c,2*\d);
+%}\end{tikzpicture}
+% \end{center}
+% \begin{Correction}
+% ~\\
+% \begin{enumerate}
+% \item $\Vec u$ $\left(\begin{array}{c}2\\4\end{array}\right)$, $\Vec v$ $\left(\begin{array}{c}3\\-2\end{array}\right)$, \\$\Vec w$ $\left(\begin{array}{c} 2\\4\end{array}\right)$
+% \item \begin{enumerate}
+% \item $\left(\begin{array}{c}5\\2\end{array}\right)$
+% \item  $\left(\begin{array}{c}-1\\6\end{array}\right)$
+%\item   $\left(\begin{array}{c}4\\8\end{array}\right)$
+%\item  $\left(\begin{array}{c}0\\0\end{array}\right)$
+% \end{enumerate}
+% \end{enumerate}
+%\end{Correction}
+%\end{Exercice}
+%
+%
+%\begin{Exercice}\label{2G4_construiresomme}%%%51
+%Reproduire la figure suivante et
+% placer le point $B$ tel que $\Vect{AB}=\Vec u + \Vec v$. 
+% 
+% Lire les coordonnées du vecteur $\Vect{AB}$.
+% 
+% \begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-5,-2) grid (5,5);
+%\axeOI{-5}{5}
+%\axeOJ{-2}{5}
+%\origineO
+%\foreach \N/\x/\y in {A/-4/1}
+%{\draw (\x,\y) node[left] {$\N$};
+%\draw (\x,\y) node { $+$};}
+%\draw[->, color=A1,epais] (-4,1)--(-3,-1);
+%\draw[color=A1] (-3,-1) node[below, left] {{\boldmath $\Vec u$}};
+%\draw[->, color=C1,epais] (-4,1)--(2,4);
+%\draw[color=C1] (-1,3) node[left] {{\boldmath $\Vec v$}};
+%\end{tikzpicture}
+% \end{center}
+%\end{Exercice}
+%
+%%%%52
+%\begin{Exercice} Même consigne que l'Exercice \ref{2G4_construiresomme}.
+%
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-5,-4) grid (5,5);
+%\axeOI{-5}{5}
+%\axeOJ{-4}{5}
+%\origineO
+%\foreach \N/\x/\y in {A/-2/-3}
+%{\draw (\x,\y) node[left] {$\N$};
+%\draw (\x,\y) node { $+$};}
+%\draw[->, color=A1,epais] (-2,-3)--(-4,-1);
+%\draw[color=A1] (-4,-2) node {{\boldmath $\Vec u$}};
+%\draw[->, color=C1,epais] (-4,-1)--(4,4);
+%\draw[color=C1] (3.5,3) node {{\boldmath $\Vec v$}};
+%\end{tikzpicture}\end{center}
+%                 
+%\end{Exercice}
+%
+%%%%53
+%\begin{Exercice}Même consigne que l'Exercice \ref{2G4_construiresomme}.
+%
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-5,-5) grid (5,4);
+%\axeOI{-5}{5}
+%\axeOJ{-5}{4}
+%\origineO
+%\foreach \N/\x/\y in {A/-4/-4}
+%{\draw (\x,\y) node[below] {$\N$};
+%\draw (\x,\y) node { $+$};}
+%\draw[->, color=A1,epais] (-4,-4)--(-3,-1);
+%\draw[color=A1] (-3.5,-2.5) node[left] {{\boldmath $\Vec u$}};
+%\draw[->, color=C1,epais] (5,-4)--(2,3);
+%\draw[color=C1] (4,-1.5) node[left] {{\boldmath $\Vec v$}};
+%\end{tikzpicture}\end{center}
+%                 
+%\end{Exercice}
+%
+%%54
+%\begin{Exercice}Même consigne que l'Exercice \ref{2G4_construiresomme}.
+%
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-5,-5) grid (5,5);
+%\axeOI{-5}{5}
+%\axeOJ{-5}{5}
+%\origineO
+%\foreach \N/\x/\y in {A/-3/4}
+%{\draw (\x,\y) node[right] {$\N$};
+%\draw (\x,\y) node { $+$};}
+%\draw[->, color=A1,epais] (-4,-4)--(2,-4);
+%\draw[color=A1] (-1,-4) node[below] {{\boldmath $\Vec u$}};
+%\draw[->, color=C1,epais] (4,-3)--(-4,3);
+%\draw[color=C1] (-3,1) node {{\boldmath $\Vec v$}};
+%\end{tikzpicture}
+%\end{center}
+%\end{Exercice}
+%
+%%55
+%
+%\begin{Exercice} Reproduire la figure ci-dessous.
+%\begin{enumerate}
+% \item  La compléter avec les points suivants.\begin{itemize}
+% \item $D(4,2)$
+%  \item $E(1;-2)$
+%  \item $F(-3;1)$ \end{itemize} 
+%  \item  Placer les points $G$, $H$ et $K$ tels que:
+%  \begin{itemize}
+%  \item $\Vect{AG}=\Vect{CB}+\Vect{CE}$
+%  \item $\Vect{CH}=\Vect{CA}+\Vect{CF}$
+%  \item $\Vect{BK}=\Vect{AD}+\Vect{CE}$
+%  \end{itemize}
+%\item Lire leurs coordonnées.
+%\item Les vérifier par le calcul.
+%\end{enumerate}
+%\begin{center}
+%\begin{tikzpicture}[general, scale=0.5]
+%\draw [quadrillage] (-5,-3) grid (5,7);
+%\axeOI{-5}{5}
+%\axeOJ{-3}{7}
+%\origineO
+%\foreach \x/\y/\P/\N in {-2/2/left/A,3/6/right/B,-1/-2/below/C} 
+%{\pointGraphique{\x}{\y}{\N}{\P}}
+%\end{tikzpicture}
+%\end{center}
+%\end{Exercice}
+%
+%%56
+%\begin{Exercice} Reproduire le graphique ci-dessous. Calculer les coordonnées des vecteurs suivants et les représenter.% sur le graphique. 
+%
+% \begin{enumerate}
+%  \item $\Vect{AB}+\Vect{BC}$
+%  \item $\Vect{BE}+\Vect{BC}$
+%  \item $\Vect{EF}+\Vect{FA}$
+%  \item $\Vect{AB}+\Vect{BA}$
+%  \item $\Vect{GB}-\Vect{BD}$
+%  \item $\Vect{FG}-\Vect{CG}$
+% \end{enumerate}
+% \begin{center}
+%\begin{tikzpicture}[general, scale=1.2]
+%\draw [quadrillage, step=0.333] (-2,-1) grid (2,1.667);
+%\axeOI{-2}{2}
+%\axeOJ{-1}{1.667}
+%\origineO
+%\foreach \x/\y/\pos/\N in {-1.333/0.667/left/A,0.333/1.333/right/B, -0.333/-0.333/left/C, 0.667/0.667/left/D, 0/0.333/left/E, -0.333/-0.667/left/F, 1.333/0/below/G}
+%{\pointGraphique{\x}{\y}{\N}{\pos}}
+%\end{tikzpicture}  
+% \end{center}
+%\end{Exercice}
+%
+%
+%
+%%57
+%\begin{Exercice}Construire un repère orthogonal.
+%\begin{enumerate}
+%\item  Placer les points suivants.
+%\begin{itemize}
+% \item $A(-2;3)$
+% \item $B(-1;-2)$ 
+% \item $C(3;2)$
+% \item $D(4;-2)$
+% \item $E(-3;1)$ 
+% \item $F(3;-3)$ 
+% \item $G(2;3)$
+% \item $H(5;1)$
+%\end{itemize}
+%\item Construire le vecteur $\Vect{AB}$ et un représentant de $-\Vect{AB}$. Lire leurs coordonnées. 
+%\item Construire un représentant de chacun des vecteurs suivants et lire leurs coordonnées.
+%\begin{enumerate}
+%\item $\Vect{AB}-\Vect{CA}$
+%\item $\Vect{AB}-\Vect{AC}$
+%\item $\Vect{EF}-\Vect{GH}$
+%\end{enumerate}
+% \end{enumerate}
+%\end{Exercice}
+%
+%%58
+%\begin{Exercice}
+% Dans le plan muni d'un repère, $\Vec u$ et $\Vec v$ ont pour coordonnées respectives $\left( \begin{array}{c}2\\-3\end{array}\right)$ et $\left( \begin{array}{c}-1\\5\end{array}\right)$. \\
+%
+%Calculer les coordonnées de $\Vec w$, $\Vec m$ et $\Vec z$ tels que:
+%
+%\begin{itemize}
+% \item $\Vec u +\Vec w=\Vec v$ 
+%\item $\Vec u -\Vec m=\Vec v$ 
+%\item $\Vec z -\Vec u=\Vec v$
+%\end{itemize}
+%\end{Exercice}
+%
+%
+%
+%\begin{Exercice}Construire un repère orthogonal. %%%59
+%\begin{enumerate}
+%\item  Placer les points suivants.
+%\begin{itemize}
+% \item $A(0;0)$
+% \item $B(1;-2)$ 
+% \item $C(2;-3)$
+% \item $D(-5;-4)$
+% \item $E(-3;1)$ 
+% \item $F(3;-3)$ 
+% \item $G(1;5)$
+% \item $H(-7;-2)$
+%\end{itemize}
+%\item Construire un représentant des vecteurs suivants et lire leurs coordonnées.
+%\begin{itemize}
+% \item Le vecteur qui, ajouté à $\Vect{DC}$, donne $\Vect{DA}$.
+% \item Le vecteur qui, ajouté à $\Vect{EF}$, donne $\Vect{EH}$.
+% \item Le vecteur qui, ajouté à $\Vect{BC}$, donne $\Vect{GH}$.
+% \item Le vecteur qui, ajouté à $-\Vect{AB}$, donne $\Vect{EF}$.
+%\end{itemize}
+%\end{enumerate}
+%\end{Exercice}
+%
+%%60
+%
+%\begin{Exercice}Construire un repère orthogonal.
+%\begin{enumerate}
+%\item  Placer les points suivants.
+%\begin{itemize}
+% \item $A(-2;2)$
+% \item $C(3;3)$
+% \item $D(4;0)$
+% \item $E(-2;0)$ 
+% \item $F(2;-2)$ 
+%\end{itemize}
+%\item Calculer les coordonnées des points $B$, $G$, $H$ et $K$ qui vérifient les relations vectorielles suivantes.
+%\begin{itemize}
+%\item  $\Vect{AC}+\Vect{AB}=\Vect{AD}$
+%\item $\Vect{AG}+\Vect{CD}=\Vect{EF}$
+%\item $\Vect{AH}-\Vect{CD}=\Vect{EF}$
+%\item $\Vect{KA}+\Vect{KC}=\Vect{AD}$
+%\end{itemize} 
+%  \end{enumerate}
+%  \end{Exercice}
+%  \section{Multiplication par un réel}
+%
+%%61
+%\begin{Exercice}\label{2G3_E_reperer_produit}
+%\begin{enumerate}
+%\item Reproduire la figure.
+%\item Construire les vecteurs $\Vec u$, $\Vec v$ et $\Vec w$ tels que:
+%\begin{itemize}
+%\item $\Vec u=2\Vect{AB}$ 
+%\item $\Vec v=-3\Vect{BC}$ 
+%\item $\Vec w= 0,5\Vect{AB}$
+%\end{itemize}
+%\item Lire leurs coordonnées.
+%\item Les vérifier par le calcul. 
+%\end{enumerate}
+%\begin{center}
+% \begin{tikzpicture}[general, scale=0.8]
+%\draw [quadrillage, step=0.5] (-3,-2) grid (3,1.5);
+%\axeOI{-3}{3}
+%\axeOJ{-2}{1.5}
+%\origineO
+%\foreach \x/\y/\P/\N in {2/1/left/A,-2/-1/right/B,1.5/-1.5/left/C} 
+%{\pointGraphique{\x}{\y}{\N}{\P}}
+%\end{tikzpicture}
+%\end{center}
+%\begin{Correction}
+%~\\
+% $\Vec u \left(\begin{array}{c}-8\\-4\end{array}\right)$ 
+%  $\Vec v \left(\begin{array}{c}-10,5\\1,5\end{array}\right)$\\
+%   $\Vec w \left(\begin{array}{c}-2\\-1\end{array}\right)$ 
+%\end{Correction}
+%\end{Exercice}
+%
+%%62
+%\begin{Exercice}Même consigne qu'à l'Exercice \ref{2G3_E_reperer_produit} avec:
+%\begin{itemize}
+%\item $\Vec u=\dfrac{ 3}{ 4}\Vect{BC}$
+%\item $\Vec v= -\dfrac{1}{2}\Vect{AB}$
+%\item $\Vec w=\dfrac{2}{5}\Vect{AB}$
+%\end{itemize}
+%\begin{center}
+%\begin{tikzpicture}[general, scale=1.6]
+%\draw [quadrillage, step=0.25] (-1.5,-1) grid (1.5,1.25);
+%\axeOI{-1.5}{1.5}
+%\axeOJ{-1}{1.25}
+%\origineO
+%\foreach \x/\y/\P/\N in {-0.25/-0.5/left/A, 0.75/0.75/right/B, 1.25/-0.75/left/C} 
+%{\pointGraphique{\x}{\y}{\N}{\P}}
+%\end{tikzpicture}
+%\end{center}
+%\end{Exercice}
+%
+%%63
+%\begin{Exercice}
+%Dans le plan muni d'un repère, le vecteur $\Vec u $ a pour coordonnées $\left(\begin{array}{c}-1\\6\end{array}\right) $.\\ Calculer les coordonnées des vecteurs suivants. 
+%\begin{enumerate}
+% \item $3\Vec u$
+% \item $-4\Vec u$
+% \item $\dfrac{2}{3}\Vec u$
+% \item $-4,5\Vec u$
+%\end{enumerate}
+%\end{Exercice}
+%
+%
+%%64
+%\begin{Exercice}
+% Dans le plan muni d'un repère d'origine $O$, on considère les points $P(-3;-1)$ et $R(2;3)$. \\ Quelles sont les coordonnées du point $N$ qui vérifie l'égalité $\Vect{ON}=4\Vect{PR}$?
+%\end{Exercice}
+%
+%%65
+%\begin{Exercice}
+% Dans un repère, on considère les points $A$ et $B$ de coordonnées respectives $(3;-4)$ et $(-1; 2)$. Quelles sont les coordonnées de $C$ tel que $\Vect{AB}=-5\Vect{AC}$?
+%\end{Exercice}
+%%66
+%\begin{Exercice}
+% Dans un repère, on considère les points suivants: $A\left(\dfrac{  2}{ 9};\dfrac{6}{25}\right)$ et $B\left(-\dfrac{5}{6};\dfrac{9}{20}\right)$.\\
+%  Calculer les coordonnées de $C$ tel que $\Vect{AC}=\dfrac{ 15}{2}\Vect{AB}$.
+%\end{Exercice}
+%
+%
+%%67
+%\begin{Exercice}
+% Dans le plan muni d'un repère, on considère les points $E\left(\dfrac{ 5}{ 6};-\dfrac{3}{5}\right)$ et $F\left(-\dfrac{1}{8};\dfrac{7}{10}\right)$.\\
+%  Quelles sont les coordonnées du point $G$ pour que \\l'égalité $\Vect{EG}=\dfrac{ 4}{ 7}\Vect{EF}$ soit vérifiée?
+%\end{Exercice}
+%%68
+%\begin{Exercice}
+% Dans le plan muni d'un repère, les coordonnées des points $A$, $B$ et $C$ sont respectivement $(3;2)$, $(9;-5)$ et $(-9;16)$. Ces points sont alignés. \\
+% Calculer le nombre $k$ tel que $\Vect{AB}=k\Vect{AC}$. 
+%\end{Exercice}
+%
+%%69
+%\begin{Exercice}[Points et vecteurs]
+% Dans un repère, on considère les points suivants.
+% \begin{itemize}
+% \item $A(3;-1)$
+% \item $B(-5;5)$
+% \item $M$ $(-1,2)$
+% \end{itemize}
+% \begin{enumerate}
+%  \item Calculer les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{AM}$.
+%  \item Montrer que $\Vect{AM}=\lambda \Vect{AB}$, $\lambda$ réel à déterminer.
+%  \item Que peut-on dire du point $M$?
+% \end{enumerate}
+%\end{Exercice}
+%%70
+%\begin{Exercice}
+%      Soient les points $A(3;-2)$, $B(-1;7)$, $C(2;3)$.
+%    \begin{enumerate}
+%        \item Calculer les coordonnées de
+%2$\Vect{AB}$+$\Vect{BC}$.
+%        \item Soit le point $M(x;y)$ tel que
+%$\Vect{BM}=2\Vect{AB}+\Vect{BC}$.\\
+%            Calculer les coordonnées du point $M$.
+%    \end{enumerate}
+%\end{Exercice}
+%
+%%71
+%\begin{Exercice}[Construction et calculs]
+%    Dans un repère on considère les points suivants.
+%    \begin{itemize}
+%    \item $A(3;-2)$
+%    \item $B(-1;2)$
+%    \item $C(2;3)$
+%    \end{itemize}
+%    \begin{enumerate}
+%        \item Construire les vecteurs suivants.
+%        \begin{enumerate}
+%        	\item $\Vect{AB}$
+%        	\item $\Vect{BC}$
+%        	\item $2\Vect{AB}$
+%        	\item $\dfrac{ 1}{ 2}\Vect{BC}$
+%        	\item $2\Vect{BC}-4\Vect{BC}$
+%        	\item $\dfrac{ 3}{ 5}\Vect{CA}$
+%        \end{enumerate}
+%    \item Vérifier leurs coordonnées par le calcul.
+%    \end{enumerate}
+%\end{Exercice}
+%
+%%72
+% \begin{Exercice}
+%     Dans un repère, on considère les points:
+%     \begin{itemize}
+%     \item $A(-3;2)$
+%     \item $B(1;-3)$
+%     \item $C(1;2)$
+%     \end{itemize}
+%     \begin{enumerate}
+%         \item Déterminer les coordonnées des vecteurs $\Vect{AB}$ et $\Vect{BC}$.
+%         \item Déterminer les coordonnées des vecteurs suivants:
+%         	\begin{enumerate}
+%             	\item $2\Vect{AB}$
+%             	\item $\dfrac{ 1}{ 2}\Vect{BC}$
+%             	\item $2\Vect{BC}-4\Vect{BC}$
+%             	\item $\dfrac{3}{4}\Vect{AC}$
+%             \end{enumerate}
+%     \end{enumerate}
+% \end{Exercice}
+%
+%\begin{Exercice}[Avec des racines carrées]
+%Dans un repère, on considère les points suivants.
+%     \begin{itemize}
+%     \item $A(2\sqrt{2};3)$
+%     \item $B(2;-\sqrt{2})$
+%     \item $C(\sqrt{2};-3)$
+%     \item $D(3\sqrt{2};-\sqrt{2})$
+%     \end{itemize}
+%     Déterminer les coordonnées des vecteurs suivants:
+%\begin{enumerate}
+%\item $\Vect{AB}$
+%\item $\Vect{CA}$
+%\item $\Vect{AD}$
+%\item $\Vect{BD}$
+%\end{enumerate}
+%\end{Exercice}
+%
+%
+%\section{Colinéarité}
+%%74
+%\begin{Exercice}
+%\label{2G3_E_colinearite}
+%Dans le plan muni d'un repère, les  vecteurs suivants sont-ils colinéaires?
+%\begin{enumerate}
+%\item $\Vec u\left(\begin{array}{c}-2\\3\end{array}\right)$ et $\Vec v\left(\begin{array}{c}3\\-4,5\end{array}\right)$
+%\item  $\Vec s \left(\begin{array}{c} 7\\-2 \end{array} \right)$ et $\Vec t\left(\begin{array}{c} 14\\4 \end{array} \right)$
+%\item $\Vec w\left(\begin{array}{c}-2\\3\end{array}\right)$ et $\Vec r\left(\begin{array}{c}3\\-4,5\end{array}\right)$
+%\end{enumerate}
+%\begin{Correction}
+%~\\
+%\begin{enumerate}
+%\item oui \item non \item oui
+%\end{enumerate}
+%\end{Correction}
+%\end{Exercice}
+%
+%%75
+%\begin{Exercice}Dans un repère orthogonal, placer les points:
+%\begin{itemize}
+%\item $A(-3;1)$
+%\item $B(1;3)$
+%\item $C(1,-4)$
+%\item $D(7;-1)$
+%\end{itemize}
+%Les droites suivantes sont-elles parallèles?
+% \begin{enumerate}
+%  \item $(AB)$ et $(CD)$
+%  \item $(AC)$ et $(BD)$
+% \end{enumerate}
+%\end{Exercice}
+%
+%%76
+%\begin{Exercice}Dans un repère orthogonal, placer les points:
+%\begin{itemize}
+%\item $A\left(-\dfrac{ 1}{ 3};0\right)$
+%\item $B\left(\dfrac{2}{3};\dfrac{1}{3}\right)$
+%\item $C\left(\dfrac{4}{3};-1\right)$
+%\item $D\left(0;-\dfrac{2}{3}\right)$
+%\end{itemize}
+%Les droites suivantes sont-elles parallèles?
+% \begin{enumerate}
+%  \item $(AB)$ et $(CD)$
+%  \item $(BC)$ et $(AD)$
+% \end{enumerate}
+%\end{Exercice}
+%
+%%77
+%\begin{Exercice}[Vérification de parallélisme]
+% Proposer un algorithme qui vérifie que les droites $(AB)$ et $(CD)$ sont parallèles à partir des coordonnées des points $A$, $B$, $C$ et $D$ entrées par l'utilisateur. 
+%\end{Exercice}
+%
+%%
+%%78
+%\begin{Exercice}
+% Dans un repère, on considère les points $S$, $E$ et $L$ dont les coordonnées sont respectivement $(2;5)$, $(-4;-3)$ et $(5;9)$. 
+% 
+% Les points $S$, $E$ et $L$ sont-ils alignés?
+% 
+% Si oui, quelle égalité vectorielle lie $\Vect{SE}$ et $\Vect{SL}$?
+%\end{Exercice}
+%%79
+%\begin{Exercice}Dans un repère orthogonal, les points $M$, $E$ et $R$ ont pour coordonnées respectives:
+%\begin{itemize}
+%\item $\left( \dfrac{ 2}{ 3};-\dfrac{3}{8} \right)$
+%\item $\left( \dfrac{5}{9};\dfrac{5}{2}\right)$
+%\item $\left( -\dfrac{7}{6};\dfrac{7}{6}\right)$
+%\end{itemize}
+%Les points $M$, $E$ et $R$ sont-ils alignés?\\
+%Si oui, quelle égalité vectorielle lie $\Vect{ME}$ et  $\Vect{MR}$?
+%\end{Exercice}
+%
+%%80
+%\begin{Exercice}[Vérification d'alignement]
+% Proposer un algorithme qui vérifie que les points  $A$, $B$ et  $C$ sont alignés à partir de leurs coordonnées entrées par l'utilisateur. 
+%\end{Exercice}
+%
+%
+%%81
+%\begin{Exercice}
+% Dans le plan muni d'un repère, on considère les vecteurs suivants: $\Vec u \left(\begin{array}{c}2\\4\end{array}\right)$ et $\Vec v \left(\begin{array}{c}-1\\3\end{array}\right)$. 
+% Quelles sont les coordonnées du vecteur $\Vec w$ vérifiant l'égalité $\Vec w=2\Vec u -\Vec v$?
+%\end{Exercice}
+%%82
+%\begin{Exercice}Le plan est muni d'un repère. 
+% \begin{enumerate}
+%  \item Placer les points  $V(-1;-1,5)$, $A(-2;0)$ et $T(5;0)$.
+%\item Placer $E$ tel que $\Vect{VA}=\dfrac{ 2}{ 3}\Vect{VE}$.
+%\item Placer $U$ tel que $\Vect{TU}$ ait pour coordonnées $\left(\begin{array}{c}-2\\0,5\end{array}\right)$.
+%\item Que peut-on dire des droites $(OU)$ et $(ET)$? Justifier. 
+% \end{enumerate}
+%
+%\end{Exercice}
+%
+%
+%
+%\begin{Exercice}%83
+% Dans un plan muni d'un repère, on place les points $A(1;-2)$, $B(-3;1)$, $C(-17;15)$ et $D(-5;6)$.
+% 
+% Montrer que $ABCD$ est un trapèze.
+%\end{Exercice}
+%
+%\begin{Exercice}%84
+% Dans un plan muni d'un repère, on place les points $A(3;-2)$, $B(-5;4)$ et $C(-2;-1)$. 
+% \begin{enumerate}
+%  \item Calculer les coordonnées de:
+%  \begin{itemize}
+%  \item $B'$ milieu de $[AC]$;
+%  \item $C'$ milieu de $[AB]$.
+%  \end{itemize}
+%  \item Prouver que $\Vect{C'B'}=\dfrac{1}{2}\Vect{BC}$.
+%  \item Calculer les coordonnées de $G$ vérifiant $\Vect{CG}=\dfrac{2}{3}\Vect{CC'}$.
+%  \item Les points $B$, $G$ et $B'$ sont-ils alignés? \\Si oui, déterminer le nombre $k$ tel que $\Vect{BG}=k\Vect{BB'}$.
+% \end{enumerate}
+% 
+%\end{Exercice}
+%
+%
+% \begin{Exercice}%85
+%Construire un triangle $ABC$. 
+%\begin{enumerate}
+%\item Placer les points $M$, $P$ et $N$ :
+%\begin{enumerate}
+% \item $\Vect{BM}=\Vect{BA}+\Vect{BC}$
+% \item  $\Vect{MP}=2\Vect{MA}$
+% \item  $\Vect{MN}=2\Vect{MC}$
+%\end{enumerate}
+% \item Prouver que $\Vect{PN}=2\Vect{PB}$. \\ 
+% Que peut-on en déduire pour les points $A$, $B$ et $C$?
+%\end{enumerate}
+% \end{Exercice}
+% 
+% \begin{Exercice}%86
+%Placer trois points $A$, $B$ et $C$ dans un repère.
+%    \begin{enumerate}
+%        \item Représenter les vecteurs $\Vec a$ et $\Vec
+%b$ tels que :
+%\begin{itemize}
+%\item $\Vec a=\Vect{BC}+2\Vect{AC}$
+%\item $\Vec b=3\Vect{AB}-2\Vect{CB}$
+%\end{itemize}
+%        \item Placer le point $D$ tel que
+%$\Vect{AD}=\Vect{a}+\Vect{AB
+%}$.
+%        \item Placer le point $E$ tel que
+%$\Vect{AE}=\Vect{b}-\Vect{AC}$.
+%        \item Prouver que $\Vect{AD}=3\Vect{AC}$. 
+%        
+%        Que peut-on en déduire pour les points $A$, $C$ et $D$?
+%        \item Prouver que $\Vect{AB}=\Vect{CE}$. 
+%        
+%        Que peut-on en déduire pour le quadrilatère $ABEC$?
+%    \end{enumerate}
+%\end{Exercice}
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%87
+%\begin{Exercice}\label{2G4_midemimamb}Soit I le milieu d'un segment [AB].
+%\begin{enumerate}
+%\item Que peut-on dire du vecteur $\Vec {IA} + \Vec {IB}$?
+%\item Démontrer que $\Vec {MI} = 0,5(\Vec {MA} + \Vec {MB})$ pour tout point M.
+%\end{enumerate}
+%\end{Exercice} 
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%88
+%\begin{Exercice}[Le petit chaperon rouge] Le petit chaperon rouge rend visite à sa mère-grand dans
+%    les bois. Il doit d'abord se rendre au village pour
+%    récupérer un pot de beurre puis  passer par la clairière pour faire un   bouquet    de fleurs.
+%    
+%   Dans un repère $(O;I,J)$, on a représenté
+%    la maison du petit chaperon rouge  par le point $D(-1
+%    ; -2)$, le village  par le point $V(2 ; 1)$, la
+%    clairière  par le point $C(3 ; 0)$ et enfin la maison
+%    de mère-grand  par le point $M(0 ; -3)$.
+%    \begin{enumerate}
+%        \item Faire une figure qui sera complétée par la suite.
+%        \item Calculer les coordonnées des vecteurs de déplacement du
+%            petit chaperon rouge: $\Vect{DV}$, $\Vect{VC}$, $\Vect{CM}$ et $\Vect{DM}$.
+%    \end{enumerate}
+%    \begin{enumerate}
+%        \item Calculer  les distances $DV$, $VC$, $CM$ parcourues par le petit chaperon rouge
+%            depuis le village jusqu'à la maison de sa mère-grand, ainsi que la distance $DM$ correspondant au trajet direct.
+% 
+%        \item Montrer que le quadrilatère $DVCM$ sur lequel chemine le chaperon rouge est un  rectangle.
+%    \end{enumerate}
+%    Le grand méchant loup fait peur au petit chaperon rouge. Afin de sécuriser la forêt, un
+%    chasseur part à la recherche de la  tanière du loup. 
+%    Une vielle sorcière lui dit qu'elle se situe au point $T$ qui vérifie la relation
+%    
+%    
+%    $\Vect{CT}=2\Vect{CM} - \Vect{VM}
+%    + \dfrac{3}{ 2}\Vect{DV}$.
+%    
+%
+%            
+%On cherche maintenant les coordonnées du point $T$.
+%    \begin{enumerate}
+%    \item  Placer le point $T$ sur la figure en laissant les traits de
+%            construction apparents.
+%      \item Calculer les coordonnées de $\Vect{CT}$.
+%        \item En déduire les coordonnées de $T$.
+%    \end{enumerate}
+%\end{Exercice}
+%
+%%87           
+% \begin{Exercice}[Vers la droite d'Euler]
+% $ABC$ est un triangle et $A'$, $B'$, $C'$ sont les milieux
+%respectifs des côtés $[BC]$, $[AC]$ et $[AB]$.
+%            \begin{enumerate}
+%                \item Appliquer la formule établie à l'Exercice \ref{2G4_midemimamb} \\aux vecteurs
+%$\Vect{AA'}$, $\Vect{BB'}$ et
+%                    $\Vect{CC'}$.
+%                \item En déduire que
+%$\Vect{AA'}+\Vect{BB'}+\Vect{CC'}=\Vect{
+%0}.$
+%                \item On note $G$ le centre de gravité de $ABC$.\\
+%                    En déduire que
+%$\Vect{GA}+\Vect{GB}+\Vect{GC}=\Vect{0}
+%$.
+%            \end{enumerate}
+%\end{Exercice}
+\end{document}

@@ -5,7 +5,7 @@
 \usepackage{fancyhdr,amsmath,amsthm,amssymb,fancybox}
 \usepackage[francais]{babel}
 \usepackage{amsmath,thmtools}
-\usepackage{tikz}
+\usepackage{TikZ}
 \usepackage{tkz-fct}   
 \usepackage{a4wide} 
 \usepackage{graphicx}
@@ -95,12 +95,12 @@
 }
 \newtcolorbox{Correction}[1][]{
 	enhanced,
-	attach boxed title to top left={yshift=-0.1in,xshift=-0.2in},
+	attach boxed title to top left={yshift=-0.1in,xshift=-0.1in},
 	boxed title style={colframe=white },
     breakable,
 	colback=white,
 	colbacktitle=white,
-	coltitle=black,
+	coltitle=white,
 	bottomrule=0pt,
 	toprule=0pt,
 	leftrule=1pt,
@@ -108,27 +108,9 @@
 	titlerule=0pt,
 	arc=0pt,
 	outer arc=0pt,
-	colframe=black, 
-	title= Correction
+	colframe=white, 
+	title= Démonstration
 }
-%\newtcolorbox{Correction}[1][]{
-%	enhanced,
-%	attach boxed title to top left={yshift=-0.1in,xshift=-0.1in},
-%	boxed title style={colframe=white },
-%    breakable,
-%	colback=white,
-%	colbacktitle=white,
-%	coltitle=white,
-%	bottomrule=0pt,
-%	toprule=0pt,
-%	leftrule=1pt,
-%	rightrule=0pt,
-%	titlerule=0pt,
-%	arc=0pt,
-%	outer arc=0pt,
-%	colframe=white, 
-%	title= Démonstration
-%}
 
 \newtcolorbox{Exemple}[1][]{
 	enhanced,
@@ -185,7 +167,7 @@
 	colframe=black, 
 	title= Remarque  \bfseries{#1}
 }
-\newtcolorbox[auto counter]{Exercice}[1][]{
+\newtcolorbox{Exercice}[1][]{
 	enhanced,
 	attach boxed title to top left={yshift=-0.1in,xshift=-0.2in},
 	boxed title style={colframe=white },    
@@ -201,7 +183,7 @@
 	arc=0pt,
 	outer arc=0pt,
 	colframe=black, 
-	title= Exercice~\thetcbcounter  \bfseries{#1}
+	title= Exercice  \bfseries{#1}
 }
 
 
@@ -209,11 +191,9 @@
 
 
 \newenvironment{Texte}{}{}
-\newenvironment{Notation}{}{}
 \newenvironment{Figure}{}{}
 \newenvironment{Titre}{}{}
-\newenvironment{Enonce}{ }{}
-%\newenvironment{Correction}{\\\textbf{Démonstration :\\} }{}
+\newenvironment{Correction}{\textbf{\newline Correction } }{}
    
 \newcommand{\defi}[1]{\textbf{\textcolor{colordef}{#1}}} 
 \newcommand{\propri}[1]{\textbf{\textcolor{colorprop}{#1}}}
@@ -400,14 +380,11 @@ title=Corollaire  \bfseries{#1}}
 \newcommand{\Vect}[1]{\vbox{\halign{##\cr 
   \tiny\rightarrowfill\cr\noalign{\nointerlineskip\vskip1pt} 
   $#1\mskip2mu$\cr}}}
-\DeclareMathOperator{\VectE}{Vect}
-
   % vecteur avec une flèche de hauteur constante
 
 %---- Fonction
 \newcommand\Fonction[5]{{#1}\left|\begin{aligned}{#2}&\;\longrightarrow\;{#3}\\{#4}&\;\longmapsto\;{#5}\end{aligned}\right.}
-\newcommand\SpaceFonction[2]{\mathcal{F}(#1, #2)}
-\newcommand\SpaceFonctionContinue[3]{\mathcal{C}^{#1}(#2, #3)}
+
 %--------------------------------------------------
 % Diverses normes
 %--------------------------------------------------
@@ -484,11 +461,9 @@ title=Corollaire  \bfseries{#1}}
 \newcommand{\GLn}[2][n]{\mathcal{GL}_{#1}(#2)}
 
 
-
-
-\DeclareDocumentCommand\uMat{m m g}{{\operatorname{Mat}_{#2}^{\IfNoValueF {#3} {#3}}(#1)  }}
-\newcommand{\Reference}[2]{#1}
- \newcommand{\Matu}[1]{u_{#1}}
+  % matrice d'une appplication linéaire
+\newcommand{\uMat}[3]{\operatorname{Mat}_{#1}^{#2}(#3)}
+\newcommand{\Matu}[1]{u_{#1}}
   % trace d'une matrice, ...
 %--------------------------------------------------
 % Espaces vectoriels
